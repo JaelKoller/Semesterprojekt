@@ -36,5 +36,10 @@ namespace Semesterprojekt
         {
 
         }
+
+        private void BtnAllKntktHome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

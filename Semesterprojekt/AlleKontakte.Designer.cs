@@ -147,9 +147,10 @@
             // 
             // BtnAllKntktSuchen
             // 
-            this.BtnAllKntktSuchen.Location = new System.Drawing.Point(395, 228);
+            this.BtnAllKntktSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAllKntktSuchen.Location = new System.Drawing.Point(367, 228);
             this.BtnAllKntktSuchen.Name = "BtnAllKntktSuchen";
-            this.BtnAllKntktSuchen.Size = new System.Drawing.Size(75, 23);
+            this.BtnAllKntktSuchen.Size = new System.Drawing.Size(103, 36);
             this.BtnAllKntktSuchen.TabIndex = 11;
             this.BtnAllKntktSuchen.Text = "Suchen";
             this.BtnAllKntktSuchen.UseVisualStyleBackColor = true;
@@ -157,12 +158,14 @@
             // 
             // BtnAllKntktHome
             // 
-            this.BtnAllKntktHome.Location = new System.Drawing.Point(456, 387);
+            this.BtnAllKntktHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAllKntktHome.Location = new System.Drawing.Point(415, 372);
             this.BtnAllKntktHome.Name = "BtnAllKntktHome";
-            this.BtnAllKntktHome.Size = new System.Drawing.Size(106, 51);
+            this.BtnAllKntktHome.Size = new System.Drawing.Size(147, 66);
             this.BtnAllKntktHome.TabIndex = 12;
-            this.BtnAllKntktHome.Text = "Zum Dashboard";
+            this.BtnAllKntktHome.Text = "Zurück zum Dashboard";
             this.BtnAllKntktHome.UseVisualStyleBackColor = true;
+            this.BtnAllKntktHome.Click += new System.EventHandler(this.BtnAllKntktHome_Click);
             // 
             // AlleKontakte
             // 

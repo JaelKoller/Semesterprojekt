@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox CmBxAllKntktAnrede;
-            System.Windows.Forms.ComboBox CmBxAllKntktKundeGeschlecht;
+            System.Windows.Forms.ComboBox CmBxAnsichtKntktAnrede;
+            System.Windows.Forms.ComboBox CmBxAnsichtKntktKundeGeschlecht;
             this.LblAnsichtKntktNameAnzeige = new System.Windows.Forms.Label();
             this.GrpBxDatenAlle = new System.Windows.Forms.GroupBox();
             this.GrpBxDatenMA = new System.Windows.Forms.GroupBox();
@@ -91,8 +91,8 @@
             this.CmdAnsichtKntktDeletAll = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktEdit = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktDashboard = new System.Windows.Forms.Button();
-            CmBxAllKntktAnrede = new System.Windows.Forms.ComboBox();
-            CmBxAllKntktKundeGeschlecht = new System.Windows.Forms.ComboBox();
+            CmBxAnsichtKntktAnrede = new System.Windows.Forms.ComboBox();
+            CmBxAnsichtKntktKundeGeschlecht = new System.Windows.Forms.ComboBox();
             this.GrpBxDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
             this.GrpBxAnsichtKntktAktiv.SuspendLayout();
@@ -114,10 +114,10 @@
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTelMobil);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTelGeschaeft);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTitel);
-            this.GrpBxDatenAlle.Controls.Add(CmBxAllKntktKundeGeschlecht);
+            this.GrpBxDatenAlle.Controls.Add(CmBxAnsichtKntktKundeGeschlecht);
             this.GrpBxDatenAlle.Controls.Add(this.DateAnsichtKntktKundeBirthday);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktVorname);
-            this.GrpBxDatenAlle.Controls.Add(CmBxAllKntktAnrede);
+            this.GrpBxDatenAlle.Controls.Add(CmBxAnsichtKntktAnrede);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktName);
             this.GrpBxDatenAlle.Controls.Add(this.LblAnsichtKntktEmail);
             this.GrpBxDatenAlle.Controls.Add(this.LblAnsichtKntktTelMobil);
@@ -271,17 +271,17 @@
             this.TxtAnsichtKntktName.Size = new System.Drawing.Size(261, 22);
             this.TxtAnsichtKntktName.TabIndex = 9;
             // 
-            // CmBxAllKntktAnrede
+            // CmBxAnsichtKntktAnrede
             // 
-            CmBxAllKntktAnrede.Enabled = false;
-            CmBxAllKntktAnrede.FormattingEnabled = true;
-            CmBxAllKntktAnrede.Items.AddRange(new object[] {
+            CmBxAnsichtKntktAnrede.Enabled = false;
+            CmBxAnsichtKntktAnrede.FormattingEnabled = true;
+            CmBxAnsichtKntktAnrede.Items.AddRange(new object[] {
             "Herr",
             "Frau"});
-            CmBxAllKntktAnrede.Location = new System.Drawing.Point(135, 18);
-            CmBxAllKntktAnrede.Name = "CmBxAllKntktAnrede";
-            CmBxAllKntktAnrede.Size = new System.Drawing.Size(164, 24);
-            CmBxAllKntktAnrede.TabIndex = 10;
+            CmBxAnsichtKntktAnrede.Location = new System.Drawing.Point(135, 18);
+            CmBxAnsichtKntktAnrede.Name = "CmBxAnsichtKntktAnrede";
+            CmBxAnsichtKntktAnrede.Size = new System.Drawing.Size(164, 24);
+            CmBxAnsichtKntktAnrede.TabIndex = 10;
             // 
             // TxtAnsichtKntktVorname
             // 
@@ -298,17 +298,17 @@
             this.DateAnsichtKntktKundeBirthday.Size = new System.Drawing.Size(261, 22);
             this.DateAnsichtKntktKundeBirthday.TabIndex = 12;
             // 
-            // CmBxAllKntktKundeGeschlecht
+            // CmBxAnsichtKntktKundeGeschlecht
             // 
-            CmBxAllKntktKundeGeschlecht.Enabled = false;
-            CmBxAllKntktKundeGeschlecht.FormattingEnabled = true;
-            CmBxAllKntktKundeGeschlecht.Items.AddRange(new object[] {
+            CmBxAnsichtKntktKundeGeschlecht.Enabled = false;
+            CmBxAnsichtKntktKundeGeschlecht.FormattingEnabled = true;
+            CmBxAnsichtKntktKundeGeschlecht.Items.AddRange(new object[] {
             "männlich",
             "weiblich"});
-            CmBxAllKntktKundeGeschlecht.Location = new System.Drawing.Point(135, 132);
-            CmBxAllKntktKundeGeschlecht.Name = "CmBxAllKntktKundeGeschlecht";
-            CmBxAllKntktKundeGeschlecht.Size = new System.Drawing.Size(164, 24);
-            CmBxAllKntktKundeGeschlecht.TabIndex = 13;
+            CmBxAnsichtKntktKundeGeschlecht.Location = new System.Drawing.Point(135, 132);
+            CmBxAnsichtKntktKundeGeschlecht.Name = "CmBxAnsichtKntktKundeGeschlecht";
+            CmBxAnsichtKntktKundeGeschlecht.Size = new System.Drawing.Size(164, 24);
+            CmBxAnsichtKntktKundeGeschlecht.TabIndex = 13;
             // 
             // TxtAnsichtKntktTitel
             // 
