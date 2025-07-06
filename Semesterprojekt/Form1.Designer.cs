@@ -37,7 +37,7 @@
             // 
             this.BtnDashMaNew.Location = new System.Drawing.Point(109, 71);
             this.BtnDashMaNew.Name = "BtnDashMaNew";
-            this.BtnDashMaNew.Size = new System.Drawing.Size(159, 86);
+            this.BtnDashMaNew.Size = new System.Drawing.Size(160, 85);
             this.BtnDashMaNew.TabIndex = 0;
             this.BtnDashMaNew.Text = "Mitarbeiter hinzufügen";
             this.BtnDashMaNew.UseVisualStyleBackColor = true;
@@ -45,9 +45,9 @@
             // 
             // BtnDashKndNew
             // 
-            this.BtnDashKndNew.Location = new System.Drawing.Point(109, 163);
+            this.BtnDashKndNew.Location = new System.Drawing.Point(109, 162);
             this.BtnDashKndNew.Name = "BtnDashKndNew";
-            this.BtnDashKndNew.Size = new System.Drawing.Size(159, 82);
+            this.BtnDashKndNew.Size = new System.Drawing.Size(160, 85);
             this.BtnDashKndNew.TabIndex = 1;
             this.BtnDashKndNew.Text = "Kunde hinzufügen";
             this.BtnDashKndNew.UseVisualStyleBackColor = true;
@@ -55,9 +55,9 @@
             // 
             // BtnDashAllKntkt
             // 
-            this.BtnDashAllKntkt.Location = new System.Drawing.Point(274, 71);
+            this.BtnDashAllKntkt.Location = new System.Drawing.Point(275, 71);
             this.BtnDashAllKntkt.Name = "BtnDashAllKntkt";
-            this.BtnDashAllKntkt.Size = new System.Drawing.Size(159, 86);
+            this.BtnDashAllKntkt.Size = new System.Drawing.Size(160, 85);
             this.BtnDashAllKntkt.TabIndex = 2;
             this.BtnDashAllKntkt.Text = "Alle Kontakte";
             this.BtnDashAllKntkt.UseVisualStyleBackColor = true;
