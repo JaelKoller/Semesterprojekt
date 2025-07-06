@@ -183,7 +183,7 @@
             this.Controls.Add(this.LblAllKntktSuchen);
             this.Controls.Add(this.LblAllKntktName);
             this.Name = "AlleKontakte";
-            this.Text = "AlleKontakte";
+            this.Text = "Alle Kontakte";
             this.ResumeLayout(false);
             this.PerformLayout();
 

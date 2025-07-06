@@ -52,6 +52,12 @@
     <Compile Include="AlleKontakte.Designer.cs">
       <DependentUpon>AlleKontakte.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnsichtKontakt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnsichtKontakt.Designer.cs">
+      <DependentUpon>AnsichtKontakt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AlleKontakte.resx">
       <DependentUpon>AlleKontakte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnsichtKontakt.resx">
+      <DependentUpon>AnsichtKontakt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
