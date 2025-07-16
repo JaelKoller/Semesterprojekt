@@ -15,6 +15,10 @@ namespace Semesterprojekt
         public KontaktErstellen()
         {
             InitializeComponent();
+
+            // AutoSize und AutoSizeMode für Fenster
+            this.AutoSize = true;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
     }
 }

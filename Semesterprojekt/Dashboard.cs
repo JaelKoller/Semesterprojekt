@@ -17,14 +17,34 @@ namespace Semesterprojekt
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        // Methode für Aufruf Form "KontaktErstellen" (Mitarbeiter und/oder Kunde hinzufügen)
+        // Form "Dashboard" wird dabei in den Hintergrund "gestellt"
+        private void KontaktErstellen()
         {
+            // Initialisierung "KontaktErstellen" für Absprung via Button
+            var kontaktErstellenForm = new KontaktErstellen();
+            kontaktErstellenForm.FormClosed += (s, arg) => this.Show();
+            kontaktErstellenForm.Show();
+            this.Hide();
+        }
 
+        private void BtnDashKndNew_Click(object sender, EventArgs e)
+        {
+            KontaktErstellen();
         }
 
         private void BtnDashMaNew_Click(object sender, EventArgs e)
         {
+            KontaktErstellen();
+        }
 
+        private void BtnDashAllKntkt_Click(object sender, EventArgs e)
+        {
+            // Initialisierung "AlleKontakte" für Absprung via Button
+            var alleKontakteForm = new AlleKontakte();
+            alleKontakteForm.FormClosed += (s, arg) => this.Show();
+            alleKontakteForm.Show();
+            this.Hide();
         }
     }
 }
