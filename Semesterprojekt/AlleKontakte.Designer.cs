@@ -52,7 +52,7 @@
             this.LblAllKntktName.Size = new System.Drawing.Size(44, 16);
             this.LblAllKntktName.TabIndex = 0;
             this.LblAllKntktName.Text = "Name";
-            this.LblAllKntktName.Click += new System.EventHandler(this.label1_Click);
+            this.LblAllKntktName.Click += new System.EventHandler(this.LblAllKntktName_Click);
             // 
             // LblAllKntktSuchen
             // 
@@ -63,7 +63,7 @@
             this.LblAllKntktSuchen.Size = new System.Drawing.Size(99, 16);
             this.LblAllKntktSuchen.TabIndex = 1;
             this.LblAllKntktSuchen.Text = "Suchen nach:";
-            this.LblAllKntktSuchen.Click += new System.EventHandler(this.label1_Click_1);
+            this.LblAllKntktSuchen.Click += new System.EventHandler(this.LblAllKntktSuchen_Click);
             // 
             // LblAllKntktVorname
             // 
@@ -154,7 +154,7 @@
             this.BtnAllKntktSuchen.TabIndex = 11;
             this.BtnAllKntktSuchen.Text = "Suchen";
             this.BtnAllKntktSuchen.UseVisualStyleBackColor = true;
-            this.BtnAllKntktSuchen.Click += new System.EventHandler(this.button1_Click);
+            this.BtnAllKntktSuchen.Click += new System.EventHandler(this.BtnAllKntktSuchen_Click);
             // 
             // BtnAllKntktHome
             // 

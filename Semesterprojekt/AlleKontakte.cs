@@ -17,12 +17,12 @@ namespace Semesterprojekt
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LblAllKntktName_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void LblAllKntktSuchen_Click(object sender, EventArgs e)
         {
 
         }
@@ -32,14 +32,18 @@ namespace Semesterprojekt
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnAllKntktSuchen_Click(object sender, EventArgs e)
         {
-
+            // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
+            var ansichtKontaktForm = new AnsichtKontakt();
+            ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
+            ansichtKontaktForm.Show();
+            this.Hide();
         }
 
         private void BtnAllKntktHome_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

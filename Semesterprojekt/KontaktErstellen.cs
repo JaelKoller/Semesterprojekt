@@ -16,9 +16,20 @@ namespace Semesterprojekt
         {
             InitializeComponent();
 
-            // AutoSize und AutoSizeMode für Fenster
-            this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
+        private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
+        {
+            // Erstellung neues Form "KontaktErstellen"
+            var kontaktErstellenForm = new KontaktErstellen();
+            kontaktErstellenForm.FormClosed += (s, arg) => this.Show();
+            kontaktErstellenForm.Show();
+            this.Hide();
+        }
+
+        private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
