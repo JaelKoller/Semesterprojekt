@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox CmBxCreatKntktGeschlecht;
-            System.Windows.Forms.ComboBox CmBxCreatKntktAnrede;
             this.GrpBxCreatKntktMaKunde = new System.Windows.Forms.GroupBox();
             this.RdbCreatKntktKunde = new System.Windows.Forms.RadioButton();
             this.RdbCreatKntktMa = new System.Windows.Forms.RadioButton();
@@ -44,12 +42,18 @@
             this.LblCreatKntktEmail = new System.Windows.Forms.Label();
             this.LblCreatKntktTelMobil = new System.Windows.Forms.Label();
             this.LblCreatKntktTelGeschaeft = new System.Windows.Forms.Label();
+            this.TxtCreatKntktAdr = new System.Windows.Forms.TextBox();
             this.LblCreatKntktTitel = new System.Windows.Forms.Label();
             this.LblCreatKntktGeschlecht = new System.Windows.Forms.Label();
             this.LblCreatKntktBirthday = new System.Windows.Forms.Label();
             this.LblCreatKntktAnrede = new System.Windows.Forms.Label();
             this.LblCreatKntktVorname = new System.Windows.Forms.Label();
             this.LblCreatKntktName = new System.Windows.Forms.Label();
+            this.LblCreatKntktAdr = new System.Windows.Forms.Label();
+            this.TxtCreatKntktPLZ = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktOrt = new System.Windows.Forms.TextBox();
+            this.LblCreatKntktPLZ = new System.Windows.Forms.Label();
+            this.LblCreatKntktOrt = new System.Windows.Forms.Label();
             this.GrpBxDatenMA = new System.Windows.Forms.GroupBox();
             this.LblCreatKntktEintrDatum = new System.Windows.Forms.Label();
             this.TxtCreatKntktEintrDatum = new System.Windows.Forms.TextBox();
@@ -63,7 +67,6 @@
             this.LblCreatKntktMaBeschGrad = new System.Windows.Forms.Label();
             this.TxtCreatKntktMaBeschGrad = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaKader = new System.Windows.Forms.TextBox();
-            this.TxtCreatKntktMaAdr = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaNationalitaet = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaManr = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaLehrj = new System.Windows.Forms.TextBox();
@@ -72,49 +75,18 @@
             this.LblCreaKntktMaAbteilung = new System.Windows.Forms.Label();
             this.LblCreatKntktMaRolle = new System.Windows.Forms.Label();
             this.TxtCreatKntktMaRolle = new System.Windows.Forms.TextBox();
-            this.TxtCreatKntktMaPLZ = new System.Windows.Forms.TextBox();
             this.LblCreatKntktMaAHVNr = new System.Windows.Forms.Label();
-            this.TxtCreatKntktMaOrt = new System.Windows.Forms.TextBox();
             this.LblCreatKntktMaNationalitaet = new System.Windows.Forms.Label();
-            this.LblCreatKntktMaAdr = new System.Windows.Forms.Label();
-            this.LblCreatKntktMaOrt = new System.Windows.Forms.Label();
             this.TxtCreatKntktMaAHVNr = new System.Windows.Forms.TextBox();
-            this.LblCreatKntktMaPLZ = new System.Windows.Forms.Label();
             this.TxtCreattKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            CmBxCreatKntktGeschlecht = new System.Windows.Forms.ComboBox();
-            CmBxCreatKntktAnrede = new System.Windows.Forms.ComboBox();
+            this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
+            this.CmBxCreatKntktGeschlecht = new System.Windows.Forms.ComboBox();
+            this.CmBxCreatKntktAnrede = new System.Windows.Forms.ComboBox();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // CmBxCreatKntktGeschlecht
-            // 
-            CmBxCreatKntktGeschlecht.FormattingEnabled = true;
-            CmBxCreatKntktGeschlecht.Items.AddRange(new object[] {
-            "männlich",
-            "weiblich",
-            "divers"});
-            CmBxCreatKntktGeschlecht.Location = new System.Drawing.Point(152, 165);
-            CmBxCreatKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            CmBxCreatKntktGeschlecht.Name = "CmBxCreatKntktGeschlecht";
-            CmBxCreatKntktGeschlecht.Size = new System.Drawing.Size(184, 28);
-            CmBxCreatKntktGeschlecht.TabIndex = 13;
-            // 
-            // CmBxCreatKntktAnrede
-            // 
-            CmBxCreatKntktAnrede.FormattingEnabled = true;
-            CmBxCreatKntktAnrede.Items.AddRange(new object[] {
-            "Herr",
-            "Frau",
-            "keine"});
-            CmBxCreatKntktAnrede.Location = new System.Drawing.Point(152, 22);
-            CmBxCreatKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            CmBxCreatKntktAnrede.Name = "CmBxCreatKntktAnrede";
-            CmBxCreatKntktAnrede.Size = new System.Drawing.Size(184, 28);
-            CmBxCreatKntktAnrede.TabIndex = 10;
             // 
             // GrpBxCreatKntktMaKunde
             // 
@@ -168,17 +140,23 @@
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktEmail);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTelMobil);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTelGeschaeft);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktAdr);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTitel);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktGeschlecht);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktBirthday);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktAnrede);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktVorname);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktName);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktAdr);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktPLZ);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktOrt);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktPLZ);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktOrt);
             this.GrpBxCreatKntktDatenAlle.Location = new System.Drawing.Point(14, 91);
             this.GrpBxCreatKntktDatenAlle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxCreatKntktDatenAlle.Name = "GrpBxCreatKntktDatenAlle";
             this.GrpBxCreatKntktDatenAlle.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GrpBxCreatKntktDatenAlle.Size = new System.Drawing.Size(460, 355);
+            this.GrpBxCreatKntktDatenAlle.Size = new System.Drawing.Size(467, 533);
             this.GrpBxCreatKntktDatenAlle.TabIndex = 2;
             this.GrpBxCreatKntktDatenAlle.TabStop = false;
             // 
@@ -214,6 +192,19 @@
             this.TxtCreatKntktTitel.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktTitel.TabIndex = 14;
             // 
+            // CmBxCreatKntktGeschlecht
+            // 
+            this.CmBxCreatKntktGeschlecht.FormattingEnabled = true;
+            this.CmBxCreatKntktGeschlecht.Items.AddRange(new object[] {
+            "männlich",
+            "weiblich",
+            "divers"});
+            this.CmBxCreatKntktGeschlecht.Location = new System.Drawing.Point(152, 165);
+            this.CmBxCreatKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CmBxCreatKntktGeschlecht.Name = "CmBxCreatKntktGeschlecht";
+            this.CmBxCreatKntktGeschlecht.Size = new System.Drawing.Size(184, 28);
+            this.CmBxCreatKntktGeschlecht.TabIndex = 13;
+            // 
             // DateCreatKntktBirthday
             // 
             this.DateCreatKntktBirthday.Location = new System.Drawing.Point(152, 130);
@@ -229,6 +220,19 @@
             this.TxtCreatKntktVorname.Name = "TxtCreatKntktVorname";
             this.TxtCreatKntktVorname.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktVorname.TabIndex = 11;
+            // 
+            // CmBxCreatKntktAnrede
+            // 
+            this.CmBxCreatKntktAnrede.FormattingEnabled = true;
+            this.CmBxCreatKntktAnrede.Items.AddRange(new object[] {
+            "Herr",
+            "Frau",
+            "keine"});
+            this.CmBxCreatKntktAnrede.Location = new System.Drawing.Point(152, 22);
+            this.CmBxCreatKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CmBxCreatKntktAnrede.Name = "CmBxCreatKntktAnrede";
+            this.CmBxCreatKntktAnrede.Size = new System.Drawing.Size(184, 28);
+            this.CmBxCreatKntktAnrede.TabIndex = 10;
             // 
             // TxtCreatKntktName
             // 
@@ -268,6 +272,14 @@
             this.LblCreatKntktTelGeschaeft.TabIndex = 6;
             this.LblCreatKntktTelGeschaeft.Text = "Geschäft";
             // 
+            // TxtCreatKntktAdr
+            // 
+            this.TxtCreatKntktAdr.Location = new System.Drawing.Point(152, 348);
+            this.TxtCreatKntktAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktAdr.Name = "TxtCreatKntktAdr";
+            this.TxtCreatKntktAdr.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktAdr.TabIndex = 38;
+            // 
             // LblCreatKntktTitel
             // 
             this.LblCreatKntktTitel.AutoSize = true;
@@ -301,7 +313,7 @@
             // LblCreatKntktAnrede
             // 
             this.LblCreatKntktAnrede.AutoSize = true;
-            this.LblCreatKntktAnrede.Location = new System.Drawing.Point(7, 26);
+            this.LblCreatKntktAnrede.Location = new System.Drawing.Point(8, 22);
             this.LblCreatKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktAnrede.Name = "LblCreatKntktAnrede";
             this.LblCreatKntktAnrede.Size = new System.Drawing.Size(61, 20);
@@ -328,6 +340,52 @@
             this.LblCreatKntktName.TabIndex = 0;
             this.LblCreatKntktName.Text = "Name";
             // 
+            // LblCreatKntktAdr
+            // 
+            this.LblCreatKntktAdr.AutoSize = true;
+            this.LblCreatKntktAdr.Location = new System.Drawing.Point(6, 354);
+            this.LblCreatKntktAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktAdr.Name = "LblCreatKntktAdr";
+            this.LblCreatKntktAdr.Size = new System.Drawing.Size(68, 20);
+            this.LblCreatKntktAdr.TabIndex = 22;
+            this.LblCreatKntktAdr.Text = "Adresse";
+            // 
+            // TxtCreatKntktPLZ
+            // 
+            this.TxtCreatKntktPLZ.Location = new System.Drawing.Point(152, 386);
+            this.TxtCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktPLZ.Name = "TxtCreatKntktPLZ";
+            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktPLZ.TabIndex = 33;
+            // 
+            // TxtCreatKntktOrt
+            // 
+            this.TxtCreatKntktOrt.Location = new System.Drawing.Point(152, 431);
+            this.TxtCreatKntktOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktOrt.Name = "TxtCreatKntktOrt";
+            this.TxtCreatKntktOrt.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktOrt.TabIndex = 32;
+            // 
+            // LblCreatKntktPLZ
+            // 
+            this.LblCreatKntktPLZ.AutoSize = true;
+            this.LblCreatKntktPLZ.Location = new System.Drawing.Point(6, 392);
+            this.LblCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktPLZ.Name = "LblCreatKntktPLZ";
+            this.LblCreatKntktPLZ.Size = new System.Drawing.Size(38, 20);
+            this.LblCreatKntktPLZ.TabIndex = 24;
+            this.LblCreatKntktPLZ.Text = "PLZ";
+            // 
+            // LblCreatKntktOrt
+            // 
+            this.LblCreatKntktOrt.AutoSize = true;
+            this.LblCreatKntktOrt.Location = new System.Drawing.Point(6, 434);
+            this.LblCreatKntktOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktOrt.Name = "LblCreatKntktOrt";
+            this.LblCreatKntktOrt.Size = new System.Drawing.Size(70, 20);
+            this.LblCreatKntktOrt.TabIndex = 23;
+            this.LblCreatKntktOrt.Text = "Wohnort";
+            // 
             // GrpBxDatenMA
             // 
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktEintrDatum);
@@ -342,7 +400,6 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaBeschGrad);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaBeschGrad);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaKader);
-            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAdr);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaNationalitaet);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaManr);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaLehrj);
@@ -351,14 +408,9 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreaKntktMaAbteilung);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaRolle);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaRolle);
-            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaPLZ);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaAHVNr);
-            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaOrt);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaNationalitaet);
-            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaAdr);
-            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaOrt);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAHVNr);
-            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaPLZ);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreattKntktMaAbteilung);
             this.GrpBxDatenMA.Location = new System.Drawing.Point(522, 91);
             this.GrpBxDatenMA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -456,9 +508,9 @@
             this.LblCreatKntktMaBeschGrad.Location = new System.Drawing.Point(6, 346);
             this.LblCreatKntktMaBeschGrad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaBeschGrad.Name = "LblCreatKntktMaBeschGrad";
-            this.LblCreatKntktMaBeschGrad.Size = new System.Drawing.Size(152, 20);
+            this.LblCreatKntktMaBeschGrad.Size = new System.Drawing.Size(294, 30);
             this.LblCreatKntktMaBeschGrad.TabIndex = 40;
-            this.LblCreatKntktMaBeschGrad.Text = "Beschäftigungsgrad";
+            this.LblCreatKntktMaBeschGrad.Text = "Beschäftigungsgrad (%)";
             // 
             // TxtCreatKntktMaBeschGrad
             // 
@@ -475,14 +527,6 @@
             this.TxtCreatKntktMaKader.Name = "TxtCreatKntktMaKader";
             this.TxtCreatKntktMaKader.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktMaKader.TabIndex = 41;
-            // 
-            // TxtCreatKntktMaAdr
-            // 
-            this.TxtCreatKntktMaAdr.Location = new System.Drawing.Point(152, 134);
-            this.TxtCreatKntktMaAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktMaAdr.Name = "TxtCreatKntktMaAdr";
-            this.TxtCreatKntktMaAdr.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreatKntktMaAdr.TabIndex = 38;
             // 
             // TxtCreatKntktMaNationalitaet
             // 
@@ -557,14 +601,6 @@
             this.TxtCreatKntktMaRolle.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktMaRolle.TabIndex = 34;
             // 
-            // TxtCreatKntktMaPLZ
-            // 
-            this.TxtCreatKntktMaPLZ.Location = new System.Drawing.Point(152, 169);
-            this.TxtCreatKntktMaPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktMaPLZ.Name = "TxtCreatKntktMaPLZ";
-            this.TxtCreatKntktMaPLZ.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreatKntktMaPLZ.TabIndex = 33;
-            // 
             // LblCreatKntktMaAHVNr
             // 
             this.LblCreatKntktMaAHVNr.AutoSize = true;
@@ -574,14 +610,6 @@
             this.LblCreatKntktMaAHVNr.Size = new System.Drawing.Size(108, 20);
             this.LblCreatKntktMaAHVNr.TabIndex = 19;
             this.LblCreatKntktMaAHVNr.Text = "AHV-Nummer";
-            // 
-            // TxtCreatKntktMaOrt
-            // 
-            this.TxtCreatKntktMaOrt.Location = new System.Drawing.Point(152, 204);
-            this.TxtCreatKntktMaOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktMaOrt.Name = "TxtCreatKntktMaOrt";
-            this.TxtCreatKntktMaOrt.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreatKntktMaOrt.TabIndex = 32;
             // 
             // LblCreatKntktMaNationalitaet
             // 
@@ -593,26 +621,6 @@
             this.LblCreatKntktMaNationalitaet.TabIndex = 21;
             this.LblCreatKntktMaNationalitaet.Text = "Nationalität";
             // 
-            // LblCreatKntktMaAdr
-            // 
-            this.LblCreatKntktMaAdr.AutoSize = true;
-            this.LblCreatKntktMaAdr.Location = new System.Drawing.Point(8, 134);
-            this.LblCreatKntktMaAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblCreatKntktMaAdr.Name = "LblCreatKntktMaAdr";
-            this.LblCreatKntktMaAdr.Size = new System.Drawing.Size(68, 20);
-            this.LblCreatKntktMaAdr.TabIndex = 22;
-            this.LblCreatKntktMaAdr.Text = "Adresse";
-            // 
-            // LblCreatKntktMaOrt
-            // 
-            this.LblCreatKntktMaOrt.AutoSize = true;
-            this.LblCreatKntktMaOrt.Location = new System.Drawing.Point(7, 208);
-            this.LblCreatKntktMaOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblCreatKntktMaOrt.Name = "LblCreatKntktMaOrt";
-            this.LblCreatKntktMaOrt.Size = new System.Drawing.Size(70, 20);
-            this.LblCreatKntktMaOrt.TabIndex = 23;
-            this.LblCreatKntktMaOrt.Text = "Wohnort";
-            // 
             // TxtCreatKntktMaAHVNr
             // 
             this.TxtCreatKntktMaAHVNr.Location = new System.Drawing.Point(152, 60);
@@ -620,16 +628,6 @@
             this.TxtCreatKntktMaAHVNr.Name = "TxtCreatKntktMaAHVNr";
             this.TxtCreatKntktMaAHVNr.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktMaAHVNr.TabIndex = 29;
-            // 
-            // LblCreatKntktMaPLZ
-            // 
-            this.LblCreatKntktMaPLZ.AutoSize = true;
-            this.LblCreatKntktMaPLZ.Location = new System.Drawing.Point(8, 172);
-            this.LblCreatKntktMaPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblCreatKntktMaPLZ.Name = "LblCreatKntktMaPLZ";
-            this.LblCreatKntktMaPLZ.Size = new System.Drawing.Size(38, 20);
-            this.LblCreatKntktMaPLZ.TabIndex = 24;
-            this.LblCreatKntktMaPLZ.Text = "PLZ";
             // 
             // TxtCreattKntktMaAbteilung
             // 
@@ -641,6 +639,7 @@
             // 
             // CmdCreateKntktDashboard
             // 
+            this.CmdCreateKntktDashboard.BackColor = System.Drawing.Color.LightCyan;
             this.CmdCreateKntktDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdCreateKntktDashboard.Location = new System.Drawing.Point(791, 898);
             this.CmdCreateKntktDashboard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -648,27 +647,28 @@
             this.CmdCreateKntktDashboard.Size = new System.Drawing.Size(199, 99);
             this.CmdCreateKntktDashboard.TabIndex = 10;
             this.CmdCreateKntktDashboard.Text = "Speichern und zurück zum Dashboard";
-            this.CmdCreateKntktDashboard.UseVisualStyleBackColor = true;
+            this.CmdCreateKntktDashboard.UseVisualStyleBackColor = false;
             this.CmdCreateKntktDashboard.Click += new System.EventHandler(this.CmdCreateKntktDashboard_Click);
             // 
-            // button1
+            // CmdCreateKntktKontaktErstellen
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(585, 898);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 99);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Speichern und neuer Kontakt erstellen";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
+            this.CmdCreateKntktKontaktErstellen.BackColor = System.Drawing.Color.LightCyan;
+            this.CmdCreateKntktKontaktErstellen.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdCreateKntktKontaktErstellen.Location = new System.Drawing.Point(585, 898);
+            this.CmdCreateKntktKontaktErstellen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CmdCreateKntktKontaktErstellen.Name = "CmdCreateKntktKontaktErstellen";
+            this.CmdCreateKntktKontaktErstellen.Size = new System.Drawing.Size(199, 99);
+            this.CmdCreateKntktKontaktErstellen.TabIndex = 11;
+            this.CmdCreateKntktKontaktErstellen.Text = "Speichern und neuer Kontakt erstellen";
+            this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
+            this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 1011);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1135, 1019);
+            this.Controls.Add(this.CmdCreateKntktKontaktErstellen);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);
             this.Controls.Add(this.GrpBxCreatKntktDatenAlle);
@@ -717,7 +717,7 @@
         private System.Windows.Forms.Label LblCreatKntktMaBeschGrad;
         private System.Windows.Forms.TextBox TxtCreatKntktMaBeschGrad;
         private System.Windows.Forms.TextBox TxtCreatKntktMaKader;
-        private System.Windows.Forms.TextBox TxtCreatKntktMaAdr;
+        private System.Windows.Forms.TextBox TxtCreatKntktAdr;
         private System.Windows.Forms.TextBox TxtCreatKntktMaNationalitaet;
         private System.Windows.Forms.TextBox TxtCreatKntktMaManr;
         private System.Windows.Forms.TextBox TxtCreatKntktMaLehrj;
@@ -726,20 +726,22 @@
         private System.Windows.Forms.Label LblCreaKntktMaAbteilung;
         private System.Windows.Forms.Label LblCreatKntktMaRolle;
         private System.Windows.Forms.TextBox TxtCreatKntktMaRolle;
-        private System.Windows.Forms.TextBox TxtCreatKntktMaPLZ;
+        private System.Windows.Forms.TextBox TxtCreatKntktPLZ;
         private System.Windows.Forms.Label LblCreatKntktMaAHVNr;
-        private System.Windows.Forms.TextBox TxtCreatKntktMaOrt;
+        private System.Windows.Forms.TextBox TxtCreatKntktOrt;
         private System.Windows.Forms.Label LblCreatKntktMaNationalitaet;
-        private System.Windows.Forms.Label LblCreatKntktMaAdr;
-        private System.Windows.Forms.Label LblCreatKntktMaOrt;
+        private System.Windows.Forms.Label LblCreatKntktAdr;
+        private System.Windows.Forms.Label LblCreatKntktOrt;
         private System.Windows.Forms.TextBox TxtCreatKntktMaAHVNr;
-        private System.Windows.Forms.Label LblCreatKntktMaPLZ;
+        private System.Windows.Forms.Label LblCreatKntktPLZ;
         private System.Windows.Forms.TextBox TxtCreattKntktMaAbteilung;
         private System.Windows.Forms.Label LblCreatKntktEintrDatum;
         private System.Windows.Forms.TextBox TxtCreatKntktEintrDatum;
         private System.Windows.Forms.TextBox TxtCreatKntktMaOfficeAddress;
         private System.Windows.Forms.TextBox TxtCreatKntktAustrDatum;
         private System.Windows.Forms.Button CmdCreateKntktDashboard;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CmBxCreatKntktAnrede;
+        private System.Windows.Forms.ComboBox CmBxCreatKntktGeschlecht;
+        private System.Windows.Forms.Button CmdCreateKntktKontaktErstellen;
     }
 }

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,11 +21,166 @@ namespace Semesterprojekt
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
+            this.Size = new Size(800, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+            Design();
 
             typeOfContactNew = typeOfContact;
             InitalizationTypeOfContact();
             UpdateTypeOfContact();
+        }
+
+        // Design (Platzierung) der Eingabe-Felder usw.
+        private void Design()
+        {
+            // Platzierung Gruppe Radio-Button (Mitarbeitende vs. Kunde)
+            GrpBxCreatKntktMaKunde.Size = new Size(185, 40);
+            GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
+
+            // Platzierung Gruppe Mitarbeitende UND Kunde (alle)
+            GrpBxCreatKntktDatenAlle.Size = new Size(350, 390);
+            GrpBxCreatKntktDatenAlle.Location = new Point(10, 55);
+
+            // Platzierung Gruppe NUR Mitarbeitende (ohne Kunde)
+            GrpBxDatenMA.Size = new Size(350, 390);
+            GrpBxDatenMA.Location = new Point(375, 55);
+
+            // Platzierung Radio-Buttons (Mitarbeitende vs. Kunde)
+            RdbCreatKntktMa.Location = new Point(10, 15);
+            RdbCreatKntktKunde.Location = new Point(120, 15);
+
+            // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende UND Kunde (alle)
+            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
+
+            // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
+            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
+
+            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
+            int startLocationMaKd = 20;
+            int labelXAchseMaKd = 10;
+            int controlXAchseMaKd = 135;
+
+            for (int i = 0; i < groupFieldEmployeesAndCustomers.Length; i++)
+            {
+                groupLabelEmployeesAndCustomers[i].Location = new Point(labelXAchseMaKd, startLocationMaKd);
+                groupFieldEmployeesAndCustomers[i].Location = new Point(controlXAchseMaKd, startLocationMaKd);
+
+                startLocationMaKd += 30;
+            }
+
+            // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende (ohne Kunde)
+            System.Windows.Forms.Label[] groupLabelEmployees = GroupLabelEmployees();
+
+            // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
+            Control[] groupFieldEmployees = GroupFieldEmployees();
+
+            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
+            int startLocationMa = 20;
+            int labelXAchseMa = 10;
+            int controlXAchseMa = 135;
+
+            for (int i = 0; i < groupFieldEmployees.Length; i++)
+            {
+                groupLabelEmployees[i].Location = new Point(labelXAchseMa, startLocationMa);
+                groupFieldEmployees[i].Location = new Point(controlXAchseMa, startLocationMa);
+
+                startLocationMa += 30;
+            }
+
+            // Platzierung Buttons "Speichern und ..."
+            CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
+            CmdCreateKntktKontaktErstellen.Location = new Point(420, 470);
+            CmdCreateKntktDashboard.Size = new Size(150, 60);
+            CmdCreateKntktDashboard.Location = new Point(575, 470);
+        }
+
+
+        // Erstellung Array für Labels der Gruppe Mitarbeitende UND Kunde (alle)
+        private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
+        {
+            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
+            {
+                LblCreatKntktTitel,
+                LblCreatKntktAnrede,
+                LblCreatKntktName,
+                LblCreatKntktVorname,
+                LblCreatKntktBirthday,
+                LblCreatKntktGeschlecht,
+                LblCreatKntktAdr,
+                LblCreatKntktPLZ,
+                LblCreatKntktOrt,
+                LblCreatKntktTelGeschaeft,
+                LblCreatKntktTelMobil,
+                LblCreatKntktEmail
+            };
+
+            return groupLabelEmployeesAndCustomers;
+        }
+
+        // Erstellung Array für Labels der Gruppe Mitarbeitende (ohne Kunde)
+        private System.Windows.Forms.Label[] GroupLabelEmployees()
+        {
+            System.Windows.Forms.Label[] groupLabelEmployees = new System.Windows.Forms.Label[]
+            {
+                LblCreatKntktMaMaNr,
+                LblCreatKntktMaAHVNr,
+                LblCreatKntktMaNationalitaet,
+                LblCreatKntktMaKader,
+                LblCreatKntktMaBeschGrad,
+                LblCreaKntktMaAbteilung,
+                LblCreatKntktMaRolle,
+                LblCreatKntktMaLehrj,
+                LblCreatKntktMaAktLehrj,
+                LblCreatKntktMaOfficeAddress,
+                LblCreatKntktEintrDatum,
+                LblCreatKntktAustrDatum
+            };
+
+            return groupLabelEmployees;
+        }
+
+        // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
+        private Control[] GroupFieldEmployeesAndCustomers()
+        {
+            Control[] groupFieldEmployeesAndCustomers = new Control[]
+            {
+                TxtCreatKntktTitel,
+                CmBxCreatKntktAnrede,
+                TxtCreatKntktName,
+                TxtCreatKntktVorname,
+                DateCreatKntktBirthday,
+                CmBxCreatKntktGeschlecht,
+                TxtCreatKntktAdr,
+                TxtCreatKntktPLZ,
+                TxtCreatKntktOrt,
+                TxtCreatKntktTelGeschaeft,
+                TxtCreatKntktTelMobil,
+                TxtCreatKntktEmail
+            };
+            
+            return groupFieldEmployeesAndCustomers;
+        }
+
+        // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
+        private Control[] GroupFieldEmployees()
+        {
+            Control[] groupFieldEmployees = new Control[]
+            {
+                TxtCreatKntktMaManr,
+                TxtCreatKntktMaAHVNr,
+                TxtCreatKntktMaNationalitaet,
+                TxtCreatKntktMaKader,
+                TxtCreatKntktMaBeschGrad,
+                TxtCreattKntktMaAbteilung,
+                TxtCreatKntktMaRolle,
+                TxtCreatKntktMaLehrj,
+                TxtCreatKntktMaAktLehrj,
+                TxtCreatKntktMaOfficeAddress,
+                TxtCreatKntktEintrDatum,
+                TxtCreatKntktAustrDatum
+            };
+
+            return groupFieldEmployees;
         }
 
         // Initalisierung Radio-Button auf Basis "Kontaktart"
@@ -32,6 +189,7 @@ namespace Semesterprojekt
             if (typeOfContactNew == "mitarbeitende")
             {
                 RdbCreatKntktMa.Checked = true;
+                TxtCreatKntktMaManr.Text = "TEST"; // AUTOMATISCHE GENERIERUNG IST EINZUBAUEN !!!
             }
             
             else if (typeOfContactNew == "kunde")
@@ -47,24 +205,14 @@ namespace Semesterprojekt
             {
                 typeOfContactNew = "mitarbeitende";
                 RdbCreatKntktMa.Checked = true;
-                TxtCreatKntktMaKader.Enabled = true;
-                TxtCreatKntktMaBeschGrad.Enabled = true;
-                TxtCreattKntktMaAbteilung.Enabled = true;
-                TxtCreatKntktMaRolle.Enabled = true;
-                TxtCreatKntktMaLehrj.Enabled = true;
-                TxtCreatKntktMaAktLehrj.Enabled = true;
+                GrpBxDatenMA.Enabled = true;
             }
             
             else if (RdbCreatKntktKunde.Checked)
             {
                 typeOfContactNew = "kunde";
                 RdbCreatKntktKunde.Checked = true;
-                TxtCreatKntktMaKader.Enabled = false;
-                TxtCreatKntktMaBeschGrad.Enabled = false;
-                TxtCreattKntktMaAbteilung.Enabled = false;
-                TxtCreatKntktMaRolle.Enabled = false;
-                TxtCreatKntktMaLehrj.Enabled = false;
-                TxtCreatKntktMaAktLehrj.Enabled = false;
+                GrpBxDatenMA.Enabled = false;
             }
         }
 
@@ -80,8 +228,14 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
+            bool checkAHVNumber = false;
             int countEmptyFields = CheckEmptyFields();
-            bool checkAHVNumber = CheckAHVNumber(TxtCreatKntktMaAHVNr.Text);
+
+
+            if (countEmptyFields == 0)
+            {
+                checkAHVNumber = CheckAHVNumber(TxtCreatKntktMaAHVNr.Text);
+            }
 
             if (countEmptyFields == 0 && checkAHVNumber)
             {
@@ -161,18 +315,9 @@ namespace Semesterprojekt
         {
             int countEmptyFields = 0;
 
-            TextBox[] checkEmptyFieldsAll = new TextBox[]
-            {
-                TxtCreatKntktMaAdr,
-                TxtCreatKntktMaPLZ,
-                TxtCreatKntktMaOrt,
-                TxtCreatKntktMaNationalitaet,
-                TxtCreatKntktMaOfficeAddress,
-                TxtCreatKntktEintrDatum,
-                TxtCreatKntktAustrDatum
-            };
+            Control[] checkEmptyFieldsAll = GroupFieldEmployeesAndCustomers();
 
-            foreach (TextBox field in checkEmptyFieldsAll)
+            foreach (Control field in checkEmptyFieldsAll)
             {
                 bool checkEmptyFields = ValidationEmptyFields(field);
                 countEmptyFields += !checkEmptyFields ? 1 : 0;
@@ -180,18 +325,9 @@ namespace Semesterprojekt
 
             if (RdbCreatKntktMa.Checked)
             {
-                TextBox[] checkEmptyFieldsMA = new TextBox[]
-                {
-                    TxtCreatKntktMaAHVNr,
-                    TxtCreatKntktMaKader,
-                    TxtCreatKntktMaBeschGrad,
-                    TxtCreattKntktMaAbteilung,
-                    TxtCreatKntktMaRolle,
-                    TxtCreatKntktMaLehrj,
-                    TxtCreatKntktMaAktLehrj
-                };
+                Control[] checkEmptyFieldsMA = GroupFieldEmployees();
 
-                foreach (TextBox field in checkEmptyFieldsMA)
+                foreach (Control field in checkEmptyFieldsMA)
                 {
                     bool checkEmptyFields = ValidationEmptyFields(field);
                     countEmptyFields += !checkEmptyFields ? 1 : 0;
@@ -201,9 +337,16 @@ namespace Semesterprojekt
             return countEmptyFields;
         }
 
-        private bool ValidationEmptyFields(TextBox field)
+        private bool ValidationEmptyFields(Control field)
         {
-            if (string.IsNullOrWhiteSpace(field.Text))
+            Control[] checkEmptyFieldsIgnore = CheckEmptyFieldsIgnore();
+
+            if (checkEmptyFieldsIgnore.Contains(field))
+            {
+                return true;
+            }
+
+            else if (string.IsNullOrWhiteSpace(field.Text))
             {
                 field.BackColor = Color.LightPink;
                 return false;
@@ -214,6 +357,23 @@ namespace Semesterprojekt
                 field.BackColor = SystemColors.Window;
                 return true;
             }
+        }
+
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
+        private Control[] CheckEmptyFieldsIgnore()
+        {
+            Control[] checkEmptyFieldsIgnore = new Control[]
+            {
+                TxtCreatKntktTitel,
+                TxtCreatKntktTelGeschaeft,
+                TxtCreatKntktMaKader,
+                TxtCreatKntktMaLehrj,
+                TxtCreatKntktMaAktLehrj,
+                TxtCreatKntktMaOfficeAddress,
+                TxtCreatKntktAustrDatum,
+            };
+
+            return checkEmptyFieldsIgnore;
         }
     }
 }
