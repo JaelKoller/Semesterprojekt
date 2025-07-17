@@ -106,11 +106,11 @@ namespace Semesterprojekt
                 LblCreatKntktVorname,
                 LblCreatKntktBirthday,
                 LblCreatKntktGeschlecht,
-                LblCreatKntktAdr,
+                LblCreatKntktAdresse,
                 LblCreatKntktPLZ,
                 LblCreatKntktOrt,
                 LblCreatKntktTelGeschaeft,
-                LblCreatKntktTelMobil,
+                LblCreatKntktTelMobile,
                 LblCreatKntktEmail
             };
 

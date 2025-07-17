@@ -40,7 +40,7 @@
             this.TxtCreatKntktVorname = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktName = new System.Windows.Forms.TextBox();
             this.LblCreatKntktEmail = new System.Windows.Forms.Label();
-            this.LblCreatKntktTelMobil = new System.Windows.Forms.Label();
+            this.LblCreatKntktTelMobile = new System.Windows.Forms.Label();
             this.LblCreatKntktTelGeschaeft = new System.Windows.Forms.Label();
             this.TxtCreatKntktAdr = new System.Windows.Forms.TextBox();
             this.LblCreatKntktTitel = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.LblCreatKntktAnrede = new System.Windows.Forms.Label();
             this.LblCreatKntktVorname = new System.Windows.Forms.Label();
             this.LblCreatKntktName = new System.Windows.Forms.Label();
-            this.LblCreatKntktAdr = new System.Windows.Forms.Label();
+            this.LblCreatKntktAdresse = new System.Windows.Forms.Label();
             this.TxtCreatKntktPLZ = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktOrt = new System.Windows.Forms.TextBox();
             this.LblCreatKntktPLZ = new System.Windows.Forms.Label();
@@ -132,13 +132,13 @@
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelMobil);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelGeschaeft);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTitel);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(CmBxCreatKntktGeschlecht);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktGeschlecht);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.DateCreatKntktBirthday);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktVorname);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(CmBxCreatKntktAnrede);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktAnrede);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktName);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktEmail);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTelMobil);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTelMobile);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTelGeschaeft);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktAdr);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktTitel);
@@ -147,7 +147,7 @@
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktAnrede);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktVorname);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktName);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktAdr);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktAdresse);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktPLZ);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktOrt);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktPLZ);
@@ -252,15 +252,15 @@
             this.LblCreatKntktEmail.TabIndex = 8;
             this.LblCreatKntktEmail.Text = "E-Mail";
             // 
-            // LblCreatKntktTelMobil
+            // LblCreatKntktTelMobile
             // 
-            this.LblCreatKntktTelMobil.AutoSize = true;
-            this.LblCreatKntktTelMobil.Location = new System.Drawing.Point(8, 276);
-            this.LblCreatKntktTelMobil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblCreatKntktTelMobil.Name = "LblCreatKntktTelMobil";
-            this.LblCreatKntktTelMobil.Size = new System.Drawing.Size(46, 20);
-            this.LblCreatKntktTelMobil.TabIndex = 7;
-            this.LblCreatKntktTelMobil.Text = "Mobil";
+            this.LblCreatKntktTelMobile.AutoSize = true;
+            this.LblCreatKntktTelMobile.Location = new System.Drawing.Point(8, 276);
+            this.LblCreatKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktTelMobile.Name = "LblCreatKntktTelMobile";
+            this.LblCreatKntktTelMobile.Size = new System.Drawing.Size(46, 20);
+            this.LblCreatKntktTelMobile.TabIndex = 7;
+            this.LblCreatKntktTelMobile.Text = "Mobile Nr.";
             // 
             // LblCreatKntktTelGeschaeft
             // 
@@ -270,7 +270,7 @@
             this.LblCreatKntktTelGeschaeft.Name = "LblCreatKntktTelGeschaeft";
             this.LblCreatKntktTelGeschaeft.Size = new System.Drawing.Size(75, 20);
             this.LblCreatKntktTelGeschaeft.TabIndex = 6;
-            this.LblCreatKntktTelGeschaeft.Text = "Geschäft";
+            this.LblCreatKntktTelGeschaeft.Text = "Geschäft Nr.";
             // 
             // TxtCreatKntktAdr
             // 
@@ -340,15 +340,15 @@
             this.LblCreatKntktName.TabIndex = 0;
             this.LblCreatKntktName.Text = "Name";
             // 
-            // LblCreatKntktAdr
+            // LblCreatKntktAdresse
             // 
-            this.LblCreatKntktAdr.AutoSize = true;
-            this.LblCreatKntktAdr.Location = new System.Drawing.Point(6, 354);
-            this.LblCreatKntktAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblCreatKntktAdr.Name = "LblCreatKntktAdr";
-            this.LblCreatKntktAdr.Size = new System.Drawing.Size(68, 20);
-            this.LblCreatKntktAdr.TabIndex = 22;
-            this.LblCreatKntktAdr.Text = "Adresse";
+            this.LblCreatKntktAdresse.AutoSize = true;
+            this.LblCreatKntktAdresse.Location = new System.Drawing.Point(6, 354);
+            this.LblCreatKntktAdresse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktAdresse.Name = "LblCreatKntktAdresse";
+            this.LblCreatKntktAdresse.Size = new System.Drawing.Size(68, 20);
+            this.LblCreatKntktAdresse.TabIndex = 22;
+            this.LblCreatKntktAdresse.Text = "Strasse / Nr.";
             // 
             // TxtCreatKntktPLZ
             // 
@@ -700,7 +700,7 @@
         private System.Windows.Forms.TextBox TxtCreatKntktVorname;
         private System.Windows.Forms.TextBox TxtCreatKntktName;
         private System.Windows.Forms.Label LblCreatKntktEmail;
-        private System.Windows.Forms.Label LblCreatKntktTelMobil;
+        private System.Windows.Forms.Label LblCreatKntktTelMobile;
         private System.Windows.Forms.Label LblCreatKntktTelGeschaeft;
         private System.Windows.Forms.Label LblCreatKntktTitel;
         private System.Windows.Forms.Label LblCreatKntktGeschlecht;
@@ -730,7 +730,7 @@
         private System.Windows.Forms.Label LblCreatKntktMaAHVNr;
         private System.Windows.Forms.TextBox TxtCreatKntktOrt;
         private System.Windows.Forms.Label LblCreatKntktMaNationalitaet;
-        private System.Windows.Forms.Label LblCreatKntktAdr;
+        private System.Windows.Forms.Label LblCreatKntktAdresse;
         private System.Windows.Forms.Label LblCreatKntktOrt;
         private System.Windows.Forms.TextBox TxtCreatKntktMaAHVNr;
         private System.Windows.Forms.Label LblCreatKntktPLZ;
