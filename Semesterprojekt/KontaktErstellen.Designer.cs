@@ -33,7 +33,7 @@
             this.RdbCreatKntktMa = new System.Windows.Forms.RadioButton();
             this.GrpBxCreatKntktDatenAlle = new System.Windows.Forms.GroupBox();
             this.TxtCreatKntktEmail = new System.Windows.Forms.TextBox();
-            this.TxtCreatKntktTelMobil = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktTelMobile = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktTelGeschaeft = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktTitel = new System.Windows.Forms.TextBox();
             this.DateCreatKntktBirthday = new System.Windows.Forms.DateTimePicker();
@@ -129,7 +129,7 @@
             // GrpBxCreatKntktDatenAlle
             // 
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktEmail);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelMobil);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelMobile);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelGeschaeft);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTitel);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktGeschlecht);
@@ -168,13 +168,13 @@
             this.TxtCreatKntktEmail.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktEmail.TabIndex = 17;
             // 
-            // TxtCreatKntktTelMobil
+            // TxtCreatKntktTelMobile
             // 
-            this.TxtCreatKntktTelMobil.Location = new System.Drawing.Point(152, 272);
-            this.TxtCreatKntktTelMobil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktTelMobil.Name = "TxtCreatKntktTelMobil";
-            this.TxtCreatKntktTelMobil.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreatKntktTelMobil.TabIndex = 16;
+            this.TxtCreatKntktTelMobile.Location = new System.Drawing.Point(152, 272);
+            this.TxtCreatKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktTelMobile.Name = "TxtCreatKntktTelMobile";
+            this.TxtCreatKntktTelMobile.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktTelMobile.TabIndex = 16;
             // 
             // TxtCreatKntktTelGeschaeft
             // 
@@ -693,7 +693,7 @@
         private System.Windows.Forms.RadioButton RdbCreatKntktMa;
         private System.Windows.Forms.GroupBox GrpBxCreatKntktDatenAlle;
         private System.Windows.Forms.TextBox TxtCreatKntktEmail;
-        private System.Windows.Forms.TextBox TxtCreatKntktTelMobil;
+        private System.Windows.Forms.TextBox TxtCreatKntktTelMobile;
         private System.Windows.Forms.TextBox TxtCreatKntktTelGeschaeft;
         private System.Windows.Forms.TextBox TxtCreatKntktTitel;
         private System.Windows.Forms.DateTimePicker DateCreatKntktBirthday;

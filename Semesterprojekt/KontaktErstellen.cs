@@ -21,7 +21,7 @@ namespace Semesterprojekt
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
-            this.Size = new Size(800, 600);
+            this.Size = new Size(750, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             Design();
 
@@ -154,7 +154,7 @@ namespace Semesterprojekt
                 TxtCreatKntktPLZ,
                 TxtCreatKntktOrt,
                 TxtCreatKntktTelGeschaeft,
-                TxtCreatKntktTelMobil,
+                TxtCreatKntktTelMobile,
                 TxtCreatKntktEmail
             };
             
@@ -365,7 +365,7 @@ namespace Semesterprojekt
             Control[] checkEmptyFieldsIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
-                TxtCreatKntktTelGeschaeft,
+                TxtCreatKntktTelGeschaeft, // evtl. für Mitarbeitende Pflicht?
                 TxtCreatKntktMaKader,
                 TxtCreatKntktMaLehrj,
                 TxtCreatKntktMaAktLehrj,
