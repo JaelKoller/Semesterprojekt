@@ -33,6 +33,7 @@ namespace Semesterprojekt
             {
                 RdbCreatKntktMa.Checked = true;
             }
+            
             else if (typeOfContactNew == "kunde")
             {
                 RdbCreatKntktKunde.Checked = true;
@@ -53,6 +54,7 @@ namespace Semesterprojekt
                 TxtCreatKntktMaLehrj.Enabled = true;
                 TxtCreatKntktMaAktLehrj.Enabled = true;
             }
+            
             else if (RdbCreatKntktKunde.Checked)
             {
                 typeOfContactNew = "kunde";
@@ -78,16 +80,19 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            CheckAHVNumber(TxtCreatKntktMaAHVNr.Text);
+            int countEmptyFields = CheckEmptyFields();
+            bool checkAHVNumber = CheckAHVNumber(TxtCreatKntktMaAHVNr.Text);
 
-
-            this.FormClosed += (s, arg) =>
+            if (countEmptyFields == 0 && checkAHVNumber)
             {
-                // Erstellung neues Form "KontaktErstellen"
-                var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
-                kontaktErstellenForm.Show();
-            };
-            this.Close();
+                this.FormClosed += (s, arg) =>
+                {
+                    // Erstellung neues Form "KontaktErstellen"
+                    var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
+                    kontaktErstellenForm.Show();
+                };
+                this.Close();
+            }
         }
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
@@ -96,19 +101,35 @@ namespace Semesterprojekt
         }
 
         // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit
-        private void CheckAHVNumber(string ahvNumber)
+        private bool CheckAHVNumber(string ahvNumber)
         {
+           if (RdbCreatKntktKunde.Checked)
+            {
+                return true;
+            }
+
             bool checkAHVNumber = ValidationAHVNumber(ahvNumber);
+
             if (!checkAHVNumber)
             {
                 MessageBox.Show("Die AHV-Nummer ist ungültig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCreatKntktMaAHVNr.Focus();
+                TxtCreatKntktMaAHVNr.BackColor = Color.LightPink;
             }
+
+            else
+            {
+                TxtCreatKntktMaAHVNr.BackColor = SystemColors.Window;
+            }
+
+            return checkAHVNumber;
         }
 
         private bool ValidationAHVNumber(string ahvNumber)
         {
             // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
             string pattern = @"^756\.\d{4}\.\d{4}\.\d{2}$";
+            
             if (!Regex.IsMatch(ahvNumber, pattern))
                 return false;
 
@@ -121,6 +142,7 @@ namespace Semesterprojekt
 
             // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
             int total = 0;
+            
             for (int i = 0; i < 12; i++)
             {
                 int digit = int.Parse(ahvNumberNoPoints[i].ToString());
@@ -133,6 +155,65 @@ namespace Semesterprojekt
             int expectation = (10 - (total % 10)) % 10;
 
             return checkDigit == expectation;
+        }
+
+        private int CheckEmptyFields()
+        {
+            int countEmptyFields = 0;
+
+            TextBox[] checkEmptyFieldsAll = new TextBox[]
+            {
+                TxtCreatKntktMaAdr,
+                TxtCreatKntktMaPLZ,
+                TxtCreatKntktMaOrt,
+                TxtCreatKntktMaNationalitaet,
+                TxtCreatKntktMaOfficeAddress,
+                TxtCreatKntktEintrDatum,
+                TxtCreatKntktAustrDatum
+            };
+
+            foreach (TextBox field in checkEmptyFieldsAll)
+            {
+                bool checkEmptyFields = ValidationEmptyFields(field);
+                countEmptyFields += !checkEmptyFields ? 1 : 0;
+            }
+
+            if (RdbCreatKntktMa.Checked)
+            {
+                TextBox[] checkEmptyFieldsMA = new TextBox[]
+                {
+                    TxtCreatKntktMaAHVNr,
+                    TxtCreatKntktMaKader,
+                    TxtCreatKntktMaBeschGrad,
+                    TxtCreattKntktMaAbteilung,
+                    TxtCreatKntktMaRolle,
+                    TxtCreatKntktMaLehrj,
+                    TxtCreatKntktMaAktLehrj
+                };
+
+                foreach (TextBox field in checkEmptyFieldsMA)
+                {
+                    bool checkEmptyFields = ValidationEmptyFields(field);
+                    countEmptyFields += !checkEmptyFields ? 1 : 0;
+                }
+            }
+
+            return countEmptyFields;
+        }
+
+        private bool ValidationEmptyFields(TextBox field)
+        {
+            if (string.IsNullOrWhiteSpace(field.Text))
+            {
+                field.BackColor = Color.LightPink;
+                return false;
+            }
+
+            else
+            {
+                field.BackColor = SystemColors.Window;
+                return true;
+            }
         }
     }
 }
