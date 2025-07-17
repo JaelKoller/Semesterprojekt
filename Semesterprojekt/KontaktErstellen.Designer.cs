@@ -92,11 +92,11 @@
             // 
             // CmBxCreatKntktGeschlecht
             // 
-            CmBxCreatKntktGeschlecht.Enabled = false;
             CmBxCreatKntktGeschlecht.FormattingEnabled = true;
             CmBxCreatKntktGeschlecht.Items.AddRange(new object[] {
             "männlich",
-            "weiblich"});
+            "weiblich",
+            "divers"});
             CmBxCreatKntktGeschlecht.Location = new System.Drawing.Point(152, 165);
             CmBxCreatKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             CmBxCreatKntktGeschlecht.Name = "CmBxCreatKntktGeschlecht";
@@ -105,11 +105,11 @@
             // 
             // CmBxCreatKntktAnrede
             // 
-            CmBxCreatKntktAnrede.Enabled = false;
             CmBxCreatKntktAnrede.FormattingEnabled = true;
             CmBxCreatKntktAnrede.Items.AddRange(new object[] {
             "Herr",
-            "Frau"});
+            "Frau",
+            "keine"});
             CmBxCreatKntktAnrede.Location = new System.Drawing.Point(152, 22);
             CmBxCreatKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             CmBxCreatKntktAnrede.Name = "CmBxCreatKntktAnrede";
@@ -124,7 +124,7 @@
             this.GrpBxCreatKntktMaKunde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxCreatKntktMaKunde.Name = "GrpBxCreatKntktMaKunde";
             this.GrpBxCreatKntktMaKunde.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GrpBxCreatKntktMaKunde.Size = new System.Drawing.Size(217, 69);
+            this.GrpBxCreatKntktMaKunde.Size = new System.Drawing.Size(221, 69);
             this.GrpBxCreatKntktMaKunde.TabIndex = 0;
             this.GrpBxCreatKntktMaKunde.TabStop = false;
             // 
@@ -139,6 +139,7 @@
             this.RdbCreatKntktKunde.TabStop = true;
             this.RdbCreatKntktKunde.Text = "Kunde";
             this.RdbCreatKntktKunde.UseVisualStyleBackColor = true;
+            this.RdbCreatKntktKunde.CheckedChanged += new System.EventHandler(this.RdbCreatKntktKunde_CheckedChanged);
             // 
             // RdbCreatKntktMa
             // 
@@ -151,6 +152,7 @@
             this.RdbCreatKntktMa.TabStop = true;
             this.RdbCreatKntktMa.Text = "Mitarbeitende";
             this.RdbCreatKntktMa.UseVisualStyleBackColor = true;
+            this.RdbCreatKntktMa.CheckedChanged += new System.EventHandler(this.RdbCreatKntktMa_CheckedChanged);
             // 
             // GrpBxCreatKntktDatenAlle
             // 
@@ -492,6 +494,7 @@
             // 
             // TxtCreatKntktMaManr
             // 
+            this.TxtCreatKntktMaManr.Enabled = false;
             this.TxtCreatKntktMaManr.Location = new System.Drawing.Point(152, 22);
             this.TxtCreatKntktMaManr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaManr.Name = "TxtCreatKntktMaManr";
@@ -664,7 +667,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 1011);
+            this.ClientSize = new System.Drawing.Size(1014, 1011);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);
