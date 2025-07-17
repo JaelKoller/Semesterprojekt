@@ -15,6 +15,7 @@ namespace Semesterprojekt
         public AlleKontakte()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void LblAllKntktName_Click(object sender, EventArgs e)

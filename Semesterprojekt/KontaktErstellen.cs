@@ -12,19 +12,36 @@ namespace Semesterprojekt
 {
     public partial class KontaktErstellen : Form
     {
-        public KontaktErstellen()
+        // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
+        string typeOfContactNew;
+        
+        public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Initalisierung Radio-Button bzgl. Kontaktart
+            typeOfContactNew = typeOfContact;
+            if (typeOfContactNew == "mitarbeitende")
+            {
+                RdbCreatKntktMa.Checked = true;
+            }
+            else if (typeOfContactNew == "kunde")
+            {
+                RdbCreatKntktKunde.Checked = true;
+            }
 
         }
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            // Erstellung neues Form "KontaktErstellen"
-            var kontaktErstellenForm = new KontaktErstellen();
-            kontaktErstellenForm.FormClosed += (s, arg) => this.Show();
-            kontaktErstellenForm.Show();
-            this.Hide();
+            this.FormClosed += (s, arg) =>
+            {
+                // Erstellung neues Form "KontaktErstellen"
+                var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
+                kontaktErstellenForm.Show();
+            };
+            this.Close();
         }
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)

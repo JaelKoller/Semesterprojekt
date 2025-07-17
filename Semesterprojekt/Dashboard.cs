@@ -15,14 +15,15 @@ namespace Semesterprojekt
         public Dashboard()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // Methode für Aufruf Form "KontaktErstellen" (Mitarbeiter und/oder Kunde hinzufügen)
         // Form "Dashboard" wird dabei in den Hintergrund "gestellt"
-        private void KontaktErstellen()
+        private void KontaktErstellen(string typeOfContact)
         {
             // Initialisierung "KontaktErstellen" für Absprung via Buttons "Mitarbeiter hinzufügen" und "Kunde hinzufügen"
-            var kontaktErstellenForm = new KontaktErstellen();
+            var kontaktErstellenForm = new KontaktErstellen(typeOfContact);
             kontaktErstellenForm.FormClosed += (s, arg) => this.Show();
             kontaktErstellenForm.Show();
             this.Hide();
@@ -30,12 +31,12 @@ namespace Semesterprojekt
 
         private void BtnDashKndNew_Click(object sender, EventArgs e)
         {
-            KontaktErstellen();
+            KontaktErstellen("kunde");
         }
 
         private void BtnDashMaNew_Click(object sender, EventArgs e)
         {
-            KontaktErstellen();
+            KontaktErstellen("mitarbeitende");
         }
 
         private void BtnDashAllKntkt_Click(object sender, EventArgs e)
