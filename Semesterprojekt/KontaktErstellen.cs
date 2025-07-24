@@ -59,11 +59,17 @@ namespace Semesterprojekt
             int startLocationMaKd = 20;
             int labelXAchseMaKd = 10;
             int controlXAchseMaKd = 135;
+            int tabIndexCounterMaKd = 1;
 
             for (int i = 0; i < groupFieldEmployeesAndCustomers.Length; i++)
             {
                 groupLabelEmployeesAndCustomers[i].Location = new Point(labelXAchseMaKd, startLocationMaKd);
                 groupFieldEmployeesAndCustomers[i].Location = new Point(controlXAchseMaKd, startLocationMaKd);
+
+                // Label irrelevant für Tab und daher fix mit 0
+                groupLabelEmployeesAndCustomers[i].TabIndex = 0;
+                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
+                groupFieldEmployeesAndCustomers[i].TabIndex = tabIndexCounterMaKd++;
 
                 startLocationMaKd += 30;
             }
@@ -78,11 +84,17 @@ namespace Semesterprojekt
             int startLocationMa = 20;
             int labelXAchseMa = 10;
             int controlXAchseMa = 135;
+            int tabIndexCounterMa = tabIndexCounterMaKd;
 
             for (int i = 0; i < groupFieldEmployees.Length; i++)
             {
                 groupLabelEmployees[i].Location = new Point(labelXAchseMa, startLocationMa);
                 groupFieldEmployees[i].Location = new Point(controlXAchseMa, startLocationMa);
+
+                // Label irrelevant für Tab und daher fix mit 0
+                groupLabelEmployees[i].TabIndex = 0;
+                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
+                groupFieldEmployees[i].TabIndex = tabIndexCounterMa++;
 
                 startLocationMa += 30;
             }
@@ -102,8 +114,8 @@ namespace Semesterprojekt
             {
                 LblCreatKntktTitel,
                 LblCreatKntktAnrede,
-                LblCreatKntktName,
                 LblCreatKntktVorname,
+                LblCreatKntktName,
                 LblCreatKntktBirthday,
                 LblCreatKntktGeschlecht,
                 LblCreatKntktAdresse,
@@ -146,8 +158,8 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktTitel,
                 CmBxCreatKntktAnrede,
-                TxtCreatKntktName,
                 TxtCreatKntktVorname,
+                TxtCreatKntktName,
                 DateCreatKntktBirthday,
                 CmBxCreatKntktGeschlecht,
                 TxtCreatKntktAdr,
@@ -176,8 +188,8 @@ namespace Semesterprojekt
                 TxtCreatKntktMaLehrj,
                 TxtCreatKntktMaAktLehrj,
                 TxtCreatKntktMaOfficeAddress,
-                TxtCreatKntktEintrDatum,
-                TxtCreatKntktAustrDatum
+                DateCreatKntktEintrDatum,
+                DateCreatKntktAustrDatum
             };
 
             return groupFieldEmployees;
@@ -370,7 +382,7 @@ namespace Semesterprojekt
                 TxtCreatKntktMaLehrj,
                 TxtCreatKntktMaAktLehrj,
                 TxtCreatKntktMaOfficeAddress,
-                TxtCreatKntktAustrDatum,
+                DateCreatKntktAustrDatum,
             };
 
             return checkEmptyFieldsIgnore;
