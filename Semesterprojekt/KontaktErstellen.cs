@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -50,54 +51,22 @@ namespace Semesterprojekt
             RdbCreatKntktKunde.Location = new Point(120, 15);
 
             // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende UND Kunde (alle)
-            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
-
             // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
-            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
-
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
-            int startLocationMaKd = 20;
-            int labelXAchseMaKd = 10;
-            int controlXAchseMaKd = 135;
-            int tabIndexCounterMaKd = 1;
-
-            for (int i = 0; i < groupFieldEmployeesAndCustomers.Length; i++)
-            {
-                groupLabelEmployeesAndCustomers[i].Location = new Point(labelXAchseMaKd, startLocationMaKd);
-                groupFieldEmployeesAndCustomers[i].Location = new Point(controlXAchseMaKd, startLocationMaKd);
-
-                // Label irrelevant für Tab und daher fix mit 0
-                groupLabelEmployeesAndCustomers[i].TabIndex = 0;
-                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
-                groupFieldEmployeesAndCustomers[i].TabIndex = tabIndexCounterMaKd++;
-
-                startLocationMaKd += 30;
-            }
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit 1 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit TRUE (für OK-Fall) 
+            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
+            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
+            int tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, 1);
 
             // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende (ohne Kunde)
-            System.Windows.Forms.Label[] groupLabelEmployees = GroupLabelEmployees();
-
             // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
-            Control[] groupFieldEmployees = GroupFieldEmployees();
-
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
-            int startLocationMa = 20;
-            int labelXAchseMa = 10;
-            int controlXAchseMa = 135;
-            int tabIndexCounterMa = tabIndexCounterMaKd;
-
-            for (int i = 0; i < groupFieldEmployees.Length; i++)
-            {
-                groupLabelEmployees[i].Location = new Point(labelXAchseMa, startLocationMa);
-                groupFieldEmployees[i].Location = new Point(controlXAchseMa, startLocationMa);
-
-                // Label irrelevant für Tab und daher fix mit 0
-                groupLabelEmployees[i].TabIndex = 0;
-                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
-                groupFieldEmployees[i].TabIndex = tabIndexCounterMa++;
-
-                startLocationMa += 30;
-            }
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) fortführend
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) mit TRUE (für OK-Fall) 
+            System.Windows.Forms.Label[] groupLabelEmployees = GroupLabelEmployees();
+            Control[] groupFieldEmployees = GroupFieldEmployees();
+            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
             CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
@@ -106,6 +75,32 @@ namespace Semesterprojekt
             CmdCreateKntktDashboard.Location = new Point(575, 470);
         }
 
+        // Platzierung Labels und Eingabefelder (dynamisch)
+        private int PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, int indexCounter)
+        {
+            int startLocation = 20;
+            int labelXAchse = 10;
+            int controlXAchse = 135;
+            int tabIndexCounter = indexCounter;
+
+            for (int i = 0; i < groupField.Length; i++)
+            {
+                groupLabel[i].Location = new Point(labelXAchse, startLocation);
+                groupField[i].Location = new Point(controlXAchse, startLocation);
+
+                startLocation += 30;
+
+                // Label irrelevant für Tab und daher fix mit 0
+                groupLabel[i].TabIndex = 0;
+                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
+                groupField[i].TabIndex = tabIndexCounter++;
+
+                // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
+                groupField[i].Tag = "true";
+            }
+
+            return tabIndexCounter;
+        }
 
         // Erstellung Array für Labels der Gruppe Mitarbeitende UND Kunde (alle)
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
@@ -163,7 +158,7 @@ namespace Semesterprojekt
                 DateCreatKntktBirthday,
                 CmBxCreatKntktGeschlecht,
                 TxtCreatKntktAdr,
-                NumCreatKntktPLZ,
+                TxtCreatKntktPLZ,
                 TxtCreatKntktOrt,
                 TxtCreatKntktTelGeschaeft,
                 TxtCreatKntktTelMobile,
@@ -240,16 +235,20 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            bool checkAHVNumber = false;
-            int countEmptyFields = CheckEmptyFields();
+            ValidationFields();
 
+            List<Control> groupFieldAll = new List<Control>();
+            groupFieldAll.AddRange(GroupFieldEmployeesAndCustomers());
+            groupFieldAll.AddRange(GroupFieldEmployees());
 
-            if (countEmptyFields == 0)
+            bool checkFieldTag = true;
+
+            foreach (Control field in groupFieldAll)
             {
-                checkAHVNumber = CheckAHVNumber(TxtCreatKntktMaAHVNr.Text);
+                checkFieldTag = field.Tag == "false" ? false : checkFieldTag;
             }
 
-            if (countEmptyFields == 0 && checkAHVNumber)
+            if (checkFieldTag)
             {
                 this.FormClosed += (s, arg) =>
                 {
@@ -263,22 +262,166 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // AUSARBEITUNG bzgl. SPEICHERUNG OFFEN
         }
 
-        // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit
-        private bool CheckAHVNumber(string ahvNumber)
+        // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
+        private void ValidationFields()
         {
-           if (RdbCreatKntktKunde.Checked)
+            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
+            Control[] groupFieldEmployees = GroupFieldEmployees();
+
+            foreach (Control field in groupFieldEmployeesAndCustomers)
             {
-                return true;
+                CheckFields(field);
             }
 
-            bool checkAHVNumber = ValidationAHVNumber(ahvNumber);
+            if (RdbCreatKntktMa.Checked)
+            {
+                foreach (Control field in groupFieldEmployees)
+                {
+                    CheckFields(field);
+                }
+            }
+
+            List<Control> groupFieldAll = new List<Control>();
+            groupFieldAll.AddRange(groupFieldEmployeesAndCustomers);
+            groupFieldAll.AddRange(groupFieldEmployees);
+
+            ValidationFieldsExtension(groupFieldAll);           
+        }
+
+        // Prüfung einzelner Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
+        private void CheckFields(Control field)
+        {
+            Control[] checkFieldIgnore = CheckFieldIgnore();
+
+            if (checkFieldIgnore.Contains(field))
+            {
+                return;
+            }
+
+            else if (field is ComboBox cbxField && string.IsNullOrWhiteSpace(field.Text))
+            {
+                // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
+                field.Tag = "false";
+            }
+
+            else if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
+            {
+                // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
+                field.Tag = "false";
+            }
+
+            else if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
+            {
+                numField.BackColor = Color.LightPink;
+                field.Tag = "false";
+            }
+
+            else if (string.IsNullOrWhiteSpace(field.Text))
+            {
+                field.BackColor = Color.LightPink;
+                field.Tag = "false";
+            }
+
+            else
+            {
+                field.BackColor = SystemColors.Window;
+                field.Tag = "true";
+            }
+        }
+
+        // Prüfung einzelner Spezifalfelder gemäss Erwartungen inkl. Popup
+        private void ValidationFieldsExtension(List<Control> groupFieldAll)
+        {
+            bool checkBackColor = false;
+            
+            foreach (Control field in groupFieldAll)
+            {
+                checkBackColor = field.BackColor == Color.LightPink ? true : checkBackColor;
+            }
+
+            foreach (Control field in groupFieldAll)
+            {
+                if (checkBackColor)
+                {
+                    ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!");
+                    return;
+                }
+                
+                else if (CmBxCreatKntktAnrede.Tag == "false")
+                {
+                    ShowMessageBox("Anrede fehlt");
+                    return;
+                }
+
+                else if (DateCreatKntktBirthday.Tag == "false")
+                {
+                    ShowMessageBox(@"Geburtsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                    DateCreatKntktBirthday.Focus();
+                    return;
+                }
+
+                else if (CmBxCreatKntktGeschlecht.Tag == "false")
+                {
+                    ShowMessageBox("Geschlecht fehlt");
+                    return;
+                }
+
+                else if (TxtCreatKntktPLZ.Tag == "true" || TxtCreatKntktPLZ.Tag == "false")
+                {
+                    CheckPLZNumber();
+                    return;
+                }
+
+                else if (TxtCreatKntktMaAHVNr.Tag == "true" || TxtCreatKntktMaAHVNr.Tag == "false")
+                {
+                    CheckAHVNumber();
+                    return;
+                }
+
+                else if (DateCreatKntktEintrDatum.Tag == "false")
+                {
+                    ShowMessageBox(@"Eintrittsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                    DateCreatKntktEintrDatum.Focus();
+                    return;
+                }
+            }
+        }
+
+        // Prüfung Format auf 4 bis 5 Zahlen (Standard für Schweiz und umliegende Länder)
+        private void CheckPLZNumber()
+        {
+            bool checkPLZNumber = Regex.IsMatch(TxtCreatKntktPLZ.Text, @"^\d{4,5}$");
+
+            if (Regex.IsMatch(TxtCreatKntktPLZ.Text, @"^\d{4,5}$"))
+            {
+                TxtCreatKntktPLZ.Tag = "true";
+            }
+
+            else
+            {
+                TxtCreatKntktPLZ.Tag = "false";
+                ShowMessageBox(string.Format(@"PLZ ""{0}"" ist ungültig", TxtCreatKntktPLZ.Text));
+                TxtCreatKntktPLZ.Focus();
+            }
+        }
+
+        // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
+        private void CheckAHVNumber()
+        {
+            if (RdbCreatKntktKunde.Checked || TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH")
+            {
+                TxtCreatKntktMaAHVNr.BackColor = SystemColors.Window;
+                TxtCreatKntktMaAHVNr.Tag = "true";
+            }
+
+            bool checkAHVNumber = ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text);
 
             if (!checkAHVNumber)
             {
-                MessageBox.Show("Die AHV-Nummer ist ungültig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowMessageBox(string.Format(@"AHV-Nummer ""{0}"" ist ungültig", TxtCreatKntktMaAHVNr.Text));
                 TxtCreatKntktMaAHVNr.Focus();
                 TxtCreatKntktMaAHVNr.BackColor = Color.LightPink;
             }
@@ -287,15 +430,14 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktMaAHVNr.BackColor = SystemColors.Window;
             }
-
-            return checkAHVNumber;
         }
 
+        // Prüfung AHV-Nummer auf Korrektheit und vollständigkeit (2. Schritt)
         private bool ValidationAHVNumber(string ahvNumber)
         {
             // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
             string pattern = @"^756\.\d{4}\.\d{4}\.\d{2}$";
-            
+
             if (!Regex.IsMatch(ahvNumber, pattern))
                 return false;
 
@@ -308,7 +450,7 @@ namespace Semesterprojekt
 
             // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
             int total = 0;
-            
+
             for (int i = 0; i < 12; i++)
             {
                 int digit = int.Parse(ahvNumberNoPoints[i].ToString());
@@ -323,69 +465,27 @@ namespace Semesterprojekt
             return checkDigit == expectation;
         }
 
-        private int CheckEmptyFields()
+        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben gemäss Erwartungen
+        private void ShowMessageBox (string message)
         {
-            int countEmptyFields = 0;
-
-            Control[] checkEmptyFieldsAll = GroupFieldEmployeesAndCustomers();
-
-            foreach (Control field in checkEmptyFieldsAll)
-            {
-                bool checkEmptyFields = ValidationEmptyFields(field);
-                countEmptyFields += !checkEmptyFields ? 1 : 0;
-            }
-
-            if (RdbCreatKntktMa.Checked)
-            {
-                Control[] checkEmptyFieldsMA = GroupFieldEmployees();
-
-                foreach (Control field in checkEmptyFieldsMA)
-                {
-                    bool checkEmptyFields = ValidationEmptyFields(field);
-                    countEmptyFields += !checkEmptyFields ? 1 : 0;
-                }
-            }
-
-            return countEmptyFields;
-        }
-
-        private bool ValidationEmptyFields(Control field)
-        {
-            Control[] checkEmptyFieldsIgnore = CheckEmptyFieldsIgnore();
-
-            if (checkEmptyFieldsIgnore.Contains(field))
-            {
-                return true;
-            }
-
-            else if (string.IsNullOrWhiteSpace(field.Text))
-            {
-                field.BackColor = Color.LightPink;
-                return false;
-            }
-
-            else
-            {
-                field.BackColor = SystemColors.Window;
-                return true;
-            }
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         // Erstellung Array für KEINE-Pflichtfelder-Prüfung
-        private Control[] CheckEmptyFieldsIgnore()
+        private Control[] CheckFieldIgnore()
         {
-            Control[] checkEmptyFieldsIgnore = new Control[]
+            Control[] checkFieldIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
-                TxtCreatKntktTelGeschaeft, // evtl. für Mitarbeitende Pflicht?
+                (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null), // bei Mitarbeitenden bleibt das Feld "Pflicht"
+                (TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
-                NumCreatKntktMaOfficeNumber,
                 DateCreatKntktAustrDatum,
             };
 
-            return checkEmptyFieldsIgnore;
+            return checkFieldIgnore;
         }
     }
 }

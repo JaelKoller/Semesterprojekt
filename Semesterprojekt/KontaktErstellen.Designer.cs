@@ -82,7 +82,7 @@
             this.TxtCreattKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
-            this.NumCreatKntktPLZ = new System.Windows.Forms.NumericUpDown();
+            this.TxtCreatKntktPLZ = new System.Windows.Forms.TextBox();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
@@ -90,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktPLZ)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpBxCreatKntktMaKunde
@@ -133,7 +132,7 @@
             // 
             // GrpBxCreatKntktDatenAlle
             // 
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.NumCreatKntktPLZ);
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktPLZ);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktAnrede);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktGeschlecht);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktEmail);
@@ -167,6 +166,7 @@
             // 
             // CmBxCreatKntktAnrede
             // 
+            this.CmBxCreatKntktAnrede.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmBxCreatKntktAnrede.FormattingEnabled = true;
             this.CmBxCreatKntktAnrede.Items.AddRange(new object[] {
             "Herr",
@@ -179,6 +179,7 @@
             // 
             // CmBxCreatKntktGeschlecht
             // 
+            this.CmBxCreatKntktGeschlecht.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmBxCreatKntktGeschlecht.FormattingEnabled = true;
             this.CmBxCreatKntktGeschlecht.Items.AddRange(new object[] {
             "männlich",
@@ -446,6 +447,11 @@
             // NumCreatKntktMaBeschGrad
             // 
             this.NumCreatKntktMaBeschGrad.Location = new System.Drawing.Point(150, 171);
+            this.NumCreatKntktMaBeschGrad.Maximum = new decimal(new int[] {
+            101,
+            0,
+            0,
+            0});
             this.NumCreatKntktMaBeschGrad.Name = "NumCreatKntktMaBeschGrad";
             this.NumCreatKntktMaBeschGrad.Size = new System.Drawing.Size(291, 26);
             this.NumCreatKntktMaBeschGrad.TabIndex = 53;
@@ -454,7 +460,7 @@
             // 
             this.NumCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(163, 372);
             this.NumCreatKntktMaOfficeNumber.Maximum = new decimal(new int[] {
-            999,
+            1000,
             0,
             0,
             0});
@@ -682,23 +688,20 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
-            // NumCreatKntktPLZ
+            // TxtCreatKntktPLZ
             // 
-            this.NumCreatKntktPLZ.Location = new System.Drawing.Point(151, 386);
-            this.NumCreatKntktPLZ.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.NumCreatKntktPLZ.Name = "NumCreatKntktPLZ";
-            this.NumCreatKntktPLZ.Size = new System.Drawing.Size(291, 26);
-            this.NumCreatKntktPLZ.TabIndex = 56;
+            this.TxtCreatKntktPLZ.Location = new System.Drawing.Point(152, 389);
+            this.TxtCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktPLZ.MaxLength = 5;
+            this.TxtCreatKntktPLZ.Name = "TxtCreatKntktPLZ";
+            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktPLZ.TabIndex = 57;
             // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1343, 1168);
+            this.ClientSize = new System.Drawing.Size(895, 778);
             this.Controls.Add(this.CmdCreateKntktKontaktErstellen);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);
@@ -717,7 +720,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktPLZ)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,6 +780,6 @@
         private System.Windows.Forms.NumericUpDown NumCreatKntktMaAktLehrj;
         private System.Windows.Forms.NumericUpDown NumCreatKntktMaLehrj;
         private System.Windows.Forms.NumericUpDown NumCreatKntktMaBeschGrad;
-        private System.Windows.Forms.NumericUpDown NumCreatKntktPLZ;
+        private System.Windows.Forms.TextBox TxtCreatKntktPLZ;
     }
 }
