@@ -235,18 +235,7 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            ValidationFields();
-
-            List<Control> groupFieldAll = new List<Control>();
-            groupFieldAll.AddRange(GroupFieldEmployeesAndCustomers());
-            groupFieldAll.AddRange(GroupFieldEmployees());
-
-            bool checkFieldTag = true;
-
-            foreach (Control field in groupFieldAll)
-            {
-                checkFieldTag = field.Tag == "false" ? false : checkFieldTag;
-            }
+            bool checkFieldTag = ValidationFields();
 
             if (checkFieldTag)
             {
@@ -262,12 +251,18 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
-            this.Close(); // AUSARBEITUNG bzgl. SPEICHERUNG OFFEN
+            bool checkFieldTag = ValidationFields();
+
+            if (checkFieldTag)
+            {
+                this.Close();
+            }
         }
 
         // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
-        private void ValidationFields()
+        private bool ValidationFields()
         {
+            // Prüfung (Grundlagen)
             Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
             Control[] groupFieldEmployees = GroupFieldEmployees();
 
@@ -284,11 +279,22 @@ namespace Semesterprojekt
                 }
             }
 
+            // Prüfung (vertieft)
             List<Control> groupFieldAll = new List<Control>();
             groupFieldAll.AddRange(groupFieldEmployeesAndCustomers);
             groupFieldAll.AddRange(groupFieldEmployees);
 
-            ValidationFieldsExtension(groupFieldAll);           
+            ValidationFieldsExtension(groupFieldAll);
+
+            // Ausgabe Validierungsstatus (für Speichervorgang)
+            bool checkFieldTag = true;
+
+            foreach (Control field in groupFieldAll)
+            {
+                checkFieldTag = field.Tag == "false" ? false : checkFieldTag;
+            }
+
+            return checkFieldTag;
         }
 
         // Prüfung einzelner Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
