@@ -143,7 +143,7 @@ namespace Semesterprojekt
                 LblCreatKntktMaRolle,
                 LblCreatKntktMaLehrj,
                 LblCreatKntktMaAktLehrj,
-                LblCreatKntktMaOfficeAddress,
+                LblCreatKntktMaOfficeNumber,
                 LblCreatKntktEintrDatum,
                 LblCreatKntktAustrDatum
             };
@@ -163,7 +163,7 @@ namespace Semesterprojekt
                 DateCreatKntktBirthday,
                 CmBxCreatKntktGeschlecht,
                 TxtCreatKntktAdr,
-                TxtCreatKntktPLZ,
+                NumCreatKntktPLZ,
                 TxtCreatKntktOrt,
                 TxtCreatKntktTelGeschaeft,
                 TxtCreatKntktTelMobile,
@@ -182,12 +182,12 @@ namespace Semesterprojekt
                 TxtCreatKntktMaAHVNr,
                 TxtCreatKntktMaNationalitaet,
                 TxtCreatKntktMaKader,
-                TxtCreatKntktMaBeschGrad,
+                NumCreatKntktMaBeschGrad,
                 TxtCreattKntktMaAbteilung,
                 TxtCreatKntktMaRolle,
-                TxtCreatKntktMaLehrj,
-                TxtCreatKntktMaAktLehrj,
-                TxtCreatKntktMaOfficeAddress,
+                NumCreatKntktMaLehrj,
+                NumCreatKntktMaAktLehrj,
+                NumCreatKntktMaOfficeNumber,
                 DateCreatKntktEintrDatum,
                 DateCreatKntktAustrDatum
             };
@@ -379,9 +379,9 @@ namespace Semesterprojekt
                 TxtCreatKntktTitel,
                 TxtCreatKntktTelGeschaeft, // evtl. für Mitarbeitende Pflicht?
                 TxtCreatKntktMaKader,
-                TxtCreatKntktMaLehrj,
-                TxtCreatKntktMaAktLehrj,
-                TxtCreatKntktMaOfficeAddress,
+                NumCreatKntktMaLehrj,
+                NumCreatKntktMaAktLehrj,
+                NumCreatKntktMaOfficeNumber,
                 DateCreatKntktAustrDatum,
             };
 
