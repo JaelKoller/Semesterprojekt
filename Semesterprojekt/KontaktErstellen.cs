@@ -613,6 +613,12 @@ namespace Semesterprojekt
                     }
                 }
 
+                // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
+                if (!CheckDuplicateContact(contactList, contact))
+                {
+                    return;
+                }
+                
                 // Hinzufügen neuer Kontakt zur neuen Liste
                 contactList.Add(contact);
 
@@ -629,7 +635,7 @@ namespace Semesterprojekt
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
-                MessageBox.Show($"Fehler beim Speichern: {exception.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Fehler beim Speichern:{0}", exception), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -649,6 +655,39 @@ namespace Semesterprojekt
                 return num.Value.ToString();
 
             return string.Empty;
+        }
+
+        private bool CheckDuplicateContact(List<ContactData> contactList, ContactData newContact)
+        {
+            newContact.Fields.TryGetValue("TxtCreatKntktVorname", out var newFirstNameRaw);
+            newContact.Fields.TryGetValue("TxtCreatKntktName", out var newLastNameRaw);
+            newContact.Fields.TryGetValue("DateCreatKntktBirthday", out var newDateOfBirthRaw);
+
+            string newFirstName = newFirstNameRaw?.Trim().ToLower() ?? "";
+            string newLastName = newLastNameRaw?.Trim().ToLower() ?? "";
+            string newDateOfBirth = newDateOfBirthRaw ?? "";
+
+            foreach (ContactData oldContact in contactList)
+            {
+                oldContact.Fields.TryGetValue("TxtCreatKntktVorname", out var oldFirstNameRaw);
+                oldContact.Fields.TryGetValue("TxtCreatKntktName", out var oldLastNameRaw);
+                oldContact.Fields.TryGetValue("DateCreatKntktBirthday", out var oldDateOfBirthRaw);
+
+                string oldFirstName = oldFirstNameRaw?.Trim().ToLower() ?? "";
+                string oldLastName = oldLastNameRaw?.Trim().ToLower() ?? "";
+                string oldDateOfBirth = oldDateOfBirthRaw ?? "";
+
+                if (newFirstName.Split(' ')[0] == oldFirstName.Split(' ')[0] && newLastName.Split(' ')[0] == oldLastName.Split(' ')[0] && newDateOfBirth == oldDateOfBirth)
+                {
+                    DialogResult result = MessageBox.Show(
+                        string.Format("{0} {1}, {2} bereits vorhanden\r\nSoll neuer Kontakt trotzdem gespeichert werden?", oldFirstNameRaw, oldLastNameRaw, oldDateOfBirthRaw),
+                        "Duplikatencheck", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    return result == DialogResult.Yes;
+                }
+            }
+
+            return true;
         }
     }
 }
