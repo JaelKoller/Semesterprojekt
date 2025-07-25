@@ -29,6 +29,14 @@ namespace Semesterprojekt
         // Initialisierung mehrfach verwendeter Index-Counter
         private int tabIndexCounter = 1;
 
+        // Initialisierung mehrfach verwendeter BackColor
+        private Color backColorOK = SystemColors.Window;
+        private Color backColorNOK = Color.LightPink;
+
+        // Initialisierung mehrfach verwendetes Tag
+        private string tagOK = "true";
+        private string tagNOK = "false";
+
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
@@ -40,7 +48,6 @@ namespace Semesterprojekt
             groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
             groupLabelEmployees = GroupLabelEmployees();
             groupFieldEmployees = GroupFieldEmployees();
-            checkFieldIgnore = CheckFieldIgnore();
 
             Design();
 
@@ -106,7 +113,7 @@ namespace Semesterprojekt
                 groupField[i].TabIndex = tabIndexCounter++;
 
                 // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
-                groupField[i].Tag = "true";
+                groupField[i].Tag = tagOK;
             }
 
             return tabIndexCounter;
@@ -207,7 +214,7 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktTitel,
                 (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null), // bei Mitarbeitenden bleibt das Feld "Pflicht"
-                (TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
+                (!string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) && TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
@@ -315,7 +322,7 @@ namespace Semesterprojekt
 
             foreach (Control field in groupFieldAll)
             {
-                checkFieldTag = field.Tag == "false" ? false : checkFieldTag;
+                checkFieldTag = field.Tag == tagNOK ? false : checkFieldTag;
             }
 
             return checkFieldTag;
@@ -324,139 +331,153 @@ namespace Semesterprojekt
         // Prüfung einzelner Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
         private void CheckFields(Control field)
         {
+            Control[] checkFieldIgnore = CheckFieldIgnore();
+
             if (checkFieldIgnore.Contains(field))
             {
+                field.BackColor = backColorOK;
+                field.Tag = tagOK;
                 return;
             }
 
-            else if (field is ComboBox cbxField && string.IsNullOrWhiteSpace(field.Text))
+            if (field is ComboBox cbxField && string.IsNullOrWhiteSpace(field.Text))
             {
                 // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                field.Tag = "false";
+                field.Tag = tagNOK;
+                return;
             }
 
-            else if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
+            if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
             {
                 // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                field.Tag = "false";
+                field.Tag = tagNOK;
+                return;
             }
 
-            else if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
+            if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
             {
-                numField.BackColor = Color.LightPink;
-                field.Tag = "false";
+                numField.BackColor = backColorNOK;
+                field.Tag = tagNOK;
+                return;
             }
 
-            else if (string.IsNullOrWhiteSpace(field.Text))
+            if (string.IsNullOrWhiteSpace(field.Text))
             {
-                field.BackColor = Color.LightPink;
-                field.Tag = "false";
+                field.BackColor = backColorNOK;
+                field.Tag = tagNOK;
+                return;
             }
 
-            else
-            {
-                field.BackColor = SystemColors.Window;
-                field.Tag = "true";
-            }
+            field.BackColor = backColorOK;
+            field.Tag = tagOK;
         }
 
         // Prüfung einzelner Spezifalfelder gemäss Erwartungen inkl. Popup
         private void ValidationFieldsExtension(List<Control> groupFieldAll)
         {
-            bool checkBackColor = false;
-            
             foreach (Control field in groupFieldAll)
             {
-                checkBackColor = field.BackColor == Color.LightPink ? true : checkBackColor;
-            }
-
-            foreach (Control field in groupFieldAll)
-            {
-                if (checkBackColor)
+                if (field.BackColor == backColorNOK)
                 {
                     ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!");
                     return;
                 }
-                
-                else if (CmBxCreatKntktAnrede.Tag == "false")
-                {
-                    ShowMessageBox("Anrede fehlt");
-                    return;
-                }
+            }
 
-                else if (DateCreatKntktBirthday.Tag == "false")
-                {
-                    ShowMessageBox(@"Geburtsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
-                    DateCreatKntktBirthday.Focus();
-                    return;
-                }
+            if (CmBxCreatKntktAnrede.Tag == tagNOK)
+            {
+                ShowMessageBox("Anrede fehlt");
+                return;
+            }
 
-                else if (CmBxCreatKntktGeschlecht.Tag == "false")
-                {
-                    ShowMessageBox("Geschlecht fehlt");
-                    return;
-                }
+            if (DateCreatKntktBirthday.Tag == tagNOK)
+            {
+                ShowMessageBox(@"Geburtsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                DateCreatKntktBirthday.Focus();
+                return;
+            }
+            
+            if (CmBxCreatKntktGeschlecht.Tag == tagNOK)
+            {
+                ShowMessageBox("Geschlecht fehlt");
+                return;
+            }
 
-                else if (TxtCreatKntktPLZ.Tag == "true" || TxtCreatKntktPLZ.Tag == "false")
-                {
-                    CheckPLZNumber();
-                    return;
-                }
+            CheckPLZNumber();
+            if (TxtCreatKntktPLZ.Tag == tagNOK)
+                return;
 
-                else if (TxtCreatKntktMaAHVNr.Tag == "true" || TxtCreatKntktMaAHVNr.Tag == "false")
-                {
-                    CheckAHVNumber();
-                    return;
-                }
+            CheckEMail();
+            if (TxtCreatKntktEmail.Tag == tagNOK)
+                return;
 
-                else if (DateCreatKntktEintrDatum.Tag == "false")
-                {
-                    ShowMessageBox(@"Eintrittsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
-                    DateCreatKntktEintrDatum.Focus();
-                    return;
-                }
+            CheckAHVNumber();
+            if (TxtCreatKntktMaAHVNr.Tag == tagNOK)
+                return;
+            
+            if (DateCreatKntktEintrDatum.Tag == tagNOK)
+            {
+                ShowMessageBox(@"Eintrittsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                DateCreatKntktEintrDatum.Focus();
+                return;
             }
         }
 
         // Prüfung Format auf 4 bis 5 Zahlen (Standard für Schweiz und umliegende Länder)
         private void CheckPLZNumber()
         {
-            bool checkPLZNumber = Regex.IsMatch(TxtCreatKntktPLZ.Text, @"^\d{4,5}$");
-
             if (Regex.IsMatch(TxtCreatKntktPLZ.Text, @"^\d{4,5}$"))
             {
-                TxtCreatKntktPLZ.Tag = "true";
+                TxtCreatKntktPLZ.BackColor = backColorOK;
+                TxtCreatKntktPLZ.Tag = tagOK;
             }
 
             else
             {
-                TxtCreatKntktPLZ.Tag = "false";
+                TxtCreatKntktPLZ.BackColor = backColorNOK;
+                TxtCreatKntktPLZ.Tag = tagNOK;
                 ShowMessageBox(string.Format(@"PLZ ""{0}"" ist ungültig", TxtCreatKntktPLZ.Text));
                 TxtCreatKntktPLZ.Focus();
+            }
+        }
+
+        private void CheckEMail()
+        {           
+            if (Regex.IsMatch(TxtCreatKntktEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                TxtCreatKntktEmail.BackColor = backColorOK;
+                TxtCreatKntktEmail.Tag = tagOK;
+            }
+
+            else
+            {
+                TxtCreatKntktEmail.BackColor = backColorNOK;
+                TxtCreatKntktEmail.Tag = tagNOK;
+                ShowMessageBox(string.Format(@"E-Mail ""{0}"" ist ungültig", TxtCreatKntktEmail.Text));
+                TxtCreatKntktEmail.Focus();
             }
         }
 
         // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
         private void CheckAHVNumber()
         {
-            if (RdbCreatKntktKunde.Checked || TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH")
+            if (RdbCreatKntktKunde.Checked || string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) || TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH")
             {
-                TxtCreatKntktMaAHVNr.BackColor = SystemColors.Window;
-                TxtCreatKntktMaAHVNr.Tag = "true";
+                TxtCreatKntktMaAHVNr.BackColor = backColorOK;
+                TxtCreatKntktMaAHVNr.Tag = tagOK;
             }
 
-            bool checkAHVNumber = ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text);
-
-            if (!checkAHVNumber)
+            if (!ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text))
             {
+                TxtCreatKntktMaAHVNr.BackColor = backColorNOK;
                 ShowMessageBox(string.Format(@"AHV-Nummer ""{0}"" ist ungültig", TxtCreatKntktMaAHVNr.Text));
                 TxtCreatKntktMaAHVNr.Focus();
-                TxtCreatKntktMaAHVNr.BackColor = Color.LightPink;
+
             }
 
             else
             {
-                TxtCreatKntktMaAHVNr.BackColor = SystemColors.Window;
+                TxtCreatKntktMaAHVNr.BackColor = backColorOK;
             }
         }
 
