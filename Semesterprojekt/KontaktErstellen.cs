@@ -18,12 +18,30 @@ namespace Semesterprojekt
     {
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
         private string typeOfContactNew;
-        
+
+        // Initialisierung mehrfach verwendete Control-Gruppen
+        private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
+        private Control[] groupFieldEmployeesAndCustomers;
+        private System.Windows.Forms.Label[] groupLabelEmployees;
+        private Control[] groupFieldEmployees;
+        private Control[] checkFieldIgnore;
+
+        // Initialisierung mehrfach verwendeter Index-Counter
+        private int tabIndexCounter = 1;
+
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
             this.Size = new Size(750, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Initialisierung mehrfach verwendete Control-Gruppen
+            groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
+            groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
+            groupLabelEmployees = GroupLabelEmployees();
+            groupFieldEmployees = GroupFieldEmployees();
+            checkFieldIgnore = CheckFieldIgnore();
+
             Design();
 
             typeOfContactNew = typeOfContact;
@@ -50,22 +68,14 @@ namespace Semesterprojekt
             RdbCreatKntktMa.Location = new Point(10, 15);
             RdbCreatKntktKunde.Location = new Point(120, 15);
 
-            // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende UND Kunde (alle)
-            // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit 1 
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit TRUE (für OK-Fall) 
-            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
-            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
-            int tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, 1);
+            tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
 
-            // Vorbereitung für Platzierung Labels der Gruppe Mitarbeitende (ohne Kunde)
-            // Vorbereitung für Platzierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) fortführend
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) mit TRUE (für OK-Fall) 
-            System.Windows.Forms.Label[] groupLabelEmployees = GroupLabelEmployees();
-            Control[] groupFieldEmployees = GroupFieldEmployees();
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
@@ -105,7 +115,7 @@ namespace Semesterprojekt
         // Erstellung Array für Labels der Gruppe Mitarbeitende UND Kunde (alle)
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
-            System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
+            groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
             {
                 LblCreatKntktTitel,
                 LblCreatKntktAnrede,
@@ -127,7 +137,7 @@ namespace Semesterprojekt
         // Erstellung Array für Labels der Gruppe Mitarbeitende (ohne Kunde)
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
-            System.Windows.Forms.Label[] groupLabelEmployees = new System.Windows.Forms.Label[]
+            groupLabelEmployees = new System.Windows.Forms.Label[]
             {
                 LblCreatKntktMaMaNr,
                 LblCreatKntktMaAHVNr,
@@ -149,7 +159,7 @@ namespace Semesterprojekt
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
-            Control[] groupFieldEmployeesAndCustomers = new Control[]
+            groupFieldEmployeesAndCustomers = new Control[]
             {
                 TxtCreatKntktTitel,
                 CmBxCreatKntktAnrede,
@@ -171,7 +181,7 @@ namespace Semesterprojekt
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
         private Control[] GroupFieldEmployees()
         {
-            Control[] groupFieldEmployees = new Control[]
+            groupFieldEmployees = new Control[]
             {
                 TxtCreatKntktMaManr,
                 TxtCreatKntktMaAHVNr,
@@ -188,6 +198,23 @@ namespace Semesterprojekt
             };
 
             return groupFieldEmployees;
+        }
+
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
+        private Control[] CheckFieldIgnore()
+        {
+            checkFieldIgnore = new Control[]
+            {
+                TxtCreatKntktTitel,
+                (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null), // bei Mitarbeitenden bleibt das Feld "Pflicht"
+                (TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
+                TxtCreatKntktMaKader,
+                NumCreatKntktMaLehrj,
+                NumCreatKntktMaAktLehrj,
+                DateCreatKntktAustrDatum,
+            };
+
+            return checkFieldIgnore;
         }
 
         // Initalisierung Radio-Button auf Basis "Kontaktart"
@@ -263,9 +290,6 @@ namespace Semesterprojekt
         private bool ValidationFields()
         {
             // Prüfung (Grundlagen)
-            Control[] groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
-            Control[] groupFieldEmployees = GroupFieldEmployees();
-
             foreach (Control field in groupFieldEmployeesAndCustomers)
             {
                 CheckFields(field);
@@ -300,8 +324,6 @@ namespace Semesterprojekt
         // Prüfung einzelner Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
         private void CheckFields(Control field)
         {
-            Control[] checkFieldIgnore = CheckFieldIgnore();
-
             if (checkFieldIgnore.Contains(field))
             {
                 return;
@@ -475,23 +497,6 @@ namespace Semesterprojekt
         private void ShowMessageBox (string message)
         {
             MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
-        private Control[] CheckFieldIgnore()
-        {
-            Control[] checkFieldIgnore = new Control[]
-            {
-                TxtCreatKntktTitel,
-                (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null), // bei Mitarbeitenden bleibt das Feld "Pflicht"
-                (TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
-                TxtCreatKntktMaKader,
-                NumCreatKntktMaLehrj,
-                NumCreatKntktMaAktLehrj,
-                DateCreatKntktAustrDatum,
-            };
-
-            return checkFieldIgnore;
         }
     }
 }
