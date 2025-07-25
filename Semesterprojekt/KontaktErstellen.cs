@@ -322,17 +322,18 @@ namespace Semesterprojekt
 
             if (checkFieldTag)
             {
-                this.FormClosed += (s, arg) =>
+                // Speicherung der Daten in JSON-Datei, falls Duplikatencheck erfolgreich
+                if (SaveContactData())
                 {
-                    // Speicherung der Daten in JSON-Datei
-                    SaveContactData();
-                    
-                    // Erstellung neues Form "KontaktErstellen"
-                    var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
-                    kontaktErstellenForm.Show();
-                };
+                    this.FormClosed += (s, arg) =>
+                    {
+                        // Erstellung neues Form "KontaktErstellen"
+                        var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
+                        kontaktErstellenForm.Show();
+                    };
 
-                this.Close();
+                    this.Close();
+                }
             }
         }
 
@@ -343,9 +344,10 @@ namespace Semesterprojekt
             if (checkFieldTag)
             {
                 // Speicherung der Daten in JSON-Datei
-                SaveContactData();
-
-                this.Close();
+                if (SaveContactData())
+                {
+                    this.Close();
+                }
             }
         }
 
@@ -448,7 +450,7 @@ namespace Semesterprojekt
 
             if (DateCreatKntktBirthday.Tag == tagNOK)
             {
-                ShowMessageBox(@"Geburtsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                ShowMessageBox("Geburtsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
                 DateCreatKntktBirthday.Focus();
                 return;
             }
@@ -473,7 +475,7 @@ namespace Semesterprojekt
             
             if (DateCreatKntktEintrDatum.Tag == tagNOK)
             {
-                ShowMessageBox(@"Eintrittsdatum ""01.01.1900"" entspricht Defaultwert und ist ungültig");
+                ShowMessageBox("Eintrittsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
                 DateCreatKntktEintrDatum.Focus();
                 return;
             }
@@ -492,7 +494,7 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktPLZ.BackColor = backColorNOK;
                 TxtCreatKntktPLZ.Tag = tagNOK;
-                ShowMessageBox(string.Format(@"PLZ ""{0}"" ist ungültig", TxtCreatKntktPLZ.Text));
+                ShowMessageBox($"PLZ '{TxtCreatKntktPLZ.Text}' ist ungültig");
                 TxtCreatKntktPLZ.Focus();
             }
         }
@@ -509,7 +511,7 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktEmail.BackColor = backColorNOK;
                 TxtCreatKntktEmail.Tag = tagNOK;
-                ShowMessageBox(string.Format(@"E-Mail ""{0}"" ist ungültig", TxtCreatKntktEmail.Text));
+                ShowMessageBox($"E-Mail '{TxtCreatKntktEmail.Text}' ist ungültig");
                 TxtCreatKntktEmail.Focus();
             }
         }
@@ -527,7 +529,7 @@ namespace Semesterprojekt
             if (!ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text))
             {
                 TxtCreatKntktMaAHVNr.BackColor = backColorNOK;
-                ShowMessageBox(string.Format(@"AHV-Nummer ""{0}"" ist ungültig", TxtCreatKntktMaAHVNr.Text));
+                ShowMessageBox($"AHV-Nummer '{TxtCreatKntktMaAHVNr.Text}' ist ungültig");
                 TxtCreatKntktMaAHVNr.Focus();
 
             }
@@ -578,7 +580,7 @@ namespace Semesterprojekt
         }
         
         // Speicherung der Kontaktdaten in JSON-Datei
-        private void SaveContactData()
+        private bool SaveContactData()
         {
             try
             {
@@ -616,7 +618,7 @@ namespace Semesterprojekt
                 // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
                 if (!CheckDuplicateContact(contactList, contact))
                 {
-                    return;
+                    return false;
                 }
                 
                 // Hinzufügen neuer Kontakt zur neuen Liste
@@ -630,12 +632,14 @@ namespace Semesterprojekt
 
                 // Ausgabe erfolgreiche Speicherung (userfreundlich)
                 MessageBox.Show("Kontakt erfolgreich gespeichert!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
             }
 
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
-                MessageBox.Show(string.Format("Fehler beim Speichern:{0}", exception), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Fehler beim Speichern:{exception}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
@@ -657,15 +661,22 @@ namespace Semesterprojekt
             return string.Empty;
         }
 
+        // Abgleich neuer Kontakt mit bestehenden Kontaktdaten        
         private bool CheckDuplicateContact(List<ContactData> contactList, ContactData newContact)
         {
+            // Regex für Split Vorname und Nachname bei Bindestrich und/oder Leerzeichen
+            string regex = @"[\s\-]";
+
             newContact.Fields.TryGetValue("TxtCreatKntktVorname", out var newFirstNameRaw);
             newContact.Fields.TryGetValue("TxtCreatKntktName", out var newLastNameRaw);
             newContact.Fields.TryGetValue("DateCreatKntktBirthday", out var newDateOfBirthRaw);
 
-            string newFirstName = newFirstNameRaw?.Trim().ToLower() ?? "";
-            string newLastName = newLastNameRaw?.Trim().ToLower() ?? "";
+            string newFirstName = Regex.Split(newFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
+            string newLastName = Regex.Split(newLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
             string newDateOfBirth = newDateOfBirthRaw ?? "";
+
+            // Liste mit allen möglichen Duplikaten (für Anzeige)
+            List<string> duplicates = new List<string>();
 
             foreach (ContactData oldContact in contactList)
             {
@@ -673,20 +684,26 @@ namespace Semesterprojekt
                 oldContact.Fields.TryGetValue("TxtCreatKntktName", out var oldLastNameRaw);
                 oldContact.Fields.TryGetValue("DateCreatKntktBirthday", out var oldDateOfBirthRaw);
 
-                string oldFirstName = oldFirstNameRaw?.Trim().ToLower() ?? "";
-                string oldLastName = oldLastNameRaw?.Trim().ToLower() ?? "";
+                string oldFirstName = Regex.Split(oldFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
+                string oldLastName = Regex.Split(oldLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
                 string oldDateOfBirth = oldDateOfBirthRaw ?? "";
 
-                if (newFirstName.Split(' ')[0] == oldFirstName.Split(' ')[0] && newLastName.Split(' ')[0] == oldLastName.Split(' ')[0] && newDateOfBirth == oldDateOfBirth)
+                // Abgleich nur auf Basis des ersten Namens, falls z.B. noch ein zweiter Name erfasst ist
+                if (newFirstName == oldFirstName && newLastName == oldLastName && newDateOfBirth == oldDateOfBirth)
                 {
-                    DialogResult result = MessageBox.Show(
-                        string.Format("{0} {1}, {2} bereits vorhanden\r\nSoll neuer Kontakt trotzdem gespeichert werden?", oldFirstNameRaw, oldLastNameRaw, oldDateOfBirthRaw),
-                        "Duplikatencheck", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    return result == DialogResult.Yes;
+                    duplicates.Add($"- {oldFirstNameRaw} {oldLastNameRaw}, {oldDateOfBirthRaw}");
                 }
             }
-
+            
+            // Sammelausgabe der ähnlichen Kontakte auf Basis Vorname, Nachname und Geburtsdatum
+            if (duplicates.Any())
+            {
+                string message = "Folgende ähnliche Kontakte existieren bereits:\r\n\r\n" + string.Join("\n", duplicates) + "\r\n\r\nTrotzdem speichern?";
+                DialogResult result = MessageBox.Show(message, "Duplikatencheck", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+                return result == DialogResult.Yes;
+            }
+            
             return true;
         }
     }
