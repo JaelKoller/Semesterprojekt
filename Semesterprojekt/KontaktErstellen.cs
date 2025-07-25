@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +22,10 @@ namespace Semesterprojekt
     {
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
         private string typeOfContactNew;
+
+        // Dateipfad für Kontaktdaten-Liste
+        private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
+        private readonly string contactDataPath = Path.Combine(projectRoot, "data", "contacts.json");
 
         // Initialisierung mehrfach verwendete Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
@@ -216,8 +222,10 @@ namespace Semesterprojekt
             checkFieldIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
-                (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null), // bei Mitarbeitenden bleibt das Feld "Pflicht"
-                (!string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) && TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH" ? TxtCreatKntktMaAHVNr : null), // bei ausländischer Nationalität ist das Feld "nicht Pflicht"
+                // bei Mitarbeitenden bleibt das Feld "Pflicht"
+                (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null),
+                 // bei Mitarbeitenden mit CH-Nationalität bleibt das Feld "Pflicht"
+                (RdbCreatKntktKunde.Checked || (!string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) && TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtCreatKntktMaAHVNr : null),            
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
@@ -316,10 +324,14 @@ namespace Semesterprojekt
             {
                 this.FormClosed += (s, arg) =>
                 {
+                    // Speicherung der Daten in JSON-Datei
+                    SaveContactData();
+                    
                     // Erstellung neues Form "KontaktErstellen"
                     var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
                     kontaktErstellenForm.Show();
                 };
+
                 this.Close();
             }
         }
@@ -330,6 +342,9 @@ namespace Semesterprojekt
 
             if (checkFieldTag)
             {
+                // Speicherung der Daten in JSON-Datei
+                SaveContactData();
+
                 this.Close();
             }
         }
@@ -506,6 +521,7 @@ namespace Semesterprojekt
             {
                 TxtCreatKntktMaAHVNr.BackColor = backColorOK;
                 TxtCreatKntktMaAHVNr.Tag = tagOK;
+                return;
             }
 
             if (!ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text))
@@ -559,6 +575,80 @@ namespace Semesterprojekt
         private void ShowMessageBox (string message)
         {
             MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
+        // Speicherung der Kontaktdaten in JSON-Datei
+        private void SaveContactData()
+        {
+            try
+            {
+                var contact = new ContactData
+                {
+                    TypeOfContact = typeOfContactNew
+                };
+
+                foreach (Control field in groupFieldEmployeesAndCustomers)
+                {
+                    contact.Fields[field.Name] = GetControlValue(field);
+                }
+
+                if (typeOfContactNew == "mitarbeitende")
+                {
+                    foreach (Control field in groupFieldEmployees)
+                    {
+                        contact.Fields[field.Name] = GetControlValue(field);
+                    }
+                }
+                
+                // Laden der JSON-Datei (falls vorhanden)
+                List<ContactData> contactList = new List<ContactData>();
+
+                if (File.Exists(contactDataPath))
+                {
+                    string contatcsJSON = File.ReadAllText(contactDataPath);
+
+                    if (!string.IsNullOrWhiteSpace(contatcsJSON))
+                    {
+                        contactList = JsonSerializer.Deserialize<List<ContactData>>(contatcsJSON) ?? new List<ContactData>();
+                    }
+                }
+
+                // Hinzufügen neuer Kontakt zur neuen Liste
+                contactList.Add(contact);
+
+                // Konvertierung neue Liste in JSON
+                string updatedJson = JsonSerializer.Serialize(contactList, new JsonSerializerOptions { WriteIndented = true });
+                
+                // (Über-)Schreibung der JSON-Datei mit neuer Liste
+                File.WriteAllText(contactDataPath, updatedJson);
+
+                // Ausgabe erfolgreiche Speicherung (userfreundlich)
+                MessageBox.Show("Kontakt erfolgreich gespeichert!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            catch (Exception exception)
+            {
+                // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
+                MessageBox.Show($"Fehler beim Speichern: {exception.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Auslesen der Werte für Speicherung der Kontaktdaten in JSON-Datei
+        private string GetControlValue(Control field)
+        {
+            if (field is System.Windows.Forms.TextBox tb)
+                return tb.Text;
+
+            if (field is System.Windows.Forms.ComboBox cb)
+                return cb.Text;
+
+            if (field is DateTimePicker dp)
+                return dp.Value.ToString("yyyy-MM-dd");
+
+            if (field is NumericUpDown num)
+                return num.Value.ToString();
+
+            return string.Empty;
         }
     }
 }
