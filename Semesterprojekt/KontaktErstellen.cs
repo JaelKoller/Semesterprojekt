@@ -17,7 +17,7 @@ namespace Semesterprojekt
     public partial class KontaktErstellen : Form
     {
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
-        string typeOfContactNew;
+        private string typeOfContactNew;
         
         public KontaktErstellen(string typeOfContact)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Semesterprojekt.Testing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,11 @@ namespace Semesterprojekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            // Application.Run(new Dashboard());
+
+            var testingKontaktErstellen = new Testing_KontaktErstellen();
+            testingKontaktErstellen.TestData("mitarbeitende");
+            testingKontaktErstellen.TestData("kunde");
         }
     }
 }
