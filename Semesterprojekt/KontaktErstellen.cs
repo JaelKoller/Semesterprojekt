@@ -303,6 +303,33 @@ namespace Semesterprojekt
                 typeOfContactNew = "kunde";
                 RdbCreatKntktKunde.Checked = true;
                 GrpBxDatenMA.Enabled = false;
+                CleanGroupFieldEmployees();
+            }
+        }
+
+        // Bereinigung der Eingabefelder der Gruppe Mitarbeitende (bei Wechsel zu Kunde)
+        private void CleanGroupFieldEmployees()
+        {
+            foreach (Control field in groupFieldEmployees)
+            {
+                switch (field)
+                {
+                    case System.Windows.Forms.TextBox tb:
+                        tb.Clear();
+                        break;
+                    case System.Windows.Forms.ComboBox cb:
+                        cb.SelectedIndex = -1;
+                        break;
+                    case DateTimePicker dtp:
+                        dtp.Value = new DateTime(1900, 1, 1);
+                        break;
+                    case NumericUpDown num:
+                        num.Value = num.Minimum;
+                        break;
+                }
+
+                field.BackColor = backColorOK;
+                field.Tag = tagOK;
             }
         }
 
@@ -652,8 +679,8 @@ namespace Semesterprojekt
             if (field is System.Windows.Forms.ComboBox cb)
                 return cb.Text;
 
-            if (field is DateTimePicker dp)
-                return dp.Value.ToString("yyyy-MM-dd");
+            if (field is DateTimePicker dtp)
+                return dtp.Value.ToString("yyyy-MM-dd");
 
             if (field is NumericUpDown num)
                 return num.Value.ToString();
