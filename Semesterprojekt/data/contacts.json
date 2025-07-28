@@ -182,5 +182,68 @@
       "TxtCreatKntktTelMobile": "076 123 45 67",
       "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
     }
+  },
+  {
+    "TypeOfContact": "kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "asdf",
+      "TxtCreatKntktName": "asdf",
+      "DateCreatKntktBirthday": "1900-07-01",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "asdf",
+      "TxtCreatKntktPLZ": "1234",
+      "TxtCreatKntktOrt": "sdf",
+      "TxtCreatKntktTelGeschaeft": "",
+      "TxtCreatKntktTelMobile": "adsf",
+      "TxtCreatKntktEmail": "asdf@sg.ch"
+    }
+  },
+  {
+    "TypeOfContact": "kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "asdf",
+      "TxtCreatKntktName": "asdf",
+      "DateCreatKntktBirthday": "1900-01-07",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "daf",
+      "TxtCreatKntktPLZ": "1234",
+      "TxtCreatKntktOrt": "asdf",
+      "TxtCreatKntktTelGeschaeft": "",
+      "TxtCreatKntktTelMobile": "asdf",
+      "TxtCreatKntktEmail": "asdf@sdgf.ch"
+    }
+  },
+  {
+    "TypeOfContact": "mitarbeitende",
+    "Fields": {
+      "TxtCreatKntktTitel": "",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "asdf",
+      "TxtCreatKntktName": "asdf",
+      "DateCreatKntktBirthday": "1900-01-07",
+      "CmBxCreatKntktGeschlecht": "m\u00E4nnlich",
+      "TxtCreatKntktAdr": "asdf",
+      "TxtCreatKntktPLZ": "1324",
+      "TxtCreatKntktOrt": "asdf",
+      "TxtCreatKntktTelGeschaeft": "asdf",
+      "TxtCreatKntktTelMobile": "asdfasd",
+      "TxtCreatKntktEmail": "asdf@sdaga.ch",
+      "TxtCreatKntktMaManr": "TEST",
+      "TxtCreatKntktMaAHVNr": "",
+      "TxtCreatKntktMaNationalitaet": "de",
+      "TxtCreatKntktMaKader": "",
+      "NumCreatKntktMaBeschGrad": "10",
+      "TxtCreattKntktMaAbteilung": "asdf",
+      "TxtCreatKntktMaRolle": "asdf",
+      "NumCreatKntktMaLehrj": "0",
+      "NumCreatKntktMaAktLehrj": "0",
+      "NumCreatKntktMaOfficeNumber": "10",
+      "DateCreatKntktEintrDatum": "1900-01-07",
+      "DateCreatKntktAustrDatum": "1900-01-01"
+    }
   }
 ]

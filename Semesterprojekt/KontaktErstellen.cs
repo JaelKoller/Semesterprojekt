@@ -314,17 +314,17 @@ namespace Semesterprojekt
             {
                 switch (field)
                 {
-                    case System.Windows.Forms.TextBox tb:
-                        tb.Clear();
+                    case System.Windows.Forms.TextBox txtbxField:
+                        txtbxField.Clear();
                         break;
-                    case System.Windows.Forms.ComboBox cb:
-                        cb.SelectedIndex = -1;
+                    case System.Windows.Forms.ComboBox cmbxField:
+                        cmbxField.SelectedIndex = -1;
                         break;
-                    case DateTimePicker dtp:
-                        dtp.Value = new DateTime(1900, 1, 1);
+                    case DateTimePicker dateField:
+                        dateField.Value = new DateTime(1900, 1, 1);
                         break;
-                    case NumericUpDown num:
-                        num.Value = num.Minimum;
+                    case NumericUpDown numField:
+                        numField.Value = numField.Minimum;
                         break;
                 }
 
@@ -425,24 +425,24 @@ namespace Semesterprojekt
                 return;
             }
 
-            if (field is System.Windows.Forms.ComboBox cbxField && string.IsNullOrWhiteSpace(field.Text))
+            if (field is System.Windows.Forms.ComboBox cmbxField && string.IsNullOrWhiteSpace(cmbxField.Text))
             {
                 // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                field.Tag = tagNOK;
+                cmbxField.Tag = tagNOK;
                 return;
             }
 
             if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
             {
                 // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                field.Tag = tagNOK;
+                dateField.Tag = tagNOK;
                 return;
             }
 
             if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
             {
                 numField.BackColor = backColorNOK;
-                field.Tag = tagNOK;
+                numField.Tag = tagNOK;
                 return;
             }
 
@@ -556,6 +556,7 @@ namespace Semesterprojekt
             if (!ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text))
             {
                 TxtCreatKntktMaAHVNr.BackColor = backColorNOK;
+                TxtCreatKntktMaAHVNr.Tag = tagNOK;
                 ShowMessageBox($"AHV-Nummer '{TxtCreatKntktMaAHVNr.Text}' ist ungültig");
                 TxtCreatKntktMaAHVNr.Focus();
 
@@ -564,6 +565,7 @@ namespace Semesterprojekt
             else
             {
                 TxtCreatKntktMaAHVNr.BackColor = backColorOK;
+                TxtCreatKntktMaAHVNr.Tag = tagOK;
             }
         }
 
@@ -673,17 +675,17 @@ namespace Semesterprojekt
         // Auslesen der Werte für Speicherung der Kontaktdaten in JSON-Datei
         private string GetControlValue(Control field)
         {
-            if (field is System.Windows.Forms.TextBox tb)
-                return tb.Text;
+            if (field is System.Windows.Forms.TextBox txtbxField)
+                return txtbxField.Text;
 
-            if (field is System.Windows.Forms.ComboBox cb)
-                return cb.Text;
+            if (field is System.Windows.Forms.ComboBox cmbxField)
+                return cmbxField.Text;
 
-            if (field is DateTimePicker dtp)
-                return dtp.Value.ToString("yyyy-MM-dd");
+            if (field is DateTimePicker dateField)
+                return dateField.Value.ToString("yyyy-MM-dd");
 
-            if (field is NumericUpDown num)
-                return num.Value.ToString();
+            if (field is NumericUpDown numField)
+                return numField.Value.ToString();
 
             return string.Empty;
         }
