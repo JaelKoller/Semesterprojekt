@@ -20,7 +20,7 @@ namespace Semesterprojekt
             Application.Run(new Dashboard());
 
             //var testingkontakterstellen = new Testing_KontaktErstellen();
-            //testingkontakterstellen.TestData("mitarbeitende");
+            //testingkontakterstellen.TestData("Mitarbeiter");
             //testingkontakterstellen.TestData("kunde");
         }
     }

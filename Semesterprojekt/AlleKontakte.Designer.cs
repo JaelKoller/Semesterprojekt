@@ -38,119 +38,116 @@
             this.ChkBAllKntktKunde = new System.Windows.Forms.CheckBox();
             this.TxtAllKntktName = new System.Windows.Forms.TextBox();
             this.TxtAllKntktVorname = new System.Windows.Forms.TextBox();
-            this.DateAllKntktBirthday = new System.Windows.Forms.DateTimePicker();
             this.BtnAllKntktSuchen = new System.Windows.Forms.Button();
             this.BtnAllKntktHome = new System.Windows.Forms.Button();
+            this.TxtAllKntktBirthday = new System.Windows.Forms.TextBox();
+            this.LblAllKntktDeaktiviert = new System.Windows.Forms.Label();
+            this.ChkBAllKntktDeaktiviert = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LblAllKntktName
             // 
             this.LblAllKntktName.AutoSize = true;
-            this.LblAllKntktName.Location = new System.Drawing.Point(81, 95);
-            this.LblAllKntktName.Margin = new System.Windows.Forms.Padding(3);
+            this.LblAllKntktName.Location = new System.Drawing.Point(91, 157);
+            this.LblAllKntktName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktName.Name = "LblAllKntktName";
-            this.LblAllKntktName.Size = new System.Drawing.Size(44, 16);
+            this.LblAllKntktName.Size = new System.Drawing.Size(51, 20);
             this.LblAllKntktName.TabIndex = 0;
             this.LblAllKntktName.Text = "Name";
-            this.LblAllKntktName.Click += new System.EventHandler(this.LblAllKntktName_Click);
             // 
             // LblAllKntktSuchen
             // 
             this.LblAllKntktSuchen.AutoSize = true;
             this.LblAllKntktSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAllKntktSuchen.Location = new System.Drawing.Point(81, 56);
+            this.LblAllKntktSuchen.Location = new System.Drawing.Point(91, 70);
             this.LblAllKntktSuchen.Name = "LblAllKntktSuchen";
-            this.LblAllKntktSuchen.Size = new System.Drawing.Size(99, 16);
+            this.LblAllKntktSuchen.Size = new System.Drawing.Size(119, 20);
             this.LblAllKntktSuchen.TabIndex = 1;
             this.LblAllKntktSuchen.Text = "Suchen nach:";
-            this.LblAllKntktSuchen.Click += new System.EventHandler(this.LblAllKntktSuchen_Click);
             // 
             // LblAllKntktVorname
             // 
             this.LblAllKntktVorname.AutoSize = true;
-            this.LblAllKntktVorname.Location = new System.Drawing.Point(81, 123);
-            this.LblAllKntktVorname.Margin = new System.Windows.Forms.Padding(3);
+            this.LblAllKntktVorname.Location = new System.Drawing.Point(91, 129);
+            this.LblAllKntktVorname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktVorname.Name = "LblAllKntktVorname";
-            this.LblAllKntktVorname.Size = new System.Drawing.Size(62, 16);
+            this.LblAllKntktVorname.Size = new System.Drawing.Size(74, 20);
             this.LblAllKntktVorname.TabIndex = 2;
             this.LblAllKntktVorname.Text = "Vorname";
             // 
             // LblAllKntktBirthday
             // 
             this.LblAllKntktBirthday.AutoSize = true;
-            this.LblAllKntktBirthday.Location = new System.Drawing.Point(81, 153);
-            this.LblAllKntktBirthday.Margin = new System.Windows.Forms.Padding(3);
+            this.LblAllKntktBirthday.Location = new System.Drawing.Point(91, 191);
+            this.LblAllKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktBirthday.Name = "LblAllKntktBirthday";
-            this.LblAllKntktBirthday.Size = new System.Drawing.Size(91, 16);
+            this.LblAllKntktBirthday.Size = new System.Drawing.Size(112, 20);
             this.LblAllKntktBirthday.TabIndex = 3;
             this.LblAllKntktBirthday.Text = "Geburtsdatum";
             // 
             // LblAllKntktMa
             // 
             this.LblAllKntktMa.AutoSize = true;
-            this.LblAllKntktMa.Location = new System.Drawing.Point(81, 175);
-            this.LblAllKntktMa.Margin = new System.Windows.Forms.Padding(3);
+            this.LblAllKntktMa.Location = new System.Drawing.Point(91, 219);
+            this.LblAllKntktMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktMa.Name = "LblAllKntktMa";
-            this.LblAllKntktMa.Size = new System.Drawing.Size(70, 16);
+            this.LblAllKntktMa.Size = new System.Drawing.Size(84, 20);
             this.LblAllKntktMa.TabIndex = 4;
             this.LblAllKntktMa.Text = "Mitarbeiter";
             // 
             // LblAllKntktKunde
             // 
             this.LblAllKntktKunde.AutoSize = true;
-            this.LblAllKntktKunde.Location = new System.Drawing.Point(81, 198);
-            this.LblAllKntktKunde.Margin = new System.Windows.Forms.Padding(3);
+            this.LblAllKntktKunde.Location = new System.Drawing.Point(91, 248);
+            this.LblAllKntktKunde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktKunde.Name = "LblAllKntktKunde";
-            this.LblAllKntktKunde.Size = new System.Drawing.Size(45, 16);
+            this.LblAllKntktKunde.Size = new System.Drawing.Size(55, 20);
             this.LblAllKntktKunde.TabIndex = 5;
             this.LblAllKntktKunde.Text = "Kunde";
             // 
             // ChkBAllKntktMa
             // 
             this.ChkBAllKntktMa.AutoSize = true;
-            this.ChkBAllKntktMa.Location = new System.Drawing.Point(226, 176);
+            this.ChkBAllKntktMa.Location = new System.Drawing.Point(290, 218);
+            this.ChkBAllKntktMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ChkBAllKntktMa.Name = "ChkBAllKntktMa";
-            this.ChkBAllKntktMa.Size = new System.Drawing.Size(18, 17);
+            this.ChkBAllKntktMa.Size = new System.Drawing.Size(22, 21);
             this.ChkBAllKntktMa.TabIndex = 6;
             this.ChkBAllKntktMa.UseVisualStyleBackColor = true;
             // 
             // ChkBAllKntktKunde
             // 
             this.ChkBAllKntktKunde.AutoSize = true;
-            this.ChkBAllKntktKunde.Location = new System.Drawing.Point(226, 199);
+            this.ChkBAllKntktKunde.Location = new System.Drawing.Point(290, 249);
+            this.ChkBAllKntktKunde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ChkBAllKntktKunde.Name = "ChkBAllKntktKunde";
-            this.ChkBAllKntktKunde.Size = new System.Drawing.Size(18, 17);
+            this.ChkBAllKntktKunde.Size = new System.Drawing.Size(22, 21);
             this.ChkBAllKntktKunde.TabIndex = 7;
             this.ChkBAllKntktKunde.UseVisualStyleBackColor = true;
             // 
             // TxtAllKntktName
             // 
-            this.TxtAllKntktName.Location = new System.Drawing.Point(226, 92);
+            this.TxtAllKntktName.Location = new System.Drawing.Point(290, 154);
+            this.TxtAllKntktName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAllKntktName.Name = "TxtAllKntktName";
-            this.TxtAllKntktName.Size = new System.Drawing.Size(244, 22);
+            this.TxtAllKntktName.Size = new System.Drawing.Size(274, 26);
             this.TxtAllKntktName.TabIndex = 8;
             // 
             // TxtAllKntktVorname
             // 
-            this.TxtAllKntktVorname.Location = new System.Drawing.Point(226, 120);
+            this.TxtAllKntktVorname.Location = new System.Drawing.Point(290, 120);
+            this.TxtAllKntktVorname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAllKntktVorname.Name = "TxtAllKntktVorname";
-            this.TxtAllKntktVorname.Size = new System.Drawing.Size(244, 22);
+            this.TxtAllKntktVorname.Size = new System.Drawing.Size(274, 26);
             this.TxtAllKntktVorname.TabIndex = 9;
-            // 
-            // DateAllKntktBirthday
-            // 
-            this.DateAllKntktBirthday.Location = new System.Drawing.Point(226, 148);
-            this.DateAllKntktBirthday.Name = "DateAllKntktBirthday";
-            this.DateAllKntktBirthday.Size = new System.Drawing.Size(244, 22);
-            this.DateAllKntktBirthday.TabIndex = 10;
-            this.DateAllKntktBirthday.ValueChanged += new System.EventHandler(this.DateAllKntktBirthday_ValueChanged);
             // 
             // BtnAllKntktSuchen
             // 
             this.BtnAllKntktSuchen.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAllKntktSuchen.Location = new System.Drawing.Point(367, 228);
+            this.BtnAllKntktSuchen.Location = new System.Drawing.Point(94, 335);
+            this.BtnAllKntktSuchen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnAllKntktSuchen.Name = "BtnAllKntktSuchen";
-            this.BtnAllKntktSuchen.Size = new System.Drawing.Size(103, 36);
+            this.BtnAllKntktSuchen.Size = new System.Drawing.Size(434, 45);
             this.BtnAllKntktSuchen.TabIndex = 11;
             this.BtnAllKntktSuchen.Text = "Suchen";
             this.BtnAllKntktSuchen.UseVisualStyleBackColor = true;
@@ -159,22 +156,54 @@
             // BtnAllKntktHome
             // 
             this.BtnAllKntktHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAllKntktHome.Location = new System.Drawing.Point(415, 372);
+            this.BtnAllKntktHome.Location = new System.Drawing.Point(498, 13);
+            this.BtnAllKntktHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnAllKntktHome.Name = "BtnAllKntktHome";
-            this.BtnAllKntktHome.Size = new System.Drawing.Size(147, 66);
+            this.BtnAllKntktHome.Size = new System.Drawing.Size(136, 62);
             this.BtnAllKntktHome.TabIndex = 12;
             this.BtnAllKntktHome.Text = "Zurück zum Dashboard";
             this.BtnAllKntktHome.UseVisualStyleBackColor = true;
             this.BtnAllKntktHome.Click += new System.EventHandler(this.BtnAllKntktHome_Click);
             // 
+            // TxtAllKntktBirthday
+            // 
+            this.TxtAllKntktBirthday.Location = new System.Drawing.Point(290, 191);
+            this.TxtAllKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAllKntktBirthday.Name = "TxtAllKntktBirthday";
+            this.TxtAllKntktBirthday.Size = new System.Drawing.Size(274, 26);
+            this.TxtAllKntktBirthday.TabIndex = 13;
+            this.TxtAllKntktBirthday.Text = "TT.MM.JJJJ";
+            // 
+            // LblAllKntktDeaktiviert
+            // 
+            this.LblAllKntktDeaktiviert.AutoSize = true;
+            this.LblAllKntktDeaktiviert.Location = new System.Drawing.Point(91, 276);
+            this.LblAllKntktDeaktiviert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblAllKntktDeaktiviert.Name = "LblAllKntktDeaktiviert";
+            this.LblAllKntktDeaktiviert.Size = new System.Drawing.Size(290, 30);
+            this.LblAllKntktDeaktiviert.TabIndex = 14;
+            this.LblAllKntktDeaktiviert.Text = "inkl. deaktivierte Personen";
+            // 
+            // ChkBAllKntktDeaktiviert
+            // 
+            this.ChkBAllKntktDeaktiviert.AutoSize = true;
+            this.ChkBAllKntktDeaktiviert.Location = new System.Drawing.Point(290, 276);
+            this.ChkBAllKntktDeaktiviert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ChkBAllKntktDeaktiviert.Name = "ChkBAllKntktDeaktiviert";
+            this.ChkBAllKntktDeaktiviert.Size = new System.Drawing.Size(22, 21);
+            this.ChkBAllKntktDeaktiviert.TabIndex = 15;
+            this.ChkBAllKntktDeaktiviert.UseVisualStyleBackColor = true;
+            // 
             // AlleKontakte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 450);
+            this.ClientSize = new System.Drawing.Size(646, 562);
+            this.Controls.Add(this.ChkBAllKntktDeaktiviert);
+            this.Controls.Add(this.LblAllKntktDeaktiviert);
+            this.Controls.Add(this.TxtAllKntktBirthday);
             this.Controls.Add(this.BtnAllKntktHome);
             this.Controls.Add(this.BtnAllKntktSuchen);
-            this.Controls.Add(this.DateAllKntktBirthday);
             this.Controls.Add(this.TxtAllKntktVorname);
             this.Controls.Add(this.TxtAllKntktName);
             this.Controls.Add(this.ChkBAllKntktKunde);
@@ -185,6 +214,7 @@
             this.Controls.Add(this.LblAllKntktVorname);
             this.Controls.Add(this.LblAllKntktSuchen);
             this.Controls.Add(this.LblAllKntktName);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AlleKontakte";
             this.Text = "Alle Kontakte";
             this.ResumeLayout(false);
@@ -204,8 +234,10 @@
         private System.Windows.Forms.CheckBox ChkBAllKntktKunde;
         private System.Windows.Forms.TextBox TxtAllKntktName;
         private System.Windows.Forms.TextBox TxtAllKntktVorname;
-        private System.Windows.Forms.DateTimePicker DateAllKntktBirthday;
         private System.Windows.Forms.Button BtnAllKntktSuchen;
         private System.Windows.Forms.Button BtnAllKntktHome;
+        private System.Windows.Forms.TextBox TxtAllKntktBirthday;
+        private System.Windows.Forms.Label LblAllKntktDeaktiviert;
+        private System.Windows.Forms.CheckBox ChkBAllKntktDeaktiviert;
     }
 }

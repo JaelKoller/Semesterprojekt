@@ -23,7 +23,7 @@ namespace Semesterprojekt.Testing
         {
             kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
 
-            // Testdaten für Gruppe Mitarbeitende UND Kunde
+            // Testdaten für Gruppe Mitarbeiter UND Kunde
             kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "Frau";
             kontaktErstellenForm.TxtCreatKntktVorname.Text = "Jael";
             kontaktErstellenForm.TxtCreatKntktName.Text = "Koller";
@@ -37,7 +37,7 @@ namespace Semesterprojekt.Testing
             kontaktErstellenForm.TxtCreatKntktPLZ.Text = "9014";
             kontaktErstellenForm.TxtCreatKntktOrt.Text = "St. Gallen";
 
-            // Testdaten für Gruppe Mitarbeitende (ohne Kunde)
+            // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
             if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
             {
                 kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";

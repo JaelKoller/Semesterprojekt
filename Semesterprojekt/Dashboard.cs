@@ -36,7 +36,7 @@ namespace Semesterprojekt
 
         private void BtnDashMaNew_Click(object sender, EventArgs e)
         {
-            KontaktErstellen("mitarbeitende");
+            KontaktErstellen("mitarbeiter");
         }
 
         private void BtnDashAllKntkt_Click(object sender, EventArgs e)

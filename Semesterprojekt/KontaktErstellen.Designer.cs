@@ -32,6 +32,7 @@
             this.RdbCreatKntktKunde = new System.Windows.Forms.RadioButton();
             this.RdbCreatKntktMa = new System.Windows.Forms.RadioButton();
             this.GrpBxCreatKntktDatenAlle = new System.Windows.Forms.GroupBox();
+            this.TxtCreatKntktPLZ = new System.Windows.Forms.TextBox();
             this.CmBxCreatKntktAnrede = new System.Windows.Forms.ComboBox();
             this.CmBxCreatKntktGeschlecht = new System.Windows.Forms.ComboBox();
             this.TxtCreatKntktEmail = new System.Windows.Forms.TextBox();
@@ -82,7 +83,6 @@
             this.TxtCreattKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
-            this.TxtCreatKntktPLZ = new System.Windows.Forms.TextBox();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
@@ -123,10 +123,10 @@
             this.RdbCreatKntktMa.Location = new System.Drawing.Point(7, 26);
             this.RdbCreatKntktMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RdbCreatKntktMa.Name = "RdbCreatKntktMa";
-            this.RdbCreatKntktMa.Size = new System.Drawing.Size(131, 24);
+            this.RdbCreatKntktMa.Size = new System.Drawing.Size(164, 36);
             this.RdbCreatKntktMa.TabIndex = 1;
             this.RdbCreatKntktMa.TabStop = true;
-            this.RdbCreatKntktMa.Text = "Mitarbeitende";
+            this.RdbCreatKntktMa.Text = "Mitarbeiter";
             this.RdbCreatKntktMa.UseVisualStyleBackColor = true;
             this.RdbCreatKntktMa.CheckedChanged += new System.EventHandler(this.RdbCreatKntktMa_CheckedChanged);
             // 
@@ -163,6 +163,15 @@
             this.GrpBxCreatKntktDatenAlle.Size = new System.Drawing.Size(467, 533);
             this.GrpBxCreatKntktDatenAlle.TabIndex = 1;
             this.GrpBxCreatKntktDatenAlle.TabStop = false;
+            // 
+            // TxtCreatKntktPLZ
+            // 
+            this.TxtCreatKntktPLZ.Location = new System.Drawing.Point(152, 389);
+            this.TxtCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktPLZ.MaxLength = 5;
+            this.TxtCreatKntktPLZ.Name = "TxtCreatKntktPLZ";
+            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktPLZ.TabIndex = 57;
             // 
             // CmBxCreatKntktAnrede
             // 
@@ -412,7 +421,7 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaNationalitaet);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAHVNr);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreattKntktMaAbteilung);
-            this.GrpBxDatenMA.Location = new System.Drawing.Point(522, 91);
+            this.GrpBxDatenMA.Location = new System.Drawing.Point(496, 100);
             this.GrpBxDatenMA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxDatenMA.Name = "GrpBxDatenMA";
             this.GrpBxDatenMA.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -688,20 +697,11 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
-            // TxtCreatKntktPLZ
-            // 
-            this.TxtCreatKntktPLZ.Location = new System.Drawing.Point(152, 389);
-            this.TxtCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktPLZ.MaxLength = 5;
-            this.TxtCreatKntktPLZ.Name = "TxtCreatKntktPLZ";
-            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreatKntktPLZ.TabIndex = 57;
-            // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 778);
+            this.ClientSize = new System.Drawing.Size(1063, 1064);
             this.Controls.Add(this.CmdCreateKntktKontaktErstellen);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);

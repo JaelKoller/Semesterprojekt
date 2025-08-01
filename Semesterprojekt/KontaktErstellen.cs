@@ -27,7 +27,7 @@ namespace Semesterprojekt
         private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
         private readonly string contactDataPath = Path.Combine(projectRoot, "data", "contacts.json");
 
-        // Initialisierung mehrfach verwendete Control-Gruppen
+        // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         private Control[] groupFieldEmployeesAndCustomers;
         private System.Windows.Forms.Label[] groupLabelEmployees;
@@ -51,7 +51,7 @@ namespace Semesterprojekt
             this.Size = new Size(750, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            // Initialisierung mehrfach verwendete Control-Gruppen
+            // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
             groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
             groupLabelEmployees = GroupLabelEmployees();
@@ -68,30 +68,30 @@ namespace Semesterprojekt
         // Design (Platzierung) der Eingabe-Felder usw.
         private void Design()
         {
-            // Platzierung Gruppe Radio-Button (Mitarbeitende vs. Kunde)
-            GrpBxCreatKntktMaKunde.Size = new Size(185, 40);
+            // Platzierung Gruppe Radio-Button (Mitarbeiter vs. Kunde)
+            GrpBxCreatKntktMaKunde.Size = new Size(160, 40);
             GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
 
-            // Platzierung Gruppe Mitarbeitende UND Kunde (alle)
+            // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
             GrpBxCreatKntktDatenAlle.Size = new Size(350, 390);
             GrpBxCreatKntktDatenAlle.Location = new Point(10, 55);
 
-            // Platzierung Gruppe NUR Mitarbeitende (ohne Kunde)
+            // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
             GrpBxDatenMA.Size = new Size(350, 390);
             GrpBxDatenMA.Location = new Point(375, 55);
 
-            // Platzierung Radio-Buttons (Mitarbeitende vs. Kunde)
+            // Platzierung Radio-Buttons (Mitarbeiter vs. Kunde)
             RdbCreatKntktMa.Location = new Point(10, 15);
-            RdbCreatKntktKunde.Location = new Point(120, 15);
+            RdbCreatKntktKunde.Location = new Point(100, 15);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit 1 
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
             tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) fortführend
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeitende (ohne Kunde) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
@@ -128,7 +128,7 @@ namespace Semesterprojekt
             return tabIndexCounter;
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeitende UND Kunde (alle)
+        // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
             groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
@@ -150,7 +150,7 @@ namespace Semesterprojekt
             return groupLabelEmployeesAndCustomers;
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeitende (ohne Kunde)
+        // Erstellung Array für Labels der Gruppe Mitarbeiter (ohne Kunde)
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
             groupLabelEmployees = new System.Windows.Forms.Label[]
@@ -172,7 +172,7 @@ namespace Semesterprojekt
             return groupLabelEmployees;
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende UND Kunde (alle)
+        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
             groupFieldEmployeesAndCustomers = new Control[]
@@ -194,7 +194,7 @@ namespace Semesterprojekt
             return groupFieldEmployeesAndCustomers;
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeitende (ohne Kunde)
+        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
         private Control[] GroupFieldEmployees()
         {
             groupFieldEmployees = new Control[]
@@ -222,9 +222,9 @@ namespace Semesterprojekt
             checkFieldIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
-                // bei Mitarbeitenden bleibt das Feld "Pflicht"
+                // bei Mitarbeitern bleibt das Feld "Pflicht"
                 (!RdbCreatKntktMa.Checked ? TxtCreatKntktTelGeschaeft : null),
-                 // bei Mitarbeitenden mit CH-Nationalität bleibt das Feld "Pflicht"
+                 // bei Mitarbeitern mit CH-Nationalität bleibt das Feld "Pflicht"
                 (RdbCreatKntktKunde.Checked || (!string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) && TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtCreatKntktMaAHVNr : null),            
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
@@ -276,7 +276,7 @@ namespace Semesterprojekt
         // Initalisierung Radio-Button auf Basis "Kontaktart"
         private void InitializationTypeOfContact()
         {
-            if (typeOfContactNew == "mitarbeitende")
+            if (typeOfContactNew == "mitarbeiter")
             {
                 RdbCreatKntktMa.Checked = true;
                 TxtCreatKntktMaManr.Text = "TEST"; // AUTOMATISCHE GENERIERUNG IST EINZUBAUEN !!!
@@ -293,7 +293,7 @@ namespace Semesterprojekt
         {
             if (RdbCreatKntktMa.Checked)
             {
-                typeOfContactNew = "mitarbeitende";
+                typeOfContactNew = "mitarbeiter";
                 RdbCreatKntktMa.Checked = true;
                 GrpBxDatenMA.Enabled = true;
             }
@@ -307,7 +307,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Bereinigung der Eingabefelder der Gruppe Mitarbeitende (bei Wechsel zu Kunde)
+        // Bereinigung der Eingabefelder der Gruppe Mitarbeiter (bei Wechsel zu Kunde)
         private void CleanGroupFieldEmployees()
         {
             foreach (Control field in groupFieldEmployees)
@@ -623,7 +623,7 @@ namespace Semesterprojekt
                     contact.Fields[field.Name] = GetControlValue(field);
                 }
 
-                if (typeOfContactNew == "mitarbeitende")
+                if (typeOfContactNew == "mitarbeiter")
                 {
                     foreach (Control field in groupFieldEmployees)
                     {
