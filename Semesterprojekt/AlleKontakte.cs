@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -146,16 +148,61 @@ namespace Semesterprojekt
 
         private void BtnAllKntktSuchen_Click(object sender, EventArgs e)
         {
-            // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
-            var ansichtKontaktForm = new AnsichtKontakt();
-            ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
-            ansichtKontaktForm.Show();
-            this.Hide();
+            bool checkDateOfBirth = CheckDateOfBirth();
+
+            if (checkDateOfBirth)
+            {
+                // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
+                var ansichtKontaktForm = new AnsichtKontakt();
+                ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
+                ansichtKontaktForm.Show();
+                this.Hide();
+            }
         }
 
         private void BtnAllKntktHome_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "TRUE")
+        private bool CheckDateOfBirth()
+        {
+            string dateOfBirth = TxtAllKntktBirthday.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(dateOfBirth))
+            {
+                TxtAllKntktBirthday.BackColor = backColorOK;
+                return true;
+            }
+            
+            if (!(Regex.IsMatch(dateOfBirth, @"^\d{2}\.\d{2}\.\d{4}$")))
+            {
+                TxtAllKntktBirthday.BackColor = backColorNOK;
+                ShowMessageBox($"Geburtsdatum ''{dateOfBirth}'' entspricht nicht den Vorgaben 'TT.MM.JJJJ'");
+                TxtAllKntktBirthday.Focus();
+                return false;
+            }
+
+            if (!(DateTime.TryParseExact(dateOfBirth, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _)))
+            {
+                TxtAllKntktBirthday.BackColor = backColorNOK;
+                ShowMessageBox($"Geburtsdatum ''{dateOfBirth}'' ist kein gültiges Datum");
+                TxtAllKntktBirthday.Focus();
+                return false;
+            }
+
+            else
+            {
+                TxtAllKntktBirthday.BackColor = backColorOK;
+                return true;
+            }
+        }
+
+        // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben
+        private void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
