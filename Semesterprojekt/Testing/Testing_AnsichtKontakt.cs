@@ -42,6 +42,7 @@ namespace Semesterprojekt.Testing
             // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
             if (testfallMitarbeiter)
             {
+                ansichtKontaktForm.TxtAnsichtKntktMaManr.Text = "TEST";
                 ansichtKontaktForm.TxtAnsichtKntktMaAHVNr.Text = "756.8800.5641.37";
                 ansichtKontaktForm.TxtAnsichtKntktMaNationalitaet.Text = "CH";
                 ansichtKontaktForm.TxtAnsichtKntktMaKader.Text = "Mitglied der Direktion";

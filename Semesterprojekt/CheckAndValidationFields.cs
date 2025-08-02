@@ -29,10 +29,12 @@ namespace Semesterprojekt
     }
 
     internal class CheckAndValidationFields
-    {      
+    {
+        // Initialisierung mehrfach verwendeter BackColor
         private readonly Color backColorOK = SystemColors.Window;
         private readonly Color backColorNOK = Color.LightPink;
 
+        // Initialisierung mehrfach verwendetes Tag
         private readonly string tagOK = "true";
         private readonly string tagNOK = "false";
 

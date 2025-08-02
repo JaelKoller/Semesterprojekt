@@ -584,6 +584,7 @@
             this.TxtCreatKntktMaManr.Location = new System.Drawing.Point(152, 22);
             this.TxtCreatKntktMaManr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaManr.Name = "TxtCreatKntktMaManr";
+            this.TxtCreatKntktMaManr.ReadOnly = true;
             this.TxtCreatKntktMaManr.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktMaManr.TabIndex = 36;
             // 

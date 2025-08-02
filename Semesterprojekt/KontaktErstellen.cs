@@ -37,13 +37,11 @@ namespace Semesterprojekt
         // Initialisierung mehrfach verwendeter Index-Counter
         private int tabIndexCounter = 1;
 
-        // Initialisierung mehrfach verwendeter BackColor
+        // Initialisierung verwendeter BackColor (analog separater Klasse)
         private Color backColorOK = SystemColors.Window;
-        private Color backColorNOK = Color.LightPink;
 
-        // Initialisierung mehrfach verwendetes Tag
+        // Initialisierung verwendetes Tag (analog separater Klasse)
         private string tagOK = "true";
-        private string tagNOK = "false";
 
         public KontaktErstellen(string typeOfContact)
         {
@@ -346,7 +344,9 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            bool checkFieldTag = ValidationFields();
+            var validator = new CheckAndValidationFields(this);
+            var validationContent = CheckAndValidationFieldsContent();
+            bool checkFieldTag = validator.ValidationFields(validationContent);
 
             if (checkFieldTag)
             {
@@ -367,7 +367,9 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
-            bool checkFieldTag = ValidationFields();
+            var validator = new CheckAndValidationFields(this);
+            var validationContent = CheckAndValidationFieldsContent();
+            bool checkFieldTag = validator.ValidationFields(validationContent);
 
             if (checkFieldTag)
             {
@@ -379,237 +381,27 @@ namespace Semesterprojekt
             }
         }
 
-        // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
-        private bool ValidationFields()
+        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
+        private InitializationFields CheckAndValidationFieldsContent()
         {
-            // Prüfung (Grundlagen)
-            foreach (Control field in groupFieldEmployeesAndCustomers)
+            return new InitializationFields
             {
-                CheckFields(field);
-            }
-
-            if (RdbCreatKntktMa.Checked)
-            {
-                foreach (Control field in groupFieldEmployees)
-                {
-                    CheckFields(field);
-                }
-            }
-
-            // Prüfung (vertieft)
-            List<Control> groupFieldAll = new List<Control>();
-            groupFieldAll.AddRange(groupFieldEmployeesAndCustomers);
-            groupFieldAll.AddRange(groupFieldEmployees);
-
-            ValidationFieldsExtension(groupFieldAll);
-
-            // Ausgabe Validierungsstatus (für Speichervorgang)
-            bool checkFieldTag = true;
-
-            foreach (Control field in groupFieldAll)
-            {
-                checkFieldTag = field.Tag == tagNOK ? false : checkFieldTag;
-            }
-
-            return checkFieldTag;
+                GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
+                GroupFieldEmployees = groupFieldEmployees,
+                CheckFieldIgnore = CheckFieldIgnore(),
+                IsEmployee = RdbCreatKntktMa.Checked,
+                IsClient = RdbCreatKntktKunde.Checked,
+                Salutation = CmBxCreatKntktAnrede,
+                Birthday = DateCreatKntktBirthday,
+                Gender = CmBxCreatKntktGeschlecht,
+                PLZ = TxtCreatKntktPLZ,
+                Email = TxtCreatKntktEmail,
+                AHVNumber = TxtCreatKntktMaAHVNr,
+                Nationality = TxtCreatKntktMaNationalitaet,
+                DateOfEntry = DateCreatKntktEintrDatum
+            };
         }
-
-        // Prüfung einzelner Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
-        private void CheckFields(Control field)
-        {
-            Control[] checkFieldIgnore = CheckFieldIgnore();
-
-            if (checkFieldIgnore.Contains(field))
-            {
-                field.BackColor = backColorOK;
-                field.Tag = tagOK;
-                return;
-            }
-
-            if (field is System.Windows.Forms.ComboBox cmbxField && string.IsNullOrWhiteSpace(cmbxField.Text))
-            {
-                // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                cmbxField.Tag = tagNOK;
-                return;
-            }
-
-            if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
-            {
-                // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                dateField.Tag = tagNOK;
-                return;
-            }
-
-            if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
-            {
-                numField.BackColor = backColorNOK;
-                numField.Tag = tagNOK;
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(field.Text))
-            {
-                field.BackColor = backColorNOK;
-                field.Tag = tagNOK;
-                return;
-            }
-
-            field.BackColor = backColorOK;
-            field.Tag = tagOK;
-        }
-
-        // Prüfung einzelner Spezifalfelder gemäss Erwartungen inkl. Popup
-        private void ValidationFieldsExtension(List<Control> groupFieldAll)
-        {
-            foreach (Control field in groupFieldAll)
-            {
-                if (field.BackColor == backColorNOK)
-                {
-                    ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!");
-                    return;
-                }
-            }
-
-            if (CmBxCreatKntktAnrede.Tag == tagNOK)
-            {
-                ShowMessageBox("Anrede fehlt");
-                return;
-            }
-
-            if (DateCreatKntktBirthday.Tag == tagNOK)
-            {
-                ShowMessageBox("Geburtsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
-                DateCreatKntktBirthday.Focus();
-                return;
-            }
-            
-            if (CmBxCreatKntktGeschlecht.Tag == tagNOK)
-            {
-                ShowMessageBox("Geschlecht fehlt");
-                return;
-            }
-
-            CheckPLZNumber();
-            if (TxtCreatKntktPLZ.Tag == tagNOK)
-                return;
-
-            CheckEMail();
-            if (TxtCreatKntktEmail.Tag == tagNOK)
-                return;
-
-            CheckAHVNumber();
-            if (TxtCreatKntktMaAHVNr.Tag == tagNOK)
-                return;
-            
-            if (DateCreatKntktEintrDatum.Tag == tagNOK)
-            {
-                ShowMessageBox("Eintrittsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
-                DateCreatKntktEintrDatum.Focus();
-                return;
-            }
-        }
-
-        // Prüfung Format auf 4 bis 5 Zahlen (Standard für Schweiz und umliegende Länder)
-        private void CheckPLZNumber()
-        {
-            if (Regex.IsMatch(TxtCreatKntktPLZ.Text, @"^\d{4,5}$"))
-            {
-                TxtCreatKntktPLZ.BackColor = backColorOK;
-                TxtCreatKntktPLZ.Tag = tagOK;
-            }
-
-            else
-            {
-                TxtCreatKntktPLZ.BackColor = backColorNOK;
-                TxtCreatKntktPLZ.Tag = tagNOK;
-                ShowMessageBox($"PLZ '{TxtCreatKntktPLZ.Text}' ist ungültig");
-                TxtCreatKntktPLZ.Focus();
-            }
-        }
-
-        // Prüfung Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
-        private void CheckEMail()
-        {           
-            if (Regex.IsMatch(TxtCreatKntktEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                TxtCreatKntktEmail.BackColor = backColorOK;
-                TxtCreatKntktEmail.Tag = tagOK;
-            }
-
-            else
-            {
-                TxtCreatKntktEmail.BackColor = backColorNOK;
-                TxtCreatKntktEmail.Tag = tagNOK;
-                ShowMessageBox($"E-Mail '{TxtCreatKntktEmail.Text}' ist ungültig");
-                TxtCreatKntktEmail.Focus();
-            }
-        }
-
-        // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
-        private void CheckAHVNumber()
-        {
-            if (RdbCreatKntktKunde.Checked || string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) || TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH")
-            {
-                TxtCreatKntktMaAHVNr.BackColor = backColorOK;
-                TxtCreatKntktMaAHVNr.Tag = tagOK;
-                return;
-            }
-
-            if (!ValidationAHVNumber(TxtCreatKntktMaAHVNr.Text))
-            {
-                TxtCreatKntktMaAHVNr.BackColor = backColorNOK;
-                TxtCreatKntktMaAHVNr.Tag = tagNOK;
-                ShowMessageBox($"AHV-Nummer '{TxtCreatKntktMaAHVNr.Text}' ist ungültig");
-                TxtCreatKntktMaAHVNr.Focus();
-
-            }
-
-            else
-            {
-                TxtCreatKntktMaAHVNr.BackColor = backColorOK;
-                TxtCreatKntktMaAHVNr.Tag = tagOK;
-            }
-        }
-
-        // Prüfung AHV-Nummer auf Korrektheit und vollständigkeit (2. Schritt)
-        private bool ValidationAHVNumber(string ahvNumber)
-        {
-            // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
-            string pattern = @"^756\.\d{4}\.\d{4}\.\d{2}$";
-
-            if (!Regex.IsMatch(ahvNumber, pattern))
-                return false;
-
-            // Entfernung Punkte
-            string ahvNumberNoPoints = ahvNumber.Replace(".", "");
-
-            // Prüfung AHV-Nummer ohne Punkte
-            if (ahvNumberNoPoints.Length != 13 || !ahvNumberNoPoints.All(char.IsDigit))
-                return false;
-
-            // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
-            int total = 0;
-
-            for (int i = 0; i < 12; i++)
-            {
-                int digit = int.Parse(ahvNumberNoPoints[i].ToString());
-                int weight = (i % 2 == 0) ? 1 : 3;
-                total += digit * weight;
-            }
-
-            // Prüfung Prüfziffer gemäss Norm EAN-13 (BSV)
-            int checkDigit = int.Parse(ahvNumberNoPoints[12].ToString());
-            int expectation = (10 - (total % 10)) % 10;
-
-            return checkDigit == expectation;
-        }
-
-        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben gemäss Erwartungen
-        private void ShowMessageBox (string message)
-        {
-            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        
+       
         // Speicherung der Kontaktdaten in JSON-Datei
         private bool SaveContactData()
         {

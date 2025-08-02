@@ -176,7 +176,6 @@
             this.TxtAnsichtKntktEmail.Location = new System.Drawing.Point(152, 492);
             this.TxtAnsichtKntktEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktEmail.Name = "TxtAnsichtKntktEmail";
-            this.TxtAnsichtKntktEmail.ReadOnly = true;
             this.TxtAnsichtKntktEmail.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktEmail.TabIndex = 17;
             // 
@@ -185,7 +184,6 @@
             this.TxtAnsichtKntktTelMobile.Location = new System.Drawing.Point(152, 449);
             this.TxtAnsichtKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktTelMobile.Name = "TxtAnsichtKntktTelMobile";
-            this.TxtAnsichtKntktTelMobile.ReadOnly = true;
             this.TxtAnsichtKntktTelMobile.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktTelMobile.TabIndex = 16;
             // 
@@ -194,7 +192,6 @@
             this.TxtAnsichtKntktTelGeschaeft.Location = new System.Drawing.Point(150, 401);
             this.TxtAnsichtKntktTelGeschaeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktTelGeschaeft.Name = "TxtAnsichtKntktTelGeschaeft";
-            this.TxtAnsichtKntktTelGeschaeft.ReadOnly = true;
             this.TxtAnsichtKntktTelGeschaeft.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktTelGeschaeft.TabIndex = 15;
             // 
@@ -203,7 +200,6 @@
             this.TxtAnsichtKntktTitel.Location = new System.Drawing.Point(149, 24);
             this.TxtAnsichtKntktTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktTitel.Name = "TxtAnsichtKntktTitel";
-            this.TxtAnsichtKntktTitel.ReadOnly = true;
             this.TxtAnsichtKntktTitel.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktTitel.TabIndex = 14;
             // 
@@ -224,7 +220,6 @@
             this.TxtAnsichtKntktVorname.Location = new System.Drawing.Point(152, 104);
             this.TxtAnsichtKntktVorname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktVorname.Name = "TxtAnsichtKntktVorname";
-            this.TxtAnsichtKntktVorname.ReadOnly = true;
             this.TxtAnsichtKntktVorname.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktVorname.TabIndex = 11;
             // 
@@ -233,7 +228,6 @@
             this.TxtAnsichtKntktName.Location = new System.Drawing.Point(152, 140);
             this.TxtAnsichtKntktName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktName.Name = "TxtAnsichtKntktName";
-            this.TxtAnsichtKntktName.ReadOnly = true;
             this.TxtAnsichtKntktName.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktName.TabIndex = 9;
             // 
@@ -272,7 +266,6 @@
             this.TxtAnsichtKntktAdr.Location = new System.Drawing.Point(149, 278);
             this.TxtAnsichtKntktAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktAdr.Name = "TxtAnsichtKntktAdr";
-            this.TxtAnsichtKntktAdr.ReadOnly = true;
             this.TxtAnsichtKntktAdr.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktAdr.TabIndex = 38;
             // 
@@ -351,7 +344,6 @@
             this.TxtAnsichtKntktPLZ.Location = new System.Drawing.Point(149, 323);
             this.TxtAnsichtKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktPLZ.Name = "TxtAnsichtKntktPLZ";
-            this.TxtAnsichtKntktPLZ.ReadOnly = true;
             this.TxtAnsichtKntktPLZ.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktPLZ.TabIndex = 33;
             // 
@@ -360,7 +352,6 @@
             this.TxtAnsichtKntktOrt.Location = new System.Drawing.Point(149, 363);
             this.TxtAnsichtKntktOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktOrt.Name = "TxtAnsichtKntktOrt";
-            this.TxtAnsichtKntktOrt.ReadOnly = true;
             this.TxtAnsichtKntktOrt.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktOrt.TabIndex = 32;
             // 
@@ -555,7 +546,6 @@
             this.TxtAnsichtKntktMaKader.Location = new System.Drawing.Point(150, 157);
             this.TxtAnsichtKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaKader.Name = "TxtAnsichtKntktMaKader";
-            this.TxtAnsichtKntktMaKader.ReadOnly = true;
             this.TxtAnsichtKntktMaKader.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktMaKader.TabIndex = 41;
             // 
@@ -564,7 +554,6 @@
             this.TxtAnsichtKntktMaNationalitaet.Location = new System.Drawing.Point(153, 101);
             this.TxtAnsichtKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaNationalitaet.Name = "TxtAnsichtKntktMaNationalitaet";
-            this.TxtAnsichtKntktMaNationalitaet.ReadOnly = true;
             this.TxtAnsichtKntktMaNationalitaet.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktMaNationalitaet.TabIndex = 37;
             // 
@@ -623,7 +612,6 @@
             this.TxtAnsichtKntktMaRolle.Location = new System.Drawing.Point(153, 303);
             this.TxtAnsichtKntktMaRolle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaRolle.Name = "TxtAnsichtKntktMaRolle";
-            this.TxtAnsichtKntktMaRolle.ReadOnly = true;
             this.TxtAnsichtKntktMaRolle.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktMaRolle.TabIndex = 34;
             // 
@@ -652,7 +640,6 @@
             this.TxtAnsichtKntktMaAHVNr.Location = new System.Drawing.Point(152, 60);
             this.TxtAnsichtKntktMaAHVNr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaAHVNr.Name = "TxtAnsichtKntktMaAHVNr";
-            this.TxtAnsichtKntktMaAHVNr.ReadOnly = true;
             this.TxtAnsichtKntktMaAHVNr.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktMaAHVNr.TabIndex = 29;
             // 
@@ -661,7 +648,6 @@
             this.TxtAnsichtKntktMaAbteilung.Location = new System.Drawing.Point(150, 263);
             this.TxtAnsichtKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaAbteilung.Name = "TxtAnsichtKntktMaAbteilung";
-            this.TxtAnsichtKntktMaAbteilung.ReadOnly = true;
             this.TxtAnsichtKntktMaAbteilung.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktMaAbteilung.TabIndex = 27;
             // 

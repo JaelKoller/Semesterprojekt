@@ -375,7 +375,35 @@ namespace Semesterprojekt
 
         private void CmdAnsichtKntktSaveAll_Click(object sender, EventArgs e)
         {
-            UpdateGroupAndField(false);
+            var validator = new CheckAndValidationFields(this);
+            var validationContent = CheckAndValidationFieldsContent();
+            bool checkFieldTag = validator.ValidationFields(validationContent);
+
+            if (checkFieldTag)
+            {
+                UpdateGroupAndField(false);
+            }
+        }
+
+        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
+        private InitializationFields CheckAndValidationFieldsContent()
+        {
+            return new InitializationFields
+            {
+                GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
+                GroupFieldEmployees = groupFieldEmployees,
+                CheckFieldIgnore = CheckFieldIgnore(),
+                IsEmployee = true, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
+                IsClient = false, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
+                Salutation = CmBxAnsichtKntktAnrede,
+                Birthday = DateAnsichtKntktBirthday,
+                Gender = CmBxAnsichtKntktGeschlecht,
+                PLZ = TxtAnsichtKntktPLZ,
+                Email = TxtAnsichtKntktEmail,
+                AHVNumber = TxtAnsichtKntktMaAHVNr,
+                Nationality = TxtAnsichtKntktMaNationalitaet,
+                DateOfEntry = DateAnsichtKntktEintrDatum
+            };
         }
 
         private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
