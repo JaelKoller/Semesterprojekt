@@ -17,7 +17,7 @@ namespace Semesterprojekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Dashboard());
+            Application.Run(new Dashboard());
 
             //var testingKontaktErstellen = new Testing_KontaktErstellen();
             //testingKontaktErstellen.TestData("Mitarbeiter");
@@ -26,9 +26,9 @@ namespace Semesterprojekt
             //var testingAlleKontakte = new Testing_AlleKontakte();
             //testingAlleKontakte.TestData();
 
-            var testingAnsichtKontakt = new Testing_AnsichtKontakt();
-            testingAnsichtKontakt.TestData(true);
-            testingAnsichtKontakt.TestData(false);
+            //var testingAnsichtKontakt = new Testing_AnsichtKontakt();
+            //testingAnsichtKontakt.TestData(true);
+            //testingAnsichtKontakt.TestData(false);
 
             // Application.Run(new AnsichtKontakt());
         }

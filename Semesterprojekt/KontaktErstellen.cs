@@ -527,6 +527,7 @@ namespace Semesterprojekt
             }
         }
 
+        // Prüfung Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
         private void CheckEMail()
         {           
             if (Regex.IsMatch(TxtCreatKntktEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))

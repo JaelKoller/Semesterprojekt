@@ -380,12 +380,38 @@ namespace Semesterprojekt
 
         private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string message = "Möchtest du den Kontakt unwiderruflich löschen?";
+            DialogResult result = MessageBox.Show(message, "Kontakt löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void CmdAnsichtKntktDashboard_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (GrpBxDatenAlle.Enabled)
+            {
+                string message = "Die Änderungen wurde noch nicht gespeichert.\r\nBei der Bestätigung gehen diese alle verloren.\r\n\r\nMöchtest du trotzdem zurück zum Dashboard wechseln?";
+                DialogResult result = MessageBox.Show(message, "Kontakt schliessen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben (Error)
+        private void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -89,6 +89,7 @@
     <Compile Include="AnsichtKontakt.Designer.cs">
       <DependentUpon>AnsichtKontakt.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckAndValidationFields.cs" />
     <Compile Include="ContactData.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>

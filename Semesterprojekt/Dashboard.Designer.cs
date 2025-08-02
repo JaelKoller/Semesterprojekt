@@ -83,9 +83,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button BtnDashMaNew;
-        private System.Windows.Forms.Button BtnDashKndNew;
-        private System.Windows.Forms.Button BtnDashAllKntkt;
+        internal System.Windows.Forms.Button BtnDashMaNew;
+        internal System.Windows.Forms.Button BtnDashKndNew;
+        internal System.Windows.Forms.Button BtnDashAllKntkt;
     }
 }
 

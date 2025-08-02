@@ -224,20 +224,20 @@
 
         #endregion
 
-        public System.Windows.Forms.Label LblAllKntktName;
-        public System.Windows.Forms.Label LblAllKntktSuchen;
-        public System.Windows.Forms.Label LblAllKntktVorname;
-        public System.Windows.Forms.Label LblAllKntktBirthday;
-        public System.Windows.Forms.Label LblAllKntktMa;
-        public System.Windows.Forms.Label LblAllKntktKunde;
-        public System.Windows.Forms.CheckBox ChkBAllKntktMa;
-        public System.Windows.Forms.CheckBox ChkBAllKntktKunde;
-        public System.Windows.Forms.TextBox TxtAllKntktName;
-        public System.Windows.Forms.TextBox TxtAllKntktVorname;
-        public System.Windows.Forms.Button BtnAllKntktSuchen;
-        public System.Windows.Forms.Button BtnAllKntktHome;
-        public System.Windows.Forms.TextBox TxtAllKntktBirthday;
-        public System.Windows.Forms.Label LblAllKntktInaktiv;
-        public System.Windows.Forms.CheckBox ChkBAllKntktInaktiv;
+        internal System.Windows.Forms.Label LblAllKntktName;
+        internal System.Windows.Forms.Label LblAllKntktSuchen;
+        internal System.Windows.Forms.Label LblAllKntktVorname;
+        internal System.Windows.Forms.Label LblAllKntktBirthday;
+        internal System.Windows.Forms.Label LblAllKntktMa;
+        internal System.Windows.Forms.Label LblAllKntktKunde;
+        internal System.Windows.Forms.CheckBox ChkBAllKntktMa;
+        internal System.Windows.Forms.CheckBox ChkBAllKntktKunde;
+        internal System.Windows.Forms.TextBox TxtAllKntktName;
+        internal System.Windows.Forms.TextBox TxtAllKntktVorname;
+        internal System.Windows.Forms.Button BtnAllKntktSuchen;
+        internal System.Windows.Forms.Button BtnAllKntktHome;
+        internal System.Windows.Forms.TextBox TxtAllKntktBirthday;
+        internal System.Windows.Forms.Label LblAllKntktInaktiv;
+        internal System.Windows.Forms.CheckBox ChkBAllKntktInaktiv;
     }
 }

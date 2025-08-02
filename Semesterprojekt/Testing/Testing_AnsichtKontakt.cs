@@ -37,6 +37,8 @@ namespace Semesterprojekt.Testing
             ansichtKontaktForm.TxtAnsichtKntktOrt.Text = "St. Gallen";
             ansichtKontaktForm.RdbAnsichtKntktAktiv.Checked = true;
 
+            string typeOfContact = "Kunde";
+
             // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
             if (testfallMitarbeiter)
             {
@@ -51,7 +53,11 @@ namespace Semesterprojekt.Testing
                 ansichtKontaktForm.NumAnsichtKntktMaOfficeNumber.Value = 123;
                 ansichtKontaktForm.DateAnsichtKntktEintrDatum.Value = new DateTime(2005, 8, 1);
                 ansichtKontaktForm.DateAnsichtKntktAustrDatum.Value = new DateTime(2025, 7, 31);
+
+                typeOfContact = "Mitarbeiter";
             }
+
+            ansichtKontaktForm.LblAnsichtKntktNameAnzeige.Text = $"{typeOfContact}: {ansichtKontaktForm.TxtAnsichtKntktVorname.Text} {ansichtKontaktForm.TxtAnsichtKntktName.Text}";
 
             // Start Form "KontaktErstellen" mit Testdaten
             Application.Run(ansichtKontaktForm);
