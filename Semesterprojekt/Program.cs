@@ -17,11 +17,13 @@ namespace Semesterprojekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            // Application.Run(new Dashboard());
 
             //var testingkontakterstellen = new Testing_KontaktErstellen();
             //testingkontakterstellen.TestData("Mitarbeiter");
             //testingkontakterstellen.TestData("kunde");
+
+            Application.Run(new AnsichtKontakt());
         }
     }
 }
