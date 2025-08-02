@@ -30,6 +30,8 @@
         {
             this.LblAnsichtKntktNameAnzeige = new System.Windows.Forms.Label();
             this.GrpBxDatenAlle = new System.Windows.Forms.GroupBox();
+            this.CmBxAnsichtKntktKundeGeschlecht = new System.Windows.Forms.ComboBox();
+            this.CmBxAnsichtKntktAnrede = new System.Windows.Forms.ComboBox();
             this.TxtAnsichtKntktEmail = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktTelMobile = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktTelGeschaeft = new System.Windows.Forms.TextBox();
@@ -78,7 +80,7 @@
             this.TxtAnsichtKntktMaAHVNr = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.GrpBxAnsichtKntktAktiv = new System.Windows.Forms.GroupBox();
-            this.RdbAnsichtKntktDeaktiviert = new System.Windows.Forms.RadioButton();
+            this.RdbAnsichtKntktInaktiv = new System.Windows.Forms.RadioButton();
             this.RdbAnsichtKntktAktiv = new System.Windows.Forms.RadioButton();
             this.LbAnsichtKntktProtokolAusg = new System.Windows.Forms.ListBox();
             this.GrpBxAnsichtKntktNotiz = new System.Windows.Forms.GroupBox();
@@ -89,8 +91,6 @@
             this.CmdAnsichtKntktDeletAll = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktEdit = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktDashboard = new System.Windows.Forms.Button();
-            this.CmBxAnsichtKntktAnrede = new System.Windows.Forms.ComboBox();
-            this.CmBxAnsichtKntktKundeGeschlecht = new System.Windows.Forms.ComboBox();
             this.GrpBxDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
             this.GrpBxAnsichtKntktAktiv.SuspendLayout();
@@ -140,6 +140,30 @@
             this.GrpBxDatenAlle.Size = new System.Drawing.Size(460, 559);
             this.GrpBxDatenAlle.TabIndex = 1;
             this.GrpBxDatenAlle.TabStop = false;
+            // 
+            // CmBxAnsichtKntktKundeGeschlecht
+            // 
+            this.CmBxAnsichtKntktKundeGeschlecht.FormattingEnabled = true;
+            this.CmBxAnsichtKntktKundeGeschlecht.Items.AddRange(new object[] {
+            "männlich",
+            "weiblich",
+            "divers"});
+            this.CmBxAnsichtKntktKundeGeschlecht.Location = new System.Drawing.Point(152, 234);
+            this.CmBxAnsichtKntktKundeGeschlecht.Name = "CmBxAnsichtKntktKundeGeschlecht";
+            this.CmBxAnsichtKntktKundeGeschlecht.Size = new System.Drawing.Size(184, 28);
+            this.CmBxAnsichtKntktKundeGeschlecht.TabIndex = 40;
+            // 
+            // CmBxAnsichtKntktAnrede
+            // 
+            this.CmBxAnsichtKntktAnrede.FormattingEnabled = true;
+            this.CmBxAnsichtKntktAnrede.Items.AddRange(new object[] {
+            "Herr",
+            "Frau",
+            "keine"});
+            this.CmBxAnsichtKntktAnrede.Location = new System.Drawing.Point(152, 63);
+            this.CmBxAnsichtKntktAnrede.Name = "CmBxAnsichtKntktAnrede";
+            this.CmBxAnsichtKntktAnrede.Size = new System.Drawing.Size(178, 28);
+            this.CmBxAnsichtKntktAnrede.TabIndex = 39;
             // 
             // TxtAnsichtKntktEmail
             // 
@@ -619,7 +643,7 @@
             // 
             // GrpBxAnsichtKntktAktiv
             // 
-            this.GrpBxAnsichtKntktAktiv.Controls.Add(this.RdbAnsichtKntktDeaktiviert);
+            this.GrpBxAnsichtKntktAktiv.Controls.Add(this.RdbAnsichtKntktInaktiv);
             this.GrpBxAnsichtKntktAktiv.Controls.Add(this.RdbAnsichtKntktAktiv);
             this.GrpBxAnsichtKntktAktiv.Location = new System.Drawing.Point(595, 5);
             this.GrpBxAnsichtKntktAktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -629,17 +653,17 @@
             this.GrpBxAnsichtKntktAktiv.TabIndex = 3;
             this.GrpBxAnsichtKntktAktiv.TabStop = false;
             // 
-            // RdbAnsichtKntktDeaktiviert
+            // RdbAnsichtKntktInaktiv
             // 
-            this.RdbAnsichtKntktDeaktiviert.AutoSize = true;
-            this.RdbAnsichtKntktDeaktiviert.Location = new System.Drawing.Point(79, 20);
-            this.RdbAnsichtKntktDeaktiviert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.RdbAnsichtKntktDeaktiviert.Name = "RdbAnsichtKntktDeaktiviert";
-            this.RdbAnsichtKntktDeaktiviert.Size = new System.Drawing.Size(109, 24);
-            this.RdbAnsichtKntktDeaktiviert.TabIndex = 1;
-            this.RdbAnsichtKntktDeaktiviert.TabStop = true;
-            this.RdbAnsichtKntktDeaktiviert.Text = "Deaktiviert";
-            this.RdbAnsichtKntktDeaktiviert.UseVisualStyleBackColor = true;
+            this.RdbAnsichtKntktInaktiv.AutoSize = true;
+            this.RdbAnsichtKntktInaktiv.Location = new System.Drawing.Point(79, 20);
+            this.RdbAnsichtKntktInaktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RdbAnsichtKntktInaktiv.Name = "RdbAnsichtKntktInaktiv";
+            this.RdbAnsichtKntktInaktiv.Size = new System.Drawing.Size(120, 36);
+            this.RdbAnsichtKntktInaktiv.TabIndex = 1;
+            this.RdbAnsichtKntktInaktiv.TabStop = true;
+            this.RdbAnsichtKntktInaktiv.Text = "Inaktiv";
+            this.RdbAnsichtKntktInaktiv.UseVisualStyleBackColor = true;
             // 
             // RdbAnsichtKntktAktiv
             // 
@@ -754,30 +778,6 @@
             this.CmdAnsichtKntktDashboard.Text = "Zurück zum Dashboard";
             this.CmdAnsichtKntktDashboard.UseVisualStyleBackColor = true;
             // 
-            // CmBxAnsichtKntktAnrede
-            // 
-            this.CmBxAnsichtKntktAnrede.FormattingEnabled = true;
-            this.CmBxAnsichtKntktAnrede.Items.AddRange(new object[] {
-            "Herr",
-            "Frau",
-            "keine"});
-            this.CmBxAnsichtKntktAnrede.Location = new System.Drawing.Point(152, 63);
-            this.CmBxAnsichtKntktAnrede.Name = "CmBxAnsichtKntktAnrede";
-            this.CmBxAnsichtKntktAnrede.Size = new System.Drawing.Size(178, 28);
-            this.CmBxAnsichtKntktAnrede.TabIndex = 39;
-            // 
-            // CmBxAnsichtKntktKundeGeschlecht
-            // 
-            this.CmBxAnsichtKntktKundeGeschlecht.FormattingEnabled = true;
-            this.CmBxAnsichtKntktKundeGeschlecht.Items.AddRange(new object[] {
-            "männlich",
-            "weiblich",
-            "divers"});
-            this.CmBxAnsichtKntktKundeGeschlecht.Location = new System.Drawing.Point(152, 234);
-            this.CmBxAnsichtKntktKundeGeschlecht.Name = "CmBxAnsichtKntktKundeGeschlecht";
-            this.CmBxAnsichtKntktKundeGeschlecht.Size = new System.Drawing.Size(184, 28);
-            this.CmBxAnsichtKntktKundeGeschlecht.TabIndex = 40;
-            // 
             // AnsichtKontakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -861,7 +861,7 @@
         private System.Windows.Forms.TextBox TxtAnsichtKntktMaAktLehrj;
         private System.Windows.Forms.GroupBox GrpBxAnsichtKntktAktiv;
         private System.Windows.Forms.RadioButton RdbAnsichtKntktAktiv;
-        private System.Windows.Forms.RadioButton RdbAnsichtKntktDeaktiviert;
+        private System.Windows.Forms.RadioButton RdbAnsichtKntktInaktiv;
         private System.Windows.Forms.ListBox LbAnsichtKntktProtokolAusg;
         private System.Windows.Forms.GroupBox GrpBxAnsichtKntktNotiz;
         private System.Windows.Forms.TextBox TxtAnsichtKntktProtokolEing;

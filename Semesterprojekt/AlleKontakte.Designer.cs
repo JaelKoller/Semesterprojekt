@@ -41,8 +41,8 @@
             this.BtnAllKntktSuchen = new System.Windows.Forms.Button();
             this.BtnAllKntktHome = new System.Windows.Forms.Button();
             this.TxtAllKntktBirthday = new System.Windows.Forms.TextBox();
-            this.LblAllKntktDeaktiviert = new System.Windows.Forms.Label();
-            this.ChkBAllKntktDeaktiviert = new System.Windows.Forms.CheckBox();
+            this.LblAllKntktInaktiv = new System.Windows.Forms.Label();
+            this.ChkBAllKntktInaktiv = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LblAllKntktName
@@ -174,33 +174,33 @@
             this.TxtAllKntktBirthday.TabIndex = 13;
             this.TxtAllKntktBirthday.Text = "TT.MM.JJJJ";
             // 
-            // LblAllKntktDeaktiviert
+            // LblAllKntktInaktiv
             // 
-            this.LblAllKntktDeaktiviert.AutoSize = true;
-            this.LblAllKntktDeaktiviert.Location = new System.Drawing.Point(91, 276);
-            this.LblAllKntktDeaktiviert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LblAllKntktDeaktiviert.Name = "LblAllKntktDeaktiviert";
-            this.LblAllKntktDeaktiviert.Size = new System.Drawing.Size(290, 30);
-            this.LblAllKntktDeaktiviert.TabIndex = 14;
-            this.LblAllKntktDeaktiviert.Text = "inkl. deaktivierte Personen";
+            this.LblAllKntktInaktiv.AutoSize = true;
+            this.LblAllKntktInaktiv.Location = new System.Drawing.Point(91, 276);
+            this.LblAllKntktInaktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblAllKntktInaktiv.Name = "LblAllKntktInaktiv";
+            this.LblAllKntktInaktiv.Size = new System.Drawing.Size(248, 30);
+            this.LblAllKntktInaktiv.TabIndex = 14;
+            this.LblAllKntktInaktiv.Text = "inkl. inaktive Personen";
             // 
-            // ChkBAllKntktDeaktiviert
+            // ChkBAllKntktInaktiv
             // 
-            this.ChkBAllKntktDeaktiviert.AutoSize = true;
-            this.ChkBAllKntktDeaktiviert.Location = new System.Drawing.Point(290, 276);
-            this.ChkBAllKntktDeaktiviert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ChkBAllKntktDeaktiviert.Name = "ChkBAllKntktDeaktiviert";
-            this.ChkBAllKntktDeaktiviert.Size = new System.Drawing.Size(22, 21);
-            this.ChkBAllKntktDeaktiviert.TabIndex = 15;
-            this.ChkBAllKntktDeaktiviert.UseVisualStyleBackColor = true;
+            this.ChkBAllKntktInaktiv.AutoSize = true;
+            this.ChkBAllKntktInaktiv.Location = new System.Drawing.Point(290, 276);
+            this.ChkBAllKntktInaktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ChkBAllKntktInaktiv.Name = "ChkBAllKntktInaktiv";
+            this.ChkBAllKntktInaktiv.Size = new System.Drawing.Size(22, 21);
+            this.ChkBAllKntktInaktiv.TabIndex = 15;
+            this.ChkBAllKntktInaktiv.UseVisualStyleBackColor = true;
             // 
             // AlleKontakte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 562);
-            this.Controls.Add(this.ChkBAllKntktDeaktiviert);
-            this.Controls.Add(this.LblAllKntktDeaktiviert);
+            this.Controls.Add(this.ChkBAllKntktInaktiv);
+            this.Controls.Add(this.LblAllKntktInaktiv);
             this.Controls.Add(this.TxtAllKntktBirthday);
             this.Controls.Add(this.BtnAllKntktHome);
             this.Controls.Add(this.BtnAllKntktSuchen);
@@ -237,7 +237,7 @@
         private System.Windows.Forms.Button BtnAllKntktSuchen;
         private System.Windows.Forms.Button BtnAllKntktHome;
         private System.Windows.Forms.TextBox TxtAllKntktBirthday;
-        private System.Windows.Forms.Label LblAllKntktDeaktiviert;
-        private System.Windows.Forms.CheckBox ChkBAllKntktDeaktiviert;
+        private System.Windows.Forms.Label LblAllKntktInaktiv;
+        private System.Windows.Forms.CheckBox ChkBAllKntktInaktiv;
     }
 }

@@ -28,7 +28,7 @@ namespace Semesterprojekt
         public AlleKontakte()
         {
             InitializeComponent();
-            this.Size = new Size(470, 410);
+            this.Size = new Size(450, 410);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Initialisierung verwendete Label-/Control-Gruppen
@@ -50,10 +50,10 @@ namespace Semesterprojekt
             PlacementLabelAndField(groupLabel, groupField, tabIndexCounter);
 
             // Platzierung Buttons "Suchen" und "zurück zu Dashboard"
-            BtnAllKntktSuchen.Size = new Size(355, 30);
+            BtnAllKntktSuchen.Size = new Size(340, 30);
             BtnAllKntktSuchen.Location = new Point(50, 300);
             BtnAllKntktHome.Size = new Size(90, 40);
-            BtnAllKntktHome.Location = new Point(350, 10);
+            BtnAllKntktHome.Location = new Point(335, 10);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
@@ -61,7 +61,7 @@ namespace Semesterprojekt
         {
             int startLocation = 100;
             int labelXAchse = 50;
-            int controlXAchse = 220;
+            int controlXAchse = 200;
             int tabIndexCounter = indexCounter;
 
             for (int i = 0; i < groupField.Length; i++)
@@ -88,7 +88,7 @@ namespace Semesterprojekt
                 LblAllKntktBirthday,
                 LblAllKntktMa,
                 LblAllKntktKunde,
-                LblAllKntktDeaktiviert
+                LblAllKntktInaktiv
             };
 
             return groupLabel;
@@ -104,7 +104,7 @@ namespace Semesterprojekt
                 TxtAllKntktBirthday,
                 ChkBAllKntktMa,
                 ChkBAllKntktKunde,
-                ChkBAllKntktDeaktiviert
+                ChkBAllKntktInaktiv
             };
 
             return groupField;
@@ -124,7 +124,7 @@ namespace Semesterprojekt
             SetLabelToolTip(toolTip, LblAllKntktBirthday, "Eingabe mit Nullen und Punkten\r\nz.B. 01.01.1900");
             SetLabelToolTip(toolTip, LblAllKntktMa, "Häkchen für Such-Einschränkung auf 'Mitarbeiter'");
             SetLabelToolTip(toolTip, LblAllKntktKunde, "Häkchen für Such-Einschränkung 'Kunde'");
-            SetLabelToolTip(toolTip, LblAllKntktDeaktiviert, "Häkchen für Such-Erweiterung");
+            SetLabelToolTip(toolTip, LblAllKntktInaktiv, "Häkchen für Such-Erweiterung");
         }
 
         // Erzeugung Hover-Effekt bei ToolTip (userfreundlicher)
