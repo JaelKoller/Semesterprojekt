@@ -48,6 +48,7 @@ namespace Semesterprojekt
 
             Design();
             InitializationLabelToolTip();
+            InitializationField();
         }
 
         private void Design()
@@ -79,11 +80,11 @@ namespace Semesterprojekt
             GrpBxAnsichtKntktAktiv.Location = new Point(375, 10);
 
             // Platzierung Radio-Buttons (Aktiv vs. Inaktiv)
-            // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend
+            // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend (nur auf ersten Radio-Button möglich)
             RdbAnsichtKntktAktiv.Location = new Point(10, 15);
             RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
             RdbAnsichtKntktInaktiv.Location = new Point(70, 15);
-            RdbAnsichtKntktInaktiv.TabIndex = tabIndexCounter++;
+            RdbAnsichtKntktInaktiv.TabStop = false;
 
             // Platzierung Gruppe "Notizen zu Person"
             GrpBxAnsichtKntktNotiz.Size = new Size(350, 530);
@@ -91,10 +92,10 @@ namespace Semesterprojekt
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
             // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
-            PlacementFieldNotes(groupFieldNotes, tabIndexCounter);
+            PlacementFieldNote(groupFieldNotes, tabIndexCounter);
 
             // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard"
-            PlacementButtons(groupButtons, tabIndexCounter);
+            PlacementButton(groupButtons, tabIndexCounter);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
@@ -125,7 +126,7 @@ namespace Semesterprojekt
         }
 
         // Platzierung Notiz-Felder (fix)
-        private int PlacementFieldNotes(Control[] groupField, int indexCounter)
+        private int PlacementFieldNote(Control[] groupField, int indexCounter)
         {
             int tabIndexCounter = indexCounter;
             int width = 330;
@@ -154,7 +155,7 @@ namespace Semesterprojekt
         }
 
         // Platzierung Buttons (fix)
-        private int PlacementButtons(Control[] groupField, int indexCounter)
+        private int PlacementButton(Control[] groupField, int indexCounter)
         {
             int tabIndexCounter = indexCounter;
             int width = 150;
@@ -351,6 +352,14 @@ namespace Semesterprojekt
             {
                 label.Font = originalFont; // Original-Schrift
             };
+        }
+
+        // Initialisierung Gruppen und Felder (Befüllung und Sperrung)
+        private void InitializationGroupAndField()
+        {
+            GrpBxDatenAlle.Enabled = false;
+            GrpBxDatenMA.Enabled = false;
+            GrpBxAnsichtKntktAktiv.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
