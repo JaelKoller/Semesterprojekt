@@ -30,13 +30,13 @@
         {
             this.LblAnsichtKntktNameAnzeige = new System.Windows.Forms.Label();
             this.GrpBxDatenAlle = new System.Windows.Forms.GroupBox();
-            this.CmBxAnsichtKntktKundeGeschlecht = new System.Windows.Forms.ComboBox();
+            this.CmBxAnsichtKntktGeschlecht = new System.Windows.Forms.ComboBox();
             this.CmBxAnsichtKntktAnrede = new System.Windows.Forms.ComboBox();
             this.TxtAnsichtKntktEmail = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktTelMobile = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktTelGeschaeft = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktTitel = new System.Windows.Forms.TextBox();
-            this.DateAnsichtKntktKundeBirthday = new System.Windows.Forms.DateTimePicker();
+            this.DateAnsichtKntktBirthday = new System.Windows.Forms.DateTimePicker();
             this.TxtAnsichtKntktVorname = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktName = new System.Windows.Forms.TextBox();
             this.LblAnsichtKntktEmail = new System.Windows.Forms.Label();
@@ -55,6 +55,12 @@
             this.LblAnsichtKntktPLZ = new System.Windows.Forms.Label();
             this.LblAnsichtKntktOrt = new System.Windows.Forms.Label();
             this.GrpBxDatenMA = new System.Windows.Forms.GroupBox();
+            this.NumAnsichtKntktMaOfficeNumber = new System.Windows.Forms.NumericUpDown();
+            this.NumAnsichtKntktMaAktLehrj = new System.Windows.Forms.NumericUpDown();
+            this.NumAnsichtKntktMaLehrj = new System.Windows.Forms.NumericUpDown();
+            this.NumAnsichtKntktMaBeschGrad = new System.Windows.Forms.NumericUpDown();
+            this.DateAnsichtKntktAustrDatum = new System.Windows.Forms.DateTimePicker();
+            this.DateAnsichtKntktEintrDatum = new System.Windows.Forms.DateTimePicker();
             this.LblAnsichtKntktEintrDatum = new System.Windows.Forms.Label();
             this.LblAnsichtKntktMaOfficeNumber = new System.Windows.Forms.Label();
             this.LblAnsichtKntktMaAktLehrj = new System.Windows.Forms.Label();
@@ -78,6 +84,7 @@
             this.RdbAnsichtKntktAktiv = new System.Windows.Forms.RadioButton();
             this.LbAnsichtKntktProtokolAusg = new System.Windows.Forms.ListBox();
             this.GrpBxAnsichtKntktNotiz = new System.Windows.Forms.GroupBox();
+            this.TxtAnsichtKntktProtokolTitel = new System.Windows.Forms.TextBox();
             this.CmdAnsichtKntktSaveProtokol = new System.Windows.Forms.Button();
             this.DateAnsichtKntktDateProtokol = new System.Windows.Forms.DateTimePicker();
             this.TxtAnsichtKntktProtokolEing = new System.Windows.Forms.TextBox();
@@ -85,21 +92,14 @@
             this.CmdAnsichtKntktDeletAll = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktEdit = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktDashboard = new System.Windows.Forms.Button();
-            this.DateAnsichtKntktEintrDatum = new System.Windows.Forms.DateTimePicker();
-            this.DateAnsichtKntktAustrDatum = new System.Windows.Forms.DateTimePicker();
-            this.NumAnsichtKntktMaBeschGrad = new System.Windows.Forms.NumericUpDown();
-            this.NumAnsichtKntktMaLehrj = new System.Windows.Forms.NumericUpDown();
-            this.NumAnsichtKntktMaAktLehrj = new System.Windows.Forms.NumericUpDown();
-            this.NumAnsichtKntktMaOfficeNumber = new System.Windows.Forms.NumericUpDown();
-            this.TxtAnsichtKntktProtokolTitel = new System.Windows.Forms.TextBox();
             this.GrpBxDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaBeschGrad)).BeginInit();
             this.GrpBxAnsichtKntktAktiv.SuspendLayout();
             this.GrpBxAnsichtKntktNotiz.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaBeschGrad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // LblAnsichtKntktNameAnzeige
@@ -115,13 +115,13 @@
             // 
             // GrpBxDatenAlle
             // 
-            this.GrpBxDatenAlle.Controls.Add(this.CmBxAnsichtKntktKundeGeschlecht);
+            this.GrpBxDatenAlle.Controls.Add(this.CmBxAnsichtKntktGeschlecht);
             this.GrpBxDatenAlle.Controls.Add(this.CmBxAnsichtKntktAnrede);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktEmail);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTelMobile);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTelGeschaeft);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktTitel);
-            this.GrpBxDatenAlle.Controls.Add(this.DateAnsichtKntktKundeBirthday);
+            this.GrpBxDatenAlle.Controls.Add(this.DateAnsichtKntktBirthday);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktVorname);
             this.GrpBxDatenAlle.Controls.Add(this.TxtAnsichtKntktName);
             this.GrpBxDatenAlle.Controls.Add(this.LblAnsichtKntktEmail);
@@ -147,17 +147,17 @@
             this.GrpBxDatenAlle.TabIndex = 1;
             this.GrpBxDatenAlle.TabStop = false;
             // 
-            // CmBxAnsichtKntktKundeGeschlecht
+            // CmBxAnsichtKntktGeschlecht
             // 
-            this.CmBxAnsichtKntktKundeGeschlecht.FormattingEnabled = true;
-            this.CmBxAnsichtKntktKundeGeschlecht.Items.AddRange(new object[] {
+            this.CmBxAnsichtKntktGeschlecht.FormattingEnabled = true;
+            this.CmBxAnsichtKntktGeschlecht.Items.AddRange(new object[] {
             "männlich",
             "weiblich",
             "divers"});
-            this.CmBxAnsichtKntktKundeGeschlecht.Location = new System.Drawing.Point(152, 234);
-            this.CmBxAnsichtKntktKundeGeschlecht.Name = "CmBxAnsichtKntktKundeGeschlecht";
-            this.CmBxAnsichtKntktKundeGeschlecht.Size = new System.Drawing.Size(184, 28);
-            this.CmBxAnsichtKntktKundeGeschlecht.TabIndex = 40;
+            this.CmBxAnsichtKntktGeschlecht.Location = new System.Drawing.Point(152, 234);
+            this.CmBxAnsichtKntktGeschlecht.Name = "CmBxAnsichtKntktGeschlecht";
+            this.CmBxAnsichtKntktGeschlecht.Size = new System.Drawing.Size(184, 28);
+            this.CmBxAnsichtKntktGeschlecht.TabIndex = 40;
             // 
             // CmBxAnsichtKntktAnrede
             // 
@@ -207,17 +207,17 @@
             this.TxtAnsichtKntktTitel.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktTitel.TabIndex = 14;
             // 
-            // DateAnsichtKntktKundeBirthday
+            // DateAnsichtKntktBirthday
             // 
-            this.DateAnsichtKntktKundeBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateAnsichtKntktKundeBirthday.Location = new System.Drawing.Point(152, 186);
-            this.DateAnsichtKntktKundeBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateAnsichtKntktKundeBirthday.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateAnsichtKntktKundeBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateAnsichtKntktKundeBirthday.Name = "DateAnsichtKntktKundeBirthday";
-            this.DateAnsichtKntktKundeBirthday.Size = new System.Drawing.Size(293, 26);
-            this.DateAnsichtKntktKundeBirthday.TabIndex = 12;
-            this.DateAnsichtKntktKundeBirthday.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateAnsichtKntktBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateAnsichtKntktBirthday.Location = new System.Drawing.Point(152, 186);
+            this.DateAnsichtKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DateAnsichtKntktBirthday.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.DateAnsichtKntktBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateAnsichtKntktBirthday.Name = "DateAnsichtKntktBirthday";
+            this.DateAnsichtKntktBirthday.Size = new System.Drawing.Size(293, 26);
+            this.DateAnsichtKntktBirthday.TabIndex = 12;
+            this.DateAnsichtKntktBirthday.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // TxtAnsichtKntktVorname
             // 
@@ -315,7 +315,6 @@
             this.LblAnsichtKntktAnrede.Size = new System.Drawing.Size(61, 20);
             this.LblAnsichtKntktAnrede.TabIndex = 2;
             this.LblAnsichtKntktAnrede.Text = "Anrede";
-
             // 
             // LblAnsichtKntktVorname
             // 
@@ -418,6 +417,78 @@
             this.GrpBxDatenMA.Size = new System.Drawing.Size(460, 604);
             this.GrpBxDatenMA.TabIndex = 2;
             this.GrpBxDatenMA.TabStop = false;
+            // 
+            // NumAnsichtKntktMaOfficeNumber
+            // 
+            this.NumAnsichtKntktMaOfficeNumber.Location = new System.Drawing.Point(161, 448);
+            this.NumAnsichtKntktMaOfficeNumber.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.NumAnsichtKntktMaOfficeNumber.Name = "NumAnsichtKntktMaOfficeNumber";
+            this.NumAnsichtKntktMaOfficeNumber.Size = new System.Drawing.Size(120, 26);
+            this.NumAnsichtKntktMaOfficeNumber.TabIndex = 54;
+            // 
+            // NumAnsichtKntktMaAktLehrj
+            // 
+            this.NumAnsichtKntktMaAktLehrj.Location = new System.Drawing.Point(161, 404);
+            this.NumAnsichtKntktMaAktLehrj.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.NumAnsichtKntktMaAktLehrj.Name = "NumAnsichtKntktMaAktLehrj";
+            this.NumAnsichtKntktMaAktLehrj.Size = new System.Drawing.Size(120, 26);
+            this.NumAnsichtKntktMaAktLehrj.TabIndex = 53;
+            // 
+            // NumAnsichtKntktMaLehrj
+            // 
+            this.NumAnsichtKntktMaLehrj.Location = new System.Drawing.Point(161, 356);
+            this.NumAnsichtKntktMaLehrj.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.NumAnsichtKntktMaLehrj.Name = "NumAnsichtKntktMaLehrj";
+            this.NumAnsichtKntktMaLehrj.Size = new System.Drawing.Size(120, 26);
+            this.NumAnsichtKntktMaLehrj.TabIndex = 52;
+            // 
+            // NumAnsichtKntktMaBeschGrad
+            // 
+            this.NumAnsichtKntktMaBeschGrad.Location = new System.Drawing.Point(170, 206);
+            this.NumAnsichtKntktMaBeschGrad.Maximum = new decimal(new int[] {
+            101,
+            0,
+            0,
+            0});
+            this.NumAnsichtKntktMaBeschGrad.Name = "NumAnsichtKntktMaBeschGrad";
+            this.NumAnsichtKntktMaBeschGrad.Size = new System.Drawing.Size(120, 26);
+            this.NumAnsichtKntktMaBeschGrad.TabIndex = 10;
+            // 
+            // DateAnsichtKntktAustrDatum
+            // 
+            this.DateAnsichtKntktAustrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateAnsichtKntktAustrDatum.Location = new System.Drawing.Point(153, 548);
+            this.DateAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DateAnsichtKntktAustrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.DateAnsichtKntktAustrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateAnsichtKntktAustrDatum.Name = "DateAnsichtKntktAustrDatum";
+            this.DateAnsichtKntktAustrDatum.Size = new System.Drawing.Size(293, 26);
+            this.DateAnsichtKntktAustrDatum.TabIndex = 51;
+            this.DateAnsichtKntktAustrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            // 
+            // DateAnsichtKntktEintrDatum
+            // 
+            this.DateAnsichtKntktEintrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateAnsichtKntktEintrDatum.Location = new System.Drawing.Point(153, 491);
+            this.DateAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DateAnsichtKntktEintrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.DateAnsichtKntktEintrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.DateAnsichtKntktEintrDatum.Name = "DateAnsichtKntktEintrDatum";
+            this.DateAnsichtKntktEintrDatum.Size = new System.Drawing.Size(293, 26);
+            this.DateAnsichtKntktEintrDatum.TabIndex = 41;
+            this.DateAnsichtKntktEintrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // LblAnsichtKntktEintrDatum
             // 
@@ -612,7 +683,7 @@
             this.RdbAnsichtKntktInaktiv.Location = new System.Drawing.Point(79, 20);
             this.RdbAnsichtKntktInaktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RdbAnsichtKntktInaktiv.Name = "RdbAnsichtKntktInaktiv";
-            this.RdbAnsichtKntktInaktiv.Size = new System.Drawing.Size(120, 36);
+            this.RdbAnsichtKntktInaktiv.Size = new System.Drawing.Size(80, 24);
             this.RdbAnsichtKntktInaktiv.TabIndex = 1;
             this.RdbAnsichtKntktInaktiv.TabStop = true;
             this.RdbAnsichtKntktInaktiv.Text = "Inaktiv";
@@ -654,6 +725,16 @@
             this.GrpBxAnsichtKntktNotiz.Size = new System.Drawing.Size(420, 705);
             this.GrpBxAnsichtKntktNotiz.TabIndex = 5;
             this.GrpBxAnsichtKntktNotiz.TabStop = false;
+            // 
+            // TxtAnsichtKntktProtokolTitel
+            // 
+            this.TxtAnsichtKntktProtokolTitel.Location = new System.Drawing.Point(5, 446);
+            this.TxtAnsichtKntktProtokolTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktProtokolTitel.Name = "TxtAnsichtKntktProtokolTitel";
+            this.TxtAnsichtKntktProtokolTitel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TxtAnsichtKntktProtokolTitel.Size = new System.Drawing.Size(404, 26);
+            this.TxtAnsichtKntktProtokolTitel.TabIndex = 8;
+            this.TxtAnsichtKntktProtokolTitel.Text = "Notiz-Titel";
             // 
             // CmdAnsichtKntktSaveProtokol
             // 
@@ -734,88 +815,6 @@
             this.CmdAnsichtKntktDashboard.Text = "Zurück zum Dashboard";
             this.CmdAnsichtKntktDashboard.UseVisualStyleBackColor = true;
             // 
-            // DateAnsichtKntktEintrDatum
-            // 
-            this.DateAnsichtKntktEintrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateAnsichtKntktEintrDatum.Location = new System.Drawing.Point(153, 491);
-            this.DateAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateAnsichtKntktEintrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateAnsichtKntktEintrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateAnsichtKntktEintrDatum.Name = "DateAnsichtKntktEintrDatum";
-            this.DateAnsichtKntktEintrDatum.Size = new System.Drawing.Size(293, 26);
-            this.DateAnsichtKntktEintrDatum.TabIndex = 41;
-            this.DateAnsichtKntktEintrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            // 
-            // DateAnsichtKntktAustrDatum
-            // 
-            this.DateAnsichtKntktAustrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateAnsichtKntktAustrDatum.Location = new System.Drawing.Point(153, 548);
-            this.DateAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateAnsichtKntktAustrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateAnsichtKntktAustrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateAnsichtKntktAustrDatum.Name = "DateAnsichtKntktAustrDatum";
-            this.DateAnsichtKntktAustrDatum.Size = new System.Drawing.Size(293, 26);
-            this.DateAnsichtKntktAustrDatum.TabIndex = 51;
-            this.DateAnsichtKntktAustrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            // 
-            // NumAnsichtKntktMaBeschGrad
-            // 
-            this.NumAnsichtKntktMaBeschGrad.Location = new System.Drawing.Point(170, 206);
-            this.NumAnsichtKntktMaBeschGrad.Maximum = new decimal(new int[] {
-            101,
-            0,
-            0,
-            0});
-            this.NumAnsichtKntktMaBeschGrad.Name = "NumAnsichtKntktMaBeschGrad";
-            this.NumAnsichtKntktMaBeschGrad.Size = new System.Drawing.Size(120, 26);
-            this.NumAnsichtKntktMaBeschGrad.TabIndex = 10;
-            // 
-            // NumAnsichtKntktMaLehrj
-            // 
-            this.NumAnsichtKntktMaLehrj.Location = new System.Drawing.Point(161, 356);
-            this.NumAnsichtKntktMaLehrj.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.NumAnsichtKntktMaLehrj.Name = "NumAnsichtKntktMaLehrj";
-            this.NumAnsichtKntktMaLehrj.Size = new System.Drawing.Size(120, 26);
-            this.NumAnsichtKntktMaLehrj.TabIndex = 52;
-            // 
-            // NumAnsichtKntktMaAktLehrj
-            // 
-            this.NumAnsichtKntktMaAktLehrj.Location = new System.Drawing.Point(161, 404);
-            this.NumAnsichtKntktMaAktLehrj.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.NumAnsichtKntktMaAktLehrj.Name = "NumAnsichtKntktMaAktLehrj";
-            this.NumAnsichtKntktMaAktLehrj.Size = new System.Drawing.Size(120, 26);
-            this.NumAnsichtKntktMaAktLehrj.TabIndex = 53;
-            // 
-            // NumAnsichtKntktMaOfficeNumber
-            // 
-            this.NumAnsichtKntktMaOfficeNumber.Location = new System.Drawing.Point(161, 448);
-            this.NumAnsichtKntktMaOfficeNumber.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.NumAnsichtKntktMaOfficeNumber.Name = "NumAnsichtKntktMaOfficeNumber";
-            this.NumAnsichtKntktMaOfficeNumber.Size = new System.Drawing.Size(120, 26);
-            this.NumAnsichtKntktMaOfficeNumber.TabIndex = 54;
-            // 
-            // TxtAnsichtKntktProtokolTitel
-            // 
-            this.TxtAnsichtKntktProtokolTitel.Location = new System.Drawing.Point(5, 446);
-            this.TxtAnsichtKntktProtokolTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtAnsichtKntktProtokolTitel.Name = "TxtAnsichtKntktProtokolTitel";
-            this.TxtAnsichtKntktProtokolTitel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtAnsichtKntktProtokolTitel.Size = new System.Drawing.Size(404, 26);
-            this.TxtAnsichtKntktProtokolTitel.TabIndex = 8;
-            this.TxtAnsichtKntktProtokolTitel.Text = "Notiz-Titel";
-            // 
             // AnsichtKontakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -837,14 +836,14 @@
             this.GrpBxDatenAlle.PerformLayout();
             this.GrpBxDatenMA.ResumeLayout(false);
             this.GrpBxDatenMA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaBeschGrad)).EndInit();
             this.GrpBxAnsichtKntktAktiv.ResumeLayout(false);
             this.GrpBxAnsichtKntktAktiv.PerformLayout();
             this.GrpBxAnsichtKntktNotiz.ResumeLayout(false);
             this.GrpBxAnsichtKntktNotiz.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaBeschGrad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -852,69 +851,69 @@
 
         #endregion
 
-        private System.Windows.Forms.Label LblAnsichtKntktNameAnzeige;
-        private System.Windows.Forms.GroupBox GrpBxDatenAlle;
-        private System.Windows.Forms.Label LblAnsichtKntktName;
-        private System.Windows.Forms.GroupBox GrpBxDatenMA;
-        private System.Windows.Forms.Label LblAnsichtKntktAnrede;
-        private System.Windows.Forms.Label LblAnsichtKntktVorname;
-        private System.Windows.Forms.Label LblAnsichtKntktEmail;
-        private System.Windows.Forms.Label LblAnsichtKntktTelMobile;
-        private System.Windows.Forms.Label LblAnsichtKntktTelGeschaeft;
-        private System.Windows.Forms.Label LblAnsichtKntktTitel;
-        private System.Windows.Forms.Label LblAnsichtKntktGeschlecht;
-        private System.Windows.Forms.Label LblAnsichtKntktBirthday;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktName;
-        private System.Windows.Forms.DateTimePicker DateAnsichtKntktKundeBirthday;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktVorname;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktTitel;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktEmail;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktTelMobile;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktTelGeschaeft;
-        private System.Windows.Forms.Label LblAnsichtKntktMaManr;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaRolle;
-        private System.Windows.Forms.Label LblAnsichtKntktMaAbteilung;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktPLZ;
-        private System.Windows.Forms.Label LblAnsichtKntktMaAHVNr;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktOrt;
-        private System.Windows.Forms.Label LblAnsichtKntktMaNationalitaet;
-        private System.Windows.Forms.Label LblAnsichtKntktAdr;
-        private System.Windows.Forms.Label LblAnsichtKntktOrt;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaAHVNr;
-        private System.Windows.Forms.Label LblAnsichtKntktPLZ;
-        private System.Windows.Forms.Label LblAnsichtKntktMaRolle;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaAbteilung;
-        private System.Windows.Forms.Label LblAnsichtKntktMaLehrj;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaManr;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaNationalitaet;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktAdr;
-        private System.Windows.Forms.Label LblAnsichtKntktMaKader;
-        private System.Windows.Forms.Label LblAnsichtKntktMaBeschGrad;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktMaKader;
-        private System.Windows.Forms.Label LblAnsichtKntktEintrDatum;
-        private System.Windows.Forms.Label LblAnsichtKntktMaOfficeNumber;
-        private System.Windows.Forms.Label LblAnsichtKntktMaAktLehrj;
-        private System.Windows.Forms.Label LblAnsichtKntktAustrDatum;
-        private System.Windows.Forms.GroupBox GrpBxAnsichtKntktAktiv;
-        private System.Windows.Forms.RadioButton RdbAnsichtKntktAktiv;
-        private System.Windows.Forms.RadioButton RdbAnsichtKntktInaktiv;
-        private System.Windows.Forms.ListBox LbAnsichtKntktProtokolAusg;
-        private System.Windows.Forms.GroupBox GrpBxAnsichtKntktNotiz;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktProtokolEing;
-        private System.Windows.Forms.Button CmdAnsichtKntktSaveProtokol;
-        private System.Windows.Forms.DateTimePicker DateAnsichtKntktDateProtokol;
-        private System.Windows.Forms.Button CmdAnsichtKntktSaveAll;
-        private System.Windows.Forms.Button CmdAnsichtKntktDeletAll;
-        private System.Windows.Forms.Button CmdAnsichtKntktEdit;
-        private System.Windows.Forms.Button CmdAnsichtKntktDashboard;
-        private System.Windows.Forms.ComboBox CmBxAnsichtKntktAnrede;
-        private System.Windows.Forms.ComboBox CmBxAnsichtKntktKundeGeschlecht;
-        private System.Windows.Forms.DateTimePicker DateAnsichtKntktAustrDatum;
-        private System.Windows.Forms.DateTimePicker DateAnsichtKntktEintrDatum;
-        private System.Windows.Forms.NumericUpDown NumAnsichtKntktMaBeschGrad;
-        private System.Windows.Forms.NumericUpDown NumAnsichtKntktMaLehrj;
-        private System.Windows.Forms.NumericUpDown NumAnsichtKntktMaAktLehrj;
-        private System.Windows.Forms.NumericUpDown NumAnsichtKntktMaOfficeNumber;
-        private System.Windows.Forms.TextBox TxtAnsichtKntktProtokolTitel;
+        public System.Windows.Forms.Label LblAnsichtKntktNameAnzeige;
+        public System.Windows.Forms.GroupBox GrpBxDatenAlle;
+        public System.Windows.Forms.Label LblAnsichtKntktName;
+        public System.Windows.Forms.GroupBox GrpBxDatenMA;
+        public System.Windows.Forms.Label LblAnsichtKntktAnrede;
+        public System.Windows.Forms.Label LblAnsichtKntktVorname;
+        public System.Windows.Forms.Label LblAnsichtKntktEmail;
+        public System.Windows.Forms.Label LblAnsichtKntktTelMobile;
+        public System.Windows.Forms.Label LblAnsichtKntktTelGeschaeft;
+        public System.Windows.Forms.Label LblAnsichtKntktTitel;
+        public System.Windows.Forms.Label LblAnsichtKntktGeschlecht;
+        public System.Windows.Forms.Label LblAnsichtKntktBirthday;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktName;
+        public System.Windows.Forms.DateTimePicker DateAnsichtKntktBirthday;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktVorname;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktTitel;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktEmail;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktTelMobile;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktTelGeschaeft;
+        public System.Windows.Forms.Label LblAnsichtKntktMaManr;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaRolle;
+        public System.Windows.Forms.Label LblAnsichtKntktMaAbteilung;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktPLZ;
+        public System.Windows.Forms.Label LblAnsichtKntktMaAHVNr;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktOrt;
+        public System.Windows.Forms.Label LblAnsichtKntktMaNationalitaet;
+        public System.Windows.Forms.Label LblAnsichtKntktAdr;
+        public System.Windows.Forms.Label LblAnsichtKntktOrt;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaAHVNr;
+        public System.Windows.Forms.Label LblAnsichtKntktPLZ;
+        public System.Windows.Forms.Label LblAnsichtKntktMaRolle;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaAbteilung;
+        public System.Windows.Forms.Label LblAnsichtKntktMaLehrj;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaManr;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaNationalitaet;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktAdr;
+        public System.Windows.Forms.Label LblAnsichtKntktMaKader;
+        public System.Windows.Forms.Label LblAnsichtKntktMaBeschGrad;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktMaKader;
+        public System.Windows.Forms.Label LblAnsichtKntktEintrDatum;
+        public System.Windows.Forms.Label LblAnsichtKntktMaOfficeNumber;
+        public System.Windows.Forms.Label LblAnsichtKntktMaAktLehrj;
+        public System.Windows.Forms.Label LblAnsichtKntktAustrDatum;
+        public System.Windows.Forms.GroupBox GrpBxAnsichtKntktAktiv;
+        public System.Windows.Forms.RadioButton RdbAnsichtKntktAktiv;
+        public System.Windows.Forms.RadioButton RdbAnsichtKntktInaktiv;
+        public System.Windows.Forms.ListBox LbAnsichtKntktProtokolAusg;
+        public System.Windows.Forms.GroupBox GrpBxAnsichtKntktNotiz;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktProtokolEing;
+        public System.Windows.Forms.Button CmdAnsichtKntktSaveProtokol;
+        public System.Windows.Forms.DateTimePicker DateAnsichtKntktDateProtokol;
+        public System.Windows.Forms.Button CmdAnsichtKntktSaveAll;
+        public System.Windows.Forms.Button CmdAnsichtKntktDeletAll;
+        public System.Windows.Forms.Button CmdAnsichtKntktEdit;
+        public System.Windows.Forms.Button CmdAnsichtKntktDashboard;
+        public System.Windows.Forms.ComboBox CmBxAnsichtKntktAnrede;
+        public System.Windows.Forms.ComboBox CmBxAnsichtKntktGeschlecht;
+        public System.Windows.Forms.DateTimePicker DateAnsichtKntktAustrDatum;
+        public System.Windows.Forms.DateTimePicker DateAnsichtKntktEintrDatum;
+        public System.Windows.Forms.NumericUpDown NumAnsichtKntktMaBeschGrad;
+        public System.Windows.Forms.NumericUpDown NumAnsichtKntktMaLehrj;
+        public System.Windows.Forms.NumericUpDown NumAnsichtKntktMaAktLehrj;
+        public System.Windows.Forms.NumericUpDown NumAnsichtKntktMaOfficeNumber;
+        public System.Windows.Forms.TextBox TxtAnsichtKntktProtokolTitel;
     }
 }

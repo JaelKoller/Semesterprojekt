@@ -24,12 +24,12 @@ namespace Semesterprojekt.Testing
             kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
 
             // Testdaten für Gruppe Mitarbeiter UND Kunde
+            kontaktErstellenForm.TxtCreatKntktTitel.Text = "Dr.";
             kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "Frau";
             kontaktErstellenForm.TxtCreatKntktVorname.Text = "Jael";
             kontaktErstellenForm.TxtCreatKntktName.Text = "Koller";
             kontaktErstellenForm.DateCreatKntktBirthday.Value = new DateTime(1989, 7, 1);
             kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "weiblich";
-            kontaktErstellenForm.TxtCreatKntktTitel.Text = "Dr.";
             kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 45 67";
             kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "076 123 45 67";
             kontaktErstellenForm.TxtCreatKntktEmail.Text = "jaelkoller@testmail.ch";
@@ -44,7 +44,7 @@ namespace Semesterprojekt.Testing
                 kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "CH";
                 kontaktErstellenForm.TxtCreatKntktMaKader.Text = "Mitglied der Direktion";
                 kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 100;
-                kontaktErstellenForm.TxtCreattKntktMaAbteilung.Text = "Automatisierung";
+                kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Automatisierung";
                 kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Software Engineer";
                 kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 3;
                 kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 0;

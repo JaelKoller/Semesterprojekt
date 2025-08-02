@@ -204,7 +204,7 @@ namespace Semesterprojekt
                 TxtCreatKntktMaNationalitaet,
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaBeschGrad,
-                TxtCreattKntktMaAbteilung,
+                TxtCreatKntktMaAbteilung,
                 TxtCreatKntktMaRolle,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,

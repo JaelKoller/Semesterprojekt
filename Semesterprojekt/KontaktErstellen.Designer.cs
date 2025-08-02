@@ -80,7 +80,7 @@
             this.LblCreatKntktMaAHVNr = new System.Windows.Forms.Label();
             this.LblCreatKntktMaNationalitaet = new System.Windows.Forms.Label();
             this.TxtCreatKntktMaAHVNr = new System.Windows.Forms.TextBox();
-            this.TxtCreattKntktMaAbteilung = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
@@ -123,7 +123,7 @@
             this.RdbCreatKntktMa.Location = new System.Drawing.Point(7, 26);
             this.RdbCreatKntktMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RdbCreatKntktMa.Name = "RdbCreatKntktMa";
-            this.RdbCreatKntktMa.Size = new System.Drawing.Size(164, 36);
+            this.RdbCreatKntktMa.Size = new System.Drawing.Size(109, 24);
             this.RdbCreatKntktMa.TabIndex = 1;
             this.RdbCreatKntktMa.TabStop = true;
             this.RdbCreatKntktMa.Text = "Mitarbeiter";
@@ -420,7 +420,7 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaAHVNr);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaNationalitaet);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAHVNr);
-            this.GrpBxDatenMA.Controls.Add(this.TxtCreattKntktMaAbteilung);
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAbteilung);
             this.GrpBxDatenMA.Location = new System.Drawing.Point(496, 100);
             this.GrpBxDatenMA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxDatenMA.Name = "GrpBxDatenMA";
@@ -663,13 +663,13 @@
             this.TxtCreatKntktMaAHVNr.Size = new System.Drawing.Size(293, 26);
             this.TxtCreatKntktMaAHVNr.TabIndex = 29;
             // 
-            // TxtCreattKntktMaAbteilung
+            // TxtCreatKntktMaAbteilung
             // 
-            this.TxtCreattKntktMaAbteilung.Location = new System.Drawing.Point(154, 208);
-            this.TxtCreattKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreattKntktMaAbteilung.Name = "TxtCreattKntktMaAbteilung";
-            this.TxtCreattKntktMaAbteilung.Size = new System.Drawing.Size(293, 26);
-            this.TxtCreattKntktMaAbteilung.TabIndex = 27;
+            this.TxtCreatKntktMaAbteilung.Location = new System.Drawing.Point(154, 208);
+            this.TxtCreatKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktMaAbteilung.Name = "TxtCreatKntktMaAbteilung";
+            this.TxtCreatKntktMaAbteilung.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaAbteilung.TabIndex = 27;
             // 
             // CmdCreateKntktDashboard
             // 
@@ -768,7 +768,7 @@
         public System.Windows.Forms.Label LblCreatKntktOrt;
         public System.Windows.Forms.TextBox TxtCreatKntktMaAHVNr;
         public System.Windows.Forms.Label LblCreatKntktPLZ;
-        public System.Windows.Forms.TextBox TxtCreattKntktMaAbteilung;
+        public System.Windows.Forms.TextBox TxtCreatKntktMaAbteilung;
         public System.Windows.Forms.Label LblCreatKntktEintrDatum;
         public System.Windows.Forms.Button CmdCreateKntktDashboard;
         public System.Windows.Forms.Button CmdCreateKntktKontaktErstellen;

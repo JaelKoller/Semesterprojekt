@@ -110,6 +110,12 @@
     <Compile Include="Testing\Testing_AlleKontakte.Designer.cs">
       <DependentUpon>Testing_AlleKontakte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Testing\Testing_AnsichtKontakt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Testing\Testing_AnsichtKontakt.Designer.cs">
+      <DependentUpon>Testing_AnsichtKontakt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Testing\Testing_KontaktErstellen.cs">
       <SubType>Form</SubType>
     </Compile>
