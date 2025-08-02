@@ -315,7 +315,7 @@
             this.LblAnsichtKntktAnrede.Size = new System.Drawing.Size(61, 20);
             this.LblAnsichtKntktAnrede.TabIndex = 2;
             this.LblAnsichtKntktAnrede.Text = "Anrede";
-            this.LblAnsichtKntktAnrede.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // LblAnsichtKntktVorname
             // 
@@ -499,6 +499,7 @@
             // 
             // TxtAnsichtKntktMaManr
             // 
+            this.TxtAnsichtKntktMaManr.Enabled = false;
             this.TxtAnsichtKntktMaManr.Location = new System.Drawing.Point(152, 22);
             this.TxtAnsichtKntktMaManr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktMaManr.Name = "TxtAnsichtKntktMaManr";
@@ -720,6 +721,7 @@
             this.CmdAnsichtKntktEdit.TabIndex = 8;
             this.CmdAnsichtKntktEdit.Text = "Bearbeiten";
             this.CmdAnsichtKntktEdit.UseVisualStyleBackColor = true;
+            this.CmdAnsichtKntktEdit.Click += new System.EventHandler(this.CmdAnsichtKntktEdit_Click);
             // 
             // CmdAnsichtKntktDashboard
             // 
@@ -818,7 +820,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 958);
+            this.ClientSize = new System.Drawing.Size(1356, 1437);
             this.Controls.Add(this.CmdAnsichtKntktDashboard);
             this.Controls.Add(this.CmdAnsichtKntktEdit);
             this.Controls.Add(this.CmdAnsichtKntktDeletAll);

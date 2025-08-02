@@ -48,7 +48,7 @@ namespace Semesterprojekt
 
             Design();
             InitializationLabelToolTip();
-            InitializationField();
+            InitializationGroupAndField();
         }
 
         private void Design()
@@ -362,7 +362,7 @@ namespace Semesterprojekt
             GrpBxAnsichtKntktAktiv.Enabled = false;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void CmdAnsichtKntktEdit_Click(object sender, EventArgs e)
         {
 
         }

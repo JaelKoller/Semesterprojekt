@@ -1,6 +1,6 @@
 ﻿namespace Semesterprojekt.Testing
 {
-    partial class Testing_KontaktErstellen
+    partial class Testing_AlleKontakte
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Testing_KontaktErstellen
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Testing_KontaktErstellen";
-            this.Text = "Testing_KontaktErstellen";
-            this.ResumeLayout(false);
-
+            this.Text = "Testing_AlleKontakte";
         }
 
         #endregion

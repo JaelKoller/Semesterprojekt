@@ -23,7 +23,10 @@ namespace Semesterprojekt
             //testingkontakterstellen.TestData("Mitarbeiter");
             //testingkontakterstellen.TestData("kunde");
 
-            Application.Run(new AnsichtKontakt());
+            var testingallekontakte = new Testing_AlleKontakte();
+            testingallekontakte.TestData();
+
+            // Application.Run(new AnsichtKontakt());
         }
     }
 }
