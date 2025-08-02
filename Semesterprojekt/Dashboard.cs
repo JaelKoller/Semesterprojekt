@@ -16,6 +16,7 @@ namespace Semesterprojekt
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScroll = true;
         }
 
         // Methode für Aufruf Form "KontaktErstellen" (Mitarbeiter und/oder Kunde hinzufügen)

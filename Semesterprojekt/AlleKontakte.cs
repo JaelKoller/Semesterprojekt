@@ -30,6 +30,7 @@ namespace Semesterprojekt
             InitializeComponent();
             this.Size = new Size(450, 410);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScroll = true;
 
             // Initialisierung verwendete Label-/Control-Gruppen
             groupLabel = GroupLabel();

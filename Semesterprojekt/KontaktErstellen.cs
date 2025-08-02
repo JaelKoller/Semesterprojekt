@@ -50,6 +50,7 @@ namespace Semesterprojekt
             InitializeComponent();
             this.Size = new Size(750, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScroll = true;
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();

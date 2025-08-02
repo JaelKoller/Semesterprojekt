@@ -37,6 +37,7 @@ namespace Semesterprojekt
             InitializeComponent();
             this.Size = new Size(750, 890);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScroll = true;
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
@@ -357,14 +358,34 @@ namespace Semesterprojekt
         // Initialisierung Gruppen und Felder (Befüllung und Sperrung)
         private void InitializationGroupAndField()
         {
-            GrpBxDatenAlle.Enabled = false;
-            GrpBxDatenMA.Enabled = false;
-            GrpBxAnsichtKntktAktiv.Enabled = false;
+            UpdateGroupAndField(false);
+        }
+
+        private void UpdateGroupAndField(bool mutable)
+        {
+            GrpBxDatenAlle.Enabled = mutable;
+            GrpBxDatenMA.Enabled = mutable;
+            GrpBxAnsichtKntktAktiv.Enabled = mutable;
         }
 
         private void CmdAnsichtKntktEdit_Click(object sender, EventArgs e)
         {
+            UpdateGroupAndField(true);
+        }
 
+        private void CmdAnsichtKntktSaveAll_Click(object sender, EventArgs e)
+        {
+            UpdateGroupAndField(false);
+        }
+
+        private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CmdAnsichtKntktDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

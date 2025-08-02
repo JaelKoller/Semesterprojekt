@@ -780,6 +780,7 @@
             this.CmdAnsichtKntktSaveAll.TabIndex = 6;
             this.CmdAnsichtKntktSaveAll.Text = "Speichern";
             this.CmdAnsichtKntktSaveAll.UseVisualStyleBackColor = true;
+            this.CmdAnsichtKntktSaveAll.Click += new System.EventHandler(this.CmdAnsichtKntktSaveAll_Click);
             // 
             // CmdAnsichtKntktDeletAll
             // 
@@ -791,6 +792,7 @@
             this.CmdAnsichtKntktDeletAll.TabIndex = 7;
             this.CmdAnsichtKntktDeletAll.Text = "Löschen";
             this.CmdAnsichtKntktDeletAll.UseVisualStyleBackColor = true;
+            this.CmdAnsichtKntktDeletAll.Click += new System.EventHandler(this.CmdAnsichtKntktDeletAll_Click);
             // 
             // CmdAnsichtKntktEdit
             // 
@@ -814,6 +816,7 @@
             this.CmdAnsichtKntktDashboard.TabIndex = 9;
             this.CmdAnsichtKntktDashboard.Text = "Zurück zum Dashboard";
             this.CmdAnsichtKntktDashboard.UseVisualStyleBackColor = true;
+            this.CmdAnsichtKntktDashboard.Click += new System.EventHandler(this.CmdAnsichtKntktDashboard_Click);
             // 
             // AnsichtKontakt
             // 
