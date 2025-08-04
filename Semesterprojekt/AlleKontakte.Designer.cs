@@ -43,6 +43,8 @@
             this.TxtAllKntktBirthday = new System.Windows.Forms.TextBox();
             this.LblAllKntktInaktiv = new System.Windows.Forms.Label();
             this.ChkBAllKntktInaktiv = new System.Windows.Forms.CheckBox();
+            this.LbAllKntktSuchAusg = new System.Windows.Forms.ListBox();
+            this.LblAllKntktAnzSuchAusg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblAllKntktName
@@ -180,7 +182,7 @@
             this.LblAllKntktInaktiv.Location = new System.Drawing.Point(91, 276);
             this.LblAllKntktInaktiv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAllKntktInaktiv.Name = "LblAllKntktInaktiv";
-            this.LblAllKntktInaktiv.Size = new System.Drawing.Size(248, 30);
+            this.LblAllKntktInaktiv.Size = new System.Drawing.Size(165, 20);
             this.LblAllKntktInaktiv.TabIndex = 14;
             this.LblAllKntktInaktiv.Text = "inkl. inaktive Personen";
             // 
@@ -194,11 +196,32 @@
             this.ChkBAllKntktInaktiv.TabIndex = 15;
             this.ChkBAllKntktInaktiv.UseVisualStyleBackColor = true;
             // 
+            // LbAllKntktSuchAusg
+            // 
+            this.LbAllKntktSuchAusg.FormattingEnabled = true;
+            this.LbAllKntktSuchAusg.ItemHeight = 20;
+            this.LbAllKntktSuchAusg.Location = new System.Drawing.Point(95, 400);
+            this.LbAllKntktSuchAusg.Name = "LbAllKntktSuchAusg";
+            this.LbAllKntktSuchAusg.ScrollAlwaysVisible = true;
+            this.LbAllKntktSuchAusg.Size = new System.Drawing.Size(469, 324);
+            this.LbAllKntktSuchAusg.TabIndex = 16;
+            // 
+            // LblAllKntktAnzSuchAusg
+            // 
+            this.LblAllKntktAnzSuchAusg.AutoSize = true;
+            this.LblAllKntktAnzSuchAusg.Location = new System.Drawing.Point(435, 739);
+            this.LblAllKntktAnzSuchAusg.Name = "LblAllKntktAnzSuchAusg";
+            this.LblAllKntktAnzSuchAusg.Size = new System.Drawing.Size(129, 20);
+            this.LblAllKntktAnzSuchAusg.TabIndex = 17;
+            this.LblAllKntktAnzSuchAusg.Text = "Anzahl Treffer: ...";
+            // 
             // AlleKontakte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 562);
+            this.ClientSize = new System.Drawing.Size(646, 797);
+            this.Controls.Add(this.LblAllKntktAnzSuchAusg);
+            this.Controls.Add(this.LbAllKntktSuchAusg);
             this.Controls.Add(this.ChkBAllKntktInaktiv);
             this.Controls.Add(this.LblAllKntktInaktiv);
             this.Controls.Add(this.TxtAllKntktBirthday);
@@ -239,5 +262,7 @@
         internal System.Windows.Forms.TextBox TxtAllKntktBirthday;
         internal System.Windows.Forms.Label LblAllKntktInaktiv;
         internal System.Windows.Forms.CheckBox ChkBAllKntktInaktiv;
+        private System.Windows.Forms.ListBox LbAllKntktSuchAusg;
+        private System.Windows.Forms.Label LblAllKntktAnzSuchAusg;
     }
 }

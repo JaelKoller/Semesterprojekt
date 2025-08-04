@@ -245,5 +245,51 @@
       "DateCreatKntktEintrDatum": "1900-01-07",
       "DateCreatKntktAustrDatum": "1900-01-01"
     }
+  },
+  {
+    "TypeOfContact": "kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "",
+      "CmBxCreatKntktAnrede": "Herr",
+      "TxtCreatKntktVorname": "asdf",
+      "TxtCreatKntktName": "asdf",
+      "DateCreatKntktBirthday": "1900-01-02",
+      "CmBxCreatKntktGeschlecht": "m\u00E4nnlich",
+      "TxtCreatKntktAdr": "asdf",
+      "TxtCreatKntktPLZ": "0123",
+      "TxtCreatKntktOrt": "sdf",
+      "TxtCreatKntktTelGeschaeft": "",
+      "TxtCreatKntktTelMobile": "asdf",
+      "TxtCreatKntktEmail": "sdfasdf@sdf.ch.ch"
+    }
+  },
+  {
+    "TypeOfContact": "mitarbeiter",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "DateCreatKntktBirthday": "1989-07-01",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch",
+      "TxtCreatKntktMaManr": "MJ0008",
+      "TxtCreatKntktMaAHVNr": "756.8015.4803.90",
+      "TxtCreatKntktMaNationalitaet": "CH",
+      "TxtCreatKntktMaKader": "Mitglied der Direktion",
+      "NumCreatKntktMaBeschGrad": "100",
+      "TxtCreatKntktMaAbteilung": "Automatisierung",
+      "TxtCreatKntktMaRolle": "Software Engineer",
+      "NumCreatKntktMaLehrj": "3",
+      "NumCreatKntktMaAktLehrj": "0",
+      "NumCreatKntktMaOfficeNumber": "123",
+      "DateCreatKntktEintrDatum": "2005-08-01",
+      "DateCreatKntktAustrDatum": "2025-07-31"
+    }
   }
 ]

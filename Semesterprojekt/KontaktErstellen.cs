@@ -46,7 +46,7 @@ namespace Semesterprojekt
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
-            this.Size = new Size(750, 600);
+            this.Size = new Size(775, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -68,16 +68,16 @@ namespace Semesterprojekt
         private void Design()
         {
             // Platzierung Gruppe Radio-Button (Mitarbeiter vs. Kunde)
-            GrpBxCreatKntktMaKunde.Size = new Size(160, 40);
+            GrpBxCreatKntktMaKunde.Size = new Size(165, 40);
             GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
 
             // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
-            GrpBxCreatKntktDatenAlle.Size = new Size(350, 390);
+            GrpBxCreatKntktDatenAlle.Size = new Size(365, 390);
             GrpBxCreatKntktDatenAlle.Location = new Point(10, 55);
 
             // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
-            GrpBxDatenMA.Size = new Size(350, 390);
-            GrpBxDatenMA.Location = new Point(375, 55);
+            GrpBxDatenMA.Size = new Size(365, 390);
+            GrpBxDatenMA.Location = new Point(385, 55);
 
             // Platzierung Radio-Buttons (Mitarbeiter vs. Kunde)
             RdbCreatKntktMa.Location = new Point(10, 15);
@@ -86,7 +86,7 @@ namespace Semesterprojekt
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
-            tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
+            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
@@ -95,9 +95,9 @@ namespace Semesterprojekt
 
             // Platzierung Buttons "Speichern und ..."
             CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
-            CmdCreateKntktKontaktErstellen.Location = new Point(420, 470);
+            CmdCreateKntktKontaktErstellen.Location = new Point(445, 470);
             CmdCreateKntktDashboard.Size = new Size(150, 60);
-            CmdCreateKntktDashboard.Location = new Point(575, 470);
+            CmdCreateKntktDashboard.Location = new Point(600, 470);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
@@ -105,12 +105,13 @@ namespace Semesterprojekt
         {
             int startLocation = 20;
             int labelXAchse = 10;
-            int controlXAchse = 135;
+            int controlXAchse = 150;
             int tabIndexCounter = indexCounter;
 
             for (int i = 0; i < groupField.Length; i++)
             {
                 groupLabel[i].Location = new Point(labelXAchse, startLocation);
+                groupField[i].Size = new Size(200, 20);
                 groupField[i].Location = new Point(controlXAchse, startLocation);
 
                 startLocation += 30;
@@ -278,7 +279,10 @@ namespace Semesterprojekt
             if (typeOfContactNew == "mitarbeiter")
             {
                 RdbCreatKntktMa.Checked = true;
-                TxtCreatKntktMaManr.Text = "TEST"; // AUTOMATISCHE GENERIERUNG IST EINZUBAUEN !!!
+
+                // Automatische Generierung Mitarbeiter Nr. (gemäss JSON)
+                string employeeNumberNew = EmployeeNumber.GetEmployeeNumberNext();
+                TxtCreatKntktMaManr.Text = employeeNumberNew;
             }
             
             else if (typeOfContactNew == "kunde")
@@ -344,9 +348,9 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            var validator = new CheckAndValidationFields(this);
-            var validationContent = CheckAndValidationFieldsContent();
-            bool checkFieldTag = validator.ValidationFields(validationContent);
+            var checkAndValidation = new CheckAndValidationFields(this);
+            var checkAndValidationContent = CheckAndValidationFieldsContent();
+            bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
             if (checkFieldTag)
             {
@@ -367,9 +371,9 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
-            var validator = new CheckAndValidationFields(this);
-            var validationContent = CheckAndValidationFieldsContent();
-            bool checkFieldTag = validator.ValidationFields(validationContent);
+            var checkAndValidation = new CheckAndValidationFields(this);
+            var checkAndValidationContent = CheckAndValidationFieldsContent();
+            bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
             if (checkFieldTag)
             {

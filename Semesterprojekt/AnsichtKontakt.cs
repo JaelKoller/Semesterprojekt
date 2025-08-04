@@ -36,7 +36,7 @@ namespace Semesterprojekt
         {
             InitializeComponent();
             this.Size = new Size(750, 890);
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Maximized;
             this.AutoScroll = true;
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
@@ -439,7 +439,7 @@ namespace Semesterprojekt
 
         private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

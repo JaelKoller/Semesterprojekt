@@ -716,6 +716,7 @@
             // 
             this.TxtAnsichtKntktProtokolTitel.Location = new System.Drawing.Point(5, 446);
             this.TxtAnsichtKntktProtokolTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktProtokolTitel.MaxLength = 60;
             this.TxtAnsichtKntktProtokolTitel.Name = "TxtAnsichtKntktProtokolTitel";
             this.TxtAnsichtKntktProtokolTitel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TxtAnsichtKntktProtokolTitel.Size = new System.Drawing.Size(404, 26);
@@ -809,7 +810,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 1437);
+            this.ClientSize = new System.Drawing.Size(1356, 1170);
             this.Controls.Add(this.CmdAnsichtKntktDashboard);
             this.Controls.Add(this.CmdAnsichtKntktEdit);
             this.Controls.Add(this.CmdAnsichtKntktDeletAll);

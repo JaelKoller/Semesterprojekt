@@ -28,7 +28,7 @@ namespace Semesterprojekt
         public AlleKontakte()
         {
             InitializeComponent();
-            this.Size = new Size(450, 410);
+            this.Size = new Size(450, 660);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -55,6 +55,13 @@ namespace Semesterprojekt
             BtnAllKntktSuchen.Location = new Point(50, 300);
             BtnAllKntktHome.Size = new Size(90, 40);
             BtnAllKntktHome.Location = new Point(335, 10);
+
+            // Platzierung Suchausgabe
+            LbAllKntktSuchAusg.Size = new Size(340, 200);
+            LbAllKntktSuchAusg.Location = new Point(50, 360);
+
+            LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
+            LblAllKntktAnzSuchAusg.Location = new Point(50, 570);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
