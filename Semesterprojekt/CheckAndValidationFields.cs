@@ -247,10 +247,6 @@ namespace Semesterprojekt
             // Entfernung Punkte
             string ahvNumberNoPoints = ahvNumber.Replace(".", "");
 
-            // Prüfung AHV-Nummer ohne Punkte
-            if (ahvNumberNoPoints.Length != 13 || !ahvNumberNoPoints.All(char.IsDigit))
-                return false;
-
             // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
             int total = 0;
 
