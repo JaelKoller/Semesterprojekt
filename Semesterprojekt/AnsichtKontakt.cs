@@ -50,6 +50,9 @@ namespace Semesterprojekt
             Design();
             InitializationLabelToolTip();
             InitializationGroupAndField();
+
+            // Datumsfeld immer auf Heute setzten
+            DateAnsichtKntktDateProtokol.Value = DateTime.Today;
         }
 
         private void Design()
@@ -284,6 +287,8 @@ namespace Semesterprojekt
             return groupFieldNotes;
         }
 
+
+
         // Erstellung Array für Buttons
         private Control[] GroupButtons()
         {
@@ -437,9 +442,29 @@ namespace Semesterprojekt
             MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+
+        // Notizen in ListBox speichern
         private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
         {
-            
+            string title = TxtAnsichtKntktProtokolTitel.Text;
+            string text = TxtAnsichtKntktProtokolEing.Text;
+            string date = DateAnsichtKntktDateProtokol.Value.ToShortDateString();
+
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(text) || title == "Notiz-Titel" || text == "Notiz")
+            {
+                MessageBox.Show("Bitte gültigen Titel und Text eingeben");
+                return;
+            }
+
+            string eintrag = $"{title} - {date}";
+
+            LbAnsichtKntktProtokolAusg.Items.Insert(0, eintrag);
+
+            TxtAnsichtKntktProtokolTitel.Text = "Neuer Notiz-Titel";
+            TxtAnsichtKntktProtokolEing.Text = "Neue Notiz";
+
         }
+
+        
     }
 }
