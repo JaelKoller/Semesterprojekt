@@ -792,6 +792,7 @@
             this.Controls.Add(this.LblAnsichtKntktNameAnzeige);
             this.Name = "AnsichtKontakt";
             this.Text = "Kontakt";
+            this.Load += new System.EventHandler(this.AnsichtKontakt_Load);
             this.GrpBxDatenAlle.ResumeLayout(false);
             this.GrpBxDatenAlle.PerformLayout();
             this.GrpBxDatenMA.ResumeLayout(false);

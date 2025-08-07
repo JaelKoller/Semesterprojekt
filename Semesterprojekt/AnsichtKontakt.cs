@@ -32,6 +32,11 @@ namespace Semesterprojekt
         private string tagOK = "true";
         private string tagNOK = "false";
 
+        // default-Text aus TextBoxen in Variabel speichern zur überprüfung
+        private string defaultTitle;
+        private string defaultNote;
+
+
         public AnsichtKontakt()
         {
             InitializeComponent();
@@ -53,6 +58,8 @@ namespace Semesterprojekt
 
             // Datumsfeld immer auf Heute setzten
             DateAnsichtKntktDateProtokol.Value = DateTime.Today;
+
+
         }
 
         private void Design()
@@ -443,20 +450,32 @@ namespace Semesterprojekt
         }
 
 
+        // Speichert default Text von Notiz-Titel und Notiz in globaler Variabel
+        private void AnsichtKontakt_Load(object sender, EventArgs e)
+        {
+            defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
+            defaultNote = TxtAnsichtKntktProtokolEing.Text;
+        }
+
+
         // Notizen in ListBox speichern
         private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
         {
+
+            // Speichert Text und Datum in Variabel für Klasse Notes
             string title = TxtAnsichtKntktProtokolTitel.Text;
             string text = TxtAnsichtKntktProtokolEing.Text;
             string date = DateAnsichtKntktDateProtokol.Value.ToShortDateString();
 
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(text) || title == "Notiz-Titel" || text == "Notiz")
+            // Prüft, dass nicht der default-Wert gespeichert wird
+            // Gibt bei bedarf Fehlermeldung
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(text) || title == defaultTitle || text == defaultNote)
             {
                 MessageBox.Show("Bitte gültigen Titel und Text eingeben");
                 return;
             }
 
-            // Greift auf Klasse Notes zu
+            // Übergibt Variabeln an Klasse Notes
             Notes newNote = new Notes
             {
                 Title = title,
@@ -465,11 +484,12 @@ namespace Semesterprojekt
 
             };
 
-
+            // Setzt neue Notiz an oberste Stelle in ListBox
             LbAnsichtKntktProtokolAusg.Items.Insert(0, newNote);
 
-            TxtAnsichtKntktProtokolTitel.Text = "Neuer Notiz-Titel";
-            TxtAnsichtKntktProtokolEing.Text = "Neue Notiz";
+            // Setzt default-Wert wieder in TextBox von Titel und Notiz
+            TxtAnsichtKntktProtokolTitel.Text = defaultTitle;
+            TxtAnsichtKntktProtokolEing.Text = defaultNote;
 
         }
 
@@ -486,5 +506,6 @@ namespace Semesterprojekt
                 MessageBox.Show(message, "Notiz anzeigen", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
     }
 }
