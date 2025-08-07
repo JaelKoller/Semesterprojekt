@@ -228,7 +228,7 @@
             // 
             this.LblAnsichtKntktEmail.AutoSize = true;
             this.LblAnsichtKntktEmail.Location = new System.Drawing.Point(16, 396);
-            this.LblAnsichtKntktEmail.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktEmail.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktEmail.Name = "LblAnsichtKntktEmail";
             this.LblAnsichtKntktEmail.Size = new System.Drawing.Size(45, 16);
             this.LblAnsichtKntktEmail.TabIndex = 8;
@@ -238,7 +238,7 @@
             // 
             this.LblAnsichtKntktTelMobile.AutoSize = true;
             this.LblAnsichtKntktTelMobile.Location = new System.Drawing.Point(12, 366);
-            this.LblAnsichtKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktTelMobile.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktTelMobile.Name = "LblAnsichtKntktTelMobile";
             this.LblAnsichtKntktTelMobile.Size = new System.Drawing.Size(68, 16);
             this.LblAnsichtKntktTelMobile.TabIndex = 7;
@@ -248,7 +248,7 @@
             // 
             this.LblAnsichtKntktTelGeschaeft.AutoSize = true;
             this.LblAnsichtKntktTelGeschaeft.Location = new System.Drawing.Point(12, 334);
-            this.LblAnsichtKntktTelGeschaeft.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktTelGeschaeft.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktTelGeschaeft.Name = "LblAnsichtKntktTelGeschaeft";
             this.LblAnsichtKntktTelGeschaeft.Size = new System.Drawing.Size(80, 16);
             this.LblAnsichtKntktTelGeschaeft.TabIndex = 6;
@@ -265,7 +265,7 @@
             // 
             this.LblAnsichtKntktTitel.AutoSize = true;
             this.LblAnsichtKntktTitel.Location = new System.Drawing.Point(16, 22);
-            this.LblAnsichtKntktTitel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktTitel.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktTitel.Name = "LblAnsichtKntktTitel";
             this.LblAnsichtKntktTitel.Size = new System.Drawing.Size(33, 16);
             this.LblAnsichtKntktTitel.TabIndex = 5;
@@ -275,7 +275,7 @@
             // 
             this.LblAnsichtKntktGeschlecht.AutoSize = true;
             this.LblAnsichtKntktGeschlecht.Location = new System.Drawing.Point(16, 187);
-            this.LblAnsichtKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktGeschlecht.Name = "LblAnsichtKntktGeschlecht";
             this.LblAnsichtKntktGeschlecht.Size = new System.Drawing.Size(74, 16);
             this.LblAnsichtKntktGeschlecht.TabIndex = 4;
@@ -285,7 +285,7 @@
             // 
             this.LblAnsichtKntktBirthday.AutoSize = true;
             this.LblAnsichtKntktBirthday.Location = new System.Drawing.Point(10, 154);
-            this.LblAnsichtKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktBirthday.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktBirthday.Name = "LblAnsichtKntktBirthday";
             this.LblAnsichtKntktBirthday.Size = new System.Drawing.Size(91, 16);
             this.LblAnsichtKntktBirthday.TabIndex = 3;
@@ -295,7 +295,7 @@
             // 
             this.LblAnsichtKntktAnrede.AutoSize = true;
             this.LblAnsichtKntktAnrede.Location = new System.Drawing.Point(12, 53);
-            this.LblAnsichtKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktAnrede.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktAnrede.Name = "LblAnsichtKntktAnrede";
             this.LblAnsichtKntktAnrede.Size = new System.Drawing.Size(51, 16);
             this.LblAnsichtKntktAnrede.TabIndex = 2;
@@ -305,7 +305,7 @@
             // 
             this.LblAnsichtKntktVorname.AutoSize = true;
             this.LblAnsichtKntktVorname.Location = new System.Drawing.Point(10, 83);
-            this.LblAnsichtKntktVorname.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktVorname.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktVorname.Name = "LblAnsichtKntktVorname";
             this.LblAnsichtKntktVorname.Size = new System.Drawing.Size(62, 16);
             this.LblAnsichtKntktVorname.TabIndex = 1;
@@ -315,7 +315,7 @@
             // 
             this.LblAnsichtKntktName.AutoSize = true;
             this.LblAnsichtKntktName.Location = new System.Drawing.Point(12, 114);
-            this.LblAnsichtKntktName.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktName.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktName.Name = "LblAnsichtKntktName";
             this.LblAnsichtKntktName.Size = new System.Drawing.Size(44, 16);
             this.LblAnsichtKntktName.TabIndex = 0;
@@ -325,7 +325,7 @@
             // 
             this.LblAnsichtKntktAdr.AutoSize = true;
             this.LblAnsichtKntktAdr.Location = new System.Drawing.Point(12, 227);
-            this.LblAnsichtKntktAdr.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktAdr.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktAdr.Name = "LblAnsichtKntktAdr";
             this.LblAnsichtKntktAdr.Size = new System.Drawing.Size(80, 16);
             this.LblAnsichtKntktAdr.TabIndex = 22;
@@ -349,7 +349,7 @@
             // 
             this.LblAnsichtKntktPLZ.AutoSize = true;
             this.LblAnsichtKntktPLZ.Location = new System.Drawing.Point(16, 263);
-            this.LblAnsichtKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktPLZ.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktPLZ.Name = "LblAnsichtKntktPLZ";
             this.LblAnsichtKntktPLZ.Size = new System.Drawing.Size(31, 16);
             this.LblAnsichtKntktPLZ.TabIndex = 24;
@@ -359,7 +359,7 @@
             // 
             this.LblAnsichtKntktOrt.AutoSize = true;
             this.LblAnsichtKntktOrt.Location = new System.Drawing.Point(13, 295);
-            this.LblAnsichtKntktOrt.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktOrt.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktOrt.Name = "LblAnsichtKntktOrt";
             this.LblAnsichtKntktOrt.Size = new System.Drawing.Size(57, 16);
             this.LblAnsichtKntktOrt.TabIndex = 23;
@@ -475,7 +475,7 @@
             // 
             this.LblAnsichtKntktEintrDatum.AutoSize = true;
             this.LblAnsichtKntktEintrDatum.Location = new System.Drawing.Point(19, 397);
-            this.LblAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktEintrDatum.Name = "LblAnsichtKntktEintrDatum";
             this.LblAnsichtKntktEintrDatum.Size = new System.Drawing.Size(86, 16);
             this.LblAnsichtKntktEintrDatum.TabIndex = 49;
@@ -485,7 +485,7 @@
             // 
             this.LblAnsichtKntktMaOfficeNumber.AutoSize = true;
             this.LblAnsichtKntktMaOfficeNumber.Location = new System.Drawing.Point(19, 363);
-            this.LblAnsichtKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaOfficeNumber.Name = "LblAnsichtKntktMaOfficeNumber";
             this.LblAnsichtKntktMaOfficeNumber.Size = new System.Drawing.Size(83, 16);
             this.LblAnsichtKntktMaOfficeNumber.TabIndex = 45;
@@ -495,7 +495,7 @@
             // 
             this.LblAnsichtKntktMaAktLehrj.AutoSize = true;
             this.LblAnsichtKntktMaAktLehrj.Location = new System.Drawing.Point(19, 328);
-            this.LblAnsichtKntktMaAktLehrj.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaAktLehrj.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaAktLehrj.Name = "LblAnsichtKntktMaAktLehrj";
             this.LblAnsichtKntktMaAktLehrj.Size = new System.Drawing.Size(112, 16);
             this.LblAnsichtKntktMaAktLehrj.TabIndex = 43;
@@ -505,7 +505,7 @@
             // 
             this.LblAnsichtKntktAustrDatum.AutoSize = true;
             this.LblAnsichtKntktAustrDatum.Location = new System.Drawing.Point(19, 438);
-            this.LblAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktAustrDatum.Name = "LblAnsichtKntktAustrDatum";
             this.LblAnsichtKntktAustrDatum.Size = new System.Drawing.Size(90, 16);
             this.LblAnsichtKntktAustrDatum.TabIndex = 44;
@@ -515,7 +515,7 @@
             // 
             this.LblAnsichtKntktMaKader.AutoSize = true;
             this.LblAnsichtKntktMaKader.Location = new System.Drawing.Point(12, 126);
-            this.LblAnsichtKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaKader.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaKader.Name = "LblAnsichtKntktMaKader";
             this.LblAnsichtKntktMaKader.Size = new System.Drawing.Size(71, 16);
             this.LblAnsichtKntktMaKader.TabIndex = 39;
@@ -525,7 +525,7 @@
             // 
             this.LblAnsichtKntktMaBeschGrad.AutoSize = true;
             this.LblAnsichtKntktMaBeschGrad.Location = new System.Drawing.Point(11, 165);
-            this.LblAnsichtKntktMaBeschGrad.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaBeschGrad.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaBeschGrad.Name = "LblAnsichtKntktMaBeschGrad";
             this.LblAnsichtKntktMaBeschGrad.Size = new System.Drawing.Size(127, 16);
             this.LblAnsichtKntktMaBeschGrad.TabIndex = 40;
@@ -558,7 +558,7 @@
             // 
             this.LblAnsichtKntktMaManr.AutoSize = true;
             this.LblAnsichtKntktMaManr.Location = new System.Drawing.Point(6, 21);
-            this.LblAnsichtKntktMaManr.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaManr.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaManr.Name = "LblAnsichtKntktMaManr";
             this.LblAnsichtKntktMaManr.Size = new System.Drawing.Size(118, 16);
             this.LblAnsichtKntktMaManr.TabIndex = 20;
@@ -568,7 +568,7 @@
             // 
             this.LblAnsichtKntktMaLehrj.AutoSize = true;
             this.LblAnsichtKntktMaLehrj.Location = new System.Drawing.Point(17, 285);
-            this.LblAnsichtKntktMaLehrj.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaLehrj.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaLehrj.Name = "LblAnsichtKntktMaLehrj";
             this.LblAnsichtKntktMaLehrj.Size = new System.Drawing.Size(63, 16);
             this.LblAnsichtKntktMaLehrj.TabIndex = 26;
@@ -578,7 +578,7 @@
             // 
             this.LblAnsichtKntktMaAbteilung.AutoSize = true;
             this.LblAnsichtKntktMaAbteilung.Location = new System.Drawing.Point(17, 213);
-            this.LblAnsichtKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaAbteilung.Name = "LblAnsichtKntktMaAbteilung";
             this.LblAnsichtKntktMaAbteilung.Size = new System.Drawing.Size(63, 16);
             this.LblAnsichtKntktMaAbteilung.TabIndex = 18;
@@ -588,7 +588,7 @@
             // 
             this.LblAnsichtKntktMaRolle.AutoSize = true;
             this.LblAnsichtKntktMaRolle.Location = new System.Drawing.Point(19, 247);
-            this.LblAnsichtKntktMaRolle.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaRolle.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaRolle.Name = "LblAnsichtKntktMaRolle";
             this.LblAnsichtKntktMaRolle.Size = new System.Drawing.Size(39, 16);
             this.LblAnsichtKntktMaRolle.TabIndex = 25;
@@ -605,7 +605,7 @@
             // 
             this.LblAnsichtKntktMaAHVNr.AutoSize = true;
             this.LblAnsichtKntktMaAHVNr.Location = new System.Drawing.Point(7, 51);
-            this.LblAnsichtKntktMaAHVNr.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaAHVNr.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaAHVNr.Name = "LblAnsichtKntktMaAHVNr";
             this.LblAnsichtKntktMaAHVNr.Size = new System.Drawing.Size(90, 16);
             this.LblAnsichtKntktMaAHVNr.TabIndex = 19;
@@ -615,7 +615,7 @@
             // 
             this.LblAnsichtKntktMaNationalitaet.AutoSize = true;
             this.LblAnsichtKntktMaNationalitaet.Location = new System.Drawing.Point(11, 86);
-            this.LblAnsichtKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.LblAnsichtKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3);
             this.LblAnsichtKntktMaNationalitaet.Name = "LblAnsichtKntktMaNationalitaet";
             this.LblAnsichtKntktMaNationalitaet.Size = new System.Drawing.Size(74, 16);
             this.LblAnsichtKntktMaNationalitaet.TabIndex = 21;
@@ -675,6 +675,7 @@
             this.LbAnsichtKntktProtokolAusg.Name = "LbAnsichtKntktProtokolAusg";
             this.LbAnsichtKntktProtokolAusg.Size = new System.Drawing.Size(361, 340);
             this.LbAnsichtKntktProtokolAusg.TabIndex = 4;
+            this.LbAnsichtKntktProtokolAusg.DoubleClick += new System.EventHandler(this.LbAnsichtKntktProtokolAusg_DoubleClick);
             // 
             // GrpBxAnsichtKntktNotiz
             // 

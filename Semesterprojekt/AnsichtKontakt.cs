@@ -456,15 +456,35 @@ namespace Semesterprojekt
                 return;
             }
 
-            string eintrag = $"{title} - {date}";
+            // Greift auf Klasse Notes zu
+            Notes newNote = new Notes
+            {
+                Title = title,
+                Date = date,
+                Text = text
 
-            LbAnsichtKntktProtokolAusg.Items.Insert(0, eintrag);
+            };
+
+
+            LbAnsichtKntktProtokolAusg.Items.Insert(0, newNote);
 
             TxtAnsichtKntktProtokolTitel.Text = "Neuer Notiz-Titel";
             TxtAnsichtKntktProtokolEing.Text = "Neue Notiz";
 
         }
 
-        
+
+        // Notizen in MessageBox anzeigen
+        private void LbAnsichtKntktProtokolAusg_DoubleClick(object sender, EventArgs e)
+        {
+            if (LbAnsichtKntktProtokolAusg.SelectedItem is Notes choosenNote)
+            {
+                string message = $"{choosenNote.Title}\n" +
+                                 $"{choosenNote.Date}\n\n" +
+                                 $"{choosenNote.Text}";
+
+                MessageBox.Show(message, "Notiz anzeigen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
