@@ -17,7 +17,7 @@ namespace Semesterprojekt
         private static readonly DateTime MaxDate = new DateTime(2099, 12, 31);
 
         // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "TRUE")
-        private static bool CheckDateField(TextBox txtbxDate, string labelName, bool textRequired, out string errorMessage)
+        public static bool CheckDateField(TextBox txtbxDate, string labelName, bool textRequired, out string errorMessage)
         {
             // Initialisierung OUT-Argument
             errorMessage = string.Empty;
@@ -34,13 +34,13 @@ namespace Semesterprojekt
 
             if (!(Regex.IsMatch(date, @"^\d{2}\.\d{2}\.\d{4}$")))
             {
-                errorMessage = $"{labelName} ''{date}'' entspricht nicht den Vorgaben 'TT.MM.JJJJ'";
+                errorMessage = $"{labelName} '{date}' entspricht nicht den Vorgaben 'TT.MM.JJJJ'";
                 return false;
             }
 
             if (!(DateTime.TryParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dateTime)))
             {
-                errorMessage = $"{labelName} ''{date}'' ist kein gültiges Datum";
+                errorMessage = $"{labelName} '{date}' ist kein gültiges Datum";
                 return false;
             }
 

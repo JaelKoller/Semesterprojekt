@@ -176,41 +176,25 @@ namespace Semesterprojekt
         // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "TRUE")
         private bool CheckDateOfBirth()
         {
-            string dateOfBirth = TxtAllKntktBirthday.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(dateOfBirth))
-            {
-                TxtAllKntktBirthday.BackColor = backColorOK;
-                return true;
-            }
+            string errorMessage = string.Empty;
+            bool dateOfBirth = CheckAndValidationDateFields.CheckDateField(TxtAllKntktBirthday, "Geburtsdatum", false, out errorMessage);
             
-            if (!(Regex.IsMatch(dateOfBirth, @"^\d{2}\.\d{2}\.\d{4}$")))
-            {
-                TxtAllKntktBirthday.BackColor = backColorNOK;
-                ShowMessageBox($"Geburtsdatum ''{dateOfBirth}'' entspricht nicht den Vorgaben 'TT.MM.JJJJ'");
-                TxtAllKntktBirthday.Focus();
-                return false;
-            }
-
-            if (!(DateTime.TryParseExact(dateOfBirth, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _)))
-            {
-                TxtAllKntktBirthday.BackColor = backColorNOK;
-                ShowMessageBox($"Geburtsdatum ''{dateOfBirth}'' ist kein gültiges Datum");
-                TxtAllKntktBirthday.Focus();
-                return false;
-            }
-
-            else
+            if (dateOfBirth)
             {
                 TxtAllKntktBirthday.BackColor = backColorOK;
                 return true;
             }
-        }
 
-        // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben
-        private void ShowMessageBox(string message)
-        {
-            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            TxtAllKntktBirthday.BackColor = backColorNOK;
+
+            // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben (exkl. leeres Feld)
+            if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                MessageBox.Show(errorMessage, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            TxtAllKntktBirthday.Focus();
+            return false;
         }
     }
 }
