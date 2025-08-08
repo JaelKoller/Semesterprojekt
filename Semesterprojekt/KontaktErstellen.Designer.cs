@@ -676,7 +676,6 @@
             this.TxtCreatKntktBirthday.Name = "TxtCreatKntktBirthday";
             this.TxtCreatKntktBirthday.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktBirthday.TabIndex = 58;
-            this.TxtCreatKntktBirthday.Text = "TT.MM.JJJJ";
             // 
             // TxtCreatKntktEintrDatum
             // 
@@ -685,7 +684,6 @@
             this.TxtCreatKntktEintrDatum.Name = "TxtCreatKntktEintrDatum";
             this.TxtCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktEintrDatum.TabIndex = 59;
-            this.TxtCreatKntktEintrDatum.Text = "TT.MM.JJJJ";
             // 
             // TxtCreatKntktAustrDatum
             // 
@@ -695,7 +693,6 @@
             this.TxtCreatKntktAustrDatum.Name = "TxtCreatKntktAustrDatum";
             this.TxtCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktAustrDatum.TabIndex = 60;
-            this.TxtCreatKntktAustrDatum.Text = "TT.MM.JJJJ";
             // 
             // KontaktErstellen
             // 

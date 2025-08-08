@@ -792,7 +792,6 @@
             this.TxtAnsichtKntktBirthday.Name = "TxtAnsichtKntktBirthday";
             this.TxtAnsichtKntktBirthday.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktBirthday.TabIndex = 41;
-            this.TxtAnsichtKntktBirthday.Text = "TT.MM.JJJJ";
             // 
             // TxtAnsichtKntktEintrDatum
             // 
@@ -801,7 +800,6 @@
             this.TxtAnsichtKntktEintrDatum.Name = "TxtAnsichtKntktEintrDatum";
             this.TxtAnsichtKntktEintrDatum.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktEintrDatum.TabIndex = 55;
-            this.TxtAnsichtKntktEintrDatum.Text = "TT.MM.JJJJ";
             // 
             // TxtAnsichtKntktAustrDatum
             // 
@@ -810,7 +808,6 @@
             this.TxtAnsichtKntktAustrDatum.Name = "TxtAnsichtKntktAustrDatum";
             this.TxtAnsichtKntktAustrDatum.Size = new System.Drawing.Size(293, 26);
             this.TxtAnsichtKntktAustrDatum.TabIndex = 56;
-            this.TxtAnsichtKntktAustrDatum.Text = "TT.MM.JJJJ";
             // 
             // AnsichtKontakt
             // 

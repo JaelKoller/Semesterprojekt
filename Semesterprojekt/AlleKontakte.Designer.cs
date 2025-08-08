@@ -174,7 +174,6 @@
             this.TxtAllKntktBirthday.Name = "TxtAllKntktBirthday";
             this.TxtAllKntktBirthday.Size = new System.Drawing.Size(274, 26);
             this.TxtAllKntktBirthday.TabIndex = 13;
-            this.TxtAllKntktBirthday.Text = "TT.MM.JJJJ";
             // 
             // LblAllKntktInaktiv
             // 

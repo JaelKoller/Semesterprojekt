@@ -291,5 +291,34 @@
       "DateCreatKntktEintrDatum": "2005-08-01",
       "DateCreatKntktAustrDatum": "2025-07-31"
     }
+  },
+  {
+    "TypeOfContact": "mitarbeiter",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch",
+      "TxtCreatKntktMaManr": "MJ0008",
+      "TxtCreatKntktMaAHVNr": "756.8800.5641.37",
+      "TxtCreatKntktMaNationalitaet": "CH",
+      "TxtCreatKntktMaKader": "Mitglied der Direktion",
+      "NumCreatKntktMaBeschGrad": "100",
+      "TxtCreatKntktMaAbteilung": "Automatisierung",
+      "TxtCreatKntktMaRolle": "Software Engineer",
+      "NumCreatKntktMaLehrj": "3",
+      "NumCreatKntktMaAktLehrj": "0",
+      "NumCreatKntktMaOfficeNumber": "123",
+      "TxtCreatKntktEintrDatum": "01.08.2005",
+      "TxtCreatKntktAustrDatum": ""
+    }
   }
 ]

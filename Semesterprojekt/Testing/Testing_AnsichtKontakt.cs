@@ -37,10 +37,6 @@ namespace Semesterprojekt.Testing
             ansichtKontaktForm.TxtAnsichtKntktOrt.Text = "St. Gallen";
             ansichtKontaktForm.RdbAnsichtKntktAktiv.Checked = true;
 
-            // Zusatz-Testdaten für Gruppe Kunde (ohne Mitarbeiter)
-            ansichtKontaktForm.TxtAnsichtKntktEintrDatum.Text = string.Empty;
-            ansichtKontaktForm.TxtAnsichtKntktAustrDatum.Text = string.Empty;
-
             string typeOfContact = "Kunde";
 
             // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
