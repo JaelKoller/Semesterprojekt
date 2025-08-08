@@ -14,10 +14,8 @@ namespace Semesterprojekt
         public Control[] GroupFieldEmployeesAndCustomers { get; set; }
         public Control[] GroupFieldEmployees { get; set; }
         public Control[] CheckFieldIgnore { get; set; }
-
         public bool IsEmployee { get; set; }
         public bool IsClient { get; set; }
-
         public ComboBox Salutation { get; set; }
         public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }
@@ -26,6 +24,7 @@ namespace Semesterprojekt
         public TextBox AHVNumber { get; set; }
         public TextBox Nationality { get; set; }
         public TextBox DateOfEntry { get; set; }
+        public TextBox DateOfExit { get; set; }
     }
 
     internal class CheckAndValidationFields
@@ -97,13 +96,6 @@ namespace Semesterprojekt
                 return;
             }
 
-            if (field is DateTimePicker dateField && dateField.Value.Date == new DateTime(1900, 1, 1))
-            {
-                // Einfärbung technisch nicht möglich (diverse Versuche gescheitert)
-                dateField.Tag = tagNOK;
-                return;
-            }
-
             if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
             {
                 numField.BackColor = backColorNOK;
@@ -140,12 +132,9 @@ namespace Semesterprojekt
                 return;
             }
 
+            CheckDateField(content.Birthday, "Geburtsdatum", true);
             if (content.Birthday.Tag == tagNOK)
-            {
-                ShowMessageBox("Geburtsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
-                content.Birthday.Focus();
                 return;
-            }
 
             if (content.Gender.Tag == tagNOK)
             {
@@ -165,11 +154,42 @@ namespace Semesterprojekt
             if (content.AHVNumber.Tag == tagNOK)
                 return;
 
-            if (content.DateOfEntry.Tag == tagNOK)
+            if (content.IsEmployee)
             {
-                ShowMessageBox("Eintrittsdatum '01.01.1900' entspricht Defaultwert und ist ungültig");
-                content.DateOfEntry.Focus();
-                return;
+                CheckDateField(content.DateOfEntry, "Eintrittsdatum", true);
+                if (content.DateOfEntry.Tag == tagNOK)
+                    return;
+
+                CheckDateField(content.DateOfExit, "Austrittsdatum", false);
+                if (content.DateOfExit.Tag == tagNOK)
+                    return;
+            }
+        }
+
+        // Prüfung Format auf TT.MM.JJJJ
+        private void CheckDateField(TextBox content, string labelName, bool textRequired)
+        {
+            string errorMessage = string.Empty;
+            bool dateField = CheckAndValidationDateFields.CheckDateField(content, labelName, textRequired, out errorMessage);
+
+            if (dateField)
+            {
+                content.BackColor = backColorOK;
+                content.Tag = tagOK;
+            }
+
+            else
+            {
+                content.BackColor = backColorNOK;
+                content.Tag = tagNOK;
+
+                // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben (exkl. leeres Feld)
+                if (!string.IsNullOrWhiteSpace(errorMessage))
+                {
+                    ShowMessageBox(errorMessage);
+                }
+
+                content.Focus();
             }
         }
 

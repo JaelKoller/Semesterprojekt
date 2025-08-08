@@ -229,7 +229,10 @@ namespace Semesterprojekt
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
-                TxtCreatKntktAustrDatum,
+                // bei Mitarbeiter bleibt das Feld "Pflicht"
+                (!RdbCreatKntktMa.Checked ? TxtCreatKntktEintrDatum : null),
+                // bei enthaltenem Wert wird das Feld validiert
+                (string.IsNullOrWhiteSpace(TxtCreatKntktAustrDatum.Text) ? TxtCreatKntktAustrDatum: null),
             };
 
             return checkFieldIgnore;
@@ -323,9 +326,6 @@ namespace Semesterprojekt
                     case System.Windows.Forms.ComboBox cmbxField:
                         cmbxField.SelectedIndex = -1;
                         break;
-                    case DateTimePicker dateField:
-                        dateField.Value = new DateTime(1900, 1, 1);
-                        break;
                     case NumericUpDown numField:
                         numField.Value = numField.Minimum;
                         break;
@@ -402,7 +402,8 @@ namespace Semesterprojekt
                 Email = TxtCreatKntktEmail,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,
-                DateOfEntry = TxtCreatKntktEintrDatum
+                DateOfEntry = TxtCreatKntktEintrDatum,
+                DateOfExit = TxtCreatKntktAustrDatum
             };
         }
        
@@ -479,9 +480,6 @@ namespace Semesterprojekt
             if (field is System.Windows.Forms.ComboBox cmbxField)
                 return cmbxField.Text;
 
-            if (field is DateTimePicker dateField)
-                return dateField.Value.ToString("yyyy-MM-dd");
-
             if (field is NumericUpDown numField)
                 return numField.Value.ToString();
 
@@ -496,7 +494,7 @@ namespace Semesterprojekt
 
             newContact.Fields.TryGetValue("TxtCreatKntktVorname", out var newFirstNameRaw);
             newContact.Fields.TryGetValue("TxtCreatKntktName", out var newLastNameRaw);
-            newContact.Fields.TryGetValue("DateCreatKntktBirthday", out var newDateOfBirthRaw);
+            newContact.Fields.TryGetValue("TxtCreatKntktBirthday", out var newDateOfBirthRaw);
 
             string newFirstName = Regex.Split(newFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
             string newLastName = Regex.Split(newLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
@@ -509,7 +507,7 @@ namespace Semesterprojekt
             {
                 oldContact.Fields.TryGetValue("TxtCreatKntktVorname", out var oldFirstNameRaw);
                 oldContact.Fields.TryGetValue("TxtCreatKntktName", out var oldLastNameRaw);
-                oldContact.Fields.TryGetValue("DateCreatKntktBirthday", out var oldDateOfBirthRaw);
+                oldContact.Fields.TryGetValue("TxtCreatKntktBirthday", out var oldDateOfBirthRaw);
 
                 string oldFirstName = Regex.Split(oldFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
                 string oldLastName = Regex.Split(oldLastNameRaw?.Trim().ToLower() ?? "", regex)[0];

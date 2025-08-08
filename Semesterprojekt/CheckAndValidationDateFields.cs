@@ -27,10 +27,8 @@ namespace Semesterprojekt
 
             // Prüfung mit Rückgabe
             if (string.IsNullOrWhiteSpace(date))
-            {
                 // Datum "leer", jedoch NICHT erforderlich = Rückgabe "TRUE" (Gegenteil von textRequired)
                 return !textRequired;
-            }
 
             if (!(Regex.IsMatch(date, @"^\d{2}\.\d{2}\.\d{4}$")))
             {

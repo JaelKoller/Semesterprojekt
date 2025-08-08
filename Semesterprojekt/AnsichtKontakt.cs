@@ -323,7 +323,7 @@ namespace Semesterprojekt
                 TxtAnsichtKntktMaKader,
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
-                TxtAnsichtKntktAustrDatum,
+                (string.IsNullOrWhiteSpace(TxtAnsichtKntktAustrDatum.Text) ? TxtAnsichtKntktAustrDatum: null)
             };
 
             return checkFieldIgnore;
@@ -376,7 +376,7 @@ namespace Semesterprojekt
         private void UpdateGroupAndField(bool mutable)
         {
             GrpBxDatenAlle.Enabled = mutable;
-            GrpBxDatenMA.Enabled = mutable;
+            GrpBxDatenMA.Enabled = mutable; // LOGIK IST NOCH ZU DEFINIEREN (NUR BEI MA)
             GrpBxAnsichtKntktAktiv.Enabled = mutable;
         }
 
@@ -414,7 +414,8 @@ namespace Semesterprojekt
                 Email = TxtAnsichtKntktEmail,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,
-                DateOfEntry = TxtAnsichtKntktEintrDatum
+                DateOfEntry = TxtAnsichtKntktEintrDatum,
+                DateOfExit = TxtAnsichtKntktAustrDatum
             };
         }
 
