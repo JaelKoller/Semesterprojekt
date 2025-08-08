@@ -19,13 +19,13 @@ namespace Semesterprojekt
         public bool IsClient { get; set; }
 
         public ComboBox Salutation { get; set; }
-        public DateTimePicker Birthday { get; set; }
+        public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }
         public TextBox PLZ { get; set; }
         public TextBox Email { get; set; }
         public TextBox AHVNumber { get; set; }
         public TextBox Nationality { get; set; }
-        public DateTimePicker DateOfEntry { get; set; }
+        public TextBox DateOfEntry { get; set; }
     }
 
     internal class CheckAndValidationFields

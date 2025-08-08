@@ -181,7 +181,7 @@ namespace Semesterprojekt
                 CmBxCreatKntktAnrede,
                 TxtCreatKntktVorname,
                 TxtCreatKntktName,
-                DateCreatKntktBirthday,
+                TxtCreatKntktBirthday,
                 CmBxCreatKntktGeschlecht,
                 TxtCreatKntktAdr,
                 TxtCreatKntktPLZ,
@@ -209,8 +209,8 @@ namespace Semesterprojekt
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
                 NumCreatKntktMaOfficeNumber,
-                DateCreatKntktEintrDatum,
-                DateCreatKntktAustrDatum
+                TxtCreatKntktEintrDatum,
+                TxtCreatKntktAustrDatum
             };
 
             return groupFieldEmployees;
@@ -229,7 +229,7 @@ namespace Semesterprojekt
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
-                DateCreatKntktAustrDatum,
+                TxtCreatKntktAustrDatum,
             };
 
             return checkFieldIgnore;
@@ -396,13 +396,13 @@ namespace Semesterprojekt
                 IsEmployee = RdbCreatKntktMa.Checked,
                 IsClient = RdbCreatKntktKunde.Checked,
                 Salutation = CmBxCreatKntktAnrede,
-                Birthday = DateCreatKntktBirthday,
+                Birthday = TxtCreatKntktBirthday,
                 Gender = CmBxCreatKntktGeschlecht,
                 PLZ = TxtCreatKntktPLZ,
                 Email = TxtCreatKntktEmail,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,
-                DateOfEntry = DateCreatKntktEintrDatum
+                DateOfEntry = TxtCreatKntktEintrDatum
             };
         }
        

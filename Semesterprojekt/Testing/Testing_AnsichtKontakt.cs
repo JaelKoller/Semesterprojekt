@@ -27,7 +27,7 @@ namespace Semesterprojekt.Testing
             ansichtKontaktForm.CmBxAnsichtKntktAnrede.SelectedItem = "Frau";
             ansichtKontaktForm.TxtAnsichtKntktVorname.Text = "Jael";
             ansichtKontaktForm.TxtAnsichtKntktName.Text = "Koller";
-            ansichtKontaktForm.DateAnsichtKntktBirthday.Value = new DateTime(1989, 7, 1);
+            ansichtKontaktForm.TxtAnsichtKntktBirthday.Text = "01.07.1989";
             ansichtKontaktForm.CmBxAnsichtKntktGeschlecht.SelectedItem = "weiblich";
             ansichtKontaktForm.TxtAnsichtKntktTelGeschaeft.Text = "071 123 45 67";
             ansichtKontaktForm.TxtAnsichtKntktTelMobile.Text = "076 123 45 67";
@@ -36,6 +36,10 @@ namespace Semesterprojekt.Testing
             ansichtKontaktForm.TxtAnsichtKntktPLZ.Text = "9014";
             ansichtKontaktForm.TxtAnsichtKntktOrt.Text = "St. Gallen";
             ansichtKontaktForm.RdbAnsichtKntktAktiv.Checked = true;
+
+            // Zusatz-Testdaten für Gruppe Kunde (ohne Mitarbeiter)
+            ansichtKontaktForm.TxtAnsichtKntktEintrDatum.Text = string.Empty;
+            ansichtKontaktForm.TxtAnsichtKntktAustrDatum.Text = string.Empty;
 
             string typeOfContact = "Kunde";
 
@@ -52,8 +56,8 @@ namespace Semesterprojekt.Testing
                 ansichtKontaktForm.NumAnsichtKntktMaLehrj.Value = 3;
                 ansichtKontaktForm.NumAnsichtKntktMaAktLehrj.Value = 0;
                 ansichtKontaktForm.NumAnsichtKntktMaOfficeNumber.Value = 123;
-                ansichtKontaktForm.DateAnsichtKntktEintrDatum.Value = new DateTime(2005, 8, 1);
-                ansichtKontaktForm.DateAnsichtKntktAustrDatum.Value = new DateTime(2025, 7, 31);
+                ansichtKontaktForm.TxtAnsichtKntktEintrDatum.Text = "01.08.2005";
+                ansichtKontaktForm.TxtAnsichtKntktAustrDatum.Text = string.Empty;
 
                 typeOfContact = "Mitarbeiter";
             }

@@ -28,7 +28,7 @@ namespace Semesterprojekt.Testing
             kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "Frau";
             kontaktErstellenForm.TxtCreatKntktVorname.Text = "Jael";
             kontaktErstellenForm.TxtCreatKntktName.Text = "Koller";
-            kontaktErstellenForm.DateCreatKntktBirthday.Value = new DateTime(1989, 7, 1);
+            kontaktErstellenForm.TxtCreatKntktBirthday.Text = "01.07.1989";
             kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "weiblich";
             kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 45 67";
             kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "076 123 45 67";
@@ -49,8 +49,8 @@ namespace Semesterprojekt.Testing
                 kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 3;
                 kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 0;
                 kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 123;
-                kontaktErstellenForm.DateCreatKntktEintrDatum.Value = new DateTime(2005, 8, 1);
-                kontaktErstellenForm.DateCreatKntktAustrDatum.Value = new DateTime(2025, 7, 31);
+                kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.08.2005";
+                kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
             }
 
             // Start Form "KontaktErstellen" mit Testdaten

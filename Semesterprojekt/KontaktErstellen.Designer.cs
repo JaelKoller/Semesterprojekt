@@ -39,7 +39,6 @@
             this.TxtCreatKntktTelMobile = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktTelGeschaeft = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktTitel = new System.Windows.Forms.TextBox();
-            this.DateCreatKntktBirthday = new System.Windows.Forms.DateTimePicker();
             this.TxtCreatKntktVorname = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktName = new System.Windows.Forms.TextBox();
             this.LblCreatKntktEmail = new System.Windows.Forms.Label();
@@ -61,8 +60,6 @@
             this.NumCreatKntktMaLehrj = new System.Windows.Forms.NumericUpDown();
             this.NumCreatKntktMaBeschGrad = new System.Windows.Forms.NumericUpDown();
             this.NumCreatKntktMaOfficeNumber = new System.Windows.Forms.NumericUpDown();
-            this.DateCreatKntktAustrDatum = new System.Windows.Forms.DateTimePicker();
-            this.DateCreatKntktEintrDatum = new System.Windows.Forms.DateTimePicker();
             this.LblCreatKntktEintrDatum = new System.Windows.Forms.Label();
             this.LblCreatKntktMaOfficeNumber = new System.Windows.Forms.Label();
             this.LblCreatKntktMaAktLehrj = new System.Windows.Forms.Label();
@@ -83,6 +80,9 @@
             this.TxtCreatKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
+            this.TxtCreatKntktBirthday = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktEintrDatum = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktAustrDatum = new System.Windows.Forms.TextBox();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
@@ -137,6 +137,7 @@
             // GrpBxCreatKntktDatenAlle
             // 
             this.GrpBxCreatKntktDatenAlle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktBirthday);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktPLZ);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktAnrede);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.CmBxCreatKntktGeschlecht);
@@ -144,7 +145,6 @@
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelMobile);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTelGeschaeft);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktTitel);
-            this.GrpBxCreatKntktDatenAlle.Controls.Add(this.DateCreatKntktBirthday);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktVorname);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.TxtCreatKntktName);
             this.GrpBxCreatKntktDatenAlle.Controls.Add(this.LblCreatKntktEmail);
@@ -235,18 +235,6 @@
             this.TxtCreatKntktTitel.Name = "TxtCreatKntktTitel";
             this.TxtCreatKntktTitel.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktTitel.TabIndex = 14;
-            // 
-            // DateCreatKntktBirthday
-            // 
-            this.DateCreatKntktBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreatKntktBirthday.Location = new System.Drawing.Point(152, 143);
-            this.DateCreatKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateCreatKntktBirthday.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateCreatKntktBirthday.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateCreatKntktBirthday.Name = "DateCreatKntktBirthday";
-            this.DateCreatKntktBirthday.Size = new System.Drawing.Size(293, 29);
-            this.DateCreatKntktBirthday.TabIndex = 12;
-            this.DateCreatKntktBirthday.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // TxtCreatKntktVorname
             // 
@@ -403,12 +391,12 @@
             // GrpBxDatenMA
             // 
             this.GrpBxDatenMA.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktAustrDatum);
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktEintrDatum);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaAktLehrj);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaLehrj);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaBeschGrad);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaOfficeNumber);
-            this.GrpBxDatenMA.Controls.Add(this.DateCreatKntktAustrDatum);
-            this.GrpBxDatenMA.Controls.Add(this.DateCreatKntktEintrDatum);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktEintrDatum);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaOfficeNumber);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaAktLehrj);
@@ -482,30 +470,6 @@
             this.NumCreatKntktMaOfficeNumber.Name = "NumCreatKntktMaOfficeNumber";
             this.NumCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaOfficeNumber.TabIndex = 52;
-            // 
-            // DateCreatKntktAustrDatum
-            // 
-            this.DateCreatKntktAustrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreatKntktAustrDatum.Location = new System.Drawing.Point(156, 499);
-            this.DateCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateCreatKntktAustrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateCreatKntktAustrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateCreatKntktAustrDatum.Name = "DateCreatKntktAustrDatum";
-            this.DateCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 29);
-            this.DateCreatKntktAustrDatum.TabIndex = 51;
-            this.DateCreatKntktAustrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            // 
-            // DateCreatKntktEintrDatum
-            // 
-            this.DateCreatKntktEintrDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateCreatKntktEintrDatum.Location = new System.Drawing.Point(156, 449);
-            this.DateCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DateCreatKntktEintrDatum.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.DateCreatKntktEintrDatum.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.DateCreatKntktEintrDatum.Name = "DateCreatKntktEintrDatum";
-            this.DateCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 29);
-            this.DateCreatKntktEintrDatum.TabIndex = 40;
-            this.DateCreatKntktEintrDatum.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // LblCreatKntktEintrDatum
             // 
@@ -705,6 +669,34 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
+            // TxtCreatKntktBirthday
+            // 
+            this.TxtCreatKntktBirthday.Location = new System.Drawing.Point(152, 143);
+            this.TxtCreatKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktBirthday.Name = "TxtCreatKntktBirthday";
+            this.TxtCreatKntktBirthday.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktBirthday.TabIndex = 58;
+            this.TxtCreatKntktBirthday.Text = "TT.MM.JJJJ";
+            // 
+            // TxtCreatKntktEintrDatum
+            // 
+            this.TxtCreatKntktEintrDatum.Location = new System.Drawing.Point(156, 454);
+            this.TxtCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktEintrDatum.Name = "TxtCreatKntktEintrDatum";
+            this.TxtCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktEintrDatum.TabIndex = 59;
+            this.TxtCreatKntktEintrDatum.Text = "TT.MM.JJJJ";
+            // 
+            // TxtCreatKntktAustrDatum
+            // 
+            this.TxtCreatKntktAustrDatum.Enabled = false;
+            this.TxtCreatKntktAustrDatum.Location = new System.Drawing.Point(156, 499);
+            this.TxtCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktAustrDatum.Name = "TxtCreatKntktAustrDatum";
+            this.TxtCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktAustrDatum.TabIndex = 60;
+            this.TxtCreatKntktAustrDatum.Text = "TT.MM.JJJJ";
+            // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -744,7 +736,6 @@
         internal System.Windows.Forms.TextBox TxtCreatKntktTelMobile;
         internal System.Windows.Forms.TextBox TxtCreatKntktTelGeschaeft;
         internal System.Windows.Forms.TextBox TxtCreatKntktTitel;
-        internal System.Windows.Forms.DateTimePicker DateCreatKntktBirthday;
         internal System.Windows.Forms.TextBox TxtCreatKntktVorname;
         internal System.Windows.Forms.TextBox TxtCreatKntktName;
         internal System.Windows.Forms.Label LblCreatKntktEmail;
@@ -784,12 +775,13 @@
         internal System.Windows.Forms.Button CmdCreateKntktKontaktErstellen;
         internal System.Windows.Forms.ComboBox CmBxCreatKntktGeschlecht;
         internal System.Windows.Forms.ComboBox CmBxCreatKntktAnrede;
-        internal System.Windows.Forms.DateTimePicker DateCreatKntktAustrDatum;
-        internal System.Windows.Forms.DateTimePicker DateCreatKntktEintrDatum;
         internal System.Windows.Forms.NumericUpDown NumCreatKntktMaOfficeNumber;
         internal System.Windows.Forms.NumericUpDown NumCreatKntktMaAktLehrj;
         internal System.Windows.Forms.NumericUpDown NumCreatKntktMaLehrj;
         internal System.Windows.Forms.NumericUpDown NumCreatKntktMaBeschGrad;
         internal System.Windows.Forms.TextBox TxtCreatKntktPLZ;
+        internal System.Windows.Forms.TextBox TxtCreatKntktBirthday;
+        internal System.Windows.Forms.TextBox TxtCreatKntktAustrDatum;
+        internal System.Windows.Forms.TextBox TxtCreatKntktEintrDatum;
     }
 }

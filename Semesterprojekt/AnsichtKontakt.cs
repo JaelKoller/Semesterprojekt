@@ -244,7 +244,7 @@ namespace Semesterprojekt
                 CmBxAnsichtKntktAnrede,
                 TxtAnsichtKntktVorname,
                 TxtAnsichtKntktName,
-                DateAnsichtKntktBirthday,
+                TxtAnsichtKntktBirthday,
                 CmBxAnsichtKntktGeschlecht,
                 TxtAnsichtKntktAdr,
                 TxtAnsichtKntktPLZ,
@@ -272,8 +272,8 @@ namespace Semesterprojekt
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
                 NumAnsichtKntktMaOfficeNumber,
-                DateAnsichtKntktEintrDatum,
-                DateAnsichtKntktAustrDatum
+                TxtAnsichtKntktEintrDatum,
+                TxtAnsichtKntktAustrDatum
             };
 
             return groupFieldEmployees;
@@ -323,7 +323,7 @@ namespace Semesterprojekt
                 TxtAnsichtKntktMaKader,
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
-                DateAnsichtKntktAustrDatum,
+                TxtAnsichtKntktAustrDatum,
             };
 
             return checkFieldIgnore;
@@ -408,13 +408,13 @@ namespace Semesterprojekt
                 IsEmployee = true, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
                 IsClient = false, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
                 Salutation = CmBxAnsichtKntktAnrede,
-                Birthday = DateAnsichtKntktBirthday,
+                Birthday = TxtAnsichtKntktBirthday,
                 Gender = CmBxAnsichtKntktGeschlecht,
                 PLZ = TxtAnsichtKntktPLZ,
                 Email = TxtAnsichtKntktEmail,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,
-                DateOfEntry = DateAnsichtKntktEintrDatum
+                DateOfEntry = TxtAnsichtKntktEintrDatum
             };
         }
 
