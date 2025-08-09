@@ -15,6 +15,8 @@ namespace Semesterprojekt
     {
         public System.Windows.Forms.Label[] GroupLabelToolTip { get; set; }
 
+        // Setzen des AccessibleName für Auslesung Label-ToolTip-Text aus Dictionary (dynamisch für alle Forms nutzbar)
+        // Nutzung Funktion "nameof(...)" für Rückgabe Bezeichnung (Name) von Property als String (keine Anwendung bei Doppelverwendung von Label-ToolTip-Text)
         private System.Windows.Forms.Label title;
         public System.Windows.Forms.Label Title { get => title; set { title = value; if (value != null) value.AccessibleName = nameof(Title); } }
 
