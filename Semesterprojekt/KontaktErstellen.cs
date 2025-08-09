@@ -44,6 +44,10 @@ namespace Semesterprojekt
         // Initialisierung verwendetes Tag (analog separater Klasse)
         private string tagOK = "true";
 
+        // Initialisierung Mitarbeiter-/Kunden Nr. (Vorbereitung für Ablage in JSON)
+        string employeeNumberNew;
+        string clientNumberNew;
+
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
@@ -293,13 +297,14 @@ namespace Semesterprojekt
                 RdbCreatKntktMa.Checked = true;
 
                 // Automatische Generierung Mitarbeiter Nr. (gemäss JSON)
-                string employeeNumberNew = EmployeeNumber.GetEmployeeNumberNext();
+                employeeNumberNew = ClientAndEmployeeNumber.GetNumberNext(true);
                 TxtCreatKntktMaManr.Text = employeeNumberNew;
             }
             
             else if (typeOfContactNew == "kunde")
             {
                 RdbCreatKntktKunde.Checked = true;
+                clientNumberNew = ClientAndEmployeeNumber.GetNumberNext(false);
             }
         }
 

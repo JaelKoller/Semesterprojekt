@@ -98,7 +98,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeNumber.cs" />
+    <Compile Include="ClientAndEmployeeNumber.cs" />
     <Compile Include="KontaktErstellen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,11 +121,11 @@
     <Compile Include="Testing\Testing_AnsichtKontakt.Designer.cs">
       <DependentUpon>Testing_AnsichtKontakt.cs</DependentUpon>
     </Compile>
-    <Compile Include="Testing\Testing_EmployeeNumber.cs">
+    <Compile Include="Testing\Testing_ClientAndEmployeeNumber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Testing\Testing_EmployeeNumber.Designer.cs">
-      <DependentUpon>Testing_EmployeeNumber.cs</DependentUpon>
+    <Compile Include="Testing\Testing_ClientAndEmployeeNumber.Designer.cs">
+      <DependentUpon>Testing_ClientAndEmployeeNumber.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\Testing_KontaktErstellen.cs">
       <SubType>Form</SubType>
@@ -155,8 +155,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Testing\Testing_EmployeeNumber.resx">
-      <DependentUpon>Testing_EmployeeNumber.cs</DependentUpon>
+    <EmbeddedResource Include="Testing\Testing_ClientAndEmployeeNumber.resx">
+      <DependentUpon>Testing_ClientAndEmployeeNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Testing\Testing_KontaktErstellen.resx">
       <DependentUpon>Testing_KontaktErstellen.cs</DependentUpon>
