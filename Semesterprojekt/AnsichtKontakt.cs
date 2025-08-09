@@ -453,30 +453,89 @@ namespace Semesterprojekt
             string text = TxtAnsichtKntktProtokolEing.Text;
             string date = DateAnsichtKntktDateProtokol.Value.ToShortDateString();
 
-            // Prüft, dass nicht der default-Wert gespeichert wird
-            // Gibt bei bedarf Fehlermeldung
-            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(text) || title == defaultTitle || text == defaultNote)
-            {
-                ShowMessageBox("Bitte gültigen Titel und Text eingeben");
-                return;
-            }
-
             // Übergibt Variabeln an Klasse Notes
             Notes newNote = new Notes
             {
                 Title = title,
                 Date = date,
                 Text = text
-
             };
 
-            // Setzt neue Notiz an oberste Stelle in ListBox
-            LbAnsichtKntktProtokolAusg.Items.Insert(0, newNote);
+            // Prüft ob Titel und Notiz gültig sind
+            bool titleOk = !string.IsNullOrWhiteSpace(title) && title != defaultTitle;
+            bool noteOk = !string.IsNullOrWhiteSpace(text) && text != defaultNote;
 
-            // Setzt default-Wert wieder in TextBox von Titel und Notiz
-            TxtAnsichtKntktProtokolTitel.Text = defaultTitle;
-            TxtAnsichtKntktProtokolEing.Text = defaultNote;
+            // Prüft, dass nicht der default-Wert gespeichert wird
+            // Gibt bei bedarf Fehlermeldung
 
+            // Titel und Notiz gut
+            if (titleOk && noteOk)
+            {
+                // Tag und Normalfarbe setzten  bei Titel
+                TxtAnsichtKntktProtokolTitel.BackColor = backColorOK;
+                TxtAnsichtKntktProtokolTitel.Tag = tagOK;
+
+                // Tag und Normalfarbe setzten  bei Notiz
+                TxtAnsichtKntktProtokolEing.BackColor = backColorOK;
+                TxtAnsichtKntktProtokolEing.Tag = tagOK;
+
+                // Setzt neue Notiz an oberste Stelle in ListBox
+                LbAnsichtKntktProtokolAusg.Items.Insert(0, newNote);
+
+                // Setzt default-Wert wieder in TextBox von Titel und Notiz
+                TxtAnsichtKntktProtokolTitel.Text = defaultTitle;
+                TxtAnsichtKntktProtokolEing.Text = defaultNote;
+
+                return;
+            }
+
+            // Titel: Setzt Tag und Farbe wieder auf OK
+            TxtAnsichtKntktProtokolTitel.BackColor = backColorOK;
+            TxtAnsichtKntktProtokolTitel.Tag = tagOK;
+
+            // Notiz: Setzt Tag und Farbe wieder auf OK
+            TxtAnsichtKntktProtokolEing.BackColor = backColorOK;
+            TxtAnsichtKntktProtokolEing.Tag = tagOK;
+
+            // Titel und Notiz nicht OK
+            if (!titleOk && !noteOk)
+            {
+                // Tag setzten und rotfärben bei Titel
+                TxtAnsichtKntktProtokolTitel.BackColor = backColorNOK;
+                TxtAnsichtKntktProtokolTitel.Tag = tagNOK;
+                TxtAnsichtKntktProtokolTitel.Focus();
+
+                // Tag setzten und rotfärben bei Notiz
+                TxtAnsichtKntktProtokolEing.BackColor = backColorNOK;
+                TxtAnsichtKntktProtokolEing.Tag = tagNOK;
+
+                ShowMessageBox("Bitte gültigen Titel und Text eingeben");
+                return;
+            }
+
+            // Titel nicht OK
+            if (!titleOk)
+            {
+                // Tag setzten und rotfärben bei Titel
+                TxtAnsichtKntktProtokolTitel.BackColor = backColorNOK;
+                TxtAnsichtKntktProtokolTitel.Tag = tagNOK;
+                TxtAnsichtKntktProtokolTitel.Focus();
+
+                ShowMessageBox("Bitte gültigen Titel eingeben");
+                return;
+            }
+
+            // Notiz nicht OK
+            if (!noteOk)
+            {
+                // Tag setzten und rotfärben bei Notiz
+                TxtAnsichtKntktProtokolEing.BackColor = backColorNOK;
+                TxtAnsichtKntktProtokolEing.Tag = tagNOK;
+                TxtAnsichtKntktProtokolEing.Focus();
+
+                ShowMessageBox("Bitte gültige Notiz eingeben");
+                return;
+            }
         }
 
 
@@ -499,6 +558,6 @@ namespace Semesterprojekt
             MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        // Test Martina
+       
     }
 }
