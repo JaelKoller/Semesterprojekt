@@ -37,13 +37,6 @@ namespace Semesterprojekt
         private readonly string tagOK = "true";
         private readonly string tagNOK = "false";
 
-        private readonly Form checkAndValidationForm;
-
-        public CheckAndValidationFields(Form form)
-        {
-            checkAndValidationForm = form;
-        }
-
         // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
         public bool ValidationFields(InitializationFields content)
         {

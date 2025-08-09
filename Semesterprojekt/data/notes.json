@@ -1,0 +1,28 @@
+[
+  {
+    "NumberKey": "XY",
+    "Note1": {
+      "NoteTitle": "Blablabla",
+      "NoteText": "Blablabla",
+      "NoteDate": "1989-07-01"
+    },
+    "Note2": {
+      "NoteTitle": "Blablabla",
+      "NoteText": "Blablabla",
+      "NoteDate": "1989-07-01"
+    }
+  },
+  {
+    "NumberKey": "YX",
+    "Note1": {
+      "NoteTitle": "Blablabla",
+      "NoteText": "Blablabla",
+      "NoteDate": "1989-07-01"
+    },
+    "Note2": {
+      "NoteTitle": "Blablabla",
+      "NoteText": "Blablabla",
+      "NoteDate": "1989-07-01"
+    }
+  }
+]

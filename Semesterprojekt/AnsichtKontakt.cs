@@ -387,7 +387,7 @@ namespace Semesterprojekt
 
         private void CmdAnsichtKntktSaveAll_Click(object sender, EventArgs e)
         {
-            var validator = new CheckAndValidationFields(this);
+            var validator = new CheckAndValidationFields();
             var validationContent = CheckAndValidationFieldsContent();
             bool checkFieldTag = validator.ValidationFields(validationContent);
 

@@ -32,6 +32,7 @@ namespace Semesterprojekt
         private Control[] groupFieldEmployeesAndCustomers;
         private System.Windows.Forms.Label[] groupLabelEmployees;
         private Control[] groupFieldEmployees;
+        private System.Windows.Forms.Label[] groupLabelToolTip;
         private Control[] checkFieldIgnore;
 
         // Initialisierung mehrfach verwendeter Index-Counter
@@ -55,6 +56,7 @@ namespace Semesterprojekt
             groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
             groupLabelEmployees = GroupLabelEmployees();
             groupFieldEmployees = GroupFieldEmployees();
+            groupLabelToolTip = GroupLabelToolTip();
 
             Design();
             InitializationLabelToolTip();
@@ -172,6 +174,25 @@ namespace Semesterprojekt
             return groupLabelEmployees;
         }
 
+        // Erstellung Array für Labels für ToolTip
+        private System.Windows.Forms.Label[] GroupLabelToolTip()
+        {
+            groupLabelToolTip = new System.Windows.Forms.Label[]
+            {
+                LblCreatKntktTitel,
+                LblCreatKntktBirthday,
+                LblCreatKntktPLZ,
+                LblCreatKntktMaAHVNr,
+                LblCreatKntktMaNationalitaet,
+                LblCreatKntktMaLehrj,
+                LblCreatKntktMaAktLehrj,
+                LblCreatKntktEintrDatum,
+                LblCreatKntktAustrDatum
+            };
+
+            return groupLabelToolTip;
+        }
+
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
@@ -241,38 +262,26 @@ namespace Semesterprojekt
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip
-            {
-                AutoPopDelay = 10000, // Standardwert liegt bei 5000ms (Wie lange bleibt Tooltip sichtbar)
-                InitialDelay = 100, // Standardwert liegt bei 500ms (Verzögerung bis Tooltip erscheint)
-                ReshowDelay = 100, // Standardwert liegt bei 100ms (Verzögerung zwischen mehreren Tooltips hintereinander)
-                ShowAlways = true // Standardwert ist FALSE (Tooltip wird auch angezeigt, wenn Formular nicht aktiv)
-            };
-
-            SetLabelToolTip(toolTip, LblCreatKntktTitel, "Namenstitel (gekürzt)\r\nz.B. Dr., Ing., Prof.");
-            SetLabelToolTip(toolTip, LblCreatKntktPLZ, "4-/5-stellige Postleitzahl\r\n(Schweiz und Nachbarländer)");
-            SetLabelToolTip(toolTip,LblCreatKntktMaAHVNr, "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90");
-            SetLabelToolTip(toolTip,LblCreatKntktMaNationalitaet, "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT");
-            SetLabelToolTip(toolTip, LblCreatKntktMaLehrj, "nur relevant für Lernende");
-            SetLabelToolTip(toolTip, LblCreatKntktMaAktLehrj, "nur relevant für Lernende");
+            var initializationSetToolTip = SetToolTip();
+            var setToolTip = new SetToolTip();
+            setToolTip.SetLabelToolTip(initializationSetToolTip);
         }
 
-        // Erzeugung Hover-Effekt bei ToolTip (userfreundlicher)
-        private void SetLabelToolTip(System.Windows.Forms.ToolTip tooltip, System.Windows.Forms.Label label, string text)
+        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
+        private InitializationLabelsToolTip SetToolTip()
         {
-            tooltip.SetToolTip(label, text);
-            
-            // Speicherung Original-Schrift (für keine unerwünschten Nebeneffekte)
-            Font originalFont = label.Font;
-
-            label.MouseEnter += (s, e) =>
+            return new InitializationLabelsToolTip
             {
-                label.Font = new Font(originalFont, FontStyle.Bold); // Hover-Effekt mit "fetter" Schrift
-            };
-
-            label.MouseLeave += (s, e) =>
-            {
-                label.Font = originalFont; // Original-Schrift
+                GroupLabelToolTip = groupLabelToolTip,
+                Title = LblCreatKntktTitel,
+                Birthday = LblCreatKntktBirthday,
+                PLZ = LblCreatKntktPLZ,
+                AHVNumber = LblCreatKntktMaAHVNr,
+                Nationality = LblCreatKntktMaNationalitaet,
+                AcademicYear = LblCreatKntktMaLehrj,
+                CurrentAcademicYear = LblCreatKntktMaAktLehrj,
+                DateOfEntry = LblCreatKntktEintrDatum,
+                DateOfExit = LblCreatKntktAustrDatum
             };
         }
 
@@ -348,7 +357,7 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            var checkAndValidation = new CheckAndValidationFields(this);
+            var checkAndValidation = new CheckAndValidationFields();
             var checkAndValidationContent = CheckAndValidationFieldsContent();
             bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
@@ -371,7 +380,7 @@ namespace Semesterprojekt
 
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
-            var checkAndValidation = new CheckAndValidationFields(this);
+            var checkAndValidation = new CheckAndValidationFields();
             var checkAndValidationContent = CheckAndValidationFieldsContent();
             bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
