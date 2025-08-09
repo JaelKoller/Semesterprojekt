@@ -17,6 +17,7 @@ namespace Semesterprojekt
         private Control[] groupFieldEmployeesAndCustomers;
         private System.Windows.Forms.Label[] groupLabelEmployees;
         private Control[] groupFieldEmployees;
+        private System.Windows.Forms.Label[] groupLabelToolTip;
         private Control[] groupFieldNotes;
         private Control[] groupButtons;
         private Control[] checkFieldIgnore;
@@ -36,7 +37,6 @@ namespace Semesterprojekt
         private string defaultTitle;
         private string defaultNote;
 
-
         public AnsichtKontakt()
         {
             InitializeComponent();
@@ -49,6 +49,7 @@ namespace Semesterprojekt
             groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
             groupLabelEmployees = GroupLabelEmployees();
             groupFieldEmployees = GroupFieldEmployees();
+            groupLabelToolTip = GroupLabelToolTip();
             groupFieldNotes = GroupFieldNotes();
             groupButtons = GroupButtons();
 
@@ -235,6 +236,25 @@ namespace Semesterprojekt
             return groupLabelEmployees;
         }
 
+        // Erstellung Array für Labels für ToolTip
+        private System.Windows.Forms.Label[] GroupLabelToolTip()
+        {
+            groupLabelToolTip = new System.Windows.Forms.Label[]
+            {
+                LblAnsichtKntktTitel,
+                LblAnsichtKntktBirthday,
+                LblAnsichtKntktPLZ,
+                LblAnsichtKntktMaAHVNr,
+                LblAnsichtKntktMaNationalitaet,
+                LblAnsichtKntktMaLehrj,
+                LblAnsichtKntktMaAktLehrj,
+                LblAnsichtKntktEintrDatum,
+                LblAnsichtKntktAustrDatum
+            };
+
+            return groupLabelToolTip;
+        }
+
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
@@ -294,8 +314,6 @@ namespace Semesterprojekt
             return groupFieldNotes;
         }
 
-
-
         // Erstellung Array für Buttons
         private Control[] GroupButtons()
         {
@@ -332,38 +350,26 @@ namespace Semesterprojekt
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip
-            {
-                AutoPopDelay = 10000, // Standardwert liegt bei 5000ms (Wie lange bleibt Tooltip sichtbar)
-                InitialDelay = 100, // Standardwert liegt bei 500ms (Verzögerung bis Tooltip erscheint)
-                ReshowDelay = 100, // Standardwert liegt bei 100ms (Verzögerung zwischen mehreren Tooltips hintereinander)
-                ShowAlways = true // Standardwert ist FALSE (Tooltip wird auch angezeigt, wenn Formular nicht aktiv)
-            };
-
-            SetLabelToolTip(toolTip, LblAnsichtKntktTitel, "Namenstitel (gekürzt)\r\nz.B. Dr., Ing., Prof.");
-            SetLabelToolTip(toolTip, LblAnsichtKntktPLZ, "4-/5-stellige Postleitzahl\r\n(Schweiz und Nachbarländer)");
-            SetLabelToolTip(toolTip, LblAnsichtKntktMaAHVNr, "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90");
-            SetLabelToolTip(toolTip, LblAnsichtKntktMaNationalitaet, "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT");
-            SetLabelToolTip(toolTip, LblAnsichtKntktMaLehrj, "nur relevant für Lernende");
-            SetLabelToolTip(toolTip, LblAnsichtKntktMaAktLehrj, "nur relevant für Lernende");
+            var initializationSetToolTip = SetToolTip();
+            var setToolTip = new SetToolTip();
+            setToolTip.SetLabelToolTip(initializationSetToolTip);
         }
 
-        // Erzeugung Hover-Effekt bei ToolTip (userfreundlicher)
-        private void SetLabelToolTip(System.Windows.Forms.ToolTip tooltip, System.Windows.Forms.Label label, string text)
+        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
+        private InitializationLabelsToolTip SetToolTip()
         {
-            tooltip.SetToolTip(label, text);
-
-            // Speicherung Original-Schrift (für keine unerwünschten Nebeneffekte)
-            Font originalFont = label.Font;
-
-            label.MouseEnter += (s, e) =>
+            return new InitializationLabelsToolTip
             {
-                label.Font = new Font(originalFont, FontStyle.Bold); // Hover-Effekt mit "fetter" Schrift
-            };
-
-            label.MouseLeave += (s, e) =>
-            {
-                label.Font = originalFont; // Original-Schrift
+                GroupLabelToolTip = groupLabelToolTip,
+                Title = LblAnsichtKntktTitel,
+                Birthday = LblAnsichtKntktBirthday,
+                PLZ = LblAnsichtKntktPLZ,
+                AHVNumber = LblAnsichtKntktMaAHVNr,
+                Nationality = LblAnsichtKntktMaNationalitaet,
+                AcademicYear = LblAnsichtKntktMaLehrj,
+                CurrentAcademicYear = LblAnsichtKntktMaAktLehrj,
+                DateOfEntry = LblAnsichtKntktEintrDatum,
+                DateOfExit = LblAnsichtKntktAustrDatum
             };
         }
 

@@ -17,6 +17,7 @@ namespace Semesterprojekt
         // Initialisierung verwendete Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabel;
         private Control[] groupField;
+        private System.Windows.Forms.Label[] groupLabelToolTip;
 
         // Initialisierung verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -35,6 +36,7 @@ namespace Semesterprojekt
             // Initialisierung verwendete Label-/Control-Gruppen
             groupLabel = GroupLabel();
             groupField = GroupField();
+            groupLabelToolTip = GroupLabelToolTip();
 
             Design();
             InitializationLabelToolTip();
@@ -102,6 +104,20 @@ namespace Semesterprojekt
             return groupLabel;
         }
 
+        // Erstellung Array für Labels für ToolTip
+        private System.Windows.Forms.Label[] GroupLabelToolTip()
+        {
+            groupLabelToolTip = new System.Windows.Forms.Label[]
+            {
+                LblAllKntktBirthday,
+                LblAllKntktMa,
+                LblAllKntktKunde,
+                LblAllKntktInaktiv
+            };
+
+            return groupLabelToolTip;
+        }
+
         // Erstellung Array für Eingabefelder
         private Control[] GroupField()
         {
@@ -121,36 +137,21 @@ namespace Semesterprojekt
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
-            System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip
-            {
-                AutoPopDelay = 10000, // Standardwert liegt bei 5000ms (Wie lange bleibt Tooltip sichtbar)
-                InitialDelay = 100, // Standardwert liegt bei 500ms (Verzögerung bis Tooltip erscheint)
-                ReshowDelay = 100, // Standardwert liegt bei 100ms (Verzögerung zwischen mehreren Tooltips hintereinander)
-                ShowAlways = true // Standardwert ist FALSE (Tooltip wird auch angezeigt, wenn Formular nicht aktiv)
-            };
-
-            SetLabelToolTip(toolTip, LblAllKntktBirthday, "Eingabe mit Nullen und Punkten\r\nz.B. 01.01.1900");
-            SetLabelToolTip(toolTip, LblAllKntktMa, "Häkchen für Such-Einschränkung auf 'Mitarbeiter'");
-            SetLabelToolTip(toolTip, LblAllKntktKunde, "Häkchen für Such-Einschränkung 'Kunde'");
-            SetLabelToolTip(toolTip, LblAllKntktInaktiv, "Häkchen für Such-Erweiterung");
+            var initializationSetToolTip = SetToolTip();
+            var setToolTip = new SetToolTip();
+            setToolTip.SetLabelToolTip(initializationSetToolTip);
         }
 
-        // Erzeugung Hover-Effekt bei ToolTip (userfreundlicher)
-        private void SetLabelToolTip(System.Windows.Forms.ToolTip tooltip, System.Windows.Forms.Label label, string text)
+        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
+        private InitializationLabelsToolTip SetToolTip()
         {
-            tooltip.SetToolTip(label, text);
-
-            // Speicherung Original-Schrift (für keine unerwünschten Nebeneffekte)
-            Font originalFont = label.Font;
-
-            label.MouseEnter += (s, e) =>
+            return new InitializationLabelsToolTip
             {
-                label.Font = new Font(originalFont, FontStyle.Bold); // Hover-Effekt mit "fetter" Schrift
-            };
-
-            label.MouseLeave += (s, e) =>
-            {
-                label.Font = originalFont; // Original-Schrift
+                GroupLabelToolTip = groupLabelToolTip,
+                Birthday = LblAllKntktBirthday,
+                SearchEmployeeContacts = LblAllKntktMa,
+                SearchClientContacts = LblAllKntktKunde,
+                SearchInactiveContacts = LblAllKntktInaktiv
             };
         }
 
