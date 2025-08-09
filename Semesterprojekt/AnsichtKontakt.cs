@@ -69,7 +69,7 @@ namespace Semesterprojekt
             LblAnsichtKntktNameAnzeige.Location = new Point(10, 20);
 
             // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
-            GrpBxDatenAlle.Size = new Size(350, 390);
+            GrpBxDatenAlle.Size = new Size(390, 390);
             GrpBxDatenAlle.Location = new Point(10, 55);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
@@ -78,7 +78,7 @@ namespace Semesterprojekt
             tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
 
             // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
-            GrpBxDatenMA.Size = new Size(350, 390);
+            GrpBxDatenMA.Size = new Size(390, 390);
             GrpBxDatenMA.Location = new Point(10, 450);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
@@ -87,8 +87,8 @@ namespace Semesterprojekt
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
 
             // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
-            GrpBxAnsichtKntktAktiv.Size = new Size(130, 40);
-            GrpBxAnsichtKntktAktiv.Location = new Point(375, 10);
+            GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
+            GrpBxAnsichtKntktAktiv.Location = new Point(405, 10);
 
             // Platzierung Radio-Buttons (Aktiv vs. Inaktiv)
             // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend (nur auf ersten Radio-Button möglich)
@@ -99,7 +99,7 @@ namespace Semesterprojekt
 
             // Platzierung Gruppe "Notizen zu Person"
             GrpBxAnsichtKntktNotiz.Size = new Size(350, 530);
-            GrpBxAnsichtKntktNotiz.Location = new Point(375, 55);
+            GrpBxAnsichtKntktNotiz.Location = new Point(405, 55);
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
             // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
@@ -171,7 +171,7 @@ namespace Semesterprojekt
             int tabIndexCounter = indexCounter;
             int width = 150;
             int height = 60;
-            int locationX = 395;
+            int locationX = 425;
             int locationY = 620;
 
             for (int i = 0; i < groupField.Length; i++)
@@ -508,5 +508,9 @@ namespace Semesterprojekt
             }
         }
 
+        private void TxtAnsichtKntktProtokolEing_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

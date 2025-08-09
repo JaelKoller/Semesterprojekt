@@ -35,46 +35,49 @@
             // 
             // BtnDashMaNew
             // 
-            this.BtnDashMaNew.Location = new System.Drawing.Point(123, 89);
-            this.BtnDashMaNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnDashMaNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BtnDashMaNew.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDashMaNew.Location = new System.Drawing.Point(109, 71);
             this.BtnDashMaNew.Name = "BtnDashMaNew";
-            this.BtnDashMaNew.Size = new System.Drawing.Size(180, 106);
+            this.BtnDashMaNew.Size = new System.Drawing.Size(160, 85);
             this.BtnDashMaNew.TabIndex = 0;
             this.BtnDashMaNew.Text = "Mitarbeiter hinzufügen";
-            this.BtnDashMaNew.UseVisualStyleBackColor = true;
+            this.BtnDashMaNew.UseVisualStyleBackColor = false;
             this.BtnDashMaNew.Click += new System.EventHandler(this.BtnDashMaNew_Click);
             // 
             // BtnDashKndNew
             // 
-            this.BtnDashKndNew.Location = new System.Drawing.Point(123, 202);
-            this.BtnDashKndNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnDashKndNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BtnDashKndNew.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDashKndNew.Location = new System.Drawing.Point(109, 162);
             this.BtnDashKndNew.Name = "BtnDashKndNew";
-            this.BtnDashKndNew.Size = new System.Drawing.Size(180, 106);
+            this.BtnDashKndNew.Size = new System.Drawing.Size(160, 85);
             this.BtnDashKndNew.TabIndex = 1;
             this.BtnDashKndNew.Text = "Kunde hinzufügen";
-            this.BtnDashKndNew.UseVisualStyleBackColor = true;
+            this.BtnDashKndNew.UseVisualStyleBackColor = false;
             this.BtnDashKndNew.Click += new System.EventHandler(this.BtnDashKndNew_Click);
             // 
             // BtnDashAllKntkt
             // 
-            this.BtnDashAllKntkt.Location = new System.Drawing.Point(309, 89);
-            this.BtnDashAllKntkt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnDashAllKntkt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BtnDashAllKntkt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDashAllKntkt.Location = new System.Drawing.Point(275, 71);
             this.BtnDashAllKntkt.Name = "BtnDashAllKntkt";
-            this.BtnDashAllKntkt.Size = new System.Drawing.Size(180, 106);
+            this.BtnDashAllKntkt.Size = new System.Drawing.Size(160, 85);
             this.BtnDashAllKntkt.TabIndex = 2;
             this.BtnDashAllKntkt.Text = "Alle Kontakte";
-            this.BtnDashAllKntkt.UseVisualStyleBackColor = true;
+            this.BtnDashAllKntkt.UseVisualStyleBackColor = false;
             this.BtnDashAllKntkt.Click += new System.EventHandler(this.BtnDashAllKntkt_Click);
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 562);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(533, 450);
             this.Controls.Add(this.BtnDashAllKntkt);
             this.Controls.Add(this.BtnDashKndNew);
             this.Controls.Add(this.BtnDashMaNew);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.ResumeLayout(false);

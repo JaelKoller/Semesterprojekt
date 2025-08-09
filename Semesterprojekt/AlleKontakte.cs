@@ -53,8 +53,8 @@ namespace Semesterprojekt
             // Platzierung Buttons "Suchen" und "zurück zu Dashboard"
             BtnAllKntktSuchen.Size = new Size(340, 30);
             BtnAllKntktSuchen.Location = new Point(50, 300);
-            BtnAllKntktHome.Size = new Size(90, 40);
-            BtnAllKntktHome.Location = new Point(335, 10);
+            BtnAllKntktHome.Size = new Size(90, 50);
+            BtnAllKntktHome.Location = new Point(295, 20);
 
             // Platzierung Suchausgabe
             LbAllKntktSuchAusg.Size = new Size(340, 200);
