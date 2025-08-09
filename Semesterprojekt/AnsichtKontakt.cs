@@ -56,10 +56,10 @@ namespace Semesterprojekt
             InitializationLabelToolTip();
             InitializationGroupAndField();
 
-            // Datumsfeld immer auf Heute setzten
+            // Initialisierung Notizfelder (Defaultwert inkl. heutiges Datum)
+            defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
+            defaultNote = TxtAnsichtKntktProtokolEing.Text;
             DateAnsichtKntktDateProtokol.Value = DateTime.Today;
-
-
         }
 
         private void Design()
@@ -444,21 +444,6 @@ namespace Semesterprojekt
             }
         }
 
-        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben (Error)
-        private void ShowMessageBox(string message)
-        {
-            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-
-        // Speichert default Text von Notiz-Titel und Notiz in globaler Variabel
-        private void AnsichtKontakt_Load(object sender, EventArgs e)
-        {
-            defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
-            defaultNote = TxtAnsichtKntktProtokolEing.Text;
-        }
-
-
         // Notizen in ListBox speichern
         private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
         {
@@ -472,7 +457,7 @@ namespace Semesterprojekt
             // Gibt bei bedarf Fehlermeldung
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(text) || title == defaultTitle || text == defaultNote)
             {
-                MessageBox.Show("Bitte gültigen Titel und Text eingeben");
+                ShowMessageBox("Bitte gültigen Titel und Text eingeben");
                 return;
             }
 
@@ -508,9 +493,10 @@ namespace Semesterprojekt
             }
         }
 
-        private void TxtAnsichtKntktProtokolEing_TextChanged(object sender, EventArgs e)
+        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben (Error)
+        private void ShowMessageBox(string message)
         {
-
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

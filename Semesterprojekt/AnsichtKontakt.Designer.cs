@@ -762,7 +762,6 @@
             this.TxtAnsichtKntktProtokolEing.Size = new System.Drawing.Size(404, 128);
             this.TxtAnsichtKntktProtokolEing.TabIndex = 5;
             this.TxtAnsichtKntktProtokolEing.Text = "Notiz";
-            this.TxtAnsichtKntktProtokolEing.TextChanged += new System.EventHandler(this.TxtAnsichtKntktProtokolEing_TextChanged);
             // 
             // CmdAnsichtKntktSaveAll
             // 
@@ -840,7 +839,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AnsichtKontakt";
             this.Text = "Kontakt";
-            this.Load += new System.EventHandler(this.AnsichtKontakt_Load);
             this.GrpBxDatenAlle.ResumeLayout(false);
             this.GrpBxDatenAlle.PerformLayout();
             this.GrpBxDatenMA.ResumeLayout(false);
