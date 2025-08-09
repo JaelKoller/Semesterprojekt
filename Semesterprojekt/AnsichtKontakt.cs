@@ -69,7 +69,7 @@ namespace Semesterprojekt
             LblAnsichtKntktNameAnzeige.Location = new Point(10, 20);
 
             // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
-            GrpBxDatenAlle.Size = new Size(390, 390);
+            GrpBxDatenAlle.Size = new Size(410, 390);
             GrpBxDatenAlle.Location = new Point(10, 55);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
@@ -78,7 +78,7 @@ namespace Semesterprojekt
             tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
 
             // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
-            GrpBxDatenMA.Size = new Size(390, 390);
+            GrpBxDatenMA.Size = new Size(410, 390);
             GrpBxDatenMA.Location = new Point(10, 450);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
@@ -88,18 +88,18 @@ namespace Semesterprojekt
 
             // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
             GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
-            GrpBxAnsichtKntktAktiv.Location = new Point(405, 10);
+            GrpBxAnsichtKntktAktiv.Location = new Point(430, 10);
 
             // Platzierung Radio-Buttons (Aktiv vs. Inaktiv)
             // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend (nur auf ersten Radio-Button möglich)
-            RdbAnsichtKntktAktiv.Location = new Point(10, 15);
+            RdbAnsichtKntktAktiv.Location = new Point(15, 15);
             RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
-            RdbAnsichtKntktInaktiv.Location = new Point(70, 15);
+            RdbAnsichtKntktInaktiv.Location = new Point(75, 15);
             RdbAnsichtKntktInaktiv.TabStop = false;
 
             // Platzierung Gruppe "Notizen zu Person"
-            GrpBxAnsichtKntktNotiz.Size = new Size(350, 530);
-            GrpBxAnsichtKntktNotiz.Location = new Point(405, 55);
+            GrpBxAnsichtKntktNotiz.Size = new Size(410, 535);
+            GrpBxAnsichtKntktNotiz.Location = new Point(430, 55);
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
             // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
@@ -115,7 +115,7 @@ namespace Semesterprojekt
             int tabIndexCounter = indexCounter;
             int startLocation = 20;
             int labelXAchse = 10;
-            int controlXAchse = 135;
+            int controlXAchse = 150;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -140,9 +140,9 @@ namespace Semesterprojekt
         private int PlacementFieldNote(Control[] groupField, int indexCounter)
         {
             int tabIndexCounter = indexCounter;
-            int width = 330;
+            int width = 380;
             int height = 250;
-            int locationX = 10;
+            int locationX = 15;
             int locationY = 20;
 
             for (int i = 0; i < groupField.Length; i++)
@@ -171,7 +171,7 @@ namespace Semesterprojekt
             int tabIndexCounter = indexCounter;
             int width = 150;
             int height = 60;
-            int locationX = 425;
+            int locationX = 480;
             int locationY = 620;
 
             for (int i = 0; i < groupField.Length; i++)

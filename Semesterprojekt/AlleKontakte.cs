@@ -28,7 +28,7 @@ namespace Semesterprojekt
         public AlleKontakte()
         {
             InitializeComponent();
-            this.Size = new Size(450, 660);
+            this.Size = new Size(450, 640);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -52,16 +52,16 @@ namespace Semesterprojekt
 
             // Platzierung Buttons "Suchen" und "zurück zu Dashboard"
             BtnAllKntktSuchen.Size = new Size(340, 30);
-            BtnAllKntktSuchen.Location = new Point(50, 300);
+            BtnAllKntktSuchen.Location = new Point(50, 290);
             BtnAllKntktHome.Size = new Size(90, 50);
-            BtnAllKntktHome.Location = new Point(295, 20);
+            BtnAllKntktHome.Location = new Point(320, 20);
 
             // Platzierung Suchausgabe
             LbAllKntktSuchAusg.Size = new Size(340, 200);
-            LbAllKntktSuchAusg.Location = new Point(50, 360);
+            LbAllKntktSuchAusg.Location = new Point(50, 340);
 
             LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
-            LblAllKntktAnzSuchAusg.Location = new Point(50, 570);
+            LblAllKntktAnzSuchAusg.Location = new Point(50, 550);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
