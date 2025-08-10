@@ -363,7 +363,7 @@ namespace Semesterprojekt
                 GroupLabelToolTip = groupLabelToolTip,
                 Title = LblAnsichtKntktTitel,
                 Birthday = LblAnsichtKntktBirthday,
-                PLZ = LblAnsichtKntktPLZ,
+                PostalCode = LblAnsichtKntktPLZ,
                 AHVNumber = LblAnsichtKntktMaAHVNr,
                 Nationality = LblAnsichtKntktMaNationalitaet,
                 AcademicYear = LblAnsichtKntktMaLehrj,
@@ -404,9 +404,9 @@ namespace Semesterprojekt
         }
 
         // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
-        private InitializationFields CheckAndValidationFieldsContent()
+        private InitializationCheckAndValidationFields CheckAndValidationFieldsContent()
         {
-            return new InitializationFields
+            return new InitializationCheckAndValidationFields
             {
                 GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
                 GroupFieldEmployees = groupFieldEmployees,
@@ -416,7 +416,7 @@ namespace Semesterprojekt
                 Salutation = CmBxAnsichtKntktAnrede,
                 Birthday = TxtAnsichtKntktBirthday,
                 Gender = CmBxAnsichtKntktGeschlecht,
-                PLZ = TxtAnsichtKntktPLZ,
+                PostalCode = TxtAnsichtKntktPLZ,
                 Email = TxtAnsichtKntktEmail,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,

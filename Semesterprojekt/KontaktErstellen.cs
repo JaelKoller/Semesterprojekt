@@ -62,6 +62,7 @@ namespace Semesterprojekt
             groupLabelToolTip = GroupLabelToolTip();
 
             Design();
+            InitializationContactDataContent();
             InitializationLabelToolTip();
 
             typeOfContactNew = typeOfContact;
@@ -278,7 +279,7 @@ namespace Semesterprojekt
                 GroupLabelToolTip = groupLabelToolTip,
                 Title = LblCreatKntktTitel,
                 Birthday = LblCreatKntktBirthday,
-                PLZ = LblCreatKntktPLZ,
+                PostalCode = LblCreatKntktPLZ,
                 AHVNumber = LblCreatKntktMaAHVNr,
                 Nationality = LblCreatKntktMaNationalitaet,
                 AcademicYear = LblCreatKntktMaLehrj,
@@ -408,10 +409,42 @@ namespace Semesterprojekt
             }
         }
 
-        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
-        private InitializationFields CheckAndValidationFieldsContent()
+        // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
+        private ContactData InitializationContactDataContent()
         {
-            return new InitializationFields
+            return new ContactData
+            {
+                Title = TxtCreatKntktTitel,
+                Salutation = CmBxCreatKntktAnrede,
+                FirstName = TxtCreatKntktVorname,
+                LastName = TxtCreatKntktName,
+                Birthday = TxtCreatKntktBirthday,
+                Gender = CmBxCreatKntktGeschlecht,
+                Address = TxtCreatKntktAdr,
+                PostalCode = TxtCreatKntktPLZ,
+                City = TxtCreatKntktOrt,
+                BusinessNumber = TxtCreatKntktTelGeschaeft,
+                MobileNumber = TxtCreatKntktTelMobile,
+                Email = TxtCreatKntktEmail,
+                EmployeeNumber = TxtCreatKntktMaManr,
+                AHVNumber = TxtCreatKntktMaAHVNr,
+                Nationality = TxtCreatKntktMaNationalitaet,
+                ManagementLevel = TxtCreatKntktMaKader,
+                LevelOfEmployment = NumCreatKntktMaBeschGrad,
+                Department = TxtCreatKntktMaAbteilung,
+                Role = TxtCreatKntktMaRolle,
+                AcademicYear = NumCreatKntktMaLehrj,
+                CurrentAcademicYear = NumCreatKntktMaAktLehrj,
+                OfficeNumber = NumCreatKntktMaOfficeNumber,
+                DateOfEntry = TxtCreatKntktEintrDatum,
+                DateOfExit = TxtCreatKntktAustrDatum
+            };
+        }
+
+        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
+        private InitializationCheckAndValidationFields CheckAndValidationFieldsContent()
+        {
+            return new InitializationCheckAndValidationFields
             {
                 GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
                 GroupFieldEmployees = groupFieldEmployees,
@@ -421,7 +454,7 @@ namespace Semesterprojekt
                 Salutation = CmBxCreatKntktAnrede,
                 Birthday = TxtCreatKntktBirthday,
                 Gender = CmBxCreatKntktGeschlecht,
-                PLZ = TxtCreatKntktPLZ,
+                PostalCode = TxtCreatKntktPLZ,
                 Email = TxtCreatKntktEmail,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,
@@ -429,7 +462,7 @@ namespace Semesterprojekt
                 DateOfExit = TxtCreatKntktAustrDatum
             };
         }
-       
+
         // Speicherung der Kontaktdaten in JSON "contacts"
         private bool SaveContactData()
         {
@@ -447,14 +480,14 @@ namespace Semesterprojekt
 
                 foreach (Control field in groupFieldEmployeesAndCustomers)
                 {
-                    contact.Fields[field.Name] = GetControlValue(field);
+                    contact.Fields[field.AccessibleName] = GetControlValue(field);
                 }
 
                 if (typeOfContactNew == "mitarbeiter")
                 {
                     foreach (Control field in groupFieldEmployees)
                     {
-                        contact.Fields[field.Name] = GetControlValue(field);
+                        contact.Fields[field.AccessibleName] = GetControlValue(field);
                     }
                 }
                 
@@ -520,9 +553,9 @@ namespace Semesterprojekt
             // Regex für Split Vorname und Nachname bei Bindestrich und/oder Leerzeichen
             string regex = @"[\s\-]";
 
-            newContact.Fields.TryGetValue("TxtCreatKntktVorname", out var newFirstNameRaw);
-            newContact.Fields.TryGetValue("TxtCreatKntktName", out var newLastNameRaw);
-            newContact.Fields.TryGetValue("TxtCreatKntktBirthday", out var newDateOfBirthRaw);
+            newContact.Fields.TryGetValue("FirstName", out var newFirstNameRaw);
+            newContact.Fields.TryGetValue("LastName", out var newLastNameRaw);
+            newContact.Fields.TryGetValue("Birthday", out var newDateOfBirthRaw);
 
             string newFirstName = Regex.Split(newFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
             string newLastName = Regex.Split(newLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
@@ -533,9 +566,9 @@ namespace Semesterprojekt
 
             foreach (ContactData oldContact in contactList)
             {
-                oldContact.Fields.TryGetValue("TxtCreatKntktVorname", out var oldFirstNameRaw);
-                oldContact.Fields.TryGetValue("TxtCreatKntktName", out var oldLastNameRaw);
-                oldContact.Fields.TryGetValue("TxtCreatKntktBirthday", out var oldDateOfBirthRaw);
+                oldContact.Fields.TryGetValue("FirstName", out var oldFirstNameRaw);
+                oldContact.Fields.TryGetValue("LastName", out var oldLastNameRaw);
+                oldContact.Fields.TryGetValue("Birthday", out var oldDateOfBirthRaw);
 
                 string oldFirstName = Regex.Split(oldFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
                 string oldLastName = Regex.Split(oldLastNameRaw?.Trim().ToLower() ?? "", regex)[0];

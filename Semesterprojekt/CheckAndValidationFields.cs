@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
-    internal class InitializationFields
+    internal class InitializationCheckAndValidationFields
     {
         public Control[] GroupFieldEmployeesAndCustomers { get; set; }
         public Control[] GroupFieldEmployees { get; set; }
@@ -19,7 +19,7 @@ namespace Semesterprojekt
         public ComboBox Salutation { get; set; }
         public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }
-        public TextBox PLZ { get; set; }
+        public TextBox PostalCode { get; set; }
         public TextBox Email { get; set; }
         public TextBox AHVNumber { get; set; }
         public TextBox Nationality { get; set; }
@@ -38,7 +38,7 @@ namespace Semesterprojekt
         private readonly string tagNOK = "false";
 
         // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
-        public bool ValidationFields(InitializationFields content)
+        public bool ValidationFields(InitializationCheckAndValidationFields content)
         {
             // Prüfung (Grundlagen)
             foreach (Control field in content.GroupFieldEmployeesAndCustomers)
@@ -108,7 +108,7 @@ namespace Semesterprojekt
         }
 
         // Prüfung einzelner Spezifalfelder gemäss Erwartungen inkl. Popup
-        private void ValidationFieldsExtension(List<Control> groupFieldAll, InitializationFields content)
+        private void ValidationFieldsExtension(List<Control> groupFieldAll, InitializationCheckAndValidationFields content)
         {
             foreach (Control field in groupFieldAll)
             {
@@ -135,8 +135,8 @@ namespace Semesterprojekt
                 return;
             }
 
-            CheckPLZNumber(content.PLZ);
-            if (content.PLZ.Tag == tagNOK)
+            CheckPLZNumber(content.PostalCode);
+            if (content.PostalCode.Tag == tagNOK)
                 return;
 
             CheckEMail(content.Email);

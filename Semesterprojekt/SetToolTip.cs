@@ -23,8 +23,8 @@ namespace Semesterprojekt
         private System.Windows.Forms.Label birthday;
         public System.Windows.Forms.Label Birthday { get => birthday; set { birthday = value; if (value != null) value.AccessibleName = "Date"; } }
 
-        private System.Windows.Forms.Label plz;
-        public System.Windows.Forms.Label PLZ { get => plz; set { plz = value; if (value != null) value.AccessibleName = nameof(PLZ); } }
+        private System.Windows.Forms.Label postalCode;
+        public System.Windows.Forms.Label PostalCode { get => postalCode; set { postalCode = value; if (value != null) value.AccessibleName = nameof(PostalCode); } }
 
         private System.Windows.Forms.Label ahvNumber;
         public System.Windows.Forms.Label AHVNumber { get => ahvNumber; set { ahvNumber = value; if (value != null) value.AccessibleName = nameof(AHVNumber); } }
@@ -69,7 +69,7 @@ namespace Semesterprojekt
         private readonly Dictionary<string, string> labelToolTip = new Dictionary<string, string>
         {
             ["Title"] = "Namenstitel (gekürzt)\r\nz.B. Dr., Ing., Prof.",
-            ["PLZ"] = "4-/5-stellige Postleitzahl\r\n(Schweiz und Nachbarländer)",
+            ["PostalCode"] = "4-/5-stellige Postleitzahl\r\n(Schweiz und Nachbarländer)",
             ["AHVNumber"] = "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90",
             ["Nationality"] = "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT",
             ["Academic"] = "nur relevant für Lernende",
