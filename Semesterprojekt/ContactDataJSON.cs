@@ -12,7 +12,7 @@ namespace Semesterprojekt
 {
     internal class ContactDataJSON
     {
-        // Dateipfad für Kontaktdaten-Liste
+        // Dateipfad für Kontaktdaten-Listen
         private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
         private static readonly string contactDataPath = Path.Combine(projectRoot, "data", "contacts.json");
 

@@ -54,6 +54,7 @@ namespace Semesterprojekt
             groupButtons = GroupButtons();
 
             Design();
+            InitializationContactDataContent();
             InitializationLabelToolTip();
             InitializationGroupAndField();
 
@@ -401,6 +402,38 @@ namespace Semesterprojekt
             {
                 UpdateGroupAndField(false);
             }
+        }
+
+        // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
+        private ContactData InitializationContactDataContent()
+        {
+            return new ContactData
+            {
+                Title = TxtAnsichtKntktTitel,
+                Salutation = CmBxAnsichtKntktAnrede,
+                FirstName = TxtAnsichtKntktVorname,
+                LastName = TxtAnsichtKntktName,
+                Birthday = TxtAnsichtKntktBirthday,
+                Gender = CmBxAnsichtKntktGeschlecht,
+                Address = TxtAnsichtKntktAdr,
+                PostalCode = TxtAnsichtKntktPLZ,
+                City = TxtAnsichtKntktOrt,
+                BusinessNumber = TxtAnsichtKntktTelGeschaeft,
+                MobileNumber = TxtAnsichtKntktTelMobile,
+                Email = TxtAnsichtKntktEmail,
+                EmployeeNumber = TxtAnsichtKntktMaManr,
+                AHVNumber = TxtAnsichtKntktMaAHVNr,
+                Nationality = TxtAnsichtKntktMaNationalitaet,
+                ManagementLevel = TxtAnsichtKntktMaKader,
+                LevelOfEmployment = NumAnsichtKntktMaBeschGrad,
+                Department = TxtAnsichtKntktMaAbteilung,
+                Role = TxtAnsichtKntktMaRolle,
+                AcademicYear = NumAnsichtKntktMaLehrj,
+                CurrentAcademicYear = NumAnsichtKntktMaAktLehrj,
+                OfficeNumber = NumAnsichtKntktMaOfficeNumber,
+                DateOfEntry = TxtAnsichtKntktEintrDatum,
+                DateOfExit = TxtAnsichtKntktAustrDatum
+            };
         }
 
         // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
