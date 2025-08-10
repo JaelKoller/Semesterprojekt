@@ -24,6 +24,19 @@ namespace Semesterprojekt
             public List<string> EmployeeNumbers { get; set; } = new List<string>();
         }
 
+        // Auslesen JSON für Ermittlung und Speicherung Kunden-/Mitarbeiter Nr.
+        private static NumberData LoadData()
+        {
+            if (File.Exists(clientAndEmployeeNumbersPath))
+            {
+                string clientAndEmployeeNumbersJSON = File.ReadAllText(clientAndEmployeeNumbersPath);
+                var clientAndEmployeeNumbersData = JsonSerializer.Deserialize<NumberData>(clientAndEmployeeNumbersJSON);
+                return clientAndEmployeeNumbersData ?? new NumberData();
+            }
+
+            return new NumberData();
+        }
+
         // Ermittlung nächste Kunden-/Mitarbeiter Nr.
         public static string GetNumberNext(bool isEmployee)
         {
@@ -71,24 +84,11 @@ namespace Semesterprojekt
                 numberData.ClientNumbers.Add(nextNumber);
             }
             
-            // Speichern JSON
+            // Speicherung JSON
             SaveData(numberData);
         }
 
-        // Auslesen JSON für Ermittlung und Speicherung Kunden-/Mitarbeiter Nr.
-        private static NumberData LoadData()
-        {
-            if (File.Exists(clientAndEmployeeNumbersPath))
-            {
-                string clientAndEmployeeNumbersJSON = File.ReadAllText(clientAndEmployeeNumbersPath);
-                var clientAndEmployeeNumbersData = JsonSerializer.Deserialize<NumberData>(clientAndEmployeeNumbersJSON);
-                return clientAndEmployeeNumbersData ?? new NumberData();
-            }
-
-            return new NumberData();
-        }
-
-        // Speichern aktuelle (nächste Kunden-/Mitarbeiter Nr.
+        // Speicherung aktuelle (nächste Kunden-/Mitarbeiter Nr.
         private static void SaveData(NumberData clientAndEmployeeNumbersData)
         {
             // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
@@ -100,6 +100,22 @@ namespace Semesterprojekt
 
             string clientAndEmployeeNumbersJSON = JsonSerializer.Serialize(clientAndEmployeeNumbersData, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(clientAndEmployeeNumbersPath, clientAndEmployeeNumbersJSON);
+        }
+
+        // Löschung aktuelle Kunden-/Mitarbeiter Nr.
+        public static void DeleteNumber(string number)
+        {
+            // Auslesen JSON
+            var numberData = LoadData();
+
+            // Auswahl der entsprechenden Liste auf Basis Präfix KD (Kunde) vs. MA (Mitarbeiter)
+            var listData = number.StartsWith("MA") ? numberData.EmployeeNumbers : numberData.ClientNumbers;
+
+            // Entfernung Kontakt Nr. aus entsprechender Liste
+            listData.Remove(number);
+
+            // Speicherung JSON 
+            SaveData(numberData);
         }
     }
 }

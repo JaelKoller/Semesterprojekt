@@ -28,99 +28,187 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TxtBxTestMA1 = new System.Windows.Forms.TextBox();
-            this.TxtBxTestKD1 = new System.Windows.Forms.TextBox();
-            this.LblTestMA1 = new System.Windows.Forms.Label();
-            this.LblTestKD1 = new System.Windows.Forms.Label();
-            this.LblTestMA2 = new System.Windows.Forms.Label();
-            this.LblTestKD2 = new System.Windows.Forms.Label();
-            this.TxtBxTestMA2 = new System.Windows.Forms.TextBox();
-            this.TxtBxTestKD2 = new System.Windows.Forms.TextBox();
+            this.TxtBxMaNrFirst = new System.Windows.Forms.TextBox();
+            this.TxtBxKdNrFirst = new System.Windows.Forms.TextBox();
+            this.LblMaNrFirst = new System.Windows.Forms.Label();
+            this.LblKdNrFirst = new System.Windows.Forms.Label();
+            this.LblMaNrSecond = new System.Windows.Forms.Label();
+            this.LblKdNrSecond = new System.Windows.Forms.Label();
+            this.TxtBxMaNrSecond = new System.Windows.Forms.TextBox();
+            this.TxtBxKdNrSecond = new System.Windows.Forms.TextBox();
+            this.LblMaCountFirst = new System.Windows.Forms.Label();
+            this.LblKdCountFirst = new System.Windows.Forms.Label();
+            this.LblMaCountSecond = new System.Windows.Forms.Label();
+            this.LblKdCountSecond = new System.Windows.Forms.Label();
+            this.NumMaCountFirst = new System.Windows.Forms.NumericUpDown();
+            this.NumKdCountFirst = new System.Windows.Forms.NumericUpDown();
+            this.NumMaCountSecond = new System.Windows.Forms.NumericUpDown();
+            this.NumKdCountSecond = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.NumMaCountFirst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumKdCountFirst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumMaCountSecond)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumKdCountSecond)).BeginInit();
             this.SuspendLayout();
             // 
-            // TxtBxTestMA1
+            // TxtBxMaNrFirst
             // 
-            this.TxtBxTestMA1.Location = new System.Drawing.Point(197, 9);
-            this.TxtBxTestMA1.Name = "TxtBxTestMA1";
-            this.TxtBxTestMA1.Size = new System.Drawing.Size(100, 26);
-            this.TxtBxTestMA1.TabIndex = 0;
-            this.TxtBxTestMA1.Text = "TEST";
+            this.TxtBxMaNrFirst.Location = new System.Drawing.Point(197, 9);
+            this.TxtBxMaNrFirst.Name = "TxtBxMaNrFirst";
+            this.TxtBxMaNrFirst.Size = new System.Drawing.Size(100, 26);
+            this.TxtBxMaNrFirst.TabIndex = 0;
+            this.TxtBxMaNrFirst.Text = "TEST";
             // 
-            // TxtBxTestKD1
+            // TxtBxKdNrFirst
             // 
-            this.TxtBxTestKD1.Location = new System.Drawing.Point(197, 39);
-            this.TxtBxTestKD1.Name = "TxtBxTestKD1";
-            this.TxtBxTestKD1.Size = new System.Drawing.Size(100, 26);
-            this.TxtBxTestKD1.TabIndex = 1;
-            this.TxtBxTestKD1.Text = "TEST";
+            this.TxtBxKdNrFirst.Location = new System.Drawing.Point(197, 39);
+            this.TxtBxKdNrFirst.Name = "TxtBxKdNrFirst";
+            this.TxtBxKdNrFirst.Size = new System.Drawing.Size(100, 26);
+            this.TxtBxKdNrFirst.TabIndex = 1;
+            this.TxtBxKdNrFirst.Text = "TEST";
             // 
-            // LblTestMA1
+            // LblMaNrFirst
             // 
-            this.LblTestMA1.AutoSize = true;
-            this.LblTestMA1.Location = new System.Drawing.Point(12, 9);
-            this.LblTestMA1.Name = "LblTestMA1";
-            this.LblTestMA1.Size = new System.Drawing.Size(166, 20);
-            this.LblTestMA1.TabIndex = 2;
-            this.LblTestMA1.Text = "Mitarbeiter Nr. (vorher)";
+            this.LblMaNrFirst.AutoSize = true;
+            this.LblMaNrFirst.Location = new System.Drawing.Point(12, 15);
+            this.LblMaNrFirst.Name = "LblMaNrFirst";
+            this.LblMaNrFirst.Size = new System.Drawing.Size(166, 20);
+            this.LblMaNrFirst.TabIndex = 2;
+            this.LblMaNrFirst.Text = "Mitarbeiter Nr. (vorher)";
             // 
-            // LblTestKD1
+            // LblKdNrFirst
             // 
-            this.LblTestKD1.AutoSize = true;
-            this.LblTestKD1.Location = new System.Drawing.Point(12, 39);
-            this.LblTestKD1.Name = "LblTestKD1";
-            this.LblTestKD1.Size = new System.Drawing.Size(137, 20);
-            this.LblTestKD1.TabIndex = 3;
-            this.LblTestKD1.Text = "Kunde Nr. (vorher)";
+            this.LblKdNrFirst.AutoSize = true;
+            this.LblKdNrFirst.Location = new System.Drawing.Point(12, 45);
+            this.LblKdNrFirst.Name = "LblKdNrFirst";
+            this.LblKdNrFirst.Size = new System.Drawing.Size(137, 20);
+            this.LblKdNrFirst.TabIndex = 3;
+            this.LblKdNrFirst.Text = "Kunde Nr. (vorher)";
             // 
-            // LblTestMA2
+            // LblMaNrSecond
             // 
-            this.LblTestMA2.AutoSize = true;
-            this.LblTestMA2.Location = new System.Drawing.Point(12, 73);
-            this.LblTestMA2.Name = "LblTestMA2";
-            this.LblTestMA2.Size = new System.Drawing.Size(257, 30);
-            this.LblTestMA2.TabIndex = 4;
-            this.LblTestMA2.Text = "Mitarbeiter Nr. (nacher)";
+            this.LblMaNrSecond.AutoSize = true;
+            this.LblMaNrSecond.Location = new System.Drawing.Point(12, 79);
+            this.LblMaNrSecond.Name = "LblMaNrSecond";
+            this.LblMaNrSecond.Size = new System.Drawing.Size(171, 20);
+            this.LblMaNrSecond.TabIndex = 4;
+            this.LblMaNrSecond.Text = "Mitarbeiter Nr. (nacher)";
             // 
-            // LblTestKD2
+            // LblKdNrSecond
             // 
-            this.LblTestKD2.AutoSize = true;
-            this.LblTestKD2.Location = new System.Drawing.Point(12, 105);
-            this.LblTestKD2.Name = "LblTestKD2";
-            this.LblTestKD2.Size = new System.Drawing.Size(213, 30);
-            this.LblTestKD2.TabIndex = 5;
-            this.LblTestKD2.Text = "Kunde Nr. (nacher)";
+            this.LblKdNrSecond.AutoSize = true;
+            this.LblKdNrSecond.Location = new System.Drawing.Point(12, 111);
+            this.LblKdNrSecond.Name = "LblKdNrSecond";
+            this.LblKdNrSecond.Size = new System.Drawing.Size(142, 20);
+            this.LblKdNrSecond.TabIndex = 5;
+            this.LblKdNrSecond.Text = "Kunde Nr. (nacher)";
             // 
-            // TxtBxTestMA2
+            // TxtBxMaNrSecond
             // 
-            this.TxtBxTestMA2.Location = new System.Drawing.Point(197, 73);
-            this.TxtBxTestMA2.Name = "TxtBxTestMA2";
-            this.TxtBxTestMA2.Size = new System.Drawing.Size(100, 26);
-            this.TxtBxTestMA2.TabIndex = 6;
-            this.TxtBxTestMA2.Text = "TEST";
+            this.TxtBxMaNrSecond.Location = new System.Drawing.Point(197, 73);
+            this.TxtBxMaNrSecond.Name = "TxtBxMaNrSecond";
+            this.TxtBxMaNrSecond.Size = new System.Drawing.Size(100, 26);
+            this.TxtBxMaNrSecond.TabIndex = 6;
+            this.TxtBxMaNrSecond.Text = "TEST";
             // 
-            // TxtBxTestKD2
+            // TxtBxKdNrSecond
             // 
-            this.TxtBxTestKD2.Location = new System.Drawing.Point(197, 105);
-            this.TxtBxTestKD2.Name = "TxtBxTestKD2";
-            this.TxtBxTestKD2.Size = new System.Drawing.Size(100, 26);
-            this.TxtBxTestKD2.TabIndex = 7;
-            this.TxtBxTestKD2.Text = "TEST";
+            this.TxtBxKdNrSecond.Location = new System.Drawing.Point(197, 105);
+            this.TxtBxKdNrSecond.Name = "TxtBxKdNrSecond";
+            this.TxtBxKdNrSecond.Size = new System.Drawing.Size(100, 26);
+            this.TxtBxKdNrSecond.TabIndex = 7;
+            this.TxtBxKdNrSecond.Text = "TEST";
+            // 
+            // LblMaCountFirst
+            // 
+            this.LblMaCountFirst.AutoSize = true;
+            this.LblMaCountFirst.Location = new System.Drawing.Point(356, 15);
+            this.LblMaCountFirst.Name = "LblMaCountFirst";
+            this.LblMaCountFirst.Size = new System.Drawing.Size(293, 30);
+            this.LblMaCountFirst.TabIndex = 8;
+            this.LblMaCountFirst.Text = "Anzahl Mitarbeiter (vorher)";
+            // 
+            // LblKdCountFirst
+            // 
+            this.LblKdCountFirst.AutoSize = true;
+            this.LblKdCountFirst.Location = new System.Drawing.Point(356, 50);
+            this.LblKdCountFirst.Name = "LblKdCountFirst";
+            this.LblKdCountFirst.Size = new System.Drawing.Size(175, 20);
+            this.LblKdCountFirst.TabIndex = 9;
+            this.LblKdCountFirst.Text = "Anzahl Kunden (vorher)";
+            // 
+            // LblMaCountSecond
+            // 
+            this.LblMaCountSecond.AutoSize = true;
+            this.LblMaCountSecond.Location = new System.Drawing.Point(356, 85);
+            this.LblMaCountSecond.Name = "LblMaCountSecond";
+            this.LblMaCountSecond.Size = new System.Drawing.Size(200, 20);
+            this.LblMaCountSecond.TabIndex = 10;
+            this.LblMaCountSecond.Text = "Anzahl Mitarbeiter (nacher)";
+            // 
+            // LblKdCountSecond
+            // 
+            this.LblKdCountSecond.AutoSize = true;
+            this.LblKdCountSecond.Location = new System.Drawing.Point(356, 117);
+            this.LblKdCountSecond.Name = "LblKdCountSecond";
+            this.LblKdCountSecond.Size = new System.Drawing.Size(180, 20);
+            this.LblKdCountSecond.TabIndex = 11;
+            this.LblKdCountSecond.Text = "Anzahl Kunden (nacher)";
+            // 
+            // NumMaCountFirst
+            // 
+            this.NumMaCountFirst.Location = new System.Drawing.Point(575, 13);
+            this.NumMaCountFirst.Name = "NumMaCountFirst";
+            this.NumMaCountFirst.Size = new System.Drawing.Size(120, 26);
+            this.NumMaCountFirst.TabIndex = 12;
+            // 
+            // NumKdCountFirst
+            // 
+            this.NumKdCountFirst.Location = new System.Drawing.Point(575, 49);
+            this.NumKdCountFirst.Name = "NumKdCountFirst";
+            this.NumKdCountFirst.Size = new System.Drawing.Size(120, 26);
+            this.NumKdCountFirst.TabIndex = 13;
+            // 
+            // NumMaCountSecond
+            // 
+            this.NumMaCountSecond.Location = new System.Drawing.Point(575, 83);
+            this.NumMaCountSecond.Name = "NumMaCountSecond";
+            this.NumMaCountSecond.Size = new System.Drawing.Size(120, 26);
+            this.NumMaCountSecond.TabIndex = 14;
+            // 
+            // NumKdCountSecond
+            // 
+            this.NumKdCountSecond.Location = new System.Drawing.Point(575, 115);
+            this.NumKdCountSecond.Name = "NumKdCountSecond";
+            this.NumKdCountSecond.Size = new System.Drawing.Size(120, 26);
+            this.NumKdCountSecond.TabIndex = 15;
             // 
             // Testing_ClientAndEmployeeNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TxtBxTestKD2);
-            this.Controls.Add(this.TxtBxTestMA2);
-            this.Controls.Add(this.LblTestKD2);
-            this.Controls.Add(this.LblTestMA2);
-            this.Controls.Add(this.LblTestKD1);
-            this.Controls.Add(this.LblTestMA1);
-            this.Controls.Add(this.TxtBxTestKD1);
-            this.Controls.Add(this.TxtBxTestMA1);
+            this.ClientSize = new System.Drawing.Size(533, 300);
+            this.Controls.Add(this.NumKdCountSecond);
+            this.Controls.Add(this.NumMaCountSecond);
+            this.Controls.Add(this.NumKdCountFirst);
+            this.Controls.Add(this.NumMaCountFirst);
+            this.Controls.Add(this.LblKdCountSecond);
+            this.Controls.Add(this.LblMaCountSecond);
+            this.Controls.Add(this.LblKdCountFirst);
+            this.Controls.Add(this.LblMaCountFirst);
+            this.Controls.Add(this.TxtBxKdNrSecond);
+            this.Controls.Add(this.TxtBxMaNrSecond);
+            this.Controls.Add(this.LblKdNrSecond);
+            this.Controls.Add(this.LblMaNrSecond);
+            this.Controls.Add(this.LblKdNrFirst);
+            this.Controls.Add(this.LblMaNrFirst);
+            this.Controls.Add(this.TxtBxKdNrFirst);
+            this.Controls.Add(this.TxtBxMaNrFirst);
             this.Name = "Testing_ClientAndEmployeeNumber";
             this.Text = "Testing_EmployeeNumber";
+            ((System.ComponentModel.ISupportInitialize)(this.NumMaCountFirst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumKdCountFirst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumMaCountSecond)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumKdCountSecond)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,13 +216,21 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TxtBxTestMA1;
-        private System.Windows.Forms.TextBox TxtBxTestKD1;
-        private System.Windows.Forms.Label LblTestMA1;
-        private System.Windows.Forms.Label LblTestKD1;
-        private System.Windows.Forms.Label LblTestMA2;
-        private System.Windows.Forms.Label LblTestKD2;
-        private System.Windows.Forms.TextBox TxtBxTestMA2;
-        private System.Windows.Forms.TextBox TxtBxTestKD2;
+        private System.Windows.Forms.TextBox TxtBxMaNrFirst;
+        private System.Windows.Forms.TextBox TxtBxKdNrFirst;
+        private System.Windows.Forms.Label LblMaNrFirst;
+        private System.Windows.Forms.Label LblKdNrFirst;
+        private System.Windows.Forms.Label LblMaNrSecond;
+        private System.Windows.Forms.Label LblKdNrSecond;
+        private System.Windows.Forms.TextBox TxtBxMaNrSecond;
+        private System.Windows.Forms.TextBox TxtBxKdNrSecond;
+        private System.Windows.Forms.Label LblMaCountFirst;
+        private System.Windows.Forms.Label LblKdCountFirst;
+        private System.Windows.Forms.Label LblMaCountSecond;
+        private System.Windows.Forms.Label LblKdCountSecond;
+        private System.Windows.Forms.NumericUpDown NumMaCountFirst;
+        private System.Windows.Forms.NumericUpDown NumKdCountFirst;
+        private System.Windows.Forms.NumericUpDown NumMaCountSecond;
+        private System.Windows.Forms.NumericUpDown NumKdCountSecond;
     }
 }
