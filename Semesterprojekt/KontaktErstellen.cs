@@ -428,7 +428,12 @@ namespace Semesterprojekt
             {
                 var contact = new ContactData
                 {
-                    TypeOfContact = typeOfContactNew
+                    // Erfassung mit Default-Kontaktstatus "Aktiv"
+                    ContactStatus = "active",
+                    // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
+                    TypeOfContact = $"{char.ToUpper(typeOfContactNew[0])}{typeOfContactNew.Substring(1)}",
+                    // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
+                    ContactNumber = typeOfContactNew == "mitarbeiter" ? employeeNumberNew : clientNumberNew
                 };
 
                 foreach (Control field in groupFieldEmployeesAndCustomers)
