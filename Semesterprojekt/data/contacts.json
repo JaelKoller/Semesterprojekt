@@ -591,5 +591,181 @@
       "TxtCreatKntktTelMobile": "076 123 45 67",
       "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
     }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": null,
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD1008",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD1008",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD1008",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD1009",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "MA0011",
+    "TypeOfContact": "Mitarbeiter",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch",
+      "TxtCreatKntktMaManr": "MA0011",
+      "TxtCreatKntktMaAHVNr": "756.8800.5641.37",
+      "TxtCreatKntktMaNationalitaet": "CH",
+      "TxtCreatKntktMaKader": "Mitglied der Direktion",
+      "NumCreatKntktMaBeschGrad": "100",
+      "TxtCreatKntktMaAbteilung": "Automatisierung",
+      "TxtCreatKntktMaRolle": "Software Engineer",
+      "NumCreatKntktMaLehrj": "3",
+      "NumCreatKntktMaAktLehrj": "0",
+      "NumCreatKntktMaOfficeNumber": "123",
+      "TxtCreatKntktEintrDatum": "01.08.2005",
+      "TxtCreatKntktAustrDatum": ""
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD1010",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "MA0012",
+    "TypeOfContact": "Mitarbeiter",
+    "Fields": {
+      "TxtCreatKntktTitel": "Dr.",
+      "CmBxCreatKntktAnrede": "Frau",
+      "TxtCreatKntktVorname": "Jael",
+      "TxtCreatKntktName": "Koller",
+      "TxtCreatKntktBirthday": "01.07.1989",
+      "CmBxCreatKntktGeschlecht": "weiblich",
+      "TxtCreatKntktAdr": "Heimstrasse 4",
+      "TxtCreatKntktPLZ": "9014",
+      "TxtCreatKntktOrt": "St. Gallen",
+      "TxtCreatKntktTelGeschaeft": "071 123 45 67",
+      "TxtCreatKntktTelMobile": "076 123 45 67",
+      "TxtCreatKntktEmail": "jaelkoller@testmail.ch",
+      "TxtCreatKntktMaManr": "MA0012",
+      "TxtCreatKntktMaAHVNr": "",
+      "TxtCreatKntktMaNationalitaet": "DE",
+      "TxtCreatKntktMaKader": "",
+      "NumCreatKntktMaBeschGrad": "10",
+      "TxtCreatKntktMaAbteilung": "Test",
+      "TxtCreatKntktMaRolle": "Test",
+      "NumCreatKntktMaLehrj": "0",
+      "NumCreatKntktMaAktLehrj": "0",
+      "NumCreatKntktMaOfficeNumber": "345",
+      "TxtCreatKntktEintrDatum": "01.01.2000",
+      "TxtCreatKntktAustrDatum": ""
+    }
   }
 ]

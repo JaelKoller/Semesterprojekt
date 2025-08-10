@@ -45,8 +45,7 @@ namespace Semesterprojekt
         private string tagOK = "true";
 
         // Initialisierung Mitarbeiter-/Kunden Nr. (Vorbereitung für Ablage in JSON)
-        string employeeNumberNew;
-        string clientNumberNew;
+        string contactNumberNew;
 
         public KontaktErstellen(string typeOfContact)
         {
@@ -288,23 +287,20 @@ namespace Semesterprojekt
                 DateOfExit = LblCreatKntktAustrDatum
             };
         }
-
+        
         // Initalisierung Radio-Button auf Basis "Kontaktart"
         private void InitializationTypeOfContact()
         {
             if (typeOfContactNew == "mitarbeiter")
             {
                 RdbCreatKntktMa.Checked = true;
-
-                // Automatische Generierung Mitarbeiter Nr. (gemäss JSON)
-                employeeNumberNew = ClientAndEmployeeNumber.GetNumberNext(true);
-                TxtCreatKntktMaManr.Text = employeeNumberNew;
+                TxtCreatKntktMaManr.Text = GenerateContactNumber(true);
             }
             
             else if (typeOfContactNew == "kunde")
             {
                 RdbCreatKntktKunde.Checked = true;
-                clientNumberNew = ClientAndEmployeeNumber.GetNumberNext(false);
+                GenerateContactNumber(false);
             }
         }
 
@@ -316,6 +312,7 @@ namespace Semesterprojekt
                 typeOfContactNew = "mitarbeiter";
                 RdbCreatKntktMa.Checked = true;
                 GrpBxDatenMA.Enabled = true;
+                TxtCreatKntktMaManr.Text = GenerateContactNumber(true);
             }
             
             else if (RdbCreatKntktKunde.Checked)
@@ -323,8 +320,15 @@ namespace Semesterprojekt
                 typeOfContactNew = "kunde";
                 RdbCreatKntktKunde.Checked = true;
                 GrpBxDatenMA.Enabled = false;
+                GenerateContactNumber(false);
                 CleanGroupFieldEmployees();
             }
+        }
+
+        // Automatische Generierung Mitarbeiter-/Kunden Nr. (gemäss JSON)
+        private string GenerateContactNumber(bool isEmployee)
+        {
+            return contactNumberNew = ClientAndEmployeeNumber.GetNumberNext(isEmployee);
         }
 
         // Bereinigung der Eingabefelder der Gruppe Mitarbeiter (bei Wechsel zu Kunde)
@@ -368,9 +372,12 @@ namespace Semesterprojekt
 
             if (checkFieldTag)
             {
-                // Speicherung der Daten in JSON-Datei, falls Duplikatencheck erfolgreich
+                // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
                 if (SaveContactData())
                 {
+                    // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"             
+                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
+
                     this.FormClosed += (s, arg) =>
                     {
                         // Erstellung neues Form "KontaktErstellen"
@@ -391,9 +398,11 @@ namespace Semesterprojekt
 
             if (checkFieldTag)
             {
-                // Speicherung der Daten in JSON-Datei
+                // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
                 if (SaveContactData())
                 {
+                    // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"              
+                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
                     this.Close();
                 }
             }
@@ -421,7 +430,7 @@ namespace Semesterprojekt
             };
         }
        
-        // Speicherung der Kontaktdaten in JSON-Datei
+        // Speicherung der Kontaktdaten in JSON "contacts"
         private bool SaveContactData()
         {
             try
@@ -433,7 +442,7 @@ namespace Semesterprojekt
                     // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
                     TypeOfContact = $"{char.ToUpper(typeOfContactNew[0])}{typeOfContactNew.Substring(1)}",
                     // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
-                    ContactNumber = typeOfContactNew == "mitarbeiter" ? employeeNumberNew : clientNumberNew
+                    ContactNumber = contactNumberNew
                 };
 
                 foreach (Control field in groupFieldEmployeesAndCustomers)
