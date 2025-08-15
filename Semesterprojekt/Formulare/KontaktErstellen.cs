@@ -62,7 +62,7 @@ namespace Semesterprojekt
             groupLabelToolTip = GroupLabelToolTip();
 
             Design();
-            InitializationContactDataContent();
+            ContactDataContent();
             InitializationLabelToolTip();
 
             typeOfContactNew = typeOfContact;
@@ -374,7 +374,7 @@ namespace Semesterprojekt
             if (checkFieldTag)
             {
                 // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactDataJSON.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                if (ContactData.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"             
                     ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
@@ -400,7 +400,7 @@ namespace Semesterprojekt
             if (checkFieldTag)
             {
                 // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactDataJSON.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                if (ContactData.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"              
                     ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
@@ -410,9 +410,9 @@ namespace Semesterprojekt
         }
 
         // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
-        private ContactData InitializationContactDataContent()
+        private InitializationContactData ContactDataContent()
         {
-            return new ContactData
+            return new InitializationContactData
             {
                 Title = TxtCreatKntktTitel,
                 Salutation = CmBxCreatKntktAnrede,

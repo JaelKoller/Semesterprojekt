@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
-    public class ContactData
+    public class InitializationContactData
     {
         public string ContactStatus { get; set; }
         public string ContactNumber { get; set; }

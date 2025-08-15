@@ -54,7 +54,7 @@ namespace Semesterprojekt
             groupButtons = GroupButtons();
 
             Design();
-            InitializationContactDataContent();
+            ContactDataContent();
             InitializationLabelToolTip();
             InitializationGroupAndField();
 
@@ -405,9 +405,9 @@ namespace Semesterprojekt
         }
 
         // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
-        private ContactData InitializationContactDataContent()
+        private InitializationContactData ContactDataContent()
         {
-            return new ContactData
+            return new InitializationContactData
             {
                 Title = TxtAnsichtKntktTitel,
                 Salutation = CmBxAnsichtKntktAnrede,

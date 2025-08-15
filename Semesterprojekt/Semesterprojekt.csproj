@@ -77,39 +77,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlleKontakte.cs">
+    <Compile Include="Formulare\AlleKontakte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlleKontakte.Designer.cs">
+    <Compile Include="Formulare\AlleKontakte.Designer.cs">
       <DependentUpon>AlleKontakte.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnsichtKontakt.cs">
+    <Compile Include="Formulare\AnsichtKontakt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnsichtKontakt.Designer.cs">
+    <Compile Include="Formulare\AnsichtKontakt.Designer.cs">
       <DependentUpon>AnsichtKontakt.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckAndValidationDateFields.cs" />
-    <Compile Include="CheckAndValidationFields.cs" />
-    <Compile Include="ContactData.cs" />
-    <Compile Include="ContactDataJSON.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Logik-Klassen\CheckAndValidationDateFields.cs" />
+    <Compile Include="Logik-Klassen\CheckAndValidationFields.cs" />
+    <Compile Include="Objekt-Klassen\InitializationCheckAndValidationFields.cs" />
+    <Compile Include="Objekt-Klassen\InitializationContactData.cs" />
+    <Compile Include="Logik-Klassen\ContactData.cs" />
+    <Compile Include="Formulare\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="Formulare\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientAndEmployeeNumber.cs" />
-    <Compile Include="KontaktErstellen.cs">
+    <Compile Include="Logik-Klassen\ClientAndEmployeeNumber.cs" />
+    <Compile Include="Objekt-Klassen\InitializationLabelsToolTip.cs" />
+    <Compile Include="Formulare\KontaktErstellen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KontaktErstellen.Designer.cs">
+    <Compile Include="Formulare\KontaktErstellen.Designer.cs">
       <DependentUpon>KontaktErstellen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Notes.cs" />
+    <Compile Include="Objekt-Klassen\Notes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetToolTip.cs" />
+    <Compile Include="Logik-Klassen\SetToolTip.cs" />
     <Compile Include="Testing\Testing_AlleKontakte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,17 +136,17 @@
     <Compile Include="Testing\Testing_KontaktErstellen.Designer.cs">
       <DependentUpon>Testing_KontaktErstellen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AlleKontakte.resx">
+    <EmbeddedResource Include="Formulare\AlleKontakte.resx">
       <DependentUpon>AlleKontakte.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnsichtKontakt.resx">
+    <EmbeddedResource Include="Formulare\AnsichtKontakt.resx">
       <DependentUpon>AnsichtKontakt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Formulare\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KontaktErstellen.resx">
+    <EmbeddedResource Include="Formulare\KontaktErstellen.resx">
       <DependentUpon>KontaktErstellen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
-    internal class ContactDataJSON
+    internal class ContactData
     {
         // Dateipfad für Kontaktdaten-Listen
         private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
@@ -21,7 +21,7 @@ namespace Semesterprojekt
         {
             try
             {
-                var contact = new ContactData
+                var contact = new InitializationContactData
                 {
                     // Erfassung mit Default-Kontaktstatus "Aktiv"
                     ContactStatus = "active",
@@ -45,7 +45,7 @@ namespace Semesterprojekt
                 }
 
                 // Laden der JSON-Datei (falls vorhanden)
-                List<ContactData> contactList = new List<ContactData>();
+                List<InitializationContactData> contactList = new List<InitializationContactData>();
 
                 if (File.Exists(contactDataPath))
                 {
@@ -53,7 +53,7 @@ namespace Semesterprojekt
 
                     if (!string.IsNullOrWhiteSpace(contatcsJSON))
                     {
-                        contactList = JsonSerializer.Deserialize<List<ContactData>>(contatcsJSON) ?? new List<ContactData>();
+                        contactList = JsonSerializer.Deserialize<List<InitializationContactData>>(contatcsJSON) ?? new List<InitializationContactData>();
                     }
                 }
 
@@ -101,7 +101,7 @@ namespace Semesterprojekt
         }
 
         // Abgleich neuer Kontakt mit bestehenden Kontaktdaten        
-        private static bool CheckDuplicateContact(List<ContactData> contactList, ContactData newContact)
+        private static bool CheckDuplicateContact(List<InitializationContactData> contactList, InitializationContactData newContact)
         {
             // Regex für Split Vorname und Nachname bei Bindestrich und/oder Leerzeichen
             string regex = @"[\s\-]";
@@ -117,7 +117,7 @@ namespace Semesterprojekt
             // Liste mit allen möglichen Duplikaten (für Anzeige)
             List<string> duplicates = new List<string>();
 
-            foreach (ContactData oldContact in contactList)
+            foreach (InitializationContactData oldContact in contactList)
             {
                 oldContact.Fields.TryGetValue("FirstName", out var oldFirstNameRaw);
                 oldContact.Fields.TryGetValue("LastName", out var oldLastNameRaw);
