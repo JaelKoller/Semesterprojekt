@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,82 +8,86 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Semesterprojekt.ClientAndEmployeeNumber;
 
 namespace Semesterprojekt
 {
     internal class ContactData
     {
-        // Dateipfad für Kontaktdaten-Listen
+        // Dateipfad für JSON "contacts" (Kontaktdaten-Listen)
+        private static readonly string fileName = "contacts.json";
         private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        private static readonly string contactDataPath = Path.Combine(projectRoot, "data", "contacts.json");
+        private static readonly string contactDataPath = Path.Combine(projectRoot, "data", fileName);
 
-        // Speicherung der Kontaktdaten in JSON "contacts"
-        public static bool SaveContactData(string typeOfContactNew, string contactNumberNew, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
+        // Auslesen JSON für Ermittlung, Speicherung und Löschung Kontaktdaten
+        private static bool LoadData(out List<InitializationContactData> contactDataList)
         {
             try
             {
-                var contact = new InitializationContactData
-                {
-                    // Erfassung mit Default-Kontaktstatus "Aktiv"
-                    ContactStatus = "active",
-                    // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
-                    TypeOfContact = $"{char.ToUpper(typeOfContactNew[0])}{typeOfContactNew.Substring(1)}",
-                    // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
-                    ContactNumber = contactNumberNew
-                };
-
-                foreach (Control field in groupFieldEmployeesAndCustomers)
-                {
-                    contact.Fields[field.AccessibleName] = GetControlValue(field);
-                }
-
-                if (typeOfContactNew == "mitarbeiter")
-                {
-                    foreach (Control field in groupFieldEmployees)
-                    {
-                        contact.Fields[field.AccessibleName] = GetControlValue(field);
-                    }
-                }
-
-                // Laden der JSON-Datei (falls vorhanden)
-                List<InitializationContactData> contactList = new List<InitializationContactData>();
-
                 if (File.Exists(contactDataPath))
                 {
-                    string contatcsJSON = File.ReadAllText(contactDataPath);
-
-                    if (!string.IsNullOrWhiteSpace(contatcsJSON))
-                    {
-                        contactList = JsonSerializer.Deserialize<List<InitializationContactData>>(contatcsJSON) ?? new List<InitializationContactData>();
-                    }
+                    
+                    string contactsJSON = File.ReadAllText(contactDataPath);
+                    contactDataList = JsonSerializer.Deserialize<List<InitializationContactData>>(contactsJSON) ?? new List<InitializationContactData>();
                 }
 
-                // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
-                if (!CheckDuplicateContact(contactList, contact))
+                else
                 {
-                    return false;
+                    contactDataList = new List<InitializationContactData>();
                 }
 
-                // Hinzufügen neuer Kontakt zur neuen Liste
-                contactList.Add(contact);
-
-                // Konvertierung neue Liste in JSON
-                string updatedJson = JsonSerializer.Serialize(contactList, new JsonSerializerOptions { WriteIndented = true });
-
-                // (Über-)Schreibung der JSON-Datei mit neuer Liste
-                File.WriteAllText(contactDataPath, updatedJson);
-
-                // Ausgabe erfolgreiche Speicherung (userfreundlich)
-                MessageBox.Show("Kontakt erfolgreich gespeichert!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
 
             catch (Exception exception)
             {
-                // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
-                MessageBox.Show($"Fehler beim Speichern:{exception}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                ShowMessageBox($"Fehler beim Laden der JSON-Datei '{fileName}': {exception}");
+                contactDataList = null;
                 return false;
             }
+        }
+
+
+        // Speicherung der Kontaktdaten in JSON "contacts"
+        public static bool SaveContactData(string typeOfContactNew, string contactNumberNew, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
+        {
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var contactDataList))
+                return false;
+
+            var contact = new InitializationContactData
+            {
+                // Erfassung mit Default-Kontaktstatus "Aktiv"
+                ContactStatus = "active",
+                // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
+                TypeOfContact = $"{char.ToUpper(typeOfContactNew[0])}{typeOfContactNew.Substring(1)}",
+                // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
+                ContactNumber = contactNumberNew
+            };
+
+            foreach (Control field in groupFieldEmployeesAndCustomers)
+            {
+                contact.Fields[field.AccessibleName] = GetControlValue(field);
+            }
+
+            if (typeOfContactNew == "mitarbeiter")
+            {
+                foreach (Control field in groupFieldEmployees)
+                {
+                    contact.Fields[field.AccessibleName] = GetControlValue(field);
+                }
+            }
+
+            // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
+            if (!CheckDuplicateContact(contactDataList, contact))
+                return false;
+
+            // Hinzufügen neuer Kontakt zur neuen Liste und Speicherung in JSON
+            contactDataList.Add(contact);
+            SaveData(contactDataList);
+
+            return true;
         }
 
         // Auslesen der Werte für Speicherung der Kontaktdaten in JSON-Datei
@@ -144,6 +149,38 @@ namespace Semesterprojekt
             }
 
             return true;
+        }
+
+        // Speicherung neue, zu ändernde oder zu löschende Kundendaten
+        private static void SaveData(List<InitializationContactData> contactDataList)
+        {
+            try
+            {
+                // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
+                var directory = Path.GetDirectoryName(contactDataPath);
+                if (!string.IsNullOrEmpty(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                string contactsJSON = JsonSerializer.Serialize(contactDataList, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(contactDataPath, contactsJSON);
+
+                // Ausgabe erfolgreiche Speicherung (userfreundlich)
+                MessageBox.Show("Kontakt erfolgreich gespeichert!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            catch (Exception exception)
+            {
+                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                ShowMessageBox($"Fehler beim Speichern der JSON-Datei '{fileName}': {exception}");
+            }
+        }
+
+        // Erzeugung MessageBox (Popup) bei JSON-Fehler
+        private static void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

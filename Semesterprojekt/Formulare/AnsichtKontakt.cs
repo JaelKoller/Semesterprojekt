@@ -481,6 +481,13 @@ namespace Semesterprojekt
                     this.Close();
                 }
             }
+
+            else
+            {
+                // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
+                (this.Owner as AlleKontakte)?.Close();
+                this.Close();
+            }
         }
 
         // Notizen in ListBox speichern

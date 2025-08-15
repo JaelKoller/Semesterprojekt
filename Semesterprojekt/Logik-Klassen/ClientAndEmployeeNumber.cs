@@ -6,15 +6,17 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Semesterprojekt.ClientAndEmployeeNumber;
 
 namespace Semesterprojekt
 {
     internal class ClientAndEmployeeNumber
     {
         // Dateipfad für JSON "clientAndEmployeeNumbers"
+        private static readonly string fileName = "clientAndEmployeeNumbers.json";
         private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        private static readonly string clientAndEmployeeNumbersPath = Path.Combine(projectRoot, "data", "clientAndEmployeeNumbers.json");
-        
+        private static readonly string clientAndEmployeeNumbersPath = Path.Combine(projectRoot, "data", fileName);
+
         // Initialisierung nächste Kunden-/Mitarbeiter Nr., d.h. immer letzte Nummer + 1
         private static string nextNumber;
 
@@ -24,24 +26,40 @@ namespace Semesterprojekt
             public List<string> EmployeeNumbers { get; set; } = new List<string>();
         }
 
-        // Auslesen JSON für Ermittlung und Speicherung Kunden-/Mitarbeiter Nr.
-        private static NumberData LoadData()
+        // Auslesen JSON für Ermittlung, Speicherung und Löschung Kunden-/Mitarbeiter Nr.
+        private static bool LoadData(out NumberData numberData)
         {
-            if (File.Exists(clientAndEmployeeNumbersPath))
+            try
             {
-                string clientAndEmployeeNumbersJSON = File.ReadAllText(clientAndEmployeeNumbersPath);
-                var clientAndEmployeeNumbersData = JsonSerializer.Deserialize<NumberData>(clientAndEmployeeNumbersJSON);
-                return clientAndEmployeeNumbersData ?? new NumberData();
+                if (File.Exists(clientAndEmployeeNumbersPath))
+                {
+                    string clientAndEmployeeNumbersJSON = File.ReadAllText(clientAndEmployeeNumbersPath);
+                    numberData = JsonSerializer.Deserialize<NumberData>(clientAndEmployeeNumbersJSON) ?? new NumberData();
+                }
+
+                else
+                {
+                    numberData = new NumberData();
+                }
+
+                return true;
             }
 
-            return new NumberData();
+            catch (Exception exception)
+            {
+                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                ShowMessageBox($"Fehler beim Laden der JSON-Datei '{fileName}': {exception}");
+                numberData = null;
+                return false;
+            }
         }
 
         // Ermittlung nächste Kunden-/Mitarbeiter Nr.
         public static string GetNumberNext(bool isEmployee)
         {
-            // Auslesen JSON
-            var numberData = LoadData();
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var numberData))
+                return string.Empty;
 
             // Initialisierung Präfix und Listentyp (Kunde vs. Mitarbeiter)
             string numberPrefix = isEmployee ? "MA" : "KD";
@@ -66,12 +84,10 @@ namespace Semesterprojekt
         // Speichervorgang aktuelle (nächste) Kunden-/Mitarbeiter Nr.
         public static void SaveNumberCurrent(bool isEmployee)
         {
-            if (string.IsNullOrEmpty(nextNumber))
+            // Abbruch bei fehlender aktuellen (nächster) Kunden-/Mitarbeiter Nr. ODER
+                        // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (string.IsNullOrEmpty(nextNumber) || !LoadData(out var numberData))
                 return;
-
-            // Auslesen JSON
-            var numberData = LoadData();
-
             
             // Hinzufügen aktueller (nächster) Kunden-/Mitarbeiter Nr.
             if (isEmployee)
@@ -88,25 +104,12 @@ namespace Semesterprojekt
             SaveData(numberData);
         }
 
-        // Speicherung aktuelle (nächste Kunden-/Mitarbeiter Nr.
-        private static void SaveData(NumberData clientAndEmployeeNumbersData)
-        {
-            // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
-            var directory = Path.GetDirectoryName(clientAndEmployeeNumbersPath);
-            if (!string.IsNullOrEmpty(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-
-            string clientAndEmployeeNumbersJSON = JsonSerializer.Serialize(clientAndEmployeeNumbersData, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(clientAndEmployeeNumbersPath, clientAndEmployeeNumbersJSON);
-        }
-
         // Löschung aktuelle Kunden-/Mitarbeiter Nr.
         public static void DeleteNumber(string number)
         {
-            // Auslesen JSON
-            var numberData = LoadData();
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var numberData))
+                return;
 
             // Auswahl der entsprechenden Liste auf Basis Präfix KD (Kunde) vs. MA (Mitarbeiter)
             var listData = number.StartsWith("MA") ? numberData.EmployeeNumbers : numberData.ClientNumbers;
@@ -116,6 +119,35 @@ namespace Semesterprojekt
 
             // Speicherung JSON 
             SaveData(numberData);
+        }
+
+        // Speicherung neue oder zu löschende Kunden-/Mitarbeiter Nr.
+        private static void SaveData(NumberData clientAndEmployeeNumbersData)
+        {
+            try
+            {
+                // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
+                var directory = Path.GetDirectoryName(clientAndEmployeeNumbersPath);
+                if (!string.IsNullOrEmpty(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
+                string clientAndEmployeeNumbersJSON = JsonSerializer.Serialize(clientAndEmployeeNumbersData, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(clientAndEmployeeNumbersPath, clientAndEmployeeNumbersJSON);
+            }
+
+            catch (Exception exception)
+            {
+                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                ShowMessageBox($"Fehler beim Speichern der JSON-Datei '{fileName}': {exception}");
+            }
+        }
+
+        // Erzeugung MessageBox (Popup) bei JSON-Fehler
+        private static void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

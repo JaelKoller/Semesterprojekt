@@ -164,7 +164,8 @@ namespace Semesterprojekt
                 // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
                 var ansichtKontaktForm = new AnsichtKontakt();
                 ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
-                ansichtKontaktForm.Show();
+                // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
+                ansichtKontaktForm.Show(this);
                 this.Hide();
             }
         }
