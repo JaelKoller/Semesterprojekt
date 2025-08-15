@@ -18,6 +18,7 @@ namespace Semesterprojekt
         private System.Windows.Forms.Label[] groupLabel;
         private Control[] groupField;
         private System.Windows.Forms.Label[] groupLabelToolTip;
+        private Dictionary<string, object> groupSearch;
 
         // Initialisierung verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -37,6 +38,7 @@ namespace Semesterprojekt
             groupLabel = GroupLabel();
             groupField = GroupField();
             groupLabelToolTip = GroupLabelToolTip();
+            groupSearch = GroupSeach();
 
             Design();
             InitializationLabelToolTip();
@@ -155,18 +157,41 @@ namespace Semesterprojekt
             };
         }
 
+        // Erstellung Dictonary für Suche
+        private Dictionary<string, object> GroupSeach()
+        {
+            return groupSearch = new Dictionary<string, object>
+            {
+                { "FirstName", TxtAllKntktVorname.Text } ,
+                { "LastName", TxtAllKntktName.Text },
+                { "Birthday", TxtAllKntktBirthday.Text },
+                { "CheckEmployee", ChkBAllKntktMa.Checked },
+                { "CheckClient", ChkBAllKntktKunde.Checked },
+                { "CheckInactive", ChkBAllKntktInaktiv.Checked }
+            };
+        }
+
         private void BtnAllKntktSuchen_Click(object sender, EventArgs e)
         {
             bool checkDateOfBirth = CheckDateOfBirth();
 
             if (checkDateOfBirth)
             {
-                // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
-                var ansichtKontaktForm = new AnsichtKontakt();
-                ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
-                // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
-                ansichtKontaktForm.Show(this);
-                this.Hide();
+                // Kontaktsuche auf Basis der erfassten Parameter
+                List<string> contactSearchResult = ContactDataSearch.SeachContactData(GroupSeach());
+                LbAllKntktSuchAusg.Items.Clear();
+                LbAllKntktSuchAusg.Items.AddRange(contactSearchResult.ToArray());
+                LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
+
+                if (contactSearchResult.Count == 1)
+                {
+                    // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
+                    var ansichtKontaktForm = new AnsichtKontakt();
+                    ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
+                    // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
+                    ansichtKontaktForm.Show(this);
+                    this.Hide();
+                }
             }
         }
 

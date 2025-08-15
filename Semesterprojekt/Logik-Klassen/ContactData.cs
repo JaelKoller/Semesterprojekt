@@ -48,8 +48,7 @@ namespace Semesterprojekt
             }
         }
 
-
-        // Speicherung der Kontaktdaten in JSON "contacts"
+        // Speichervorgang der Kontaktdaten
         public static bool SaveContactData(string typeOfContactNew, string contactNumberNew, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
@@ -83,14 +82,14 @@ namespace Semesterprojekt
             if (!CheckDuplicateContact(contactDataList, contact))
                 return false;
 
-            // Hinzufügen neuer Kontakt zur neuen Liste und Speicherung in JSON
+            // Hinzufügen (inkl. Speicherung) neuer Kontakt
             contactDataList.Add(contact);
             SaveData(contactDataList);
 
             return true;
         }
 
-        // Auslesen der Werte für Speicherung der Kontaktdaten in JSON-Datei
+        // Auslesen der Werte für Speicherung der Kontaktdaten
         private static string GetControlValue(Control field)
         {
             if (field is System.Windows.Forms.TextBox txtbxField)
@@ -165,7 +164,7 @@ namespace Semesterprojekt
             SaveData(contactDataList);
         }
 
-        // Speicherung neue, zu ändernde oder zu löschende Kundendaten
+        // Speicherung neue, zu ändernde oder zu löschende Kundendaten (Schreibprozess)
         private static void SaveData(List<InitializationContactData> contactDataList)
         {
             try
