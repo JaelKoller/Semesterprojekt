@@ -151,6 +151,20 @@ namespace Semesterprojekt
             return true;
         }
 
+        // Löschung aktuelle Kontaktdaten
+        public static void DeleteContactData(string number)
+        {
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var contactDataList))
+                return;
+
+            // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
+            contactDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
+
+            // Speicherung JSON 
+            SaveData(contactDataList);
+        }
+
         // Speicherung neue, zu ändernde oder zu löschende Kundendaten
         private static void SaveData(List<InitializationContactData> contactDataList)
         {
