@@ -81,7 +81,7 @@
     }
   },
   {
-    "ContactStatus": "active",
+    "ContactStatus": "inactive",
     "ContactNumber": "KD0002",
     "TypeOfContact": "Kunde",
     "Fields": {
@@ -100,7 +100,7 @@
     }
   },
   {
-    "ContactStatus": "active",
+    "ContactStatus": "inactive",
     "ContactNumber": "MA0003",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {

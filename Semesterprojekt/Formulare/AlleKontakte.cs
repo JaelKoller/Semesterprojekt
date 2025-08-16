@@ -162,7 +162,7 @@ namespace Semesterprojekt
         {
             return groupSearch = new Dictionary<string, object>
             {
-                { "FirstName", TxtAllKntktVorname.Text } ,
+                { "FirstName", TxtAllKntktVorname.Text },
                 { "LastName", TxtAllKntktName.Text },
                 { "Birthday", TxtAllKntktBirthday.Text },
                 { "CheckEmployee", ChkBAllKntktMa.Checked },
@@ -178,11 +178,15 @@ namespace Semesterprojekt
             if (checkDateOfBirth)
             {
                 // Kontaktsuche auf Basis der erfassten Parameter
-                List<string> contactSearchResult = ContactDataSearch.SeachContactData(GroupSeach());
-                LbAllKntktSuchAusg.Items.Clear();
-                LbAllKntktSuchAusg.Items.AddRange(contactSearchResult.ToArray());
-                LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
+                List<InitializationContactData> contactSearchResult = ContactDataSearch.SeachContactData(GroupSeach());
+                var showContactSearchResult = contactSearchResult.Select(contacts =>
+                $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}, {contacts.Fields["City"]}").ToArray();
 
+                // Ausgabe des Resultats der Kontaktsuche
+                LbAllKntktSuchAusg.Items.Clear();
+                LbAllKntktSuchAusg.Items.AddRange(showContactSearchResult);
+                LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
+                
                 if (contactSearchResult.Count == 1)
                 {
                     // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"

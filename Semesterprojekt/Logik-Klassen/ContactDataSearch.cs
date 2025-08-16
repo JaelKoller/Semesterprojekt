@@ -47,65 +47,76 @@ namespace Semesterprojekt
             }
         }
 
-        // Suche der Kontaktdaten
-        public static List<String> SeachContactData(Dictionary<string, object> searchContactData)
+        // Filterung der Kontaktdaten
+        private static List<InitializationContactData> FilterContactData(Dictionary<string, object> searchContactData)
         {
             // Initialisierung Filterkriterien
-            string firstName = Convert.ToString(searchContactData["FirstName"]).Trim();
-            string lastName = Convert.ToString(searchContactData["LastName"]).Trim();
-            string birthday = Convert.ToString(searchContactData["Birthday"]).Trim();
-            bool checkEmployee = Convert.ToBoolean(searchContactData["CheckEmployee"]);
-            bool checkClient = Convert.ToBoolean(searchContactData["CheckClient"]);
-            bool checkInactive = Convert.ToBoolean(searchContactData["CheckInactive"]);
+            string contactNumber = searchContactData.ContainsKey("ContactNumber") ? Convert.ToString(searchContactData["ContactNumber"]) : string.Empty;
+            string firstName = searchContactData.ContainsKey("FirstName") ? Convert.ToString(searchContactData["FirstName"]).Trim() : string.Empty;
+            string lastName = searchContactData.ContainsKey("LastName") ? Convert.ToString(searchContactData["LastName"]).Trim() : string.Empty;
+            string birthday = searchContactData.ContainsKey("Birthday") ? Convert.ToString(searchContactData["Birthday"]).Trim() : string.Empty;
+            bool checkEmployee = searchContactData.ContainsKey("CheckEmployee") ? Convert.ToBoolean(searchContactData["CheckEmployee"]) : false;
+            bool checkClient = searchContactData.ContainsKey("CheckClient") ? Convert.ToBoolean(searchContactData["CheckClient"]) : false;
+            bool checkInactive = searchContactData.ContainsKey("CheckInactive") ? Convert.ToBoolean(searchContactData["CheckInactive"]) : false;
 
 
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var contactDataList))
-                return new List<string>();
+                return new List<InitializationContactData>();
 
             // Vorbereitung Kontaktdaten-Liste für direkte Filteranwendungen (je nach Ausgangslage)
             var filteredContactDataList = contactDataList.AsEnumerable();
 
 
-            // Suche standardmässig ohne inaktive Kontaktdaten (nur aktive)
-            if (!checkInactive)
+            if (!string.IsNullOrWhiteSpace(contactNumber))
             {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.ContactStatus.Equals("active"));
-            }
-          
-            // Einschränkung Suche "nur" Mitarbeiter
-            if (checkEmployee && !checkClient)
-            {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Mitarbeiter"));
+                // Suche "nur" nach Kontakt Nr. (für Anzeige)
+                filteredContactDataList = filteredContactDataList.Where(contact => contact.ContactNumber.Equals(contactNumber));
             }
 
-            // Einschränkung Suche "nur" Kunde
-            if (checkClient && !checkEmployee)
+            else
             {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Kunde"));
+                // Suche standardmässig ohne inaktive Kontaktdaten (nur aktive)
+                if (!checkInactive)
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.ContactStatus.Equals("active"));
+                }
+
+                // Einschränkung Suche "nur" Mitarbeiter
+                if (checkEmployee && !checkClient)
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Mitarbeiter"));
+                }
+
+                // Einschränkung Suche "nur" Kunde
+                if (checkClient && !checkEmployee)
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Kunde"));
+                }
+
+                // Einschränkung Suche "FirstName"
+                if (!string.IsNullOrWhiteSpace(firstName))
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["FirstName"].ToLower().Contains(firstName.ToLower()));
+                }
+
+                // Einschränkung Suche "LastName"
+                if (!string.IsNullOrWhiteSpace(lastName))
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["LastName"].ToLower().Contains(lastName.ToLower()));
+                }
+
+                // Einschränkung Suche "Birthday"
+                if (!string.IsNullOrWhiteSpace(birthday))
+                {
+                    filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["Birthday"].Contains(birthday));
+                }
             }
 
-            // Einschränkung Suche "FirstName"
-            if (!string.IsNullOrWhiteSpace(firstName))
-            {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["FirstName"].ToLower().Contains(firstName.ToLower()));
-            }
+            // Ausgabe Such-Resultat als Liste
+            var contactSearchResult = filteredContactDataList.ToList();
 
-            // Einschränkung Suche "LastName"
-            if (!string.IsNullOrWhiteSpace(lastName))
-            {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["LastName"].ToLower().Contains(lastName.ToLower()));
-            }
-
-            // Einschränkung Suche "Birthday"
-            if (!string.IsNullOrWhiteSpace(birthday))
-            {
-                filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["Birthday"].Contains(birthday));
-            }
-
-            // Ausgabe Such-Resultat mit Vorname, Name und Geburtsdatum
-            var contactSearchResult = filteredContactDataList.Select(contacts =>
-            { return $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}"; }).ToList();
+            // Select(contacts => { return $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}"; }).ToList();
 
             // Ausgabe 0 Treffer bei Suche
             if (contactSearchResult.Count == 0)
@@ -113,6 +124,20 @@ namespace Semesterprojekt
                 MessageBox.Show("keine Kontakte gefunden", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            return contactSearchResult;
+        }
+        
+        // Suche der Kontaktdaten
+        public static List<InitializationContactData> SeachContactData(Dictionary<string, object> searchContactData)
+        {
+            var contactSearchResult = FilterContactData(searchContactData);
+            return contactSearchResult;
+        }
+
+        // Anzeige der Kontaktdaten auf Basis Kontakt Nr.
+        public static List<InitializationContactData> ShowContactData(Dictionary<string, object> searchContactData)
+        {
+            var contactSearchResult = FilterContactData(searchContactData);
             return contactSearchResult;
         }
     }
