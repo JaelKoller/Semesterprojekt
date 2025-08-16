@@ -28,7 +28,7 @@ namespace Semesterprojekt
         private Color backColorNOK = Color.LightPink;
 
         // Initialisierung letzte Trefferliste (Suchresultat) für Doppelklick auf Listeneintrag
-        private List<InitializationContactData> lastContactSearchResult;
+        internal List<InitializationContactData> lastContactSearchResult;
 
         public AlleKontakte()
         {

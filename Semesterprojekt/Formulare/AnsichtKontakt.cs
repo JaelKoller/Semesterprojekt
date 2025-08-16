@@ -519,6 +519,13 @@ namespace Semesterprojekt
                 {
                     // Löschung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"     
                     ClientAndEmployeeNumber.DeleteNumber(contactNumber);
+
+                    // Bereinigung Trefferliste in "AlleKontakte"
+                    var ownerForm = (AlleKontakte)this.Owner;
+                    ownerForm.LbAllKntktSuchAusg.Items.Clear();
+                    ownerForm.LblAllKntktAnzSuchAusg.Text = "Anzahl Treffer: 0";
+                    ownerForm.lastContactSearchResult = null;
+
                     this.Close();
                 }
             }

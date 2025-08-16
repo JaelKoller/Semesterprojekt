@@ -267,7 +267,7 @@
         internal System.Windows.Forms.TextBox TxtAllKntktBirthday;
         internal System.Windows.Forms.Label LblAllKntktInaktiv;
         internal System.Windows.Forms.CheckBox ChkBAllKntktInaktiv;
-        private System.Windows.Forms.ListBox LbAllKntktSuchAusg;
-        private System.Windows.Forms.Label LblAllKntktAnzSuchAusg;
+        internal System.Windows.Forms.ListBox LbAllKntktSuchAusg;
+        internal System.Windows.Forms.Label LblAllKntktAnzSuchAusg;
     }
 }

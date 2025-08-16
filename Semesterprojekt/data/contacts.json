@@ -1,37 +1,6 @@
 [
   {
     "ContactStatus": "active",
-    "ContactNumber": "MA0001",
-    "TypeOfContact": "Mitarbeiter",
-    "Fields": {
-      "Title": "Dr.",
-      "Salutation": "Frau",
-      "FirstName": "Jael",
-      "LastName": "Koller",
-      "Birthday": "01.07.1989",
-      "Gender": "weiblich",
-      "Address": "Heimstrasse 4",
-      "PostalCode": "9014",
-      "City": "St. Gallen",
-      "BusinessNumber": "071 123 45 67",
-      "MobileNumber": "076 123 45 67",
-      "Email": "jaelkoller@testmail.ch",
-      "EmployeeNumber": "MA0001",
-      "AHVNumber": "756.8800.5641.37",
-      "Nationality": "CH",
-      "ManagementLevel": "Mitglied der Direktion",
-      "LevelOfEmployment": "100",
-      "Department": "Automatisierung",
-      "Role": "Software Engineer",
-      "AcademicYear": "3",
-      "CurrentAcademicYear": "0",
-      "OfficeNumber": "123",
-      "DateOfEntry": "01.08.2005",
-      "DateOfExit": ""
-    }
-  },
-  {
-    "ContactStatus": "active",
     "ContactNumber": "MA0002",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {
