@@ -179,7 +179,7 @@ namespace Semesterprojekt
             for (int i = 0; i < groupField.Length; i++)
             {
                 groupField[i].Size = new Size(width, height);
-                
+
                 // Buttons relevant für Tab und daher durchnummeriert
                 groupField[i].TabIndex = tabIndexCounter++;
             }
@@ -462,7 +462,7 @@ namespace Semesterprojekt
         {
             string message = "Möchtest du den Kontakt unwiderruflich löschen?";
             DialogResult result = MessageBox.Show(message, "Kontakt löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
+
             if (result == DialogResult.Yes)
             {
                 this.Close();
@@ -531,6 +531,8 @@ namespace Semesterprojekt
                 // Setzt default-Wert wieder in TextBox von Titel und Notiz
                 TxtAnsichtKntktProtokolTitel.Text = defaultTitle;
                 TxtAnsichtKntktProtokolEing.Text = defaultNote;
+
+                //Notes.SaveNotes(NotesContent());
 
                 return;
             }
@@ -604,6 +606,15 @@ namespace Semesterprojekt
             MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-       
+        // Initialisierung Argumente (Inhalt) für Klasse "Notes"
+        private Notes NotesContent()
+        {
+            return new Notes
+            {
+                Title = TxtAnsichtKntktProtokolTitel.Text,
+                Text = TxtAnsichtKntktProtokolEing.Text,
+                Date = DateAnsichtKntktDateProtokol.Value.ToShortDateString()
+            };
+        }
     }
 }
