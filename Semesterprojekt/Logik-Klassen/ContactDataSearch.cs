@@ -116,8 +116,6 @@ namespace Semesterprojekt
             // Ausgabe Such-Resultat als Liste
             var contactSearchResult = filteredContactDataList.ToList();
 
-            // Select(contacts => { return $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}"; }).ToList();
-
             // Ausgabe 0 Treffer bei Suche
             if (contactSearchResult.Count == 0)
             {
@@ -138,6 +136,7 @@ namespace Semesterprojekt
         public static List<InitializationContactData> ShowContactData(Dictionary<string, object> searchContactData)
         {
             var contactSearchResult = FilterContactData(searchContactData);
+            MessageBox.Show(string.Join(Environment.NewLine, contactSearchResult.Select(contact => string.Join(", ", contact.Fields.Values))), "TEST", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return contactSearchResult;
         }
     }

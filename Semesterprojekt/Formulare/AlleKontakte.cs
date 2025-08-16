@@ -189,6 +189,10 @@ namespace Semesterprojekt
                 
                 if (contactSearchResult.Count == 1)
                 {
+                    // Ausgabe und Weiterverarbeitung Kontakt Nr. von Resultat der Kontaktsuche
+                    string showContactNumberSearchResult = contactSearchResult[0].ContactNumber.ToString();
+                    List <InitializationContactData> contactShowhResult = ContactDataSearch.ShowContactData(new Dictionary<string, object> { { "ContactNumber", showContactNumberSearchResult } });
+                    
                     // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
                     var ansichtKontaktForm = new AnsichtKontakt();
                     ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
