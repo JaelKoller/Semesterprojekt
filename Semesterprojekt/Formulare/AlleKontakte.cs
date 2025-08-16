@@ -27,6 +27,9 @@ namespace Semesterprojekt
         private Color backColorOK = SystemColors.Window;
         private Color backColorNOK = Color.LightPink;
 
+        // Initialisierung letzte Trefferliste (Suchresultat) für Doppelklick auf Listeneintrag
+        private List<InitializationContactData> lastContactSearchResult;
+
         public AlleKontakte()
         {
             InitializeComponent();
@@ -42,6 +45,9 @@ namespace Semesterprojekt
 
             Design();
             InitializationLabelToolTip();
+
+            // Initialisierung (Registrierung) Doppelklick auf Listeneintrag
+            LbAllKntktSuchAusg.DoubleClick += LbAllKntktSuchAusg_DoubleClick;
         }
 
         // Design (Platzierung) der Eingabe-Felder usw.
@@ -179,28 +185,49 @@ namespace Semesterprojekt
             {
                 // Kontaktsuche auf Basis der erfassten Parameter
                 List<InitializationContactData> contactSearchResult = ContactDataSearch.SeachContactData(GroupSeach());
+                // Zwischenspeicherung Trefferliste für Doppelklick auf Listeneintrag
+                lastContactSearchResult = contactSearchResult;
+                // Filterung Trefferliste für Ausgabe
                 var showContactSearchResult = contactSearchResult.Select(contacts =>
                 $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}, {contacts.Fields["City"]}").ToArray();
 
-                // Ausgabe des Resultats der Kontaktsuche
+                // Ausgabe der Trefferliste in ListBox
                 LbAllKntktSuchAusg.Items.Clear();
                 LbAllKntktSuchAusg.Items.AddRange(showContactSearchResult);
                 LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
                 
                 if (contactSearchResult.Count == 1)
                 {
-                    // Ausgabe und Weiterverarbeitung Kontakt Nr. von Resultat der Kontaktsuche
+                    // Ausgabe und Weiterverarbeitung Kontakt Nr. von Trefferliste
                     string showContactNumberSearchResult = contactSearchResult[0].ContactNumber.ToString();
                     List <InitializationContactData> contactShowhResult = ContactDataSearch.ShowContactData(new Dictionary<string, object> { { "ContactNumber", showContactNumberSearchResult } });
                     
                     // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
-                    var ansichtKontaktForm = new AnsichtKontakt();
+                    var ansichtKontaktForm = new AnsichtKontakt(contactSearchResult[0]);
                     ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
                     // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
                     ansichtKontaktForm.Show(this);
                     this.Hide();
                 }
             }
+        }
+
+        // Doppelklick auf Listeneintrag in Trefferliste
+        private void LbAllKntktSuchAusg_DoubleClick(object sender, EventArgs e)
+        {
+            int indexContact = LbAllKntktSuchAusg.SelectedIndex;
+            // Sicherheitsabfrage für Verhinderung Abstürze
+            if (indexContact < 0 || lastContactSearchResult == null || indexContact >= lastContactSearchResult.Count)
+                return;
+
+            var selectedContact = lastContactSearchResult[indexContact];
+
+            // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
+            var ansichtKontaktForm = new AnsichtKontakt(selectedContact);
+            ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
+            // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
+            ansichtKontaktForm.Show(this);
+            this.Hide();
         }
 
         private void BtnAllKntktHome_Click(object sender, EventArgs e)

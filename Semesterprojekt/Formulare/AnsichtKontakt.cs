@@ -33,16 +33,24 @@ namespace Semesterprojekt
         private string tagOK = "true";
         private string tagNOK = "false";
 
+        // Initialisierung mehrfach verwendeter Variablen
+        private bool isEmployee;
+        private bool isClient;
+
         // default-Text aus TextBoxen in Variabel speichern zur überprüfung
         private string defaultTitle;
         private string defaultNote;
 
-        public AnsichtKontakt()
+        public AnsichtKontakt(InitializationContactData contactData)
         {
             InitializeComponent();
             this.Size = new Size(750, 890);
             this.WindowState = FormWindowState.Maximized;
             this.AutoScroll = true;
+
+            // Initialisierung Variablen (Mitarbeiter vs. Kunde)
+            isEmployee = contactData.TypeOfContact == "Mitarbeiter";
+            isClient = contactData.TypeOfContact == "Kunde";
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
@@ -56,7 +64,11 @@ namespace Semesterprojekt
             Design();
             ContactDataContent();
             InitializationLabelToolTip();
+            InitializationContactData(contactData);
             InitializationGroupAndField();
+
+            // Initialisierung Anzeige Titel
+            LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactData.ContactNumber})";
 
             // Initialisierung Notizfelder (Defaultwert inkl. heutiges Datum)
             defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
@@ -336,9 +348,9 @@ namespace Semesterprojekt
             {
                 TxtAnsichtKntktTitel,
                 // bei Mitarbeitern bleibt das Feld "Pflicht"
-                // (!RdbAnsichtKntktMa.Checked ? TxtAnsichtKntktTelGeschaeft : null),
-                 // bei Mitarbeitern mit CH-Nationalität bleibt das Feld "Pflicht"
-                // (RdbAnsichtKntktKunde.Checked || (!string.IsNullOrWhiteSpace(TxtAnsichtKntktMaNationalitaet.Text) && TxtAnsichtKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtAnsichtKntktMaAHVNr : null),
+                (isClient ? TxtAnsichtKntktTelGeschaeft : null),
+                // bei Mitarbeitern mit CH-Nationalität bleibt das Feld "Pflicht"
+                ((!string.IsNullOrWhiteSpace(TxtAnsichtKntktMaNationalitaet.Text) && TxtAnsichtKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtAnsichtKntktMaAHVNr : null),
                 TxtAnsichtKntktMaKader,
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
@@ -374,6 +386,41 @@ namespace Semesterprojekt
             };
         }
 
+        // Initialisierung Kontaktdaten (Resultat aus Suche)
+        private void InitializationContactData(InitializationContactData contactData)
+        {
+            RdbAnsichtKntktAktiv.Checked = contactData.ContactStatus  == "active";
+            RdbAnsichtKntktInaktiv.Checked = contactData.ContactStatus == "inactive";
+            TxtAnsichtKntktTitel.Text = Convert.ToString(contactData.Fields["Title"]);
+            CmBxAnsichtKntktAnrede.SelectedItem = Convert.ToString(contactData.Fields["Salutation"]);
+            TxtAnsichtKntktVorname.Text = Convert.ToString(contactData.Fields["FirstName"]);
+            TxtAnsichtKntktName.Text = Convert.ToString(contactData.Fields["LastName"]);
+            TxtAnsichtKntktBirthday.Text = Convert.ToString(contactData.Fields["Birthday"]);
+            CmBxAnsichtKntktGeschlecht.SelectedItem = Convert.ToString(contactData.Fields["Gender"]);
+            TxtAnsichtKntktAdr.Text = Convert.ToString(contactData.Fields["Address"]);
+            TxtAnsichtKntktPLZ.Text = Convert.ToString(contactData.Fields["PostalCode"]);
+            TxtAnsichtKntktOrt.Text = Convert.ToString(contactData.Fields["City"]);
+            TxtAnsichtKntktTelGeschaeft.Text = Convert.ToString(contactData.Fields["BusinessNumber"]);
+            TxtAnsichtKntktTelMobile.Text = Convert.ToString(contactData.Fields["MobileNumber"]);
+            TxtAnsichtKntktEmail.Text = Convert.ToString(contactData.Fields["Email"]);
+
+            if (isEmployee)
+            {
+                TxtAnsichtKntktMaManr.Text = Convert.ToString(contactData.Fields["EmployeeNumber"]);
+                TxtAnsichtKntktMaAHVNr.Text = Convert.ToString(contactData.Fields["AHVNumber"]);
+                TxtAnsichtKntktMaNationalitaet.Text = Convert.ToString(contactData.Fields["Nationality"]);
+                TxtAnsichtKntktMaKader.Text = Convert.ToString(contactData.Fields["ManagementLevel"]);
+                NumAnsichtKntktMaBeschGrad.Value = Convert.ToDecimal(contactData.Fields["LevelOfEmployment"]);
+                TxtAnsichtKntktMaAbteilung.Text = Convert.ToString(contactData.Fields["Department"]);
+                TxtAnsichtKntktMaRolle.Text = Convert.ToString(contactData.Fields["Role"]);
+                NumAnsichtKntktMaLehrj.Value = Convert.ToDecimal(contactData.Fields["AcademicYear"]);
+                NumAnsichtKntktMaAktLehrj.Value = Convert.ToDecimal(contactData.Fields["CurrentAcademicYear"]);
+                NumAnsichtKntktMaOfficeNumber.Value = Convert.ToDecimal(contactData.Fields["OfficeNumber"]);
+                TxtAnsichtKntktEintrDatum.Text = Convert.ToString(contactData.Fields["DateOfEntry"]);
+                TxtAnsichtKntktAustrDatum.Text = Convert.ToString(contactData.Fields["DateOfExit"]);
+            }
+        }
+
         // Initialisierung Gruppen und Felder (Befüllung und Sperrung)
         private void InitializationGroupAndField()
         {
@@ -383,7 +430,7 @@ namespace Semesterprojekt
         private void UpdateGroupAndField(bool mutable)
         {
             GrpBxDatenAlle.Enabled = mutable;
-            GrpBxDatenMA.Enabled = mutable; // LOGIK IST NOCH ZU DEFINIEREN (NUR BEI MA)
+            GrpBxDatenMA.Enabled = isEmployee ? mutable : false;
             GrpBxAnsichtKntktAktiv.Enabled = mutable;
         }
 
@@ -444,8 +491,8 @@ namespace Semesterprojekt
                 GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
                 GroupFieldEmployees = groupFieldEmployees,
                 CheckFieldIgnore = CheckFieldIgnore(),
-                IsEmployee = true, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
-                IsClient = false, // LOGIK IST NOCH ZU DEFINIEREN (nicht analog KontaktErstellen)
+                IsEmployee = isEmployee,
+                IsClient = isClient,
                 Salutation = CmBxAnsichtKntktAnrede,
                 Birthday = TxtAnsichtKntktBirthday,
                 Gender = CmBxAnsichtKntktGeschlecht,
