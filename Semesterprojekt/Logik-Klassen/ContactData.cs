@@ -84,7 +84,7 @@ namespace Semesterprojekt
 
             // Hinzufügen (inkl. Speicherung) neuer Kontakt
             contactDataList.Add(contact);
-            SaveData(contactDataList);
+            SaveData(contactDataList, false);
 
             return true;
         }
@@ -151,22 +151,26 @@ namespace Semesterprojekt
         }
 
         // Löschung aktuelle Kontaktdaten
-        public static void DeleteContactData(string number)
+        public static bool DeleteContactData(string number)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var contactDataList))
-                return;
+                return false;
 
             // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
             contactDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
 
             // Speicherung JSON 
-            SaveData(contactDataList);
+            SaveData(contactDataList, true);
+
+            return true;
         }
 
         // Speicherung neue, zu ändernde oder zu löschende Kundendaten (Schreibprozess)
-        private static void SaveData(List<InitializationContactData> contactDataList)
+        private static void SaveData(List<InitializationContactData> contactDataList, bool isDelete)
         {
+            string message = isDelete ? "gelöscht" : "gespeichert";
+            
             try
             {
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
@@ -180,7 +184,7 @@ namespace Semesterprojekt
                 File.WriteAllText(contactDataPath, contactsJSON);
 
                 // Ausgabe erfolgreiche Speicherung (userfreundlich)
-                MessageBox.Show("Kontakt erfolgreich gespeichert!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Kontakt erfolgreich {message}!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             catch (Exception exception)

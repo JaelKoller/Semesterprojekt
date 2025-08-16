@@ -36,6 +36,7 @@ namespace Semesterprojekt
         // Initialisierung mehrfach verwendeter Variablen
         private bool isEmployee;
         private bool isClient;
+        private string contactNumber;
 
         // default-Text aus TextBoxen in Variabel speichern zur überprüfung
         private string defaultTitle;
@@ -51,6 +52,7 @@ namespace Semesterprojekt
             // Initialisierung Variablen (Mitarbeiter vs. Kunde)
             isEmployee = contactData.TypeOfContact == "Mitarbeiter";
             isClient = contactData.TypeOfContact == "Kunde";
+            contactNumber = contactData.ContactNumber;
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
@@ -68,7 +70,7 @@ namespace Semesterprojekt
             InitializationGroupAndField();
 
             // Initialisierung Anzeige Titel
-            LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactData.ContactNumber})";
+            LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
             // Initialisierung Notizfelder (Defaultwert inkl. heutiges Datum)
             defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
@@ -389,7 +391,7 @@ namespace Semesterprojekt
         // Initialisierung Kontaktdaten (Resultat aus Suche)
         private void InitializationContactData(InitializationContactData contactData)
         {
-            RdbAnsichtKntktAktiv.Checked = contactData.ContactStatus  == "active";
+            RdbAnsichtKntktAktiv.Checked = contactData.ContactStatus == "active";
             RdbAnsichtKntktInaktiv.Checked = contactData.ContactStatus == "inactive";
             TxtAnsichtKntktTitel.Text = Convert.ToString(contactData.Fields["Title"]);
             CmBxAnsichtKntktAnrede.SelectedItem = Convert.ToString(contactData.Fields["Salutation"]);
@@ -512,7 +514,13 @@ namespace Semesterprojekt
 
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                // Löschung der Daten in JSON "contacts"
+                if (ContactData.DeleteContactData(contactNumber))
+                {
+                    // Löschung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"     
+                    ClientAndEmployeeNumber.DeleteNumber(contactNumber);
+                    this.Close();
+                }
             }
         }
 
