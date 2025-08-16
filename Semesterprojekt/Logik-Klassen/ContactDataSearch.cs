@@ -47,8 +47,8 @@ namespace Semesterprojekt
             }
         }
 
-        // Filterung der Kontaktdaten
-        private static List<InitializationContactData> FilterContactData(Dictionary<string, object> searchContactData)
+        // Suche und Filterung der Kontaktdaten
+        public static List<InitializationContactData> SearchContactData(Dictionary<string, object> searchContactData)
         {
             // Initialisierung Filterkriterien
             string contactNumber = searchContactData.ContainsKey("ContactNumber") ? Convert.ToString(searchContactData["ContactNumber"]) : string.Empty;
@@ -122,21 +122,6 @@ namespace Semesterprojekt
                 MessageBox.Show("keine Kontakte gefunden", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            return contactSearchResult;
-        }
-        
-        // Suche der Kontaktdaten
-        public static List<InitializationContactData> SeachContactData(Dictionary<string, object> searchContactData)
-        {
-            var contactSearchResult = FilterContactData(searchContactData);
-            return contactSearchResult;
-        }
-
-        // Anzeige der Kontaktdaten auf Basis Kontakt Nr.
-        public static List<InitializationContactData> ShowContactData(Dictionary<string, object> searchContactData)
-        {
-            var contactSearchResult = FilterContactData(searchContactData);
-            MessageBox.Show(string.Join(Environment.NewLine, contactSearchResult.Select(contact => string.Join(", ", contact.Fields.Values))), "TEST", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return contactSearchResult;
         }
     }

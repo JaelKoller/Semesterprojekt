@@ -184,7 +184,7 @@ namespace Semesterprojekt
             if (checkDateOfBirth)
             {
                 // Kontaktsuche auf Basis der erfassten Parameter
-                List<InitializationContactData> contactSearchResult = ContactDataSearch.SeachContactData(GroupSeach());
+                List<InitializationContactData> contactSearchResult = ContactDataSearch.SearchContactData(GroupSeach());
                 // Zwischenspeicherung Trefferliste für Doppelklick auf Listeneintrag
                 lastContactSearchResult = contactSearchResult;
                 // Filterung Trefferliste für Ausgabe
@@ -198,16 +198,7 @@ namespace Semesterprojekt
                 
                 if (contactSearchResult.Count == 1)
                 {
-                    // Ausgabe und Weiterverarbeitung Kontakt Nr. von Trefferliste
-                    string showContactNumberSearchResult = contactSearchResult[0].ContactNumber.ToString();
-                    List <InitializationContactData> contactShowhResult = ContactDataSearch.ShowContactData(new Dictionary<string, object> { { "ContactNumber", showContactNumberSearchResult } });
-                    
-                    // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
-                    var ansichtKontaktForm = new AnsichtKontakt(contactSearchResult[0]);
-                    ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
-                    // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
-                    ansichtKontaktForm.Show(this);
-                    this.Hide();
+                    OpenAnsichtKontakt(contactSearchResult[0]);
                 }
             }
         }
@@ -220,10 +211,13 @@ namespace Semesterprojekt
             if (indexContact < 0 || lastContactSearchResult == null || indexContact >= lastContactSearchResult.Count)
                 return;
 
-            var selectedContact = lastContactSearchResult[indexContact];
+            OpenAnsichtKontakt(lastContactSearchResult[indexContact]);
+        }
 
-            // Initialisierung "AnsichtKontakt" für Absprung via Button "Suchen"
-            var ansichtKontaktForm = new AnsichtKontakt(selectedContact);
+        // Öffnen des Kontakts mit allen Kontaktdaten (in AnsichtKontakt)
+        private void OpenAnsichtKontakt(InitializationContactData contact)
+        {
+            var ansichtKontaktForm = new AnsichtKontakt(contact);
             ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
             // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
             ansichtKontaktForm.Show(this);
