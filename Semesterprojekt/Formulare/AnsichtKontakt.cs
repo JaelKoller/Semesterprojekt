@@ -430,6 +430,8 @@ namespace Semesterprojekt
             GrpBxDatenAlle.Enabled = mutable;
             GrpBxDatenMA.Enabled = isEmployee ? mutable : false;
             GrpBxAnsichtKntktAktiv.Enabled = mutable;
+            CmdAnsichtKntktEdit.Enabled = !mutable;
+            CmdAnsichtKntktSaveAll.Enabled = mutable;
         }
 
         private void CmdAnsichtKntktEdit_Click(object sender, EventArgs e)
