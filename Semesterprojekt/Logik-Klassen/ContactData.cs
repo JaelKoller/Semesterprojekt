@@ -49,42 +49,64 @@ namespace Semesterprojekt
         }
 
         // Speichervorgang der Kontaktdaten
-        public static bool SaveContactData(string typeOfContactNew, string contactNumberNew, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
+        public static bool SaveContactData(string saveMode, string contactStatus, string typeOfContact, string contactNumber, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var contactDataList))
                 return false;
 
-            var contact = new InitializationContactData
-            {
-                // Erfassung mit Default-Kontaktstatus "Aktiv"
-                ContactStatus = "active",
-                // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
-                TypeOfContact = $"{char.ToUpper(typeOfContactNew[0])}{typeOfContactNew.Substring(1)}",
-                // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
-                ContactNumber = contactNumberNew
-            };
+            InitializationContactData contactData = null;
 
+            switch (saveMode.ToLower())
+            {
+                case "save":
+                    contactData = new InitializationContactData
+                    {
+                        // Erfassung mit Default-Kontaktstatus "Aktiv"
+                        ContactStatus = contactStatus,
+                        // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
+                        TypeOfContact = $"{char.ToUpper(typeOfContact[0])}{typeOfContact.Substring(1)}",
+                        // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
+                        ContactNumber = contactNumber
+                    };
+                    break;
+
+                case "update":
+                    // Ermittlung bestehender Kontakt auf Basis Kontakt Nr.
+                    contactData = contactDataList.FirstOrDefault(contact => contact.ContactNumber == contactNumber);
+                    contactData.ContactStatus = contactStatus;
+                    break;
+            }
+            
             foreach (Control field in groupFieldEmployeesAndCustomers)
             {
-                contact.Fields[field.AccessibleName] = GetControlValue(field);
+                contactData.Fields[field.AccessibleName] = GetControlValue(field);
             }
 
-            if (typeOfContactNew == "mitarbeiter")
+            if (typeOfContact == "mitarbeiter")
             {
                 foreach (Control field in groupFieldEmployees)
                 {
-                    contact.Fields[field.AccessibleName] = GetControlValue(field);
+                    contactData.Fields[field.AccessibleName] = GetControlValue(field);
                 }
             }
 
             // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
-            if (!CheckDuplicateContact(contactDataList, contact))
+            if (!CheckDuplicateContact(contactDataList, contactData, contactNumber))
                 return false;
 
             // Hinzufügen (inkl. Speicherung) neuer Kontakt
-            contactDataList.Add(contact);
-            SaveData(contactDataList, false);
+            if (saveMode.ToLower() == "save")
+            {
+                contactDataList.Add(contactData);
+                SaveData(contactDataList, "save");
+            }
+
+            // Speicherung geänderter Kontakt
+            else
+            {
+                SaveData(contactDataList, "update");
+            }
 
             return true;
         }
@@ -105,7 +127,7 @@ namespace Semesterprojekt
         }
 
         // Abgleich neuer Kontakt mit bestehenden Kontaktdaten        
-        private static bool CheckDuplicateContact(List<InitializationContactData> contactList, InitializationContactData newContact)
+        private static bool CheckDuplicateContact(List<InitializationContactData> contactList, InitializationContactData newContact, string ignoreContactNumber)
         {
             // Regex für Split Vorname und Nachname bei Bindestrich und/oder Leerzeichen
             string regex = @"[\s\-]";
@@ -123,6 +145,10 @@ namespace Semesterprojekt
 
             foreach (InitializationContactData oldContact in contactList)
             {
+                // Ausschluss Duplikatenprüfung bei eigener Kontat Nr. (nur für Update relevant)
+                if (oldContact.ContactNumber == ignoreContactNumber)
+                    continue;
+
                 oldContact.Fields.TryGetValue("FirstName", out var oldFirstNameRaw);
                 oldContact.Fields.TryGetValue("LastName", out var oldLastNameRaw);
                 oldContact.Fields.TryGetValue("Birthday", out var oldDateOfBirthRaw);
@@ -161,16 +187,24 @@ namespace Semesterprojekt
             contactDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
 
             // Speicherung JSON 
-            SaveData(contactDataList, true);
+            SaveData(contactDataList, "delete");
 
             return true;
         }
 
         // Speicherung neue, zu ändernde oder zu löschende Kundendaten (Schreibprozess)
-        private static void SaveData(List<InitializationContactData> contactDataList, bool isDelete)
+        private static void SaveData(List<InitializationContactData> contactDataList, string saveMode)
         {
-            string message = isDelete ? "gelöscht" : "gespeichert";
-            
+            // Vorbereitung Text für MessageBox (abhängig von Auftragsart)
+            string message = string.Empty;
+
+            if (saveMode == "save")
+                message = "gespeichert";
+            else if (saveMode == "update")
+                message = "geändert";
+            else if (saveMode == "delete")
+                message = "gelöscht";
+
             try
             {
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)

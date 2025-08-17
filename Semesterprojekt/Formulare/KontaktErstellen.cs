@@ -45,8 +45,14 @@ namespace Semesterprojekt
         // Initialisierung verwendetes Tag (analog separater Klasse)
         private string tagOK = "true";
 
-        // Initialisierung Mitarbeiter-/Kunden Nr. (Vorbereitung für Ablage in JSON)
-        string contactNumberNew;
+        // Initialisierung Speicherart "save" (Vorbereitung für Ablage in JSON)
+        private string saveMode = "save";
+        
+        // Initialisierung Mitarbeiter-/Kunden-Status mit "active" (Vorbereitung für Ablage in JSON)
+        private string contactStatus = "active";
+        
+        // Initialisierung Mitarbeiter/Kunden Nr. (Vorbereitung für Ablage in JSON)
+        private string contactNumberNew;
 
         public KontaktErstellen(string typeOfContact)
         {
@@ -375,7 +381,7 @@ namespace Semesterprojekt
             if (checkFieldTag)
             {
                 // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactData.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"             
                     ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
@@ -401,7 +407,7 @@ namespace Semesterprojekt
             if (checkFieldTag)
             {
                 // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactData.SaveContactData(typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"              
                     ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");

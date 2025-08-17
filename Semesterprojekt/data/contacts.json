@@ -1,21 +1,21 @@
 [
   {
-    "ContactStatus": "active",
+    "ContactStatus": "inactive",
     "ContactNumber": "MA0002",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {
-      "Title": "Dr.",
-      "Salutation": "Frau",
-      "FirstName": "Jael Iris",
+      "Title": "",
+      "Salutation": "Herr",
+      "FirstName": "Samuel",
       "LastName": "Koller",
-      "Birthday": "01.07.1989",
-      "Gender": "weiblich",
-      "Address": "Heimstrasse 4",
-      "PostalCode": "9014",
-      "City": "St. Gallen",
-      "BusinessNumber": "071 123 45 67",
-      "MobileNumber": "076 123 45 67",
-      "Email": "jaelkoller@testmail.ch",
+      "Birthday": "29.04.1987",
+      "Gender": "m\u00E4nnlich",
+      "Address": "Erdinos 5",
+      "PostalCode": "7315",
+      "City": "V\u00E4ttis",
+      "BusinessNumber": "071 111 22 33",
+      "MobileNumber": "079 888 77 66",
+      "Email": "test@testmail.ch",
       "EmployeeNumber": "MA0002",
       "AHVNumber": "756.8800.5641.37",
       "Nationality": "CH",
@@ -81,7 +81,7 @@
     }
   },
   {
-    "ContactStatus": "active",
+    "ContactStatus": "inactive",
     "ContactNumber": "KD0003",
     "TypeOfContact": "Kunde",
     "Fields": {

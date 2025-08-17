@@ -33,10 +33,14 @@ namespace Semesterprojekt
         private string tagOK = "true";
         private string tagNOK = "false";
 
+        // Initialisierung Speicherart "update" (Vorbereitung für Ablage in JSON)
+        string saveMode = "update";
+
         // Initialisierung mehrfach verwendeter Variablen
         private bool isEmployee;
         private bool isClient;
         private string contactNumber;
+        private string typeOfContact;
 
         // default-Text aus TextBoxen in Variabel speichern zur überprüfung
         private string defaultTitle;
@@ -53,6 +57,7 @@ namespace Semesterprojekt
             isEmployee = contactData.TypeOfContact == "Mitarbeiter";
             isClient = contactData.TypeOfContact == "Kunde";
             contactNumber = contactData.ContactNumber;
+            typeOfContact = contactData.TypeOfContact;
 
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
@@ -449,7 +454,14 @@ namespace Semesterprojekt
 
             if (checkFieldTag)
             {
-                UpdateGroupAndField(false);
+                // Ermittlung aktuellster Stand des Kontaktstatus
+                string contactStatus = RdbAnsichtKntktAktiv.Checked ? "active" : "inactive";
+
+                // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
+                if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContact, contactNumber, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                {
+                    UpdateGroupAndField(false);
+                }
             }
         }
 
