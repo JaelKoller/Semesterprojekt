@@ -13,10 +13,9 @@ namespace Semesterprojekt
 {
     internal class ContactDataSearch
     {
-        // Dateipfad für JSON "contacts" (Kontaktdaten-Listen)
-        private static readonly string fileName = "contacts.json";
-        private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        private static readonly string contactDataPath = Path.Combine(projectRoot, "data", fileName);
+        // Dateipfad für JSON "contacts" (Kontaktdaten-Liste)
+        private static readonly string fileName = "contacts";
+        private static readonly string contactDataPath = InitializationDataPathJson.DataPath(fileName);
 
         // Auslesen JSON für Ermittlung Kontaktdaten
         private static bool LoadData(out List<InitializationContactData> contactDataList)

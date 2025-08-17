@@ -30,7 +30,6 @@ namespace Semesterprojekt
             //testingAnsichtKontakt.TestData(true);
             //testingAnsichtKontakt.TestData(false);
 
-            //Application.Run(new AnsichtKontakt());
             //Application.Run(new Testing_ClientAndEmployeeNumber());
         }
     }

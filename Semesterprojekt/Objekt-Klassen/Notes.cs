@@ -13,10 +13,11 @@ namespace Semesterprojekt
 
     internal class Notes
     {
-        // Dateipfad für JSON "notes" (Notiz-Listen)
-        private static readonly string fileName = "notes.json";
-        private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        private static readonly string notePath = Path.Combine(projectRoot, "data", fileName);
+        // Dateipfad für JSON "notes" (Notizen-Liste)
+        private static readonly string fileName = "notes";
+        private static readonly string notePath = InitializationDataPathJson.DataPath(fileName);
+
+
 
         // Auslesen JSON für Ermittlung, Speicherung und Löschung Kontaktdaten
         private static bool LoadNoteData(out List<Notes> noteList)

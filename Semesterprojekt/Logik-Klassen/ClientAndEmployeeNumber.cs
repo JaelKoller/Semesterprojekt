@@ -12,10 +12,9 @@ namespace Semesterprojekt
 {
     internal class ClientAndEmployeeNumber
     {
-        // Dateipfad für JSON "clientAndEmployeeNumbers"
-        private static readonly string fileName = "clientAndEmployeeNumbers.json";
-        private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        private static readonly string clientAndEmployeeNumbersPath = Path.Combine(projectRoot, "data", fileName);
+        // Dateipfad für JSON "clientAndEmployeeNumbers" (Liste für Kunden/Mitarbeiter Nrn.)
+        private static readonly string fileName = "clientAndEmployeeNumbers";
+        private static readonly string clientAndEmployeeNumbersPath = InitializationDataPathJson.DataPath(fileName);
 
         // Initialisierung nächste Kunden-/Mitarbeiter Nr., d.h. immer letzte Nummer + 1
         private static string nextNumber;
@@ -26,7 +25,7 @@ namespace Semesterprojekt
             public List<string> EmployeeNumbers { get; set; } = new List<string>();
         }
 
-        // Auslesen JSON für Ermittlung, Speicherung und Löschung Kunden-/Mitarbeiter Nr.
+        // Auslesen JSON für Ermittlung, Speicherung und Löschung Kunden/Mitarbeiter Nr.
         private static bool LoadData(out NumberData numberData)
         {
             try
@@ -54,7 +53,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Ermittlung nächste Kunden-/Mitarbeiter Nr.
+        // Ermittlung nächste Kunden/Mitarbeiter Nr.
         public static string GetNumberNext(bool isEmployee)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
@@ -68,7 +67,7 @@ namespace Semesterprojekt
             // Ermittlung letzte Kunden-/Mitarbeiter Nr.            
             string lastNumber = numberDataList.LastOrDefault();
 
-            // Parsen (dynamisch) der Kunden-/Mitarbeiter Nr. nach Präfix
+            // Parsen (dynamisch) der Kunden/Mitarbeiter Nr. nach Präfix
             int newNumber = 1;
             if (!string.IsNullOrEmpty(lastNumber) && int.TryParse(lastNumber.Substring(numberPrefix.Length), out int parsedNumber))
             {
@@ -81,15 +80,14 @@ namespace Semesterprojekt
             return nextNumber;
         }
 
-        // Speichervorgang aktuelle (nächste) Kunden-/Mitarbeiter Nr.
+        // Speichervorgang aktuelle (nächste) Kunden/Mitarbeiter Nr.
         public static void SaveNumberCurrent(bool isEmployee)
         {
-            // Abbruch bei fehlender aktuellen (nächster) Kunden-/Mitarbeiter Nr. ODER
-                        // Abbruch bei Fehler beim Laden der JSON-Datei
+            // Abbruch bei fehlender aktuellen (nächster) Kunden/Mitarbeiter Nr. ODER Abbruch bei Fehler beim Laden der JSON-Datei
             if (string.IsNullOrEmpty(nextNumber) || !LoadData(out var numberData))
                 return;
             
-            // Hinzufügen aktueller (nächster) Kunden-/Mitarbeiter Nr.
+            // Hinzufügen aktueller (nächster) Kunden/Mitarbeiter Nr.
             if (isEmployee)
             {
                 numberData.EmployeeNumbers.Add(nextNumber);
@@ -104,7 +102,7 @@ namespace Semesterprojekt
             SaveData(numberData);
         }
 
-        // Löschung aktuelle Kunden-/Mitarbeiter Nr.
+        // Löschung aktuelle Kunden/Mitarbeiter Nr.
         public static void DeleteNumber(string number)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
@@ -121,7 +119,7 @@ namespace Semesterprojekt
             SaveData(numberData);
         }
 
-        // Speicherung neue oder zu löschende Kunden-/Mitarbeiter Nr.
+        // Speicherung neue oder zu löschende Kunden/Mitarbeiter Nr.
         private static void SaveData(NumberData clientAndEmployeeNumbersData)
         {
             try
