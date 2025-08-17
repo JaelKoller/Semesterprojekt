@@ -25,7 +25,18 @@ namespace Semesterprojekt
         {
             // Initialisierung "KontaktErstellen" für Absprung via Buttons "Mitarbeiter hinzufügen" und "Kunde hinzufügen"
             var kontaktErstellenForm = new KontaktErstellen(typeOfContact);
-            kontaktErstellenForm.FormClosed += (s, arg) => this.Show();
+
+            // Stabilisierung für das Zurückkehren zum "Dashboard"
+            kontaktErstellenForm.FormClosed += (s, arg) =>
+            {
+                this.Show();
+                this.Activate();
+                this.PerformLayout();
+                this.Invalidate(true);
+                this.Update();
+                this.Refresh();
+            };
+
             kontaktErstellenForm.Show();
             this.Hide();
         }

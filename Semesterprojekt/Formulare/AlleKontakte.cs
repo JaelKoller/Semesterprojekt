@@ -33,7 +33,7 @@ namespace Semesterprojekt
         public AlleKontakte()
         {
             InitializeComponent();
-            this.Size = new Size(450, 640);
+            this.Size = new Size(450, 685);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -60,16 +60,17 @@ namespace Semesterprojekt
             // Zählerstart (Index) für Labels und Eingabefelder bei 1
             PlacementLabelAndField(groupLabel, groupField, tabIndexCounter);
 
-            // Platzierung Buttons "Suchen" und "zurück zu Dashboard"
+            // Platzierung Buttons "Suchen", "Suche zurücksetzen" und "zurück zu Dashboard"
             BtnAllKntktSuchen.Size = new Size(340, 30);
             BtnAllKntktSuchen.Location = new Point(50, 290);
+            BtnAllKntktSucheReset.Size = new Size(340, 30);
+            BtnAllKntktSucheReset.Location = new Point(50, 585);
             BtnAllKntktHome.Size = new Size(90, 50);
             BtnAllKntktHome.Location = new Point(320, 20);
 
-            // Platzierung Suchausgabe
+            // Platzierung Suchausgabe und Anzahl Treffer
             LbAllKntktSuchAusg.Size = new Size(340, 200);
             LbAllKntktSuchAusg.Location = new Point(50, 340);
-
             LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
             LblAllKntktAnzSuchAusg.Location = new Point(50, 550);
         }
@@ -192,7 +193,6 @@ namespace Semesterprojekt
                 $"{contacts.Fields["FirstName"]} {contacts.Fields["LastName"]}, {contacts.Fields["Birthday"]}, {contacts.Fields["City"]}").ToArray();
 
                 // Ausgabe der Trefferliste in ListBox
-                LbAllKntktSuchAusg.Items.Clear();
                 LbAllKntktSuchAusg.Items.AddRange(showContactSearchResult);
                 LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
                 
@@ -217,8 +217,23 @@ namespace Semesterprojekt
         // Öffnen des Kontakts mit allen Kontaktdaten (in AnsichtKontakt)
         private void OpenAnsichtKontakt(InitializationContactData contact)
         {
+            // Bereinigung der Trefferausgabe (Verhinderung Fehlanzeige bei Rückkehr)
+            CleanSearchResult();
+
+            // Initialisierung "AnsichtKontakt" für Absprung via Buttons "Suchen" und "Doppelklick in Trefferliste"
             var ansichtKontaktForm = new AnsichtKontakt(contact);
-            ansichtKontaktForm.FormClosed += (s, arg) => this.Show();
+
+            // Stabilisierung für das Zurückkehren zu "AlleKontakte"
+            ansichtKontaktForm.FormClosed += (s, arg) =>
+            {
+                this.Show();
+                this.Activate();
+                this.PerformLayout();
+                this.Invalidate(true);
+                this.Update();
+                this.Refresh();
+            };
+
             // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden
             ansichtKontaktForm.Show(this);
             this.Hide();
@@ -251,6 +266,41 @@ namespace Semesterprojekt
 
             TxtAllKntktBirthday.Focus();
             return false;
+        }
+
+        private void BtnAllKntktSucheReset_Click(object sender, EventArgs e)
+        {
+            CleanGroupField();
+            CleanSearchResult();
+
+            // Fokus auf erstes Feld (analog Start)
+            groupField.First(field => field.TabIndex == 1).Focus();
+        }
+
+        // Bereinigung der Eingabefelder
+        private void CleanGroupField()
+        {
+            foreach (Control field in groupField)
+            {
+                switch (field)
+                {
+                    case System.Windows.Forms.TextBox txtbxField:
+                        txtbxField.Clear();
+                        field.BackColor = backColorOK;
+                        break;
+                    case CheckBox chckbxField:
+                        chckbxField.Checked = false;
+                        break;
+                }
+            }
+        }
+
+        // Bereinigung der Trefferausgabe (Resultat der Suche)
+        private void CleanSearchResult()
+        {
+            LbAllKntktSuchAusg.Items.Clear();
+            LblAllKntktAnzSuchAusg.Text = "Anzahl Treffer: 0";
+            lastContactSearchResult = null;
         }
     }
 }
