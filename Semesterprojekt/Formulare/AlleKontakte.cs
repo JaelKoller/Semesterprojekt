@@ -46,6 +46,9 @@ namespace Semesterprojekt
             Design();
             InitializationLabelToolTip();
 
+            // Initialisierung (Registrierung) Enter für Suche (analog Button)
+            this.AcceptButton = BtnAllKntktSuchen;
+
             // Initialisierung (Registrierung) Doppelklick auf Listeneintrag
             LbAllKntktSuchAusg.DoubleClick += LbAllKntktSuchAusg_DoubleClick;
         }
