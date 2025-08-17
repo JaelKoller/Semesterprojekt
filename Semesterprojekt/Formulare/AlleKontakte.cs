@@ -58,30 +58,36 @@ namespace Semesterprojekt
 
             // Platzierung Labels und Eingabefelder
             // Zählerstart (Index) für Labels und Eingabefelder bei 1
-            PlacementLabelAndField(groupLabel, groupField, tabIndexCounter);
+            PlacementLabelAndField(groupLabel, groupField, ref tabIndexCounter);
 
             // Platzierung Buttons "Suchen", "Suche zurücksetzen" und "zurück zu Dashboard"
+            // Zählerstart (Index) für Buttons fortführend
             BtnAllKntktSuchen.Size = new Size(340, 30);
             BtnAllKntktSuchen.Location = new Point(50, 290);
+            BtnAllKntktSuchen.TabIndex = tabIndexCounter++;
             BtnAllKntktSucheReset.Size = new Size(340, 30);
             BtnAllKntktSucheReset.Location = new Point(50, 585);
+            BtnAllKntktSucheReset.TabIndex = tabIndexCounter++;
             BtnAllKntktHome.Size = new Size(90, 50);
             BtnAllKntktHome.Location = new Point(320, 20);
+            BtnAllKntktHome.TabIndex = tabIndexCounter++;
 
             // Platzierung Suchausgabe und Anzahl Treffer
+            // Zählerstart (Index) für restliche Labels mit 0
             LbAllKntktSuchAusg.Size = new Size(340, 200);
             LbAllKntktSuchAusg.Location = new Point(50, 340);
+            LbAllKntktSuchAusg.TabStop = false;
             LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
             LblAllKntktAnzSuchAusg.Location = new Point(50, 550);
+            LblAllKntktAnzSuchAusg.TabStop = false;
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
-        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, int indexCounter)
+        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
         {
             int startLocation = 100;
             int labelXAchse = 50;
             int controlXAchse = 200;
-            int tabIndexCounter = indexCounter;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -90,8 +96,8 @@ namespace Semesterprojekt
 
                 startLocation += 30;
 
-                // Label irrelevant für Tab und daher fix mit 0
-                groupLabel[i].TabIndex = 0;
+                // Label irrelevant für Tab und daher mit TabStop "false"
+                groupLabel[i].TabStop = false;
                 // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
                 groupField[i].TabIndex = tabIndexCounter++;
             }
@@ -232,6 +238,9 @@ namespace Semesterprojekt
                 this.Invalidate(true);
                 this.Update();
                 this.Refresh();
+
+                // Fokus auf erstes Feld (analog Start)
+                this.BeginInvoke((Action)(() => groupField.First(field => field.TabIndex == 1).Focus()));
             };
 
             // Mitgabe "this" als Owner für "AnsichtKontakt", damit beide Fenster bei "zurück zum Dashboard" geschlossen werden

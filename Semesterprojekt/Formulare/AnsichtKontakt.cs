@@ -94,18 +94,18 @@ namespace Semesterprojekt
             GrpBxDatenAlle.Location = new Point(10, 55);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
+            // Zählerstart (Index) Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
-            tabIndexCounter = PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
+            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
             // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
             GrpBxDatenMA.Size = new Size(410, 390);
             GrpBxDatenMA.Location = new Point(10, 450);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
+            // Zählerstart (Index) Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
+            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
             GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
@@ -124,16 +124,16 @@ namespace Semesterprojekt
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
             // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
-            PlacementFieldNote(groupFieldNotes, tabIndexCounter);
+            PlacementFieldNote(groupFieldNotes, ref tabIndexCounter);
 
             // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard"
-            PlacementButton(groupButtons, tabIndexCounter);
+            // Zählerstart (Index) für Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard" fortführend
+            PlacementButton(groupButtons, ref tabIndexCounter);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
-        private int PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, int indexCounter)
+        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
         {
-            int tabIndexCounter = indexCounter;
             int startLocation = 20;
             int labelXAchse = 10;
             int controlXAchse = 150;
@@ -145,22 +145,19 @@ namespace Semesterprojekt
 
                 startLocation += 30;
 
-                // Label irrelevant für Tab und daher fix mit 0
-                groupLabel[i].TabIndex = 0;
+                // Label irrelevant für Tab und daher mit TabStop "false"
+                groupLabel[i].TabStop = false;
                 // Eingabefeld relevant für Tab und daher durchnummeriert
                 groupField[i].TabIndex = tabIndexCounter++;
 
                 // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
                 groupField[i].Tag = tagOK;
             }
-
-            return tabIndexCounter;
         }
 
         // Platzierung Notiz-Felder (fix)
-        private int PlacementFieldNote(Control[] groupField, int indexCounter)
+        private void PlacementFieldNote(Control[] groupField, ref int indexCounter)
         {
-            int tabIndexCounter = indexCounter;
             int width = 380;
             int height = 250;
             int locationX = 15;
@@ -182,14 +179,11 @@ namespace Semesterprojekt
             DateAnsichtKntktDateProtokol.Location = new Point(locationX, height = height + 160);
             CmdAnsichtKntktSaveProtokol.Size = new Size(width, 30);
             CmdAnsichtKntktSaveProtokol.Location = new Point(locationX, height + 30);
-
-            return tabIndexCounter;
         }
 
         // Platzierung Buttons (fix)
-        private int PlacementButton(Control[] groupField, int indexCounter)
+        private void PlacementButton(Control[] groupField, ref int indexCounter)
         {
-            int tabIndexCounter = indexCounter;
             int width = 150;
             int height = 60;
             int locationX = 480;
@@ -207,9 +201,6 @@ namespace Semesterprojekt
             CmdAnsichtKntktDeletAll.Location = new Point(locationX + width + 10, locationY);
             CmdAnsichtKntktSaveAll.Location = new Point(locationX, locationY + height + 10);
             CmdAnsichtKntktDashboard.Location = new Point(locationX + width + 10, locationY + height + 10);
-
-
-            return tabIndexCounter;
         }
 
         // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
@@ -444,6 +435,9 @@ namespace Semesterprojekt
         private void CmdAnsichtKntktEdit_Click(object sender, EventArgs e)
         {
             UpdateGroupAndField(true);
+
+            // Fokus auf erstes Feld (bei "Bearbeiten")
+            this.BeginInvoke((Action)(() => groupFieldEmployeesAndCustomers.First(field => field.TabIndex == 1).Focus()));
         }
 
         private void CmdAnsichtKntktSaveAll_Click(object sender, EventArgs e)

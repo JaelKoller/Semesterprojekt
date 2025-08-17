@@ -99,12 +99,12 @@ namespace Semesterprojekt
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, tabIndexCounter);
+            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
             // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
             // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, tabIndexCounter);
+            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
             CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
@@ -114,12 +114,11 @@ namespace Semesterprojekt
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
-        private int PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, int indexCounter)
+        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
         {
             int startLocation = 20;
             int labelXAchse = 10;
             int controlXAchse = 150;
-            int tabIndexCounter = indexCounter;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -129,16 +128,14 @@ namespace Semesterprojekt
 
                 startLocation += 30;
 
-                // Label irrelevant für Tab und daher fix mit 0
-                groupLabel[i].TabIndex = 0;
+                // Label irrelevant für Tab und daher mit TabStop "false"
+                groupLabel[i].TabStop = false;
                 // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
                 groupField[i].TabIndex = tabIndexCounter++;
 
                 // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
                 groupField[i].Tag = tagOK;
             }
-
-            return tabIndexCounter;
         }
 
         // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
