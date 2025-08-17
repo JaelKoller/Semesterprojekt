@@ -46,6 +46,9 @@ namespace Semesterprojekt
             Design();
             InitializationLabelToolTip();
 
+            // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button)
+            this.CancelButton = BtnAllKntktHome;
+
             // Initialisierung (Registrierung) Enter für Suche (analog Button)
             this.AcceptButton = BtnAllKntktSuchen;
 

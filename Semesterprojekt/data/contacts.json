@@ -50,7 +50,7 @@
     }
   },
   {
-    "ContactStatus": "inactive",
+    "ContactStatus": "active",
     "ContactNumber": "MA0003",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {
@@ -132,25 +132,6 @@
   },
   {
     "ContactStatus": "active",
-    "ContactNumber": "KD0004",
-    "TypeOfContact": "Kunde",
-    "Fields": {
-      "Title": "Dr.",
-      "Salutation": "Frau",
-      "FirstName": "Jael-Iris",
-      "LastName": "Koller M\u00FCller",
-      "Birthday": "01.07.1989",
-      "Gender": "weiblich",
-      "Address": "Heimstrasse 4",
-      "PostalCode": "9014",
-      "City": "St. Gallen",
-      "BusinessNumber": "071 123 45 67",
-      "MobileNumber": "076 123 45 67",
-      "Email": "jaelkoller@testmail.ch"
-    }
-  },
-  {
-    "ContactStatus": "active",
     "ContactNumber": "MA0005",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {
@@ -227,6 +208,56 @@
       "CurrentAcademicYear": "0",
       "OfficeNumber": "123",
       "DateOfEntry": "01.08.2005",
+      "DateOfExit": ""
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD0006",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "Title": "",
+      "Salutation": "Herr",
+      "FirstName": "Fridolin",
+      "LastName": "Meier",
+      "Birthday": "05.05.1993",
+      "Gender": "m\u00E4nnlich",
+      "Address": "Steigstrasse 7",
+      "PostalCode": "9200",
+      "City": "Gossau",
+      "BusinessNumber": "",
+      "MobileNumber": "079 637 28 48",
+      "Email": "fm@bluewin.ch"
+    }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "MA0007",
+    "TypeOfContact": "Mitarbeiter",
+    "Fields": {
+      "Title": "",
+      "Salutation": "Herr",
+      "FirstName": "Silas",
+      "LastName": "Hofstetter",
+      "Birthday": "14.10.1990",
+      "Gender": "m\u00E4nnlich",
+      "Address": "H\u00FCseren 373",
+      "PostalCode": "9523",
+      "City": "Z\u00FCberwangen",
+      "BusinessNumber": "071 368 74 74",
+      "MobileNumber": "078 999 73 47",
+      "Email": "silash@bluewin.ch",
+      "EmployeeNumber": "MA0007",
+      "AHVNumber": "756.3270.6130.33",
+      "Nationality": "CH",
+      "ManagementLevel": "",
+      "LevelOfEmployment": "90",
+      "Department": "Schulamt",
+      "Role": "Lehrer",
+      "AcademicYear": "0",
+      "CurrentAcademicYear": "0",
+      "OfficeNumber": "43",
+      "DateOfEntry": "01.09.2019",
       "DateOfExit": ""
     }
   }
