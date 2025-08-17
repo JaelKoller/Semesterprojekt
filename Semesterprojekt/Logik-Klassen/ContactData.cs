@@ -115,7 +115,7 @@ namespace Semesterprojekt
         private static string GetControlValue(Control field)
         {
             if (field is System.Windows.Forms.TextBox txtbxField)
-                return txtbxField.Text;
+                return txtbxField.Text.Trim();
 
             if (field is System.Windows.Forms.ComboBox cmbxField)
                 return cmbxField.Text;

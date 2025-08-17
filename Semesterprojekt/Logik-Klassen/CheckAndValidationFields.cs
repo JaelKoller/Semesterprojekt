@@ -171,7 +171,7 @@ namespace Semesterprojekt
         // Prüfung Format auf 4 bis 5 Zahlen (Standard für Schweiz und umliegende Länder)
         private void CheckPLZNumber(TextBox plz)
         {
-            if (Regex.IsMatch(plz.Text, @"^\d{4,5}$"))
+            if (Regex.IsMatch(plz.Text.Trim(), @"^\d{4,5}$"))
             {
                 plz.BackColor = backColorOK;
                 plz.Tag = tagOK;
@@ -181,7 +181,7 @@ namespace Semesterprojekt
             {
                 plz.BackColor = backColorNOK;
                 plz.Tag = tagNOK;
-                ShowMessageBox($"PLZ '{plz.Text}' ist ungültig");
+                ShowMessageBox($"PLZ '{plz.Text.Trim()}' ist ungültig");
                 plz.Focus();
             }
         }
@@ -189,7 +189,7 @@ namespace Semesterprojekt
         // Prüfung Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
         private void CheckEMail(TextBox email)
         {
-            if (Regex.IsMatch(email.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (Regex.IsMatch(email.Text.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 email.BackColor = backColorOK;
                 email.Tag = tagOK;
@@ -199,7 +199,7 @@ namespace Semesterprojekt
             {
                 email.BackColor = backColorNOK;
                 email.Tag = tagNOK;
-                ShowMessageBox($"E-Mail '{email.Text}' ist ungültig");
+                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig");
                 email.Focus();
             }
         }
@@ -207,18 +207,18 @@ namespace Semesterprojekt
         // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
         private void CheckAHVNumber(TextBox ahvNumber, TextBox nationality, bool isClient)
         {
-            if (isClient || string.IsNullOrWhiteSpace(nationality.Text) || nationality.Text.ToUpper() != "CH")
+            if (isClient || string.IsNullOrWhiteSpace(nationality.Text.Trim()) || nationality.Text.Trim().ToUpper() != "CH")
             {
                 ahvNumber.BackColor = backColorOK;
                 ahvNumber.Tag = tagOK;
                 return;
             }
 
-            if (!ValidationAHVNumber(ahvNumber.Text))
+            if (!ValidationAHVNumber(ahvNumber.Text.Trim()))
             {
                 ahvNumber.BackColor = backColorNOK;
                 ahvNumber.Tag = tagNOK;
-                ShowMessageBox($"AHV-Nummer '{ahvNumber.Text}' ist ungültig");
+                ShowMessageBox($"AHV-Nummer '{ahvNumber.Text.Trim()}' ist ungültig");
                 ahvNumber.Focus();
 
             }
@@ -236,11 +236,11 @@ namespace Semesterprojekt
             // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
             string pattern = @"^756\.\d{4}\.\d{4}\.\d{2}$";
 
-            if (!Regex.IsMatch(ahvNumber, pattern))
+            if (!Regex.IsMatch(ahvNumber.Trim(), pattern))
                 return false;
 
             // Entfernung Punkte
-            string ahvNumberNoPoints = ahvNumber.Replace(".", "");
+            string ahvNumberNoPoints = ahvNumber.Replace(".", "").Trim();
 
             // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
             int total = 0;

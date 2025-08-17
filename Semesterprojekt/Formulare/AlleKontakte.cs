@@ -181,9 +181,9 @@ namespace Semesterprojekt
         {
             return groupSearch = new Dictionary<string, object>
             {
-                { "FirstName", TxtAllKntktVorname.Text },
-                { "LastName", TxtAllKntktName.Text },
-                { "Birthday", TxtAllKntktBirthday.Text },
+                { "FirstName", TxtAllKntktVorname.Text.Trim() },
+                { "LastName", TxtAllKntktName.Text.Trim() },
+                { "Birthday", TxtAllKntktBirthday.Text.Trim() },
                 { "CheckEmployee", ChkBAllKntktMa.Checked },
                 { "CheckClient", ChkBAllKntktKunde.Checked },
                 { "CheckInactive", ChkBAllKntktInaktiv.Checked }
