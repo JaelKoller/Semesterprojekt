@@ -141,7 +141,7 @@ namespace Semesterprojekt
         // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
-            groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
+            return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
             {
                 LblCreatKntktTitel,
                 LblCreatKntktAnrede,
@@ -156,14 +156,12 @@ namespace Semesterprojekt
                 LblCreatKntktTelMobile,
                 LblCreatKntktEmail
             };
-
-            return groupLabelEmployeesAndCustomers;
         }
 
         // Erstellung Array für Labels der Gruppe Mitarbeiter (ohne Kunde)
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
-            groupLabelEmployees = new System.Windows.Forms.Label[]
+            return groupLabelEmployees = new System.Windows.Forms.Label[]
             {
                 LblCreatKntktMaMaNr,
                 LblCreatKntktMaAHVNr,
@@ -178,14 +176,12 @@ namespace Semesterprojekt
                 LblCreatKntktEintrDatum,
                 LblCreatKntktAustrDatum
             };
-
-            return groupLabelEmployees;
         }
 
         // Erstellung Array für Labels für ToolTip
         private System.Windows.Forms.Label[] GroupLabelToolTip()
         {
-            groupLabelToolTip = new System.Windows.Forms.Label[]
+            return groupLabelToolTip = new System.Windows.Forms.Label[]
             {
                 LblCreatKntktTitel,
                 LblCreatKntktBirthday,
@@ -199,14 +195,12 @@ namespace Semesterprojekt
                 LblCreatKntktEintrDatum,
                 LblCreatKntktAustrDatum
             };
-
-            return groupLabelToolTip;
         }
 
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
-            groupFieldEmployeesAndCustomers = new Control[]
+            return groupFieldEmployeesAndCustomers = new Control[]
             {
                 TxtCreatKntktTitel,
                 CmBxCreatKntktAnrede,
@@ -221,14 +215,12 @@ namespace Semesterprojekt
                 TxtCreatKntktTelMobile,
                 TxtCreatKntktEmail
             };
-            
-            return groupFieldEmployeesAndCustomers;
         }
 
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
         private Control[] GroupFieldEmployees()
         {
-            groupFieldEmployees = new Control[]
+            return groupFieldEmployees = new Control[]
             {
                 TxtCreatKntktMaManr,
                 TxtCreatKntktMaAHVNr,
@@ -243,14 +235,12 @@ namespace Semesterprojekt
                 TxtCreatKntktEintrDatum,
                 TxtCreatKntktAustrDatum
             };
-
-            return groupFieldEmployees;
         }
 
         // Erstellung Array für KEINE-Pflichtfelder-Prüfung
         private Control[] CheckFieldIgnore()
         {
-            checkFieldIgnore = new Control[]
+            return checkFieldIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
                 // bei Mitarbeitern bleibt das Feld "Pflicht"
@@ -265,8 +255,6 @@ namespace Semesterprojekt
                 // bei enthaltenem Wert wird das Feld validiert
                 (string.IsNullOrWhiteSpace(TxtCreatKntktAustrDatum.Text) ? TxtCreatKntktAustrDatum: null),
             };
-
-            return checkFieldIgnore;
         }
 
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
@@ -368,16 +356,20 @@ namespace Semesterprojekt
             TxtCreatKntktTelGeschaeft.Tag = tagOK;
         }
 
+        // Wechsel von Mitarbeiter zu Kunde (und umgekehrt)
         private void RdbCreatKntktMa_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTypeOfContact();
         }
 
+        // Wechsel von Mitarbeiter zu Kunde (und umgekehrt)
         private void RdbCreatKntktKunde_CheckedChanged(object sender, EventArgs e)
         {
             UpdateTypeOfContact();
         }
 
+
+        // Klick Button "Speichern und neuer Kontakt erstellen"
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
             var checkAndValidation = new CheckAndValidationFields();
@@ -404,6 +396,7 @@ namespace Semesterprojekt
             }
         }
 
+        // Klick Button "Speichern und zurück zum Dashboard"
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
             var checkAndValidation = new CheckAndValidationFields();

@@ -206,7 +206,7 @@ namespace Semesterprojekt
         // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
-            groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
+            return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
             {
                 LblAnsichtKntktTitel,
                 LblAnsichtKntktAnrede,
@@ -221,14 +221,12 @@ namespace Semesterprojekt
                 LblAnsichtKntktTelMobile,
                 LblAnsichtKntktEmail
             };
-
-            return groupLabelEmployeesAndCustomers;
         }
 
         // Erstellung Array für Labels der Gruppe Mitarbeiter (ohne Kunde)
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
-            groupLabelEmployees = new System.Windows.Forms.Label[]
+            return groupLabelEmployees = new System.Windows.Forms.Label[]
             {
                 LblAnsichtKntktMaManr,
                 LblAnsichtKntktMaAHVNr,
@@ -243,14 +241,12 @@ namespace Semesterprojekt
                 LblAnsichtKntktEintrDatum,
                 LblAnsichtKntktAustrDatum
             };
-
-            return groupLabelEmployees;
         }
 
         // Erstellung Array für Labels für ToolTip
         private System.Windows.Forms.Label[] GroupLabelToolTip()
         {
-            groupLabelToolTip = new System.Windows.Forms.Label[]
+            return groupLabelToolTip = new System.Windows.Forms.Label[]
             {
                 LblAnsichtKntktTitel,
                 LblAnsichtKntktBirthday,
@@ -264,14 +260,12 @@ namespace Semesterprojekt
                 LblAnsichtKntktEintrDatum,
                 LblAnsichtKntktAustrDatum
             };
-
-            return groupLabelToolTip;
         }
 
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
         private Control[] GroupFieldEmployeesAndCustomers()
         {
-            groupFieldEmployeesAndCustomers = new Control[]
+            return groupFieldEmployeesAndCustomers = new Control[]
             {
                 TxtAnsichtKntktTitel,
                 CmBxAnsichtKntktAnrede,
@@ -286,14 +280,12 @@ namespace Semesterprojekt
                 TxtAnsichtKntktTelMobile,
                 TxtAnsichtKntktEmail
             };
-
-            return groupFieldEmployeesAndCustomers;
         }
 
         // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
         private Control[] GroupFieldEmployees()
         {
-            groupFieldEmployees = new Control[]
+            return groupFieldEmployees = new Control[]
             {
                 TxtAnsichtKntktMaManr,
                 TxtAnsichtKntktMaAHVNr,
@@ -308,14 +300,12 @@ namespace Semesterprojekt
                 TxtAnsichtKntktEintrDatum,
                 TxtAnsichtKntktAustrDatum
             };
-
-            return groupFieldEmployees;
         }
 
         // Erstellung Array für Notiz-Felder
         private Control[] GroupFieldNotes()
         {
-            groupFieldNotes = new Control[]
+            return groupFieldNotes = new Control[]
             {
                 LbAnsichtKntktProtokolAusg,
                 TxtAnsichtKntktProtokolTitel,
@@ -323,28 +313,24 @@ namespace Semesterprojekt
                 DateAnsichtKntktDateProtokol,
                 CmdAnsichtKntktSaveProtokol,
             };
-
-            return groupFieldNotes;
         }
 
         // Erstellung Array für Buttons
         private Control[] GroupButtons()
         {
-            groupButtons = new Control[]
+            return groupButtons = new Control[]
             {
                 CmdAnsichtKntktEdit,
                 CmdAnsichtKntktDeletAll,
                 CmdAnsichtKntktSaveAll,
                 CmdAnsichtKntktDashboard,
             };
-
-            return groupButtons;
         }
 
         // Erstellung Array für KEINE-Pflichtfelder-Prüfung
         private Control[] CheckFieldIgnore()
         {
-            checkFieldIgnore = new Control[]
+            return checkFieldIgnore = new Control[]
             {
                 TxtAnsichtKntktTitel,
                 // bei Mitarbeitern bleibt das Feld "Pflicht"
@@ -356,8 +342,6 @@ namespace Semesterprojekt
                 NumAnsichtKntktMaAktLehrj,
                 (string.IsNullOrWhiteSpace(TxtAnsichtKntktAustrDatum.Text) ? TxtAnsichtKntktAustrDatum: null)
             };
-
-            return checkFieldIgnore;
         }
 
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
@@ -429,6 +413,7 @@ namespace Semesterprojekt
             UpdateGroupAndField(false);
         }
 
+        // Aktualisierung Anzeige bezüglich mutierbar vs. gesperrt
         private void UpdateGroupAndField(bool mutable)
         {
             GrpBxDatenAlle.Enabled = mutable;
@@ -438,6 +423,7 @@ namespace Semesterprojekt
             CmdAnsichtKntktSaveAll.Enabled = mutable;
         }
 
+        // Klick Button "Bearbeiten"
         private void CmdAnsichtKntktEdit_Click(object sender, EventArgs e)
         {
             UpdateGroupAndField(true);
@@ -446,6 +432,7 @@ namespace Semesterprojekt
             this.BeginInvoke((Action)(() => groupFieldEmployeesAndCustomers.First(field => field.TabIndex == 1).Focus()));
         }
 
+        // Klick Button "Speichern"
         private void CmdAnsichtKntktSaveAll_Click(object sender, EventArgs e)
         {
             var validator = new CheckAndValidationFields();
@@ -521,6 +508,7 @@ namespace Semesterprojekt
             };
         }
 
+        // Klick Button "Löschen"
         private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
         {
             string message = "Möchtest du den Kontakt unwiderruflich löschen?";
@@ -538,6 +526,7 @@ namespace Semesterprojekt
             }
         }
 
+        // Klick Button "Zurück zum Dashboard"
         private void CmdAnsichtKntktDashboard_Click(object sender, EventArgs e)
         {
             if (GrpBxDatenAlle.Enabled)
@@ -654,7 +643,6 @@ namespace Semesterprojekt
                 return;
             }
         }
-
 
         // Notizen in MessageBox anzeigen
         private void LbAnsichtKntktProtokolAusg_DoubleClick(object sender, EventArgs e)

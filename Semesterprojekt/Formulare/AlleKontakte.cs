@@ -112,7 +112,7 @@ namespace Semesterprojekt
         // Erstellung Array für Labels
         private System.Windows.Forms.Label[] GroupLabel()
         {
-            groupLabel = new System.Windows.Forms.Label[]
+            return groupLabel = new System.Windows.Forms.Label[]
             {
                 LblAllKntktVorname,
                 LblAllKntktName,
@@ -121,28 +121,24 @@ namespace Semesterprojekt
                 LblAllKntktKunde,
                 LblAllKntktInaktiv
             };
-
-            return groupLabel;
         }
 
         // Erstellung Array für Labels für ToolTip
         private System.Windows.Forms.Label[] GroupLabelToolTip()
         {
-            groupLabelToolTip = new System.Windows.Forms.Label[]
+            return groupLabelToolTip = new System.Windows.Forms.Label[]
             {
                 LblAllKntktBirthday,
                 LblAllKntktMa,
                 LblAllKntktKunde,
                 LblAllKntktInaktiv
             };
-
-            return groupLabelToolTip;
         }
 
         // Erstellung Array für Eingabefelder
         private Control[] GroupField()
         {
-            groupField = new Control[]
+            return groupField = new Control[]
             {
                 TxtAllKntktVorname,
                 TxtAllKntktName,
@@ -151,8 +147,6 @@ namespace Semesterprojekt
                 ChkBAllKntktKunde,
                 ChkBAllKntktInaktiv
             };
-
-            return groupField;
         }
 
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
@@ -190,6 +184,7 @@ namespace Semesterprojekt
             };
         }
 
+        // Klick Button "Suchen"
         private void BtnAllKntktSuchen_Click(object sender, EventArgs e)
         {
             bool checkDateOfBirth = CheckDateOfBirth();
@@ -254,6 +249,7 @@ namespace Semesterprojekt
             this.Hide();
         }
 
+        // Klick Button "Zurück zum Dashboard"
         private void BtnAllKntktHome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -283,6 +279,7 @@ namespace Semesterprojekt
             return false;
         }
 
+        // Klick Button "Suche zurücksetzen"
         private void BtnAllKntktSucheReset_Click(object sender, EventArgs e)
         {
             CleanGroupField();
