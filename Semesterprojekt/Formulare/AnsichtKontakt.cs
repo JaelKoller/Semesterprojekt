@@ -507,6 +507,8 @@ namespace Semesterprojekt
                 Birthday = TxtAnsichtKntktBirthday,
                 Gender = CmBxAnsichtKntktGeschlecht,
                 PostalCode = TxtAnsichtKntktPLZ,
+                BusinessNumber = TxtAnsichtKntktTelGeschaeft,
+                MobileNumber = TxtAnsichtKntktTelMobile,
                 Email = TxtAnsichtKntktEmail,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,

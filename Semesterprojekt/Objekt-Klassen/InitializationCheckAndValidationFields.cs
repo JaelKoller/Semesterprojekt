@@ -18,6 +18,8 @@ namespace Semesterprojekt
         public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }
         public TextBox PostalCode { get; set; }
+        public TextBox BusinessNumber { get; set; }
+        public TextBox MobileNumber { get; set; }
         public TextBox Email { get; set; }
         public TextBox AHVNumber { get; set; }
         public TextBox Nationality { get; set; }

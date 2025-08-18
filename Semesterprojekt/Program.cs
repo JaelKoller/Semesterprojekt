@@ -20,8 +20,14 @@ namespace Semesterprojekt
             Application.Run(new Dashboard());
 
             //var testingKontaktErstellen = new Testing_KontaktErstellen();
-            //testingKontaktErstellen.TestData("mitarbeiter");
-            //testingKontaktErstellen.TestData("kunde");
+            //testingKontaktErstellen.TestData("mitarbeiter", "daisy");
+            //testingKontaktErstellen.TestData("kunde", "daisy");
+            //testingKontaktErstellen.TestData("mitarbeiter", "donald");
+            //testingKontaktErstellen.TestData("kunde", "donald");
+            //testingKontaktErstellen.TestData("mitarbeiter", "olga");
+            //testingKontaktErstellen.TestData("kunde", "olga");
+            //testingKontaktErstellen.TestData("mitarbeiter", "error");
+            //testingKontaktErstellen.TestData("kunde", "error");
 
             //var testingAlleKontakte = new Testing_AlleKontakte();
             //testingAlleKontakte.TestData();

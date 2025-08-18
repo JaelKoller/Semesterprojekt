@@ -71,7 +71,7 @@ namespace Semesterprojekt
                 return;
             }
 
-            if (field is NumericUpDown numField && (numField.Value == numField.Minimum || numField.Value == numField.Maximum))
+            if (field is NumericUpDown numField && (numField.Value == numField.Minimum))
             {
                 numField.BackColor = backColorNOK;
                 numField.Tag = tagNOK;
@@ -121,6 +121,18 @@ namespace Semesterprojekt
             if (content.PostalCode.Tag == tagNOK)
                 return;
 
+            if (content.IsEmployee || !string.IsNullOrWhiteSpace(content.BusinessNumber.Text))
+            {
+                CheckPhone(content.BusinessNumber, "Geschäft Nr.");
+                if (content.BusinessNumber.Tag == tagNOK)
+                    return;
+            }
+
+            CheckPhone(content.MobileNumber, "Mobile Nr.");
+            if (content.MobileNumber.Tag == tagNOK)
+                return;
+
+
             CheckEMail(content.Email);
             if (content.Email.Tag == tagNOK)
                 return;
@@ -141,7 +153,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Prüfung Format auf TT.MM.JJJJ
+        // Prüfung Datum-Format auf TT.MM.JJJJ
         private void CheckDateField(TextBox content, string labelName, bool textRequired)
         {
             string errorMessage = string.Empty;
@@ -168,7 +180,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Prüfung Format auf 4 bis 5 Zahlen (Standard für Schweiz und umliegende Länder)
+        // Prüfung PLZ-Format auf 4 bis 5 Ziffern (Standard für Schweiz und umliegende Länder)
         private void CheckPLZNumber(TextBox plz)
         {
             if (Regex.IsMatch(plz.Text.Trim(), @"^\d{4,5}$"))
@@ -181,12 +193,33 @@ namespace Semesterprojekt
             {
                 plz.BackColor = backColorNOK;
                 plz.Tag = tagNOK;
-                ShowMessageBox($"PLZ '{plz.Text.Trim()}' ist ungültig");
+                ShowMessageBox($"PLZ '{plz.Text.Trim()}' ist ungültig\r\n(4-5 Ziffern nötig)");
                 plz.Focus();
             }
         }
 
-        // Prüfung Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
+        // Prüfung Telefon-Format auf + mit 6 bis 15 Ziffern (Standard für Schweiz und umliegende Länder)
+        private void CheckPhone(TextBox phone, string typeOfPhone)
+        {            
+            // Entfernung Sonderzeichen (exkl. + und Ziffern)
+            string phoneNumberNo = Regex.Replace(phone.Text, @"[^\d+]", "");
+
+            if (Regex.IsMatch(phoneNumberNo, @"^\+\d{6,15}$"))
+            {
+                phone.BackColor = backColorOK;
+                phone.Tag = tagOK;
+            }
+
+            else
+            {
+                phone.BackColor = backColorNOK;
+                phone.Tag = tagNOK;
+                ShowMessageBox($"{typeOfPhone} '{phone.Text.Trim()}' ist ungültig\r\n\r\nz.B. +41 79 123 44 55");
+                phone.Focus();
+            }
+        }
+        
+        // Prüfung E-Mail-Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
         private void CheckEMail(TextBox email)
         {
             if (Regex.IsMatch(email.Text.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
@@ -199,7 +232,7 @@ namespace Semesterprojekt
             {
                 email.BackColor = backColorNOK;
                 email.Tag = tagNOK;
-                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig");
+                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig\r\n\r\nz.B. Test@Testmail.ch");
                 email.Focus();
             }
         }

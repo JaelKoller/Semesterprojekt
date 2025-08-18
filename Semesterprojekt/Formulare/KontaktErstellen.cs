@@ -357,6 +357,11 @@ namespace Semesterprojekt
                 field.BackColor = backColorOK;
                 field.Tag = tagOK;
             }
+
+            // Bereinigung (zusätzlich) Feld "Geschäft Nr." (bei Wechsel zu Kunde)
+            TxtCreatKntktTelGeschaeft.Clear();
+            TxtCreatKntktTelGeschaeft.BackColor = backColorOK;
+            TxtCreatKntktTelGeschaeft.Tag = tagOK;
         }
 
         private void RdbCreatKntktMa_CheckedChanged(object sender, EventArgs e)
@@ -459,6 +464,8 @@ namespace Semesterprojekt
                 Birthday = TxtCreatKntktBirthday,
                 Gender = CmBxCreatKntktGeschlecht,
                 PostalCode = TxtCreatKntktPLZ,
+                BusinessNumber = TxtCreatKntktTelGeschaeft,
+                MobileNumber = TxtCreatKntktTelMobile,
                 Email = TxtCreatKntktEmail,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,

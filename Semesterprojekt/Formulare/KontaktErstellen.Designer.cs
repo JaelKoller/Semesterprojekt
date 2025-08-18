@@ -113,7 +113,7 @@
             this.RdbCreatKntktKunde.Location = new System.Drawing.Point(137, 29);
             this.RdbCreatKntktKunde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RdbCreatKntktKunde.Name = "RdbCreatKntktKunde";
-            this.RdbCreatKntktKunde.Size = new System.Drawing.Size(69, 22);
+            this.RdbCreatKntktKunde.Size = new System.Drawing.Size(80, 26);
             this.RdbCreatKntktKunde.TabIndex = 2;
             this.RdbCreatKntktKunde.TabStop = true;
             this.RdbCreatKntktKunde.Text = "Kunde";
@@ -127,7 +127,7 @@
             this.RdbCreatKntktMa.Location = new System.Drawing.Point(7, 29);
             this.RdbCreatKntktMa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RdbCreatKntktMa.Name = "RdbCreatKntktMa";
-            this.RdbCreatKntktMa.Size = new System.Drawing.Size(100, 22);
+            this.RdbCreatKntktMa.Size = new System.Drawing.Size(118, 26);
             this.RdbCreatKntktMa.TabIndex = 1;
             this.RdbCreatKntktMa.TabStop = true;
             this.RdbCreatKntktMa.Text = "Mitarbeiter";
@@ -174,7 +174,7 @@
             this.TxtCreatKntktBirthday.Location = new System.Drawing.Point(152, 143);
             this.TxtCreatKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktBirthday.Name = "TxtCreatKntktBirthday";
-            this.TxtCreatKntktBirthday.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktBirthday.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktBirthday.TabIndex = 58;
             // 
             // TxtCreatKntktPLZ
@@ -183,7 +183,7 @@
             this.TxtCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktPLZ.MaxLength = 5;
             this.TxtCreatKntktPLZ.Name = "TxtCreatKntktPLZ";
-            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktPLZ.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktPLZ.TabIndex = 57;
             // 
             // CmBxCreatKntktAnrede
@@ -196,7 +196,7 @@
             "keine"});
             this.CmBxCreatKntktAnrede.Location = new System.Drawing.Point(152, 20);
             this.CmBxCreatKntktAnrede.Name = "CmBxCreatKntktAnrede";
-            this.CmBxCreatKntktAnrede.Size = new System.Drawing.Size(294, 26);
+            this.CmBxCreatKntktAnrede.Size = new System.Drawing.Size(294, 30);
             this.CmBxCreatKntktAnrede.TabIndex = 3;
             // 
             // CmBxCreatKntktGeschlecht
@@ -209,7 +209,7 @@
             "divers"});
             this.CmBxCreatKntktGeschlecht.Location = new System.Drawing.Point(156, 178);
             this.CmBxCreatKntktGeschlecht.Name = "CmBxCreatKntktGeschlecht";
-            this.CmBxCreatKntktGeschlecht.Size = new System.Drawing.Size(290, 26);
+            this.CmBxCreatKntktGeschlecht.Size = new System.Drawing.Size(290, 30);
             this.CmBxCreatKntktGeschlecht.TabIndex = 39;
             // 
             // TxtCreatKntktEmail
@@ -217,7 +217,7 @@
             this.TxtCreatKntktEmail.Location = new System.Drawing.Point(152, 342);
             this.TxtCreatKntktEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktEmail.Name = "TxtCreatKntktEmail";
-            this.TxtCreatKntktEmail.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktEmail.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktEmail.TabIndex = 17;
             // 
             // TxtCreatKntktTelMobile
@@ -225,7 +225,7 @@
             this.TxtCreatKntktTelMobile.Location = new System.Drawing.Point(152, 299);
             this.TxtCreatKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktTelMobile.Name = "TxtCreatKntktTelMobile";
-            this.TxtCreatKntktTelMobile.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktTelMobile.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktTelMobile.TabIndex = 16;
             // 
             // TxtCreatKntktTelGeschaeft
@@ -233,7 +233,7 @@
             this.TxtCreatKntktTelGeschaeft.Location = new System.Drawing.Point(152, 262);
             this.TxtCreatKntktTelGeschaeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktTelGeschaeft.Name = "TxtCreatKntktTelGeschaeft";
-            this.TxtCreatKntktTelGeschaeft.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktTelGeschaeft.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktTelGeschaeft.TabIndex = 15;
             // 
             // TxtCreatKntktTitel
@@ -241,7 +241,7 @@
             this.TxtCreatKntktTitel.Location = new System.Drawing.Point(152, 222);
             this.TxtCreatKntktTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktTitel.Name = "TxtCreatKntktTitel";
-            this.TxtCreatKntktTitel.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktTitel.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktTitel.TabIndex = 14;
             // 
             // TxtCreatKntktVorname
@@ -249,7 +249,7 @@
             this.TxtCreatKntktVorname.Location = new System.Drawing.Point(152, 104);
             this.TxtCreatKntktVorname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktVorname.Name = "TxtCreatKntktVorname";
-            this.TxtCreatKntktVorname.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktVorname.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktVorname.TabIndex = 4;
             // 
             // TxtCreatKntktName
@@ -257,7 +257,7 @@
             this.TxtCreatKntktName.Location = new System.Drawing.Point(152, 66);
             this.TxtCreatKntktName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktName.Name = "TxtCreatKntktName";
-            this.TxtCreatKntktName.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktName.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktName.TabIndex = 9;
             // 
             // LblCreatKntktEmail
@@ -266,7 +266,7 @@
             this.LblCreatKntktEmail.Location = new System.Drawing.Point(8, 342);
             this.LblCreatKntktEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktEmail.Name = "LblCreatKntktEmail";
-            this.LblCreatKntktEmail.Size = new System.Drawing.Size(47, 18);
+            this.LblCreatKntktEmail.Size = new System.Drawing.Size(57, 22);
             this.LblCreatKntktEmail.TabIndex = 0;
             this.LblCreatKntktEmail.Text = "E-Mail";
             // 
@@ -276,7 +276,7 @@
             this.LblCreatKntktTelMobile.Location = new System.Drawing.Point(8, 304);
             this.LblCreatKntktTelMobile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktTelMobile.Name = "LblCreatKntktTelMobile";
-            this.LblCreatKntktTelMobile.Size = new System.Drawing.Size(72, 18);
+            this.LblCreatKntktTelMobile.Size = new System.Drawing.Size(86, 22);
             this.LblCreatKntktTelMobile.TabIndex = 0;
             this.LblCreatKntktTelMobile.Text = "Mobile Nr.";
             // 
@@ -286,7 +286,7 @@
             this.LblCreatKntktTelGeschaeft.Location = new System.Drawing.Point(8, 265);
             this.LblCreatKntktTelGeschaeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktTelGeschaeft.Name = "LblCreatKntktTelGeschaeft";
-            this.LblCreatKntktTelGeschaeft.Size = new System.Drawing.Size(81, 18);
+            this.LblCreatKntktTelGeschaeft.Size = new System.Drawing.Size(99, 22);
             this.LblCreatKntktTelGeschaeft.TabIndex = 0;
             this.LblCreatKntktTelGeschaeft.Text = "Geschäft Nr.";
             // 
@@ -295,7 +295,7 @@
             this.TxtCreatKntktAdr.Location = new System.Drawing.Point(152, 383);
             this.TxtCreatKntktAdr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktAdr.Name = "TxtCreatKntktAdr";
-            this.TxtCreatKntktAdr.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktAdr.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktAdr.TabIndex = 38;
             // 
             // LblCreatKntktTitel
@@ -304,7 +304,7 @@
             this.LblCreatKntktTitel.Location = new System.Drawing.Point(8, 227);
             this.LblCreatKntktTitel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktTitel.Name = "LblCreatKntktTitel";
-            this.LblCreatKntktTitel.Size = new System.Drawing.Size(36, 18);
+            this.LblCreatKntktTitel.Size = new System.Drawing.Size(42, 22);
             this.LblCreatKntktTitel.TabIndex = 0;
             this.LblCreatKntktTitel.Text = "Titel";
             // 
@@ -314,7 +314,7 @@
             this.LblCreatKntktGeschlecht.Location = new System.Drawing.Point(8, 186);
             this.LblCreatKntktGeschlecht.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktGeschlecht.Name = "LblCreatKntktGeschlecht";
-            this.LblCreatKntktGeschlecht.Size = new System.Drawing.Size(76, 18);
+            this.LblCreatKntktGeschlecht.Size = new System.Drawing.Size(90, 22);
             this.LblCreatKntktGeschlecht.TabIndex = 0;
             this.LblCreatKntktGeschlecht.Text = "Geschlecht";
             // 
@@ -324,7 +324,7 @@
             this.LblCreatKntktBirthday.Location = new System.Drawing.Point(8, 150);
             this.LblCreatKntktBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktBirthday.Name = "LblCreatKntktBirthday";
-            this.LblCreatKntktBirthday.Size = new System.Drawing.Size(97, 18);
+            this.LblCreatKntktBirthday.Size = new System.Drawing.Size(114, 22);
             this.LblCreatKntktBirthday.TabIndex = 0;
             this.LblCreatKntktBirthday.Text = "Geburtsdatum";
             // 
@@ -334,7 +334,7 @@
             this.LblCreatKntktAnrede.Location = new System.Drawing.Point(8, 24);
             this.LblCreatKntktAnrede.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktAnrede.Name = "LblCreatKntktAnrede";
-            this.LblCreatKntktAnrede.Size = new System.Drawing.Size(54, 18);
+            this.LblCreatKntktAnrede.Size = new System.Drawing.Size(62, 22);
             this.LblCreatKntktAnrede.TabIndex = 0;
             this.LblCreatKntktAnrede.Text = "Anrede";
             // 
@@ -344,7 +344,7 @@
             this.LblCreatKntktVorname.Location = new System.Drawing.Point(8, 109);
             this.LblCreatKntktVorname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktVorname.Name = "LblCreatKntktVorname";
-            this.LblCreatKntktVorname.Size = new System.Drawing.Size(64, 18);
+            this.LblCreatKntktVorname.Size = new System.Drawing.Size(76, 22);
             this.LblCreatKntktVorname.TabIndex = 0;
             this.LblCreatKntktVorname.Text = "Vorname";
             // 
@@ -354,7 +354,7 @@
             this.LblCreatKntktName.Location = new System.Drawing.Point(8, 70);
             this.LblCreatKntktName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktName.Name = "LblCreatKntktName";
-            this.LblCreatKntktName.Size = new System.Drawing.Size(45, 18);
+            this.LblCreatKntktName.Size = new System.Drawing.Size(54, 22);
             this.LblCreatKntktName.TabIndex = 0;
             this.LblCreatKntktName.Text = "Name";
             // 
@@ -364,7 +364,7 @@
             this.LblCreatKntktAdresse.Location = new System.Drawing.Point(6, 389);
             this.LblCreatKntktAdresse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktAdresse.Name = "LblCreatKntktAdresse";
-            this.LblCreatKntktAdresse.Size = new System.Drawing.Size(81, 18);
+            this.LblCreatKntktAdresse.Size = new System.Drawing.Size(98, 22);
             this.LblCreatKntktAdresse.TabIndex = 0;
             this.LblCreatKntktAdresse.Text = "Strasse / Nr.";
             // 
@@ -373,7 +373,7 @@
             this.TxtCreatKntktOrt.Location = new System.Drawing.Point(152, 474);
             this.TxtCreatKntktOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktOrt.Name = "TxtCreatKntktOrt";
-            this.TxtCreatKntktOrt.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktOrt.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktOrt.TabIndex = 32;
             // 
             // LblCreatKntktPLZ
@@ -382,7 +382,7 @@
             this.LblCreatKntktPLZ.Location = new System.Drawing.Point(6, 431);
             this.LblCreatKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktPLZ.Name = "LblCreatKntktPLZ";
-            this.LblCreatKntktPLZ.Size = new System.Drawing.Size(29, 18);
+            this.LblCreatKntktPLZ.Size = new System.Drawing.Size(35, 22);
             this.LblCreatKntktPLZ.TabIndex = 0;
             this.LblCreatKntktPLZ.Text = "PLZ";
             // 
@@ -392,7 +392,7 @@
             this.LblCreatKntktOrt.Location = new System.Drawing.Point(6, 477);
             this.LblCreatKntktOrt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktOrt.Name = "LblCreatKntktOrt";
-            this.LblCreatKntktOrt.Size = new System.Drawing.Size(62, 18);
+            this.LblCreatKntktOrt.Size = new System.Drawing.Size(75, 22);
             this.LblCreatKntktOrt.TabIndex = 0;
             this.LblCreatKntktOrt.Text = "Wohnort";
             // 
@@ -437,7 +437,7 @@
             this.TxtCreatKntktAustrDatum.Location = new System.Drawing.Point(156, 499);
             this.TxtCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktAustrDatum.Name = "TxtCreatKntktAustrDatum";
-            this.TxtCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktAustrDatum.TabIndex = 60;
             // 
             // TxtCreatKntktEintrDatum
@@ -445,7 +445,7 @@
             this.TxtCreatKntktEintrDatum.Location = new System.Drawing.Point(156, 454);
             this.TxtCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktEintrDatum.Name = "TxtCreatKntktEintrDatum";
-            this.TxtCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktEintrDatum.TabIndex = 59;
             // 
             // NumCreatKntktMaAktLehrj
@@ -457,7 +457,7 @@
             0,
             0});
             this.NumCreatKntktMaAktLehrj.Name = "NumCreatKntktMaAktLehrj";
-            this.NumCreatKntktMaAktLehrj.Size = new System.Drawing.Size(291, 26);
+            this.NumCreatKntktMaAktLehrj.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaAktLehrj.TabIndex = 55;
             // 
             // NumCreatKntktMaLehrj
@@ -469,7 +469,7 @@
             0,
             0});
             this.NumCreatKntktMaLehrj.Name = "NumCreatKntktMaLehrj";
-            this.NumCreatKntktMaLehrj.Size = new System.Drawing.Size(291, 26);
+            this.NumCreatKntktMaLehrj.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaLehrj.TabIndex = 54;
             // 
             // NumCreatKntktMaBeschGrad
@@ -481,19 +481,19 @@
             0,
             0});
             this.NumCreatKntktMaBeschGrad.Name = "NumCreatKntktMaBeschGrad";
-            this.NumCreatKntktMaBeschGrad.Size = new System.Drawing.Size(291, 26);
+            this.NumCreatKntktMaBeschGrad.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaBeschGrad.TabIndex = 53;
             // 
             // NumCreatKntktMaOfficeNumber
             // 
             this.NumCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(163, 409);
             this.NumCreatKntktMaOfficeNumber.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});
             this.NumCreatKntktMaOfficeNumber.Name = "NumCreatKntktMaOfficeNumber";
-            this.NumCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(291, 26);
+            this.NumCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaOfficeNumber.TabIndex = 52;
             // 
             // LblCreatKntktEintrDatum
@@ -502,7 +502,7 @@
             this.LblCreatKntktEintrDatum.Location = new System.Drawing.Point(8, 454);
             this.LblCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktEintrDatum.Name = "LblCreatKntktEintrDatum";
-            this.LblCreatKntktEintrDatum.Size = new System.Drawing.Size(97, 18);
+            this.LblCreatKntktEintrDatum.Size = new System.Drawing.Size(113, 22);
             this.LblCreatKntktEintrDatum.TabIndex = 49;
             this.LblCreatKntktEintrDatum.Text = "Eintrittsdatum";
             // 
@@ -512,7 +512,7 @@
             this.LblCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(7, 411);
             this.LblCreatKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaOfficeNumber.Name = "LblCreatKntktMaOfficeNumber";
-            this.LblCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(90, 18);
+            this.LblCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(106, 22);
             this.LblCreatKntktMaOfficeNumber.TabIndex = 45;
             this.LblCreatKntktMaOfficeNumber.Text = "Büronummer";
             // 
@@ -522,7 +522,7 @@
             this.LblCreatKntktMaAktLehrj.Location = new System.Drawing.Point(8, 349);
             this.LblCreatKntktMaAktLehrj.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaAktLehrj.Name = "LblCreatKntktMaAktLehrj";
-            this.LblCreatKntktMaAktLehrj.Size = new System.Drawing.Size(119, 18);
+            this.LblCreatKntktMaAktLehrj.Size = new System.Drawing.Size(139, 22);
             this.LblCreatKntktMaAktLehrj.TabIndex = 43;
             this.LblCreatKntktMaAktLehrj.Text = "aktuelles Lehrjahr";
             // 
@@ -532,7 +532,7 @@
             this.LblCreatKntktAustrDatum.Location = new System.Drawing.Point(10, 499);
             this.LblCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktAustrDatum.Name = "LblCreatKntktAustrDatum";
-            this.LblCreatKntktAustrDatum.Size = new System.Drawing.Size(101, 18);
+            this.LblCreatKntktAustrDatum.Size = new System.Drawing.Size(117, 22);
             this.LblCreatKntktAustrDatum.TabIndex = 44;
             this.LblCreatKntktAustrDatum.Text = "Austrittsdatum";
             // 
@@ -542,7 +542,7 @@
             this.LblCreatKntktMaKader.Location = new System.Drawing.Point(10, 150);
             this.LblCreatKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaKader.Name = "LblCreatKntktMaKader";
-            this.LblCreatKntktMaKader.Size = new System.Drawing.Size(76, 18);
+            this.LblCreatKntktMaKader.Size = new System.Drawing.Size(89, 22);
             this.LblCreatKntktMaKader.TabIndex = 39;
             this.LblCreatKntktMaKader.Text = "Kaderstufe";
             // 
@@ -553,7 +553,7 @@
             this.LblCreatKntktMaBeschGrad.Location = new System.Drawing.Point(8, 188);
             this.LblCreatKntktMaBeschGrad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaBeschGrad.Name = "LblCreatKntktMaBeschGrad";
-            this.LblCreatKntktMaBeschGrad.Size = new System.Drawing.Size(151, 18);
+            this.LblCreatKntktMaBeschGrad.Size = new System.Drawing.Size(177, 22);
             this.LblCreatKntktMaBeschGrad.TabIndex = 40;
             this.LblCreatKntktMaBeschGrad.Text = "Beschäftigungsgrad (%)";
             // 
@@ -562,7 +562,7 @@
             this.TxtCreatKntktMaKader.Location = new System.Drawing.Point(150, 150);
             this.TxtCreatKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaKader.Name = "TxtCreatKntktMaKader";
-            this.TxtCreatKntktMaKader.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaKader.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaKader.TabIndex = 41;
             // 
             // TxtCreatKntktMaNationalitaet
@@ -571,7 +571,7 @@
             this.TxtCreatKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaNationalitaet.MaxLength = 2;
             this.TxtCreatKntktMaNationalitaet.Name = "TxtCreatKntktMaNationalitaet";
-            this.TxtCreatKntktMaNationalitaet.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaNationalitaet.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaNationalitaet.TabIndex = 37;
             // 
             // TxtCreatKntktMaManr
@@ -581,7 +581,7 @@
             this.TxtCreatKntktMaManr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaManr.Name = "TxtCreatKntktMaManr";
             this.TxtCreatKntktMaManr.ReadOnly = true;
-            this.TxtCreatKntktMaManr.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaManr.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaManr.TabIndex = 36;
             // 
             // LblCreatKntktMaMaNr
@@ -590,7 +590,7 @@
             this.LblCreatKntktMaMaNr.Location = new System.Drawing.Point(7, 29);
             this.LblCreatKntktMaMaNr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaMaNr.Name = "LblCreatKntktMaMaNr";
-            this.LblCreatKntktMaMaNr.Size = new System.Drawing.Size(132, 18);
+            this.LblCreatKntktMaMaNr.Size = new System.Drawing.Size(154, 22);
             this.LblCreatKntktMaMaNr.TabIndex = 20;
             this.LblCreatKntktMaMaNr.Text = "Mitarbeiternummer";
             // 
@@ -600,7 +600,7 @@
             this.LblCreatKntktMaLehrj.Location = new System.Drawing.Point(8, 306);
             this.LblCreatKntktMaLehrj.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaLehrj.Name = "LblCreatKntktMaLehrj";
-            this.LblCreatKntktMaLehrj.Size = new System.Drawing.Size(67, 18);
+            this.LblCreatKntktMaLehrj.Size = new System.Drawing.Size(79, 22);
             this.LblCreatKntktMaLehrj.TabIndex = 26;
             this.LblCreatKntktMaLehrj.Text = "Lehrjahre";
             // 
@@ -610,7 +610,7 @@
             this.LblCreaKntktMaAbteilung.Location = new System.Drawing.Point(10, 229);
             this.LblCreaKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreaKntktMaAbteilung.Name = "LblCreaKntktMaAbteilung";
-            this.LblCreaKntktMaAbteilung.Size = new System.Drawing.Size(69, 18);
+            this.LblCreaKntktMaAbteilung.Size = new System.Drawing.Size(78, 22);
             this.LblCreaKntktMaAbteilung.TabIndex = 18;
             this.LblCreaKntktMaAbteilung.Text = "Abteilung";
             // 
@@ -620,7 +620,7 @@
             this.LblCreatKntktMaRolle.Location = new System.Drawing.Point(10, 268);
             this.LblCreatKntktMaRolle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaRolle.Name = "LblCreatKntktMaRolle";
-            this.LblCreatKntktMaRolle.Size = new System.Drawing.Size(40, 18);
+            this.LblCreatKntktMaRolle.Size = new System.Drawing.Size(47, 22);
             this.LblCreatKntktMaRolle.TabIndex = 25;
             this.LblCreatKntktMaRolle.Text = "Rolle";
             // 
@@ -629,7 +629,7 @@
             this.TxtCreatKntktMaRolle.Location = new System.Drawing.Point(148, 265);
             this.TxtCreatKntktMaRolle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaRolle.Name = "TxtCreatKntktMaRolle";
-            this.TxtCreatKntktMaRolle.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaRolle.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaRolle.TabIndex = 34;
             // 
             // LblCreatKntktMaAHVNr
@@ -638,7 +638,7 @@
             this.LblCreatKntktMaAHVNr.Location = new System.Drawing.Point(8, 70);
             this.LblCreatKntktMaAHVNr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaAHVNr.Name = "LblCreatKntktMaAHVNr";
-            this.LblCreatKntktMaAHVNr.Size = new System.Drawing.Size(94, 18);
+            this.LblCreatKntktMaAHVNr.Size = new System.Drawing.Size(110, 22);
             this.LblCreatKntktMaAHVNr.TabIndex = 19;
             this.LblCreatKntktMaAHVNr.Text = "AHV-Nummer";
             // 
@@ -648,7 +648,7 @@
             this.LblCreatKntktMaNationalitaet.Location = new System.Drawing.Point(8, 111);
             this.LblCreatKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaNationalitaet.Name = "LblCreatKntktMaNationalitaet";
-            this.LblCreatKntktMaNationalitaet.Size = new System.Drawing.Size(81, 18);
+            this.LblCreatKntktMaNationalitaet.Size = new System.Drawing.Size(98, 22);
             this.LblCreatKntktMaNationalitaet.TabIndex = 21;
             this.LblCreatKntktMaNationalitaet.Text = "Nationalität";
             // 
@@ -657,7 +657,7 @@
             this.TxtCreatKntktMaAHVNr.Location = new System.Drawing.Point(152, 66);
             this.TxtCreatKntktMaAHVNr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaAHVNr.Name = "TxtCreatKntktMaAHVNr";
-            this.TxtCreatKntktMaAHVNr.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaAHVNr.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaAHVNr.TabIndex = 29;
             // 
             // TxtCreatKntktMaAbteilung
@@ -665,7 +665,7 @@
             this.TxtCreatKntktMaAbteilung.Location = new System.Drawing.Point(154, 229);
             this.TxtCreatKntktMaAbteilung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktMaAbteilung.Name = "TxtCreatKntktMaAbteilung";
-            this.TxtCreatKntktMaAbteilung.Size = new System.Drawing.Size(293, 26);
+            this.TxtCreatKntktMaAbteilung.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktMaAbteilung.TabIndex = 27;
             // 
             // CmdCreateKntktDashboard
@@ -696,7 +696,7 @@
             // 
             // KontaktErstellen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1063, 1170);
