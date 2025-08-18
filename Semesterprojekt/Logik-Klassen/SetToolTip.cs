@@ -27,6 +27,7 @@ namespace Semesterprojekt
         {
             ["Title"] = "Namenstitel (gekürzt)\r\nz.B. Dr., Ing., Prof.",
             ["PostalCode"] = "4-/5-stellige Postleitzahl\r\n(Schweiz und Nachbarländer)",
+            ["PhoneNumber"] = "6-/15-stellige Telefon Nr. mit Vorwahl\r\n(Schweiz und Nachbarländer)\r\nz.B. +41 71 123 44 55",
             ["AHVNumber"] = "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90",
             ["Nationality"] = "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT",
             ["Academic"] = "nur relevant für Lernende",
@@ -42,6 +43,12 @@ namespace Semesterprojekt
             foreach (System.Windows.Forms.Label label in content.GroupLabelToolTip)
             {
                 toolTip.SetToolTip(label, labelToolTip[label.AccessibleName]);
+
+                // Einfügung Info-Icon bei Einsatz ToolTip (userhinweisend)
+                label.AutoSize = true;
+                label.UseCompatibleTextRendering = true;
+                label.Text += "ℹ";
+                label.Cursor = Cursors.Hand;
 
                 // Speicherung Original-Schrift (für keine unerwünschten Nebeneffekte)
                 Font originalFont = label.Font;

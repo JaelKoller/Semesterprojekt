@@ -20,6 +20,12 @@ namespace Semesterprojekt
 
         private System.Windows.Forms.Label postalCode;
         public System.Windows.Forms.Label PostalCode { get => postalCode; set { postalCode = value; if (value != null) value.AccessibleName = nameof(PostalCode); } }
+        
+        private System.Windows.Forms.Label businessNumber;
+        public System.Windows.Forms.Label BusinessNumber { get => businessNumber; set { businessNumber = value; if (value != null) value.AccessibleName = "PhoneNumber"; } }
+
+        private System.Windows.Forms.Label mobileNumber;
+        public System.Windows.Forms.Label MobileNumber { get => mobileNumber; set { mobileNumber = value; if (value != null) value.AccessibleName = "PhoneNumber"; } }
 
         private System.Windows.Forms.Label ahvNumber;
         public System.Windows.Forms.Label AHVNumber { get => ahvNumber; set { ahvNumber = value; if (value != null) value.AccessibleName = nameof(AHVNumber); } }

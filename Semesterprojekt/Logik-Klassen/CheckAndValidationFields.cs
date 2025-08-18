@@ -199,23 +199,23 @@ namespace Semesterprojekt
         }
 
         // Prüfung Telefon-Format auf + mit 6 bis 15 Ziffern (Standard für Schweiz und umliegende Länder)
-        private void CheckPhone(TextBox phone, string typeOfPhone)
+        private void CheckPhone(TextBox phoneNumber, string typeOfPhone)
         {            
             // Entfernung Sonderzeichen (exkl. + und Ziffern)
-            string phoneNumberNo = Regex.Replace(phone.Text, @"[^\d+]", "");
+            string phoneNumberNo = Regex.Replace(phoneNumber.Text, @"[^\d+]", "");
 
             if (Regex.IsMatch(phoneNumberNo, @"^\+\d{6,15}$"))
             {
-                phone.BackColor = backColorOK;
-                phone.Tag = tagOK;
+                phoneNumber.BackColor = backColorOK;
+                phoneNumber.Tag = tagOK;
             }
 
             else
             {
-                phone.BackColor = backColorNOK;
-                phone.Tag = tagNOK;
-                ShowMessageBox($"{typeOfPhone} '{phone.Text.Trim()}' ist ungültig\r\n\r\nz.B. +41 79 123 44 55");
-                phone.Focus();
+                phoneNumber.BackColor = backColorNOK;
+                phoneNumber.Tag = tagNOK;
+                ShowMessageBox($"{typeOfPhone} '{phoneNumber.Text.Trim()}' ist ungültig\r\n\r\nz.B. +41 79 123 44 55");
+                phoneNumber.Focus();
             }
         }
         
