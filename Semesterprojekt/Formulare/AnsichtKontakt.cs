@@ -42,9 +42,9 @@ namespace Semesterprojekt
         private string contactNumber;
         private string typeOfContact;
 
-        // default-Text aus TextBoxen in Variabel speichern zur überprüfung
-        private string defaultTitle;
-        private string defaultNote;
+        // Initialisierung Defaultwert ("Platzhalter") von Notizfelder
+        private string defaultNoteTitle;
+        private string defaultNoteText;
 
         public AnsichtKontakt(InitializationContactData contactData)
         {
@@ -77,9 +77,9 @@ namespace Semesterprojekt
             // Initialisierung Anzeige Titel
             LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
-            // Initialisierung Notizfelder (Defaultwert inkl. heutiges Datum)
-            defaultTitle = TxtAnsichtKntktProtokolTitel.Text;
-            defaultNote = TxtAnsichtKntktProtokolEing.Text;
+            // Speicherung Defaultwert (inkl. heutiges Datum) von Notizfelder
+            defaultNoteTitle = TxtAnsichtKntktProtokolTitel.Text;
+            defaultNoteText = TxtAnsichtKntktProtokolEing.Text;
             DateAnsichtKntktDateProtokol.Value = DateTime.Today;
         }
 
@@ -508,6 +508,19 @@ namespace Semesterprojekt
             };
         }
 
+        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationNoteFields"
+        private InitializationNotes CheckAndValidationNoteFieldsContent()
+        {
+            return new InitializationNotes
+            {
+                DefaultNoteTitle = defaultNoteTitle,
+                DefaultNoteText = defaultNoteText,
+                NoteTitle = TxtAnsichtKntktProtokolTitel.Text,
+                NoteText = TxtAnsichtKntktProtokolEing.Text,
+                NoteDate = DateAnsichtKntktDateProtokol.Value.ToShortDateString()
+            };
+        }
+
         // Klick Button "Löschen"
         private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
         {
@@ -548,130 +561,38 @@ namespace Semesterprojekt
             }
         }
 
-        // Notizen in ListBox speichern
+        // Klick Button "Speichern" (neue Notiz)
         private void CmdAnsichtKntktSaveProtokol_Click(object sender, EventArgs e)
         {
+            string errorMessage = string.Empty;
+            var noteContent = CheckAndValidationNoteFieldsContent();
+            bool note = CheckAndValidationNoteFields.CheckNoteFields(noteContent, TxtAnsichtKntktProtokolTitel, TxtAnsichtKntktProtokolEing, out errorMessage);
 
-            // Speichert Text und Datum in Variabel für Klasse Notes
-            string title = TxtAnsichtKntktProtokolTitel.Text;
-            string text = TxtAnsichtKntktProtokolEing.Text;
-            string date = DateAnsichtKntktDateProtokol.Value.ToShortDateString();
-
-            // Übergibt Variabeln an Klasse Notes
-            Notes newNote = new Notes
+            if (!note)
             {
-                Title = title,
-                Date = date,
-                Text = text
-            };
-
-            // Prüft ob Titel und Notiz gültig sind
-            bool titleOk = !string.IsNullOrWhiteSpace(title) && title != defaultTitle;
-            bool noteOk = !string.IsNullOrWhiteSpace(text) && text != defaultNote;
-
-            // Prüft, dass nicht der default-Wert gespeichert wird
-            // Gibt bei bedarf Fehlermeldung
-
-            // Titel und Notiz gut
-            if (titleOk && noteOk)
-            {
-                // Tag und Normalfarbe setzten  bei Titel
-                TxtAnsichtKntktProtokolTitel.BackColor = backColorOK;
-                TxtAnsichtKntktProtokolTitel.Tag = tagOK;
-
-                // Tag und Normalfarbe setzten  bei Notiz
-                TxtAnsichtKntktProtokolEing.BackColor = backColorOK;
-                TxtAnsichtKntktProtokolEing.Tag = tagOK;
-
-                // Setzt neue Notiz an oberste Stelle in ListBox
-                LbAnsichtKntktProtokolAusg.Items.Insert(0, newNote);
-
-                // Setzt default-Wert wieder in TextBox von Titel und Notiz
-                TxtAnsichtKntktProtokolTitel.Text = defaultTitle;
-                TxtAnsichtKntktProtokolEing.Text = defaultNote;
-
-                //Notes.SaveNotes(NotesContent());
-
+                // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben
+                MessageBox.Show(errorMessage, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
+            // Speicherung der neuen Notiz
+            LbAnsichtKntktProtokolAusg.Items.Add(noteContent);
 
-            // Titel: Setzt Tag und Farbe wieder auf OK
-            TxtAnsichtKntktProtokolTitel.BackColor = backColorOK;
-            TxtAnsichtKntktProtokolTitel.Tag = tagOK;
-
-            // Notiz: Setzt Tag und Farbe wieder auf OK
-            TxtAnsichtKntktProtokolEing.BackColor = backColorOK;
-            TxtAnsichtKntktProtokolEing.Tag = tagOK;
-
-            // Titel und Notiz nicht OK
-            if (!titleOk && !noteOk)
-            {
-                // Tag setzten und rotfärben bei Titel
-                TxtAnsichtKntktProtokolTitel.BackColor = backColorNOK;
-                TxtAnsichtKntktProtokolTitel.Tag = tagNOK;
-                TxtAnsichtKntktProtokolTitel.Focus();
-
-                // Tag setzten und rotfärben bei Notiz
-                TxtAnsichtKntktProtokolEing.BackColor = backColorNOK;
-                TxtAnsichtKntktProtokolEing.Tag = tagNOK;
-
-                ShowMessageBox("Bitte gültigen Titel und Text eingeben");
-                return;
-            }
-
-            // Titel nicht OK
-            if (!titleOk)
-            {
-                // Tag setzten und rotfärben bei Titel
-                TxtAnsichtKntktProtokolTitel.BackColor = backColorNOK;
-                TxtAnsichtKntktProtokolTitel.Tag = tagNOK;
-                TxtAnsichtKntktProtokolTitel.Focus();
-
-                ShowMessageBox("Bitte gültigen Titel eingeben");
-                return;
-            }
-
-            // Notiz nicht OK
-            if (!noteOk)
-            {
-                // Tag setzten und rotfärben bei Notiz
-                TxtAnsichtKntktProtokolEing.BackColor = backColorNOK;
-                TxtAnsichtKntktProtokolEing.Tag = tagNOK;
-                TxtAnsichtKntktProtokolEing.Focus();
-
-                ShowMessageBox("Bitte gültige Notiz eingeben");
-                return;
-            }
+            // Bereinigung der Eingabefelder (für nächste Notiz)
+            TxtAnsichtKntktProtokolTitel.Text = noteContent.DefaultNoteTitle;
+            TxtAnsichtKntktProtokolEing.Text = noteContent.DefaultNoteText;
+            DateAnsichtKntktDateProtokol.Value = DateTime.Today;
         }
 
-        // Notizen in MessageBox anzeigen
+        // Doppelklick auf Listeneintrag bei Notizen (für Anzeige via MessageBox)
         private void LbAnsichtKntktProtokolAusg_DoubleClick(object sender, EventArgs e)
         {
-            if (LbAnsichtKntktProtokolAusg.SelectedItem is Notes choosenNote)
+            if (LbAnsichtKntktProtokolAusg.SelectedItem is InitializationNotes notedData)
             {
-                string message = $"{choosenNote.Title}\n" +
-                                 $"{choosenNote.Date}\n\n" +
-                                 $"{choosenNote.Text}";
+                string message = $"{notedData.NoteText}\r\n\r\n{notedData.NoteDate}";
 
-                MessageBox.Show(message, "Notiz anzeigen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(message, notedData.NoteTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben (Error)
-        private void ShowMessageBox(string message)
-        {
-            MessageBox.Show(message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        // Initialisierung Argumente (Inhalt) für Klasse "Notes"
-        private Notes NotesContent()
-        {
-            return new Notes
-            {
-                Title = TxtAnsichtKntktProtokolTitel.Text,
-                Text = TxtAnsichtKntktProtokolEing.Text,
-                Date = DateAnsichtKntktDateProtokol.Value.ToShortDateString()
-            };
         }
     }
 }
