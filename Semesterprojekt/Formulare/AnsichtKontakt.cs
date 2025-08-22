@@ -513,6 +513,7 @@ namespace Semesterprojekt
         {
             return new InitializationNotes
             {
+                ContactNumber = contactNumber,
                 DefaultNoteTitle = defaultNoteTitle,
                 DefaultNoteText = defaultNoteText,
                 NoteTitle = TxtAnsichtKntktProtokolTitel.Text,
@@ -574,14 +575,18 @@ namespace Semesterprojekt
                 MessageBox.Show(errorMessage, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-            // Speicherung der neuen Notiz
-            LbAnsichtKntktProtokolAusg.Items.Add(noteContent);
 
-            // Bereinigung der Eingabefelder (für nächste Notiz)
-            TxtAnsichtKntktProtokolTitel.Text = noteContent.DefaultNoteTitle;
-            TxtAnsichtKntktProtokolEing.Text = noteContent.DefaultNoteText;
-            DateAnsichtKntktDateProtokol.Value = DateTime.Today;
+            // Speicherung der Daten in JSON "notes"
+            if (Notes.SaveNotesData(noteContent))
+            {
+                // Speicherung der neuen Notiz
+                LbAnsichtKntktProtokolAusg.Items.Add(noteContent);
+
+                // Bereinigung der Eingabefelder (für nächste Notiz)
+                TxtAnsichtKntktProtokolTitel.Text = noteContent.DefaultNoteTitle;
+                TxtAnsichtKntktProtokolEing.Text = noteContent.DefaultNoteText;
+                DateAnsichtKntktDateProtokol.Value = DateTime.Today;
+            }
         }
 
         // Doppelklick auf Listeneintrag bei Notizen (für Anzeige via MessageBox)

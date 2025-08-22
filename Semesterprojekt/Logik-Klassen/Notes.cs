@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Semesterprojekt.ClientAndEmployeeNumber;
 
 namespace Semesterprojekt
 {
@@ -18,7 +19,7 @@ namespace Semesterprojekt
         private static readonly string notesDataPath = InitializationDataPathJson.DataPath(fileName);
 
         // Auslesen JSON für Ermittlung, Speicherung und Löschung Notizen
-        private static bool LoadData(out List<Notes> notesDataList)
+        private static bool LoadData(out List<ContactNotes> notesDataList)
         {
             try
             {
@@ -26,12 +27,12 @@ namespace Semesterprojekt
                 {
 
                     string notesJSON = File.ReadAllText(notesDataPath);
-                    notesDataList = JsonSerializer.Deserialize<List<Notes>>(notesJSON) ?? new List<Notes>();
+                    notesDataList = JsonSerializer.Deserialize<List<ContactNotes>>(notesJSON) ?? new List<ContactNotes>();
                 }
 
                 else
                 {
-                    notesDataList = new List<Notes>();
+                    notesDataList = new List<ContactNotes>();
                 }
 
                 return true;
@@ -46,109 +47,59 @@ namespace Semesterprojekt
             }
         }
 
-        /*
-        public static void SaveNotes(string title, string date, string text)
-        {
-            // Hinzufügen (inkl. Speicherung) neuer Notizen
-            //noteList.Add(note);
-            //SaveNote(noteList);
-        }
-        */
-
         // Speichervorgang der Notizen
-        //public static bool SaveNotesData (string saveMode, string contactStatus, string typeOfContact, string contactNumber, Control[] groupFieldEmployeesAndCustomers, Control[] groupFieldEmployees)
-        //{
-        //    // Abbruch bei Fehler beim Laden der JSON-Datei
-        //    if (!LoadData(out var notesDataList))
-        //        return false;
-
-        //    InitializationContactData notestData = null;
-
-        //    switch (saveMode.ToLower())
-        //    {
-        //        case "save":
-        //            notestData = new InitializationContactData
-        //            {
-        //                // Erfassung mit Default-Kontaktstatus "Aktiv"
-        //                ContactStatus = contactStatus,
-        //                // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
-        //                TypeOfContact = $"{char.ToUpper(typeOfContact[0])}{typeOfContact.Substring(1)}",
-        //                // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
-        //                ContactNumber = contactNumber
-        //            };
-        //            break;
-
-        //        case "update":
-        //            // Ermittlung bestehender Kontakt auf Basis Kontakt Nr.
-        //            notestData = notesDataList.FirstOrDefault(contact => contact.ContactNumber == contactNumber);
-        //            notestData.ContactStatus = contactStatus;
-        //            break;
-        //    }
-
-        //    foreach (Control field in groupFieldEmployeesAndCustomers)
-        //    {
-        //        notestData.Fields[field.AccessibleName] = GetControlValue(field);
-        //    }
-
-        //    if (typeOfContact == "mitarbeiter")
-        //    {
-        //        foreach (Control field in groupFieldEmployees)
-        //        {
-        //            notestData.Fields[field.AccessibleName] = GetControlValue(field);
-        //        }
-        //    }
-
-        //    // Hinzufügen (inkl. Speicherung) neuer Kontakt
-        //    notesDataList.Add(notesData);
-        //    SaveData(notesDataList, "save");
-
-        //    return true;
-        //}
-
-        // Auslesen der Werte für Speicherung der Kontaktdaten
-        private static string GetControlValue(Control field)
+        public static bool SaveNotesData(InitializationNotes noteData)
         {
-            if (field is System.Windows.Forms.TextBox txtbxField)
-                return txtbxField.Text.Trim();
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var notesDataList))
+                return false;
 
-            if (field is System.Windows.Forms.ComboBox cmbxField)
-                return cmbxField.Text;
+            // Suche nach bestehender Kontakt Nr. (für Hinzufügen)
+            var contactNotes = notesDataList.FirstOrDefault(contact => contact.ContactNumber == noteData.ContactNumber);
 
-            if (field is NumericUpDown numField)
-                return numField.Value.ToString();
+            if (contactNotes == null)
+            {
+                // Erfassung neuer Notizblock inkl. Kontakt Nr.
+                contactNotes = new ContactNotes
+                {
+                    ContactNumber = noteData.ContactNumber,
+                    Notes = new List<InitializationNotes> { noteData }
+                };
 
-            return string.Empty;
+                // Hinzufügen neuer Notizblock inkl. Kontakt Nr.
+                notesDataList.Add(contactNotes);
+            }
+
+            else
+            {
+                // Hinzufügen neuer Notiz
+                contactNotes.Notes.Add(noteData);
+            }
+
+            // Speicherung neuer Notiz
+            SaveData(notesDataList);
+            return true;
         }
 
+        // Löschung aller Notizen pro Kontakt
+        public static bool DeleteNotesData(string number)
+        {
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var notesDataList))
+                return false;
 
+            // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
+            notesDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
 
-        //// Löschung aller Notizen pro Kontakt
-        //public static bool DeleteNotesData(string number)
-        //{
-        //    // Abbruch bei Fehler beim Laden der JSON-Datei
-        //    if (!LoadData(out var notesDataList))
-        //        return false;
+            // Speicherung JSON 
+            SaveData(notesDataList);
 
-        //    // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
-        //    notesDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
-
-        //    // Speicherung JSON 
-        //    SaveData(notesDataList, "delete");
-
-        //    return true;
-        //}
+            return true;
+        }
 
         // Speicherung neuer oder zu löschende Notizen pro Kontakt (Schreibprozess)
-        private static void SaveData(List<Notes> notesDataList, string saveMode)
+        private static void SaveData(List<ContactNotes> notesDataList)
         {
-            // Vorbereitung Text für MessageBox (abhängig von Auftragsart)
-            string message = string.Empty;
-
-            if (saveMode == "save")
-                message = "gespeichert";
-            else if (saveMode == "delete")
-                message = "gelöscht";
-
             try
             {
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
@@ -160,9 +111,6 @@ namespace Semesterprojekt
 
                 string notesJSON = JsonSerializer.Serialize(notesDataList, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(notesDataPath, notesJSON);
-
-                // Ausgabe erfolgreiche Speicherung (userfreundlich)
-                MessageBox.Show($"Notiz erfolgreich {message}!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             catch (Exception exception)

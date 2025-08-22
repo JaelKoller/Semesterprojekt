@@ -1,28 +1,52 @@
 [
   {
-    "NumberKey": "Mxxx",
-    "Note1": {
-      "NoteTitle": "Blablabla",
-      "NoteText": "Blablabla",
-      "NoteDate": "1989-07-01"
-    },
-    "Note2": {
-      "NoteTitle": "Blablabla",
-      "NoteText": "Blablabla",
-      "NoteDate": "1989-07-01"
-    }
+    "ContactNumber": "MA0003",
+    "Notes": [
+      {
+        "NoteTitle": "Das ist ein Test.",
+        "NoteText": "Das ist ein Test f\u00FCr die Notizen.",
+        "NoteDate": "22.08.2025"
+      },
+      {
+        "NoteTitle": "Test",
+        "NoteText": "Test",
+        "NoteDate": "22.08.2025"
+      }
+    ]
   },
   {
-    "NumberKey": "Kyyy",
-    "Note1": {
-      "NoteTitle": "Blablabla",
-      "NoteText": "Blablabla",
-      "NoteDate": "1989-07-01"
-    },
-    "Note2": {
-      "NoteTitle": "Blablabla",
-      "NoteText": "Blablabla",
-      "NoteDate": "1989-07-01"
-    }
+    "ContactNumber": "MA0004",
+    "Notes": [
+      {
+        "NoteTitle": "Das ist ein zweiter Test.",
+        "NoteText": "Das ist ein zweiter Test f\u00FCr die Pr\u00FCfung des JSONS.",
+        "NoteDate": "22.08.2025"
+      }
+    ]
+  },
+  {
+    "ContactNumber": "MA0007",
+    "Notes": [
+      {
+        "NoteTitle": "Hello",
+        "NoteText": "Wie geht es dir?",
+        "NoteDate": "20.01.1998"
+      },
+      {
+        "NoteTitle": "Ich versuch\u0027s nochmal",
+        "NoteText": "Hallo Velo",
+        "NoteDate": "01.01.1995"
+      }
+    ]
+  },
+  {
+    "ContactNumber": "KD0005",
+    "Notes": [
+      {
+        "NoteTitle": "asdfasdf",
+        "NoteText": "sdfasdfasd",
+        "NoteDate": "22.08.2025"
+      }
+    ]
   }
 ]
