@@ -73,7 +73,7 @@ namespace Semesterprojekt
 
                 case "update":
                     // Ermittlung bestehender Kontakt auf Basis Kontakt Nr.
-                    contactData = contactDataList.FirstOrDefault(contact => contact.ContactNumber == contactNumber);
+                    contactData = contactDataList.FirstOrDefault(contact => contact.ContactNumber.Equals(contactNumber));
                     contactData.ContactStatus = contactStatus;
                     break;
             }
@@ -177,14 +177,14 @@ namespace Semesterprojekt
         }
 
         // Löschung aktuelle Kontaktdaten
-        public static bool DeleteContactData(string number)
+        public static bool DeleteContactData(string contactNumber)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var contactDataList))
                 return false;
 
             // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
-            contactDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
+            contactDataList.RemoveAll(contact => contact.ContactNumber.Equals(contactNumber));
 
             // Speicherung JSON 
             SaveData(contactDataList, "delete");

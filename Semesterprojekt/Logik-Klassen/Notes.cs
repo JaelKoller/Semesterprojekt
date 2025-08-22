@@ -47,6 +47,17 @@ namespace Semesterprojekt
             }
         }
 
+        // Suche der Notizen
+        public static ContactNotes SearchNotesData(string contactNumber)
+        {
+            // Abbruch bei Fehler beim Laden der JSON-Datei
+            if (!LoadData(out var notesDataList))
+                return null;
+
+            // Ausgabe Such-Resultat als Liste
+            return notesDataList.FirstOrDefault(contact => string.Equals(contact.ContactNumber, contactNumber));
+        }
+        
         // Speichervorgang der Notizen
         public static bool SaveNotesData(InitializationNotes noteData)
         {
@@ -55,7 +66,7 @@ namespace Semesterprojekt
                 return false;
 
             // Suche nach bestehender Kontakt Nr. (für Hinzufügen)
-            var contactNotes = notesDataList.FirstOrDefault(contact => contact.ContactNumber == noteData.ContactNumber);
+            var contactNotes = notesDataList.FirstOrDefault(contact => contact.ContactNumber.Equals(noteData.ContactNumber));
 
             if (contactNotes == null)
             {
@@ -82,14 +93,14 @@ namespace Semesterprojekt
         }
 
         // Löschung aller Notizen pro Kontakt
-        public static bool DeleteNotesData(string number)
+        public static bool DeleteNotesData(string contactNumber)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var notesDataList))
                 return false;
 
             // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
-            notesDataList.RemoveAll(contact => contact.ContactNumber.Equals(number));
+            notesDataList.RemoveAll(contact => contact.ContactNumber.Equals(contactNumber));
 
             // Speicherung JSON 
             SaveData(notesDataList);
