@@ -18,6 +18,9 @@ namespace Semesterprojekt
 
             // Platzierung Buttons "Mitarbeiter hinzufügen, Kunde hinzufügen, Alle Kontakte" (inkl. Erfassung Index)
             PlacementButton(GroupButtons());
+
+            // Initialisierung (Registrierung) ESC für Beendung Programm (analog Button)
+            this.CancelButton = BtnDashClose;
         }
 
         // Platzierung Buttons (fix)
@@ -36,9 +39,14 @@ namespace Semesterprojekt
                 groupField[i].TabIndex = tabIndexCounter++;
             }
 
+            // Erhöhung Länge und Breite mit Gap von 10
+            width += 10;
+            height += 10;
+
             BtnDashMaNew.Location = new Point(location, location);
-            BtnDashKndNew.Location = new Point(location, location + height + 10);
-            BtnDashAllKntkt.Location = new Point(location + width + 10, location);
+            BtnDashKndNew.Location = new Point(location, location + height);
+            BtnDashAllKntkt.Location = new Point(location + width, location);
+            BtnDashClose.Location = new Point(location + width, location + height);
         }
 
         // Erstellung Array für Buttons
@@ -48,7 +56,8 @@ namespace Semesterprojekt
             {
                 BtnDashMaNew,
                 BtnDashKndNew,
-                BtnDashAllKntkt
+                BtnDashAllKntkt,
+                BtnDashClose
             };
         }
 
@@ -94,6 +103,12 @@ namespace Semesterprojekt
             alleKontakteForm.FormClosed += (s, arg) => this.Show();
             alleKontakteForm.Show();
             this.Hide();
+        }
+
+        // Klick Button "Programm beenden"
+        private void BtnDashClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

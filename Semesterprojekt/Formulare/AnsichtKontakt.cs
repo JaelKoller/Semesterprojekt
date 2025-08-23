@@ -72,6 +72,9 @@ namespace Semesterprojekt
             InitializationContactData(contactData);
             InitializationGroupAndField();
 
+            // Initialisierung (Registrierung) ESC für Rückkehr zu AlleKontakte (analog Button)
+            this.CancelButton = CmdAnsichtKntktAlleKontakte;
+
             // Initialisierung Anzeige Titel
             LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
@@ -195,10 +198,15 @@ namespace Semesterprojekt
                 groupField[i].TabIndex = tabIndexCounter++;
             }
 
+            // Erhöhung Länge und Breite mit Gap von 10
+            width += 10;
+            height += 10;
+
             CmdAnsichtKntktEdit.Location = new Point(locationX, locationY);
-            CmdAnsichtKntktDeletAll.Location = new Point(locationX + width + 10, locationY);
-            CmdAnsichtKntktSaveAll.Location = new Point(locationX, locationY + height + 10);
-            CmdAnsichtKntktDashboard.Location = new Point(locationX + width + 10, locationY + height + 10);
+            CmdAnsichtKntktSaveAll.Location = new Point(locationX, locationY + height);
+            CmdAnsichtKntktDeletAll.Location = new Point(locationX, locationY + height + height);
+            CmdAnsichtKntktAlleKontakte.Location = new Point(locationX + width, locationY);
+            CmdAnsichtKntktDashboard.Location = new Point(locationX + width, locationY + height);
         }
 
         // Erstellung Array für Labels der Gruppe "Kontaktdaten"
@@ -317,7 +325,7 @@ namespace Semesterprojekt
                 TxtAnsichtKntktProtokolTitel,
                 TxtAnsichtKntktProtokolEing,
                 DateAnsichtKntktDateProtokol,
-                CmdAnsichtKntktSaveProtokol,
+                CmdAnsichtKntktSaveProtokol
             };
         }
 
@@ -327,9 +335,10 @@ namespace Semesterprojekt
             return groupButtons = new Control[]
             {
                 CmdAnsichtKntktEdit,
-                CmdAnsichtKntktDeletAll,
                 CmdAnsichtKntktSaveAll,
-                CmdAnsichtKntktDashboard,
+                CmdAnsichtKntktDeletAll,
+                CmdAnsichtKntktAlleKontakte,
+                CmdAnsichtKntktDashboard
             };
         }
 
@@ -574,21 +583,35 @@ namespace Semesterprojekt
             }
         }
 
+        // Klick Button "Zurück zur Kontaktsuche"
+        private void CmdAnsichtKntktAlleKontakte_Click(object sender, EventArgs e)
+        {
+            if (CloseViewContact(true))
+                this.Close();
+        }
+
         // Klick Button "Zurück zum Dashboard"
         private void CmdAnsichtKntktDashboard_Click(object sender, EventArgs e)
         {
+            if (CloseViewContact(false))
+            {
+                // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
+                (this.Owner as AlleKontakte)?.Close();
+                this.Close();
+            }
+        }
+
+        // Prüfung offene Änderungen (inkl. neue Notiz)
+        private bool CloseViewContact(bool backToSearch)
+        {
             string message = string.Empty;
+            string backToMessage = backToSearch ? "zur Kontaktsuche" : "zum Dashboard";
             string noteTitle = TxtAnsichtKntktProtokolTitel.Text.Trim();
             string noteText = TxtAnsichtKntktProtokolEing.Text.Trim();
             bool noteOpenChanges = noteTitle != defaultNoteTitle || noteText != defaultNoteText;
 
             if (!GrpBxDatenAlle.Enabled && !noteOpenChanges)
-            {
-                // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
-                (this.Owner as AlleKontakte)?.Close();
-                this.Close();
-                return;
-            }
+                return true;
 
             if (GrpBxDatenAlle.Enabled && noteOpenChanges)
                 message = "Die Änderungen (inkl. Notiz) wurden noch nicht gespeichert.\r\nBei der Bestätigung gehen diese verloren.";
@@ -599,15 +622,13 @@ namespace Semesterprojekt
             else
                 message = "Die neue Notiz wurde noch nicht gespeichert.\r\nBei der Bestätigung geht diese verloren.";
 
-            message += "\r\n\r\nMöchtest du trotzdem zurück zum Dashboard wechseln?";
+            message += $"\r\n\r\nMöchtest du trotzdem zurück {backToMessage} wechseln?";
             DialogResult result = MessageBox.Show(message, "Kontakt schliessen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
-            {
-                // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
-                (this.Owner as AlleKontakte)?.Close();
-                this.Close();
-            }
+                return true;
+
+            return false;
         }
 
         // Klick Button "Speichern" (neue Notiz)

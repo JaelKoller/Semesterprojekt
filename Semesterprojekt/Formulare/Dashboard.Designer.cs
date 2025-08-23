@@ -31,15 +31,17 @@
             this.BtnDashMaNew = new System.Windows.Forms.Button();
             this.BtnDashKndNew = new System.Windows.Forms.Button();
             this.BtnDashAllKntkt = new System.Windows.Forms.Button();
+            this.BtnDashClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnDashMaNew
             // 
             this.BtnDashMaNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtnDashMaNew.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDashMaNew.Location = new System.Drawing.Point(109, 71);
+            this.BtnDashMaNew.Location = new System.Drawing.Point(123, 89);
+            this.BtnDashMaNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnDashMaNew.Name = "BtnDashMaNew";
-            this.BtnDashMaNew.Size = new System.Drawing.Size(160, 85);
+            this.BtnDashMaNew.Size = new System.Drawing.Size(180, 106);
             this.BtnDashMaNew.TabIndex = 0;
             this.BtnDashMaNew.Text = "Mitarbeiter hinzufügen";
             this.BtnDashMaNew.UseVisualStyleBackColor = false;
@@ -49,9 +51,10 @@
             // 
             this.BtnDashKndNew.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtnDashKndNew.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDashKndNew.Location = new System.Drawing.Point(109, 162);
+            this.BtnDashKndNew.Location = new System.Drawing.Point(123, 202);
+            this.BtnDashKndNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnDashKndNew.Name = "BtnDashKndNew";
-            this.BtnDashKndNew.Size = new System.Drawing.Size(160, 85);
+            this.BtnDashKndNew.Size = new System.Drawing.Size(180, 106);
             this.BtnDashKndNew.TabIndex = 1;
             this.BtnDashKndNew.Text = "Kunde hinzufügen";
             this.BtnDashKndNew.UseVisualStyleBackColor = false;
@@ -61,23 +64,39 @@
             // 
             this.BtnDashAllKntkt.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtnDashAllKntkt.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDashAllKntkt.Location = new System.Drawing.Point(275, 71);
+            this.BtnDashAllKntkt.Location = new System.Drawing.Point(309, 89);
+            this.BtnDashAllKntkt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BtnDashAllKntkt.Name = "BtnDashAllKntkt";
-            this.BtnDashAllKntkt.Size = new System.Drawing.Size(160, 85);
+            this.BtnDashAllKntkt.Size = new System.Drawing.Size(180, 106);
             this.BtnDashAllKntkt.TabIndex = 2;
             this.BtnDashAllKntkt.Text = "Alle Kontakte";
             this.BtnDashAllKntkt.UseVisualStyleBackColor = false;
             this.BtnDashAllKntkt.Click += new System.EventHandler(this.BtnDashAllKntkt_Click);
             // 
+            // BtnDashClose
+            // 
+            this.BtnDashClose.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BtnDashClose.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDashClose.Location = new System.Drawing.Point(309, 203);
+            this.BtnDashClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnDashClose.Name = "BtnDashClose";
+            this.BtnDashClose.Size = new System.Drawing.Size(180, 106);
+            this.BtnDashClose.TabIndex = 3;
+            this.BtnDashClose.Text = "Programm beenden";
+            this.BtnDashClose.UseVisualStyleBackColor = false;
+            this.BtnDashClose.Click += new System.EventHandler(this.BtnDashClose_Click);
+            // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(533, 450);
+            this.ClientSize = new System.Drawing.Size(600, 562);
+            this.Controls.Add(this.BtnDashClose);
             this.Controls.Add(this.BtnDashAllKntkt);
             this.Controls.Add(this.BtnDashKndNew);
             this.Controls.Add(this.BtnDashMaNew);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.ResumeLayout(false);
@@ -89,6 +108,7 @@
         internal System.Windows.Forms.Button BtnDashMaNew;
         internal System.Windows.Forms.Button BtnDashKndNew;
         internal System.Windows.Forms.Button BtnDashAllKntkt;
+        internal System.Windows.Forms.Button BtnDashClose;
     }
 }
 

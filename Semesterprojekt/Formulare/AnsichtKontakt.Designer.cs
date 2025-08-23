@@ -100,6 +100,7 @@
             this.CmdAnsichtKntktEdit = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktDashboard = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.CmdAnsichtKntktAlleKontakte = new System.Windows.Forms.Button();
             this.GrpBxDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaKader)).BeginInit();
@@ -840,7 +841,7 @@
             // 
             this.CmdAnsichtKntktSaveAll.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdAnsichtKntktSaveAll.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAnsichtKntktSaveAll.Location = new System.Drawing.Point(665, 1011);
+            this.CmdAnsichtKntktSaveAll.Location = new System.Drawing.Point(592, 1018);
             this.CmdAnsichtKntktSaveAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdAnsichtKntktSaveAll.Name = "CmdAnsichtKntktSaveAll";
             this.CmdAnsichtKntktSaveAll.Size = new System.Drawing.Size(166, 71);
@@ -853,7 +854,7 @@
             // 
             this.CmdAnsichtKntktDeletAll.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdAnsichtKntktDeletAll.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAnsichtKntktDeletAll.Location = new System.Drawing.Point(838, 935);
+            this.CmdAnsichtKntktDeletAll.Location = new System.Drawing.Point(592, 1097);
             this.CmdAnsichtKntktDeletAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdAnsichtKntktDeletAll.Name = "CmdAnsichtKntktDeletAll";
             this.CmdAnsichtKntktDeletAll.Size = new System.Drawing.Size(166, 71);
@@ -866,7 +867,7 @@
             // 
             this.CmdAnsichtKntktEdit.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdAnsichtKntktEdit.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAnsichtKntktEdit.Location = new System.Drawing.Point(665, 931);
+            this.CmdAnsichtKntktEdit.Location = new System.Drawing.Point(592, 939);
             this.CmdAnsichtKntktEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdAnsichtKntktEdit.Name = "CmdAnsichtKntktEdit";
             this.CmdAnsichtKntktEdit.Size = new System.Drawing.Size(166, 71);
@@ -879,7 +880,7 @@
             // 
             this.CmdAnsichtKntktDashboard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdAnsichtKntktDashboard.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAnsichtKntktDashboard.Location = new System.Drawing.Point(838, 1014);
+            this.CmdAnsichtKntktDashboard.Location = new System.Drawing.Point(775, 1027);
             this.CmdAnsichtKntktDashboard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdAnsichtKntktDashboard.Name = "CmdAnsichtKntktDashboard";
             this.CmdAnsichtKntktDashboard.Size = new System.Drawing.Size(166, 71);
@@ -894,12 +895,26 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // CmdAnsichtKntktAlleKontakte
+            // 
+            this.CmdAnsichtKntktAlleKontakte.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CmdAnsichtKntktAlleKontakte.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdAnsichtKntktAlleKontakte.Location = new System.Drawing.Point(775, 946);
+            this.CmdAnsichtKntktAlleKontakte.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CmdAnsichtKntktAlleKontakte.Name = "CmdAnsichtKntktAlleKontakte";
+            this.CmdAnsichtKntktAlleKontakte.Size = new System.Drawing.Size(166, 71);
+            this.CmdAnsichtKntktAlleKontakte.TabIndex = 10;
+            this.CmdAnsichtKntktAlleKontakte.Text = "Zurück zur Kontaktsuche";
+            this.CmdAnsichtKntktAlleKontakte.UseVisualStyleBackColor = false;
+            this.CmdAnsichtKntktAlleKontakte.Click += new System.EventHandler(this.CmdAnsichtKntktAlleKontakte_Click);
+            // 
             // AnsichtKontakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1356, 1413);
+            this.Controls.Add(this.CmdAnsichtKntktAlleKontakte);
             this.Controls.Add(this.CmdAnsichtKntktDashboard);
             this.Controls.Add(this.CmdAnsichtKntktEdit);
             this.Controls.Add(this.CmdAnsichtKntktDeletAll);
@@ -1003,5 +1018,6 @@
         internal System.Windows.Forms.TextBox TxtAnsichtKntktOrtOffice;
         internal System.Windows.Forms.TextBox TxtAnsichtKntktPLZOffice;
         internal System.Windows.Forms.TextBox TxtAnsichtKntktAdrOffice;
+        internal System.Windows.Forms.Button CmdAnsichtKntktAlleKontakte;
     }
 }
