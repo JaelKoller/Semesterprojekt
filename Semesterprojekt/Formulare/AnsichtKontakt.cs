@@ -564,22 +564,37 @@ namespace Semesterprojekt
         // Klick Button "Zurück zum Dashboard"
         private void CmdAnsichtKntktDashboard_Click(object sender, EventArgs e)
         {
-            if (GrpBxDatenAlle.Enabled)
-            {
-                string message = "Die Änderungen wurde noch nicht gespeichert.\r\nBei der Bestätigung gehen diese alle verloren.\r\n\r\nMöchtest du trotzdem zurück zum Dashboard wechseln?";
-                DialogResult result = MessageBox.Show(message, "Kontakt schliessen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string message = string.Empty;
+            string noteTitle = TxtAnsichtKntktProtokolTitel.Text.Trim();
+            string noteText = TxtAnsichtKntktProtokolEing.Text.Trim();
+            bool noteOpenChanges = noteTitle != defaultNoteTitle || noteText != defaultNoteText;
 
-                if (result == DialogResult.Yes)
-                {
-                    this.Close();
-                }
-            }
-
-            else
+            if (!GrpBxDatenAlle.Enabled && !noteOpenChanges)
             {
                 // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
                 (this.Owner as AlleKontakte)?.Close();
                 this.Close();
+                return;
+            }
+
+            if (GrpBxDatenAlle.Enabled && noteOpenChanges)
+                message = "Die Änderungen (inkl. Notiz) wurden noch nicht gespeichert.\r\nBei der Bestätigung gehen diese verloren.";
+
+            else if (GrpBxDatenAlle.Enabled)
+                message = "Die Änderungen wurden noch nicht gespeichert.\r\nBei der Bestätigung gehen diese verloren.";
+
+            else
+                message = "Die neue Notiz wurde noch nicht gespeichert.\r\nBei der Bestätigung geht diese verloren.";
+
+            message += "\r\n\r\nMöchtest du trotzdem zurück zum Dashboard wechseln?";
+            DialogResult result = MessageBox.Show(message, "Kontakt schliessen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
+                (this.Owner as AlleKontakte)?.Close();
+                this.Close();
+                return;
             }
         }
 
@@ -600,8 +615,8 @@ namespace Semesterprojekt
             // Speicherung der Daten in JSON "notes"
             if (Notes.SaveNotesData(noteContent))
             {
-                // Speicherung der neuen Notiz
-                LbAnsichtKntktProtokolAusg.Items.Add(noteContent);
+                // Speicherung der neuen Notiz (inkl. Sortierung)
+                ContactNotesContent();
 
                 // Bereinigung der Eingabefelder (für nächste Notiz)
                 TxtAnsichtKntktProtokolTitel.Text = noteContent.DefaultNoteTitle;
@@ -613,11 +628,10 @@ namespace Semesterprojekt
         // Doppelklick auf Listeneintrag bei Notizen (für Anzeige via MessageBox)
         private void LbAnsichtKntktProtokolAusg_DoubleClick(object sender, EventArgs e)
         {
-            if (LbAnsichtKntktProtokolAusg.SelectedItem is InitializationNotes notedData)
+            if (LbAnsichtKntktProtokolAusg.SelectedItem is InitializationNotes noteData)
             {
-                string message = $"{notedData.NoteText}\r\n\r\n{notedData.NoteDate}";
-
-                MessageBox.Show(message, notedData.NoteTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string message = $"{noteData.NoteText}\r\n\r\n{noteData.NoteDate}";
+                MessageBox.Show(message, noteData.NoteTitle, MessageBoxButtons.OK);
             }
         }
     }
