@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Semesterprojekt
 {
