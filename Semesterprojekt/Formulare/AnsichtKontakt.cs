@@ -288,7 +288,7 @@ namespace Semesterprojekt
                 TxtAnsichtKntktMaManr,
                 TxtAnsichtKntktMaAHVNr,
                 TxtAnsichtKntktMaNationalitaet,
-                TxtAnsichtKntktMaKader,
+                NumAnsichtKntktMaKader,
                 NumAnsichtKntktMaBeschGrad,
                 TxtAnsichtKntktMaAbteilung,
                 TxtAnsichtKntktMaRolle,
@@ -331,7 +331,7 @@ namespace Semesterprojekt
             return checkFieldIgnore = new Control[]
             {
                 TxtAnsichtKntktTitel,
-                TxtAnsichtKntktMaKader,
+                NumAnsichtKntktMaKader,
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
                 (string.IsNullOrWhiteSpace(TxtAnsichtKntktAustrDatum.Text) ? TxtAnsichtKntktAustrDatum: null)
@@ -389,7 +389,7 @@ namespace Semesterprojekt
                 TxtAnsichtKntktMaManr.Text = Convert.ToString(contactData.Fields["EmployeeNumber"]);
                 TxtAnsichtKntktMaAHVNr.Text = Convert.ToString(contactData.Fields["AHVNumber"]);
                 TxtAnsichtKntktMaNationalitaet.Text = Convert.ToString(contactData.Fields["Nationality"]);
-                TxtAnsichtKntktMaKader.Text = Convert.ToString(contactData.Fields["ManagementLevel"]);
+                NumAnsichtKntktMaKader.Text = Convert.ToString(contactData.Fields["ManagementLevel"]);
                 NumAnsichtKntktMaBeschGrad.Value = Convert.ToDecimal(contactData.Fields["LevelOfEmployment"]);
                 TxtAnsichtKntktMaAbteilung.Text = Convert.ToString(contactData.Fields["Department"]);
                 TxtAnsichtKntktMaRolle.Text = Convert.ToString(contactData.Fields["Role"]);
@@ -466,7 +466,7 @@ namespace Semesterprojekt
                 EmployeeNumber = TxtAnsichtKntktMaManr,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,
-                ManagementLevel = TxtAnsichtKntktMaKader,
+                ManagementLevel = NumAnsichtKntktMaKader,
                 LevelOfEmployment = NumAnsichtKntktMaBeschGrad,
                 Department = TxtAnsichtKntktMaAbteilung,
                 Role = TxtAnsichtKntktMaRolle,

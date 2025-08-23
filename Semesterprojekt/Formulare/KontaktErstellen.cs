@@ -210,7 +210,7 @@ namespace Semesterprojekt
                 TxtCreatKntktMaManr,
                 TxtCreatKntktMaAHVNr,
                 TxtCreatKntktMaNationalitaet,
-                TxtCreatKntktMaKader,
+                NumCreatKntktMaKader,
                 NumCreatKntktMaBeschGrad,
                 TxtCreatKntktMaAbteilung,
                 TxtCreatKntktMaRolle,
@@ -230,7 +230,7 @@ namespace Semesterprojekt
                 TxtCreatKntktTitel,
                  // bei Mitarbeitern bleibt das Feld "Pflicht"
                 // (!RdbCreatKntktMa.Checked ? TxtCreatKntktMaAHVNr : null),            
-                TxtCreatKntktMaKader,
+                NumCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
                 // bei Mitarbeiter bleibt das Feld "Pflicht"
@@ -413,7 +413,7 @@ namespace Semesterprojekt
                 EmployeeNumber = TxtCreatKntktMaManr,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,
-                ManagementLevel = TxtCreatKntktMaKader,
+                ManagementLevel = NumCreatKntktMaKader,
                 LevelOfEmployment = NumCreatKntktMaBeschGrad,
                 Department = TxtCreatKntktMaAbteilung,
                 Role = TxtCreatKntktMaRolle,

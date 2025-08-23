@@ -37,7 +37,7 @@ namespace Semesterprojekt.Testing
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
                         kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "CH";
-                        kontaktErstellenForm.TxtCreatKntktMaKader.Text = "Mitglied der Direktion";
+                        kontaktErstellenForm.NumCreatKntktMaKader.Value = 5;
                         kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 100;
                         kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Automatisierung";
                         kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Software Engineer";
@@ -69,7 +69,7 @@ namespace Semesterprojekt.Testing
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
                         kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "CH";
-                        kontaktErstellenForm.TxtCreatKntktMaKader.Text = "Mitglied des Kaders";
+                        kontaktErstellenForm.NumCreatKntktMaKader.Value = 3;
                         kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 80;
                         kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Projektmanagement";
                         kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Projektleiter";
@@ -101,7 +101,7 @@ namespace Semesterprojekt.Testing
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
                         kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "DE";
-                        kontaktErstellenForm.TxtCreatKntktMaKader.Text = "";
+                        kontaktErstellenForm.NumCreatKntktMaKader.Value = 1;
                         kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 50;
                         kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Kreditverarbeitung";
                         kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Fachspezialistin Kredite";
@@ -133,7 +133,7 @@ namespace Semesterprojekt.Testing
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.30";
                         kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "CH";
-                        kontaktErstellenForm.TxtCreatKntktMaKader.Text = "";
+                        kontaktErstellenForm.NumCreatKntktMaKader.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 100;
                         kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Revision";
                         kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Revisor";

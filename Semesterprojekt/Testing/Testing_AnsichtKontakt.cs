@@ -79,7 +79,7 @@ namespace Semesterprojekt.Testing
                     { "EmployeeNumber", testfallMitarbeiter ? "MA9999" : "" },
                     { "AHVNumber", testfallMitarbeiter ? "756.8800.5641.37" : "" },
                     { "Nationality", testfallMitarbeiter ? "CH" : "" },
-                    { "ManagementLevel", testfallMitarbeiter ? "Mitglied der Direktion" : "" },
+                    { "ManagementLevel", testfallMitarbeiter ? "2" : "0" },
                     { "LevelOfEmployment", testfallMitarbeiter ? "100" : "0" },
                     { "Department", testfallMitarbeiter ? "Automatisierung" : "" },
                     { "Role", testfallMitarbeiter ? "Software Engineer" : "" },

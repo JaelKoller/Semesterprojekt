@@ -69,7 +69,6 @@
             this.LblCreatKntktAustrDatum = new System.Windows.Forms.Label();
             this.LblCreatKntktMaKader = new System.Windows.Forms.Label();
             this.LblCreatKntktMaBeschGrad = new System.Windows.Forms.Label();
-            this.TxtCreatKntktMaKader = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaNationalitaet = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktMaManr = new System.Windows.Forms.TextBox();
             this.LblCreatKntktMaMaNr = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@
             this.TxtCreatKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
+            this.NumCreatKntktMaKader = new System.Windows.Forms.NumericUpDown();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
@@ -90,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpBxCreatKntktMaKunde
@@ -399,6 +400,7 @@
             // GrpBxDatenMA
             // 
             this.GrpBxDatenMA.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaKader);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktAustrDatum);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktEintrDatum);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaAktLehrj);
@@ -411,7 +413,6 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktAustrDatum);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaKader);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaBeschGrad);
-            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaKader);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaNationalitaet);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaManr);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaMaNr);
@@ -475,11 +476,6 @@
             // NumCreatKntktMaBeschGrad
             // 
             this.NumCreatKntktMaBeschGrad.Location = new System.Drawing.Point(150, 188);
-            this.NumCreatKntktMaBeschGrad.Maximum = new decimal(new int[] {
-            101,
-            0,
-            0,
-            0});
             this.NumCreatKntktMaBeschGrad.Name = "NumCreatKntktMaBeschGrad";
             this.NumCreatKntktMaBeschGrad.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaBeschGrad.TabIndex = 53;
@@ -556,14 +552,6 @@
             this.LblCreatKntktMaBeschGrad.Size = new System.Drawing.Size(177, 22);
             this.LblCreatKntktMaBeschGrad.TabIndex = 40;
             this.LblCreatKntktMaBeschGrad.Text = "Beschäftigungsgrad (%)";
-            // 
-            // TxtCreatKntktMaKader
-            // 
-            this.TxtCreatKntktMaKader.Location = new System.Drawing.Point(150, 150);
-            this.TxtCreatKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TxtCreatKntktMaKader.Name = "TxtCreatKntktMaKader";
-            this.TxtCreatKntktMaKader.Size = new System.Drawing.Size(293, 29);
-            this.TxtCreatKntktMaKader.TabIndex = 41;
             // 
             // TxtCreatKntktMaNationalitaet
             // 
@@ -694,6 +682,18 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
+            // NumCreatKntktMaKader
+            // 
+            this.NumCreatKntktMaKader.Location = new System.Drawing.Point(148, 150);
+            this.NumCreatKntktMaKader.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.NumCreatKntktMaKader.Name = "NumCreatKntktMaKader";
+            this.NumCreatKntktMaKader.Size = new System.Drawing.Size(291, 29);
+            this.NumCreatKntktMaKader.TabIndex = 61;
+            // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
@@ -719,6 +719,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -750,7 +751,6 @@
         internal System.Windows.Forms.Label LblCreatKntktAustrDatum;
         internal System.Windows.Forms.Label LblCreatKntktMaKader;
         internal System.Windows.Forms.Label LblCreatKntktMaBeschGrad;
-        internal System.Windows.Forms.TextBox TxtCreatKntktMaKader;
         internal System.Windows.Forms.TextBox TxtCreatKntktAdr;
         internal System.Windows.Forms.TextBox TxtCreatKntktMaNationalitaet;
         internal System.Windows.Forms.TextBox TxtCreatKntktMaManr;
@@ -780,5 +780,6 @@
         internal System.Windows.Forms.TextBox TxtCreatKntktBirthday;
         internal System.Windows.Forms.TextBox TxtCreatKntktAustrDatum;
         internal System.Windows.Forms.TextBox TxtCreatKntktEintrDatum;
+        internal System.Windows.Forms.NumericUpDown NumCreatKntktMaKader;
     }
 }

@@ -61,8 +61,8 @@ namespace Semesterprojekt
         private TextBox nationality;
         [JsonIgnore] public TextBox Nationality { get => nationality; set { nationality = value; if (value != null) value.AccessibleName = nameof(Nationality); } }
 
-        private TextBox managementLevel;
-        [JsonIgnore] public TextBox ManagementLevel { get => managementLevel; set { managementLevel = value; if (value != null) value.AccessibleName = nameof(ManagementLevel); } }
+        private NumericUpDown managementLevel;
+        [JsonIgnore] public NumericUpDown ManagementLevel { get => managementLevel; set { managementLevel = value; if (value != null) value.AccessibleName = nameof(ManagementLevel); } }
 
         private NumericUpDown levelOfEmployment;
         [JsonIgnore] public NumericUpDown LevelOfEmployment { get => levelOfEmployment; set { levelOfEmployment = value; if (value != null) value.AccessibleName = nameof(LevelOfEmployment); } }
