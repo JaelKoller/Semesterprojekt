@@ -182,6 +182,9 @@ namespace Semesterprojekt
         // Klick Button "Suchen"
         private void BtnAllKntktSuchen_Click(object sender, EventArgs e)
         {
+            // Bereinigung der Trefferausgabe
+            CleanSearchResult();
+
             bool checkDateOfBirth = CheckDateOfBirth();
 
             if (checkDateOfBirth)

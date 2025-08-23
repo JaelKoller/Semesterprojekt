@@ -89,6 +89,7 @@
             this.TxtCreatKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
+            this.CmdCreateKntktVerwerfen = new System.Windows.Forms.Button();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
@@ -763,12 +764,26 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
+            // CmdCreateKntktVerwerfen
+            // 
+            this.CmdCreateKntktVerwerfen.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CmdCreateKntktVerwerfen.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdCreateKntktVerwerfen.Location = new System.Drawing.Point(529, 998);
+            this.CmdCreateKntktVerwerfen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CmdCreateKntktVerwerfen.Name = "CmdCreateKntktVerwerfen";
+            this.CmdCreateKntktVerwerfen.Size = new System.Drawing.Size(414, 60);
+            this.CmdCreateKntktVerwerfen.TabIndex = 102;
+            this.CmdCreateKntktVerwerfen.Text = "Eingaben verwerfen und zurück zum Dashboard";
+            this.CmdCreateKntktVerwerfen.UseVisualStyleBackColor = false;
+            this.CmdCreateKntktVerwerfen.Click += new System.EventHandler(this.CmdCreateKntktVerwerfen_Click);
+            // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1054, 1200);
+            this.Controls.Add(this.CmdCreateKntktVerwerfen);
             this.Controls.Add(this.CmdCreateKntktKontaktErstellen);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);
@@ -856,5 +871,6 @@
         internal System.Windows.Forms.Label LblCreatKntktPLZOffice;
         internal System.Windows.Forms.Label LblCreatKntktAdrOffice;
         internal System.Windows.Forms.TextBox TxtCreatKntktOrtOffice;
+        internal System.Windows.Forms.Button CmdCreateKntktVerwerfen;
     }
 }

@@ -1,8 +1,30 @@
 Gruppenmitglieder: Martina de Groot und Jael Koller
 
-Beschreibung (was funktioniert und was nicht):
--
--
--
--
--
+Beschreibung (was funktioniert):
+- Erfassung von Mitarbeitern und Kunden
+- Mutieren von Mitarbeitern und Kunden
+- Aktivieren und Deaktivieren von Mitarbeitern und Kunden
+- Löschen von Mitarbeitern und Kunden
+- Automatische Vergabe von Mitarbeiternummern (aufsteigend)
+---> bewusster Verzicht auf das Füllen von leeren Stellen (bei Datenbanken wird dies im Normalfall auch nicht gemacht)
+- Automatische Vergabe von Kundennummern (aufsteigend)
+---> bewusster Verzicht auf das Füllen von leeren Stellen (bei Datenbanken wird dies im Normalfall auch nicht gemacht)
+- Protokollieren von Notizen in Kundenkontakten inkl. Historie
+- Suchmöglichkeiten über gespeicherte Informationen (Vorname, Name, Geburtsdatum, Mitarbeiter, Kunde, inkl. inaktive Kontakte)
+---> Suchstart auch mit "Enter" möglich
+- Automatisches Speichern und Laden des Datenstamms auf der Festplatte (in JSON-Dateien)
+- Anzeige ToolTip (Feldhinweise) bei auserwählten Labels (Kennzeichnung mit i)
+- Diverse Validierungslogiken (bei Erfassung und Mutation von Mitarbeitern und Kunden), wie z.B.
+---> Pflichtfelder (abhängig von Mitarbeiter oder Kunde)
+---> Datumsprüfung auf Format dd.MM.yyyy
+---> Postleitzahlprüfung (abhängig von Mitarbeiter oder Kunde bzgl Schweiz vs. Nachbarländer)
+---> Telefon Nr.-Prüfung mit führendem + bzgl. Schweiz und Nachbarländer)
+---> E-Mail-Prüfung auf Format Text@Text.Text
+---> AVH-Nummer-Prüfung auf CH-Norm
+
+
+Beschreibung (was funktioniert nicht):
+Das musst du selber rausfinden ;-)
+
+Zusatz:
+- Erstellung einzelner Testfälle für Validierungslogiken usw. (gesteuert über Program.cs)

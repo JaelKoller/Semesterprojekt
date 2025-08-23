@@ -38,7 +38,7 @@ namespace Semesterprojekt
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
-            this.Size = new Size(775, 710);
+            this.Size = new Size(775, 760);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -56,6 +56,9 @@ namespace Semesterprojekt
             typeOfContactNew = typeOfContact;
             InitializationTypeOfContact();
             UpdateTypeOfContact();
+
+            // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button "Eingaben verwerfen ...")
+            this.CancelButton = CmdCreateKntktVerwerfen;
         }
 
         // Design (Platzierung) der Eingabe-Felder usw.
@@ -92,6 +95,8 @@ namespace Semesterprojekt
             CmdCreateKntktKontaktErstellen.Location = new Point(445, 580);
             CmdCreateKntktDashboard.Size = new Size(150, 60);
             CmdCreateKntktDashboard.Location = new Point(600, 580);
+            CmdCreateKntktVerwerfen.Size = new Size(305, 40);
+            CmdCreateKntktVerwerfen.Location = new Point(445, 645);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
@@ -396,6 +401,17 @@ namespace Semesterprojekt
                     ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
                     this.Close();
                 }
+            }
+        }
+
+        // Klick Button "Eingaben verwerfen und zurück zum Dashboard"
+        private void CmdCreateKntktVerwerfen_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Möchtest du die Eingaben verwerfen und zurück zum Dashboard wechseln?", "'Kontakt erstellen' abbrechen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
 

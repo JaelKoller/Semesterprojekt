@@ -1,6 +1,6 @@
 [
   {
-    "ContactStatus": "active",
+    "ContactStatus": "inactive",
     "ContactNumber": "MA0001",
     "TypeOfContact": "Mitarbeiter",
     "Fields": {
@@ -31,25 +31,6 @@
       "CityOffice": "St. Gallen",
       "DateOfEntry": "01.08.2005",
       "DateOfExit": ""
-    }
-  },
-  {
-    "ContactStatus": "active",
-    "ContactNumber": "KD0001",
-    "TypeOfContact": "Kunde",
-    "Fields": {
-      "Title": "Dr.",
-      "Salutation": "Frau",
-      "FirstName": "Daisy",
-      "LastName": "Duck",
-      "Birthday": "01.07.1989",
-      "Gender": "weiblich",
-      "Address": "Duckstrasse 17",
-      "PostalCode": "9000",
-      "City": "St. Gallen",
-      "BusinessNumber": "\u002B41 71 123 44 55",
-      "MobileNumber": "\u002B41 79 123 44 55",
-      "Email": "daisyduck@testmail.ch"
     }
   },
   {

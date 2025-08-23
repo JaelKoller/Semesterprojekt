@@ -117,7 +117,7 @@ namespace Semesterprojekt
             RdbAnsichtKntktInaktiv.TabStop = false;
 
             // Platzierung Gruppe "Notizen zu Person"
-            GrpBxAnsichtKntktNotiz.Size = new Size(410, 535);
+            GrpBxAnsichtKntktNotiz.Size = new Size(410, 545);
             GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
@@ -170,7 +170,7 @@ namespace Semesterprojekt
             LbAnsichtKntktProtokolAusg.Size = new Size(width, height);
             LbAnsichtKntktProtokolAusg.Location = new Point(locationX, locationY);
             TxtAnsichtKntktProtokolTitel.Size = new Size(width, 20);
-            TxtAnsichtKntktProtokolTitel.Location = new Point(locationX, height = height + 20);
+            TxtAnsichtKntktProtokolTitel.Location = new Point(locationX, height = height + 30);
             TxtAnsichtKntktProtokolEing.Size = new Size(width, 150);
             TxtAnsichtKntktProtokolEing.Location = new Point(locationX, height = height + 30);
             DateAnsichtKntktDateProtokol.Size = new Size(width, 40);
@@ -185,7 +185,7 @@ namespace Semesterprojekt
             int width = 150;
             int height = 60;
             int locationX = 485;
-            int locationY = 630;
+            int locationY = 640;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -607,7 +607,6 @@ namespace Semesterprojekt
                 // Verstecktes Fenster "AlleKontakte" als Owner wird auch geschlossen
                 (this.Owner as AlleKontakte)?.Close();
                 this.Close();
-                return;
             }
         }
 
