@@ -75,11 +75,6 @@ namespace Semesterprojekt
             // Initialisierung (Registrierung) ESC für Rückkehr zu AlleKontakte (analog Button)
             this.CancelButton = CmdAnsichtKntktAlleKontakte;
 
-            // Abfangen des KeyDowns durch Form (vor Controls)
-            this.KeyPreview = true;
-            // Initiailisierung (Registierung) der Pfeilfunktionen "unten" (analog Tab) und "oben" (analog Shift+Tab)
-            this.KeyDown += ArrowKeyFunction.ArrowFunction;
-
             // Initialisierung Anzeige Titel
             LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 

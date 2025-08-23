@@ -47,11 +47,6 @@ namespace Semesterprojekt
             // Initialisierung (Registrierung) Enter für Suche (analog Button)
             this.AcceptButton = BtnAllKntktSuchen;
 
-            // Abfangen des KeyDowns durch Form (vor Controls)
-            this.KeyPreview = true;
-            // Initiailisierung (Registierung) der Pfeilfunktionen "unten" (analog Tab) und "oben" (analog Shift+Tab)
-            this.KeyDown += ArrowKeyFunction.ArrowFunction;
-
             // Initialisierung (Registrierung) Doppelklick auf Listeneintrag
             LbAllKntktSuchAusg.DoubleClick += LbAllKntktSuchAusg_DoubleClick;
         }

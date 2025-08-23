@@ -77,7 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logik-Klassen\ArrowKeyFunction.cs" />
     <Compile Include="Logik-Klassen\CheckAndValidationNoteFields.cs" />
     <Compile Include="Objekt-Klassen\InitializationNotes.cs" />
     <Compile Include="Objekt-Klassen\InitializationDataPathJson.cs" />

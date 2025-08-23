@@ -59,11 +59,6 @@ namespace Semesterprojekt
 
             // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button "Eingaben verwerfen ...")
             this.CancelButton = CmdCreateKntktVerwerfen;
-
-            // Abfangen des KeyDowns durch Form (vor Controls)
-            this.KeyPreview = true;
-            // Initiailisierung (Registierung) der Pfeilfunktionen "unten" (analog Tab) und "oben" (analog Shift+Tab)
-            this.KeyDown += ArrowKeyFunction.ArrowFunction;
         }
 
         // Design (Platzierung) der Eingabe-Felder usw.
