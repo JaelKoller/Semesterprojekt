@@ -11,6 +11,11 @@
         "NoteTitle": "Test",
         "NoteText": "Test",
         "NoteDate": "22.08.2025"
+      },
+      {
+        "NoteTitle": "fasdf",
+        "NoteText": "asdf",
+        "NoteDate": "23.08.2025"
       }
     ]
   },
@@ -36,6 +41,11 @@
         "NoteTitle": "Ich versuch\u0027s nochmal",
         "NoteText": "Hallo Velo",
         "NoteDate": "01.01.1995"
+      },
+      {
+        "NoteTitle": "Sdasdf",
+        "NoteText": "asdgfasdgasdgasdgasdgasdfgasdfg",
+        "NoteDate": "22.08.2025"
       }
     ]
   },
@@ -46,6 +56,21 @@
         "NoteTitle": "asdfasdf",
         "NoteText": "sdfasdfasd",
         "NoteDate": "22.08.2025"
+      }
+    ]
+  },
+  {
+    "ContactNumber": "MA0009",
+    "Notes": [
+      {
+        "NoteTitle": "Soooo sch\u00F6n",
+        "NoteText": "Es ist so sch\u00F6n, dass ich ein paar Notizen erfassen kann.",
+        "NoteDate": "22.08.2025"
+      },
+      {
+        "NoteTitle": "Kannst du mir helfen?",
+        "NoteText": "Ich weiss nicht was ich tun soll. Ich weiss nicht was ich tun soll. Ich weiss nicht was ich tun soll. Ich weiss nicht was ich tun soll.\r\nIch weiss nicht was ich tun soll.\r\nIch weiss nicht was ich tun soll.\r\nIch weiss nicht was ich tun soll.\r\nIch weiss nicht was ich tun soll.Ich weiss nicht was ich tun soll. vvIch weiss nicht was ich tun soll.",
+        "NoteDate": "25.02.2025"
       }
     ]
   }

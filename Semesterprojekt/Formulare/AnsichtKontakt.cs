@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,7 @@ namespace Semesterprojekt
 
             Design();
             ContactDataContent();
+            ContactNotesContent();
             InitializationLabelToolTip();
             InitializationContactData(contactData);
             InitializationGroupAndField();
@@ -484,6 +486,25 @@ namespace Semesterprojekt
             };
         }
 
+        // Initialisierung Notizen als Listeneinträge
+        private void ContactNotesContent()
+        {
+            // Suche der Notizen auf Basis Kontakt Nr. (falls keine Treffer = NULL)
+            ContactNotes contactNotes = Notes.SearchNotesData(contactNumber);
+
+            if (contactNotes != null)
+            {
+                // Bereinigung der Listeneinträge (Notizen)
+                LbAnsichtKntktProtokolAusg.Items.Clear();
+
+                // Hinzufügen jeder Notiz als Listeneintrag in absteigender Reihenfolge (d.h. die neueste Notiz ganz oben)
+                foreach (InitializationNotes note in contactNotes.Notes.OrderByDescending(note => DateTime.ParseExact(note.NoteDate, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
+                {
+                    LbAnsichtKntktProtokolAusg.Items.Add(note);
+                }
+            }
+        }
+
         // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
         private InitializationCheckAndValidationFields CheckAndValidationFieldsContent()
         {
@@ -518,7 +539,7 @@ namespace Semesterprojekt
                 DefaultNoteText = defaultNoteText,
                 NoteTitle = TxtAnsichtKntktProtokolTitel.Text,
                 NoteText = TxtAnsichtKntktProtokolEing.Text,
-                NoteDate = DateAnsichtKntktDateProtokol.Value.ToShortDateString()
+                NoteDate = DateAnsichtKntktDateProtokol.Value.ToString("dd.MM.yyyy")
             };
         }
 
