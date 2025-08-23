@@ -546,8 +546,8 @@ namespace Semesterprojekt
         // Klick Button "Löschen"
         private void CmdAnsichtKntktDeletAll_Click(object sender, EventArgs e)
         {
-            string message = "Möchtest du den Kontakt unwiderruflich löschen?";
-            DialogResult result = MessageBox.Show(message, "Kontakt löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string message = "Möchtest du den Kontakt (inkl. Notizen) unwiderruflich löschen?";
+            DialogResult result = MessageBox.Show(message, "Kontakt (inkl. Notizen) löschen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -556,6 +556,10 @@ namespace Semesterprojekt
                 {
                     // Löschung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"     
                     ClientAndEmployeeNumber.DeleteNumber(contactNumber);
+
+                    // Löschung der Kontakt Nr. in JSON "notes"
+                    Notes.DeleteNotesData(contactNumber);
+                    
                     this.Close();
                 }
             }

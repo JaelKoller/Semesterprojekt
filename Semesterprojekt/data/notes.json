@@ -20,16 +20,6 @@
     ]
   },
   {
-    "ContactNumber": "MA0004",
-    "Notes": [
-      {
-        "NoteTitle": "Das ist ein zweiter Test.",
-        "NoteText": "Das ist ein zweiter Test f\u00FCr die Pr\u00FCfung des JSONS.",
-        "NoteDate": "22.08.2025"
-      }
-    ]
-  },
-  {
     "ContactNumber": "MA0007",
     "Notes": [
       {
