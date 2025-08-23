@@ -57,10 +57,17 @@
             this.LblCreatKntktPLZ = new System.Windows.Forms.Label();
             this.LblCreatKntktOrt = new System.Windows.Forms.Label();
             this.GrpBxDatenMA = new System.Windows.Forms.GroupBox();
+            this.TxtCreatKntktOrtOffice = new System.Windows.Forms.TextBox();
+            this.NumCreatKntktMaKader = new System.Windows.Forms.NumericUpDown();
+            this.TxtCreatKntktPLZOffice = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktAustrDatum = new System.Windows.Forms.TextBox();
+            this.TxtCreatKntktAdrOffice = new System.Windows.Forms.TextBox();
             this.TxtCreatKntktEintrDatum = new System.Windows.Forms.TextBox();
+            this.LblCreatKntktOrtOffice = new System.Windows.Forms.Label();
             this.NumCreatKntktMaAktLehrj = new System.Windows.Forms.NumericUpDown();
+            this.LblCreatKntktPLZOffice = new System.Windows.Forms.Label();
             this.NumCreatKntktMaLehrj = new System.Windows.Forms.NumericUpDown();
+            this.LblCreatKntktAdrOffice = new System.Windows.Forms.Label();
             this.NumCreatKntktMaBeschGrad = new System.Windows.Forms.NumericUpDown();
             this.NumCreatKntktMaOfficeNumber = new System.Windows.Forms.NumericUpDown();
             this.LblCreatKntktEintrDatum = new System.Windows.Forms.Label();
@@ -82,15 +89,14 @@
             this.TxtCreatKntktMaAbteilung = new System.Windows.Forms.TextBox();
             this.CmdCreateKntktDashboard = new System.Windows.Forms.Button();
             this.CmdCreateKntktKontaktErstellen = new System.Windows.Forms.Button();
-            this.NumCreatKntktMaKader = new System.Windows.Forms.NumericUpDown();
             this.GrpBxCreatKntktMaKunde.SuspendLayout();
             this.GrpBxCreatKntktDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaAktLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).BeginInit();
             this.SuspendLayout();
             // 
             // GrpBxCreatKntktMaKunde
@@ -166,9 +172,10 @@
             this.GrpBxCreatKntktDatenAlle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxCreatKntktDatenAlle.Name = "GrpBxCreatKntktDatenAlle";
             this.GrpBxCreatKntktDatenAlle.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GrpBxCreatKntktDatenAlle.Size = new System.Drawing.Size(467, 586);
+            this.GrpBxCreatKntktDatenAlle.Size = new System.Drawing.Size(467, 533);
             this.GrpBxCreatKntktDatenAlle.TabIndex = 1;
             this.GrpBxCreatKntktDatenAlle.TabStop = false;
+            this.GrpBxCreatKntktDatenAlle.Text = "Kontaktdaten";
             // 
             // TxtCreatKntktBirthday
             // 
@@ -400,11 +407,17 @@
             // GrpBxDatenMA
             // 
             this.GrpBxDatenMA.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktOrtOffice);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaKader);
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktPLZOffice);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktAustrDatum);
+            this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktAdrOffice);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktEintrDatum);
+            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktOrtOffice);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaAktLehrj);
+            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktPLZOffice);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaLehrj);
+            this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktAdrOffice);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaBeschGrad);
             this.GrpBxDatenMA.Controls.Add(this.NumCreatKntktMaOfficeNumber);
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktEintrDatum);
@@ -424,30 +437,78 @@
             this.GrpBxDatenMA.Controls.Add(this.LblCreatKntktMaNationalitaet);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAHVNr);
             this.GrpBxDatenMA.Controls.Add(this.TxtCreatKntktMaAbteilung);
-            this.GrpBxDatenMA.Location = new System.Drawing.Point(496, 110);
+            this.GrpBxDatenMA.Location = new System.Drawing.Point(504, 110);
             this.GrpBxDatenMA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxDatenMA.Name = "GrpBxDatenMA";
             this.GrpBxDatenMA.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GrpBxDatenMA.Size = new System.Drawing.Size(460, 585);
+            this.GrpBxDatenMA.Size = new System.Drawing.Size(460, 653);
             this.GrpBxDatenMA.TabIndex = 2;
             this.GrpBxDatenMA.TabStop = false;
+            this.GrpBxDatenMA.Text = "Mitarbeiterdaten";
+            // 
+            // TxtCreatKntktOrtOffice
+            // 
+            this.TxtCreatKntktOrtOffice.Location = new System.Drawing.Point(146, 531);
+            this.TxtCreatKntktOrtOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktOrtOffice.Name = "TxtCreatKntktOrtOffice";
+            this.TxtCreatKntktOrtOffice.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktOrtOffice.TabIndex = 59;
+            // 
+            // NumCreatKntktMaKader
+            // 
+            this.NumCreatKntktMaKader.Location = new System.Drawing.Point(148, 150);
+            this.NumCreatKntktMaKader.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.NumCreatKntktMaKader.Name = "NumCreatKntktMaKader";
+            this.NumCreatKntktMaKader.Size = new System.Drawing.Size(291, 29);
+            this.NumCreatKntktMaKader.TabIndex = 61;
+            // 
+            // TxtCreatKntktPLZOffice
+            // 
+            this.TxtCreatKntktPLZOffice.Location = new System.Drawing.Point(146, 494);
+            this.TxtCreatKntktPLZOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktPLZOffice.MaxLength = 4;
+            this.TxtCreatKntktPLZOffice.Name = "TxtCreatKntktPLZOffice";
+            this.TxtCreatKntktPLZOffice.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktPLZOffice.TabIndex = 64;
             // 
             // TxtCreatKntktAustrDatum
             // 
             this.TxtCreatKntktAustrDatum.Enabled = false;
-            this.TxtCreatKntktAustrDatum.Location = new System.Drawing.Point(156, 499);
+            this.TxtCreatKntktAustrDatum.Location = new System.Drawing.Point(150, 611);
             this.TxtCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktAustrDatum.Name = "TxtCreatKntktAustrDatum";
             this.TxtCreatKntktAustrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktAustrDatum.TabIndex = 60;
             // 
+            // TxtCreatKntktAdrOffice
+            // 
+            this.TxtCreatKntktAdrOffice.Location = new System.Drawing.Point(148, 455);
+            this.TxtCreatKntktAdrOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtCreatKntktAdrOffice.Name = "TxtCreatKntktAdrOffice";
+            this.TxtCreatKntktAdrOffice.Size = new System.Drawing.Size(293, 29);
+            this.TxtCreatKntktAdrOffice.TabIndex = 63;
+            // 
             // TxtCreatKntktEintrDatum
             // 
-            this.TxtCreatKntktEintrDatum.Location = new System.Drawing.Point(156, 454);
+            this.TxtCreatKntktEintrDatum.Location = new System.Drawing.Point(150, 574);
             this.TxtCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtCreatKntktEintrDatum.Name = "TxtCreatKntktEintrDatum";
             this.TxtCreatKntktEintrDatum.Size = new System.Drawing.Size(293, 29);
             this.TxtCreatKntktEintrDatum.TabIndex = 59;
+            // 
+            // LblCreatKntktOrtOffice
+            // 
+            this.LblCreatKntktOrtOffice.AutoSize = true;
+            this.LblCreatKntktOrtOffice.Location = new System.Drawing.Point(13, 515);
+            this.LblCreatKntktOrtOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktOrtOffice.Name = "LblCreatKntktOrtOffice";
+            this.LblCreatKntktOrtOffice.Size = new System.Drawing.Size(112, 22);
+            this.LblCreatKntktOrtOffice.TabIndex = 59;
+            this.LblCreatKntktOrtOffice.Text = "Ort (Geschäft)";
             // 
             // NumCreatKntktMaAktLehrj
             // 
@@ -461,17 +522,37 @@
             this.NumCreatKntktMaAktLehrj.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaAktLehrj.TabIndex = 55;
             // 
+            // LblCreatKntktPLZOffice
+            // 
+            this.LblCreatKntktPLZOffice.AutoSize = true;
+            this.LblCreatKntktPLZOffice.Location = new System.Drawing.Point(14, 485);
+            this.LblCreatKntktPLZOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktPLZOffice.Name = "LblCreatKntktPLZOffice";
+            this.LblCreatKntktPLZOffice.Size = new System.Drawing.Size(113, 22);
+            this.LblCreatKntktPLZOffice.TabIndex = 62;
+            this.LblCreatKntktPLZOffice.Text = "PLZ (Geschäft)";
+            // 
             // NumCreatKntktMaLehrj
             // 
             this.NumCreatKntktMaLehrj.Location = new System.Drawing.Point(150, 306);
             this.NumCreatKntktMaLehrj.Maximum = new decimal(new int[] {
-            10,
+            20,
             0,
             0,
             0});
             this.NumCreatKntktMaLehrj.Name = "NumCreatKntktMaLehrj";
             this.NumCreatKntktMaLehrj.Size = new System.Drawing.Size(291, 29);
             this.NumCreatKntktMaLehrj.TabIndex = 54;
+            // 
+            // LblCreatKntktAdrOffice
+            // 
+            this.LblCreatKntktAdrOffice.AutoSize = true;
+            this.LblCreatKntktAdrOffice.Location = new System.Drawing.Point(10, 455);
+            this.LblCreatKntktAdrOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblCreatKntktAdrOffice.Name = "LblCreatKntktAdrOffice";
+            this.LblCreatKntktAdrOffice.Size = new System.Drawing.Size(176, 22);
+            this.LblCreatKntktAdrOffice.TabIndex = 59;
+            this.LblCreatKntktAdrOffice.Text = "Strasse / Nr. (Geschäft)";
             // 
             // NumCreatKntktMaBeschGrad
             // 
@@ -482,7 +563,7 @@
             // 
             // NumCreatKntktMaOfficeNumber
             // 
-            this.NumCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(163, 409);
+            this.NumCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(163, 406);
             this.NumCreatKntktMaOfficeNumber.Maximum = new decimal(new int[] {
             999,
             0,
@@ -495,7 +576,7 @@
             // LblCreatKntktEintrDatum
             // 
             this.LblCreatKntktEintrDatum.AutoSize = true;
-            this.LblCreatKntktEintrDatum.Location = new System.Drawing.Point(8, 454);
+            this.LblCreatKntktEintrDatum.Location = new System.Drawing.Point(14, 577);
             this.LblCreatKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktEintrDatum.Name = "LblCreatKntktEintrDatum";
             this.LblCreatKntktEintrDatum.Size = new System.Drawing.Size(113, 22);
@@ -505,12 +586,12 @@
             // LblCreatKntktMaOfficeNumber
             // 
             this.LblCreatKntktMaOfficeNumber.AutoSize = true;
-            this.LblCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(7, 411);
+            this.LblCreatKntktMaOfficeNumber.Location = new System.Drawing.Point(8, 408);
             this.LblCreatKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktMaOfficeNumber.Name = "LblCreatKntktMaOfficeNumber";
-            this.LblCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(106, 22);
+            this.LblCreatKntktMaOfficeNumber.Size = new System.Drawing.Size(163, 22);
             this.LblCreatKntktMaOfficeNumber.TabIndex = 45;
-            this.LblCreatKntktMaOfficeNumber.Text = "Büronummer";
+            this.LblCreatKntktMaOfficeNumber.Text = "Büronummer (intern)";
             // 
             // LblCreatKntktMaAktLehrj
             // 
@@ -525,7 +606,7 @@
             // LblCreatKntktAustrDatum
             // 
             this.LblCreatKntktAustrDatum.AutoSize = true;
-            this.LblCreatKntktAustrDatum.Location = new System.Drawing.Point(10, 499);
+            this.LblCreatKntktAustrDatum.Location = new System.Drawing.Point(13, 607);
             this.LblCreatKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblCreatKntktAustrDatum.Name = "LblCreatKntktAustrDatum";
             this.LblCreatKntktAustrDatum.Size = new System.Drawing.Size(117, 22);
@@ -660,7 +741,7 @@
             // 
             this.CmdCreateKntktDashboard.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdCreateKntktDashboard.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdCreateKntktDashboard.Location = new System.Drawing.Point(757, 704);
+            this.CmdCreateKntktDashboard.Location = new System.Drawing.Point(746, 881);
             this.CmdCreateKntktDashboard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdCreateKntktDashboard.Name = "CmdCreateKntktDashboard";
             this.CmdCreateKntktDashboard.Size = new System.Drawing.Size(199, 109);
@@ -673,7 +754,7 @@
             // 
             this.CmdCreateKntktKontaktErstellen.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CmdCreateKntktKontaktErstellen.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdCreateKntktKontaktErstellen.Location = new System.Drawing.Point(545, 704);
+            this.CmdCreateKntktKontaktErstellen.Location = new System.Drawing.Point(529, 881);
             this.CmdCreateKntktKontaktErstellen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CmdCreateKntktKontaktErstellen.Name = "CmdCreateKntktKontaktErstellen";
             this.CmdCreateKntktKontaktErstellen.Size = new System.Drawing.Size(199, 109);
@@ -682,24 +763,12 @@
             this.CmdCreateKntktKontaktErstellen.UseVisualStyleBackColor = false;
             this.CmdCreateKntktKontaktErstellen.Click += new System.EventHandler(this.CmdCreateKntktKontaktErstellen_Click);
             // 
-            // NumCreatKntktMaKader
-            // 
-            this.NumCreatKntktMaKader.Location = new System.Drawing.Point(148, 150);
-            this.NumCreatKntktMaKader.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.NumCreatKntktMaKader.Name = "NumCreatKntktMaKader";
-            this.NumCreatKntktMaKader.Size = new System.Drawing.Size(291, 29);
-            this.NumCreatKntktMaKader.TabIndex = 61;
-            // 
             // KontaktErstellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1063, 1170);
+            this.ClientSize = new System.Drawing.Size(1054, 1200);
             this.Controls.Add(this.CmdCreateKntktKontaktErstellen);
             this.Controls.Add(this.CmdCreateKntktDashboard);
             this.Controls.Add(this.GrpBxDatenMA);
@@ -715,11 +784,11 @@
             this.GrpBxCreatKntktDatenAlle.PerformLayout();
             this.GrpBxDatenMA.ResumeLayout(false);
             this.GrpBxDatenMA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaAktLehrj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaLehrj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaBeschGrad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaOfficeNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumCreatKntktMaKader)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -781,5 +850,11 @@
         internal System.Windows.Forms.TextBox TxtCreatKntktAustrDatum;
         internal System.Windows.Forms.TextBox TxtCreatKntktEintrDatum;
         internal System.Windows.Forms.NumericUpDown NumCreatKntktMaKader;
+        internal System.Windows.Forms.TextBox TxtCreatKntktPLZOffice;
+        internal System.Windows.Forms.TextBox TxtCreatKntktAdrOffice;
+        internal System.Windows.Forms.Label LblCreatKntktOrtOffice;
+        internal System.Windows.Forms.Label LblCreatKntktPLZOffice;
+        internal System.Windows.Forms.Label LblCreatKntktAdrOffice;
+        internal System.Windows.Forms.TextBox TxtCreatKntktOrtOffice;
     }
 }

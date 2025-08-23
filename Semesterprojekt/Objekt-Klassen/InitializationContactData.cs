@@ -82,6 +82,15 @@ namespace Semesterprojekt
         private NumericUpDown officeNumber;
         [JsonIgnore] public NumericUpDown OfficeNumber { get => officeNumber; set { officeNumber = value; if (value != null) value.AccessibleName = nameof(OfficeNumber); } }
 
+        private TextBox addressOffice;
+        [JsonIgnore] public TextBox AddressOffice { get => addressOffice; set { addressOffice = value; if (value != null) value.AccessibleName = nameof(AddressOffice); } }
+
+        private TextBox postalCodeOffice;
+        [JsonIgnore] public TextBox PostalCodeOffice { get => postalCodeOffice; set { postalCodeOffice = value; if (value != null) value.AccessibleName = nameof(PostalCodeOffice); } }
+
+        private TextBox cityOffice;
+        [JsonIgnore] public TextBox CityOffice { get => cityOffice; set { cityOffice = value; if (value != null) value.AccessibleName = nameof(CityOffice); } }
+
         private TextBox dateOfEntry;
         [JsonIgnore] public TextBox DateOfEntry { get => dateOfEntry; set { dateOfEntry = value; if (value != null) value.AccessibleName = nameof(DateOfEntry); } }
 

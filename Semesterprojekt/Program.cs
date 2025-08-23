@@ -19,9 +19,9 @@ namespace Semesterprojekt
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Dashboard());
 
-            //var testingKontaktErstellen = new Testing_KontaktErstellen();
-            //testingKontaktErstellen.TestData("mitarbeiter", "daisy");
-            //testingKontaktErstellen.TestData("kunde", "daisy");
+            var testingKontaktErstellen = new Testing_KontaktErstellen();
+            testingKontaktErstellen.TestData("mitarbeiter", "daisy");
+            testingKontaktErstellen.TestData("kunde", "daisy");
             //testingKontaktErstellen.TestData("mitarbeiter", "donald");
             //testingKontaktErstellen.TestData("kunde", "donald");
             //testingKontaktErstellen.TestData("mitarbeiter", "olga");

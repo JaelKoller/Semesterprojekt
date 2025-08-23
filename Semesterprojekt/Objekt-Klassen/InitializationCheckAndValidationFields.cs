@@ -18,6 +18,7 @@ namespace Semesterprojekt
         public TextBox Email { get; set; }
         public TextBox AHVNumber { get; set; }
         public TextBox Nationality { get; set; }
+        public TextBox PostalCodeOffice { get; set; }
         public TextBox DateOfEntry { get; set; }
         public TextBox DateOfExit { get; set; }
     }

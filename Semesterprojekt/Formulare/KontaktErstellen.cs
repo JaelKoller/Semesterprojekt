@@ -9,10 +9,6 @@ namespace Semesterprojekt
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
         private string typeOfContactNew;
 
-        // Dateipfad für Kontaktdaten-Liste
-        // private static readonly string projectRoot = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName;
-        // private readonly string contactDataPath = Path.Combine(projectRoot, "data", "contacts.json");
-
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         private Control[] groupFieldEmployeesAndCustomers;
@@ -42,7 +38,7 @@ namespace Semesterprojekt
         public KontaktErstellen(string typeOfContact)
         {
             InitializeComponent();
-            this.Size = new Size(775, 600);
+            this.Size = new Size(775, 710);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
@@ -69,39 +65,39 @@ namespace Semesterprojekt
             GrpBxCreatKntktMaKunde.Size = new Size(165, 40);
             GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
 
-            // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
-            GrpBxCreatKntktDatenAlle.Size = new Size(365, 390);
-            GrpBxCreatKntktDatenAlle.Location = new Point(10, 55);
+            // Platzierung Gruppe "Kontaktdaten"
+            GrpBxCreatKntktDatenAlle.Size = new Size(365, 400);
+            GrpBxCreatKntktDatenAlle.Location = new Point(10, 60);
 
-            // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
-            GrpBxDatenMA.Size = new Size(365, 390);
-            GrpBxDatenMA.Location = new Point(385, 55);
+            // Platzierung Gruppe "Mitarbeiterdaten"
+            GrpBxDatenMA.Size = new Size(365, 490);
+            GrpBxDatenMA.Location = new Point(385, 60);
 
             // Platzierung Radio-Buttons (Mitarbeiter vs. Kunde)
             RdbCreatKntktMa.Location = new Point(10, 15);
             RdbCreatKntktKunde.Location = new Point(100, 15);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten"
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe "Kontaktdaten" mit 1 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe"Kontaktdaten" mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten"
+            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" fortführend
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Mitarbeiterdaten" mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
             CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
-            CmdCreateKntktKontaktErstellen.Location = new Point(445, 470);
+            CmdCreateKntktKontaktErstellen.Location = new Point(445, 580);
             CmdCreateKntktDashboard.Size = new Size(150, 60);
-            CmdCreateKntktDashboard.Location = new Point(600, 470);
+            CmdCreateKntktDashboard.Location = new Point(600, 580);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
         private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
         {
-            int startLocation = 20;
+            int startLocation = 30;
             int labelXAchse = 10;
             int controlXAchse = 150;
 
@@ -123,7 +119,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
+        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
             return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
@@ -143,7 +139,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeiter (ohne Kunde)
+        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
             return groupLabelEmployees = new System.Windows.Forms.Label[]
@@ -158,6 +154,9 @@ namespace Semesterprojekt
                 LblCreatKntktMaLehrj,
                 LblCreatKntktMaAktLehrj,
                 LblCreatKntktMaOfficeNumber,
+                LblCreatKntktAdrOffice,
+                LblCreatKntktPLZOffice,
+                LblCreatKntktOrtOffice,
                 LblCreatKntktEintrDatum,
                 LblCreatKntktAustrDatum
             };
@@ -175,14 +174,16 @@ namespace Semesterprojekt
                 LblCreatKntktTelMobile,
                 LblCreatKntktMaAHVNr,
                 LblCreatKntktMaNationalitaet,
+                LblCreatKntktMaKader,
                 LblCreatKntktMaLehrj,
                 LblCreatKntktMaAktLehrj,
                 LblCreatKntktEintrDatum,
-                LblCreatKntktAustrDatum
+                LblCreatKntktAustrDatum,
+                LblCreatKntktPLZOffice
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
+        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
         private Control[] GroupFieldEmployeesAndCustomers()
         {
             return groupFieldEmployeesAndCustomers = new Control[]
@@ -202,7 +203,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
+        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
         private Control[] GroupFieldEmployees()
         {
             return groupFieldEmployees = new Control[]
@@ -217,6 +218,9 @@ namespace Semesterprojekt
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
                 NumCreatKntktMaOfficeNumber,
+                TxtCreatKntktAdrOffice,
+                TxtCreatKntktPLZOffice,
+                TxtCreatKntktOrtOffice,
                 TxtCreatKntktEintrDatum,
                 TxtCreatKntktAustrDatum
             };
@@ -261,8 +265,10 @@ namespace Semesterprojekt
                 MobileNumber = LblCreatKntktTelMobile,
                 AHVNumber = LblCreatKntktMaAHVNr,
                 Nationality = LblCreatKntktMaNationalitaet,
+                ManagementLevel = LblCreatKntktMaKader,
                 AcademicYear = LblCreatKntktMaLehrj,
                 CurrentAcademicYear = LblCreatKntktMaAktLehrj,
+                PostalCodeOffice = LblCreatKntktPLZOffice,
                 DateOfEntry = LblCreatKntktEintrDatum,
                 DateOfExit = LblCreatKntktAustrDatum
             };
@@ -420,6 +426,9 @@ namespace Semesterprojekt
                 AcademicYear = NumCreatKntktMaLehrj,
                 CurrentAcademicYear = NumCreatKntktMaAktLehrj,
                 OfficeNumber = NumCreatKntktMaOfficeNumber,
+                AddressOffice = TxtCreatKntktAdrOffice,
+                PostalCodeOffice = TxtCreatKntktPLZOffice,
+                CityOffice = TxtCreatKntktOrtOffice,
                 DateOfEntry = TxtCreatKntktEintrDatum,
                 DateOfExit = TxtCreatKntktAustrDatum
             };
@@ -444,6 +453,7 @@ namespace Semesterprojekt
                 Email = TxtCreatKntktEmail,
                 AHVNumber = TxtCreatKntktMaAHVNr,
                 Nationality = TxtCreatKntktMaNationalitaet,
+                PostalCodeOffice = TxtCreatKntktPLZOffice,
                 DateOfEntry = TxtCreatKntktEintrDatum,
                 DateOfExit = TxtCreatKntktAustrDatum
             };

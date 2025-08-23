@@ -46,7 +46,7 @@ namespace Semesterprojekt
         public AnsichtKontakt(InitializationContactData contactData)
         {
             InitializeComponent();
-            this.Size = new Size(750, 890);
+            this.Size = new Size(750, 990);
             this.WindowState = FormWindowState.Maximized;
             this.AutoScroll = true;
 
@@ -87,27 +87,27 @@ namespace Semesterprojekt
             LblAnsichtKntktNameAnzeige.Size = new Size(200, 40);
             LblAnsichtKntktNameAnzeige.Location = new Point(10, 20);
 
-            // Platzierung Gruppe Mitarbeiter UND Kunde (alle)
-            GrpBxDatenAlle.Size = new Size(410, 390);
-            GrpBxDatenAlle.Location = new Point(10, 55);
+            // Platzierung Gruppe "Kontaktdaten"
+            GrpBxDatenAlle.Size = new Size(410, 400);
+            GrpBxDatenAlle.Location = new Point(10, 60);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
-            // Zählerstart (Index) Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit 1 
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten"
+            // Zählerstart (Index) Eingabefelder der Gruppe "Kontaktdaten" mit 1 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Kontaktdaten" mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
-            // Platzierung Gruppe NUR Mitarbeiter (ohne Kunde)
-            GrpBxDatenMA.Size = new Size(410, 390);
-            GrpBxDatenMA.Location = new Point(10, 450);
+            // Platzierung Gruppe "Mitarbeiterdaten"
+            GrpBxDatenMA.Size = new Size(410, 490);
+            GrpBxDatenMA.Location = new Point(10, 470);
 
-            // Platzierung Labels und Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
-            // Zählerstart (Index) Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) fortführend
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe Mitarbeiter (ohne Kunde) mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten"
+            // Zählerstart (Index) Eingabefelder der Gruppe "Mitarbeiterdaten" fortführend
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Mitarbeiterdaten" mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
             GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
-            GrpBxAnsichtKntktAktiv.Location = new Point(430, 10);
+            GrpBxAnsichtKntktAktiv.Location = new Point(435, 10);
 
             // Platzierung Radio-Buttons (Aktiv vs. Inaktiv)
             // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend (nur auf ersten Radio-Button möglich)
@@ -118,7 +118,7 @@ namespace Semesterprojekt
 
             // Platzierung Gruppe "Notizen zu Person"
             GrpBxAnsichtKntktNotiz.Size = new Size(410, 535);
-            GrpBxAnsichtKntktNotiz.Location = new Point(430, 55);
+            GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
 
             // Platzierung Felder der Gruppe "Notizen zu Person"
             // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
@@ -132,7 +132,7 @@ namespace Semesterprojekt
         // Platzierung Labels und Eingabefelder (dynamisch)
         private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
         {
-            int startLocation = 20;
+            int startLocation = 30;
             int labelXAchse = 10;
             int controlXAchse = 150;
 
@@ -159,7 +159,7 @@ namespace Semesterprojekt
             int width = 380;
             int height = 250;
             int locationX = 15;
-            int locationY = 20;
+            int locationY = 30;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -184,8 +184,8 @@ namespace Semesterprojekt
         {
             int width = 150;
             int height = 60;
-            int locationX = 480;
-            int locationY = 620;
+            int locationX = 485;
+            int locationY = 630;
 
             for (int i = 0; i < groupField.Length; i++)
             {
@@ -201,7 +201,7 @@ namespace Semesterprojekt
             CmdAnsichtKntktDashboard.Location = new Point(locationX + width + 10, locationY + height + 10);
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeiter UND Kunde (alle)
+        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
         private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
         {
             return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
@@ -221,7 +221,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels der Gruppe Mitarbeiter (ohne Kunde)
+        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
         private System.Windows.Forms.Label[] GroupLabelEmployees()
         {
             return groupLabelEmployees = new System.Windows.Forms.Label[]
@@ -236,6 +236,9 @@ namespace Semesterprojekt
                 LblAnsichtKntktMaLehrj,
                 LblAnsichtKntktMaAktLehrj,
                 LblAnsichtKntktMaOfficeNumber,
+                LblAnsichtKntktAdrOffice,
+                LblAnsichtKntktPLZOffice,
+                LblAnsichtKntktOrtOffice,
                 LblAnsichtKntktEintrDatum,
                 LblAnsichtKntktAustrDatum
             };
@@ -253,14 +256,16 @@ namespace Semesterprojekt
                 LblAnsichtKntktTelMobile,
                 LblAnsichtKntktMaAHVNr,
                 LblAnsichtKntktMaNationalitaet,
+                LblAnsichtKntktMaKader,
                 LblAnsichtKntktMaLehrj,
                 LblAnsichtKntktMaAktLehrj,
+                LblAnsichtKntktPLZOffice,
                 LblAnsichtKntktEintrDatum,
                 LblAnsichtKntktAustrDatum
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter UND Kunde (alle)
+        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
         private Control[] GroupFieldEmployeesAndCustomers()
         {
             return groupFieldEmployeesAndCustomers = new Control[]
@@ -280,7 +285,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe Mitarbeiter (ohne Kunde)
+        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
         private Control[] GroupFieldEmployees()
         {
             return groupFieldEmployees = new Control[]
@@ -295,6 +300,9 @@ namespace Semesterprojekt
                 NumAnsichtKntktMaLehrj,
                 NumAnsichtKntktMaAktLehrj,
                 NumAnsichtKntktMaOfficeNumber,
+                TxtAnsichtKntktAdrOffice,
+                TxtAnsichtKntktPLZOffice,
+                TxtAnsichtKntktOrtOffice,
                 TxtAnsichtKntktEintrDatum,
                 TxtAnsichtKntktAustrDatum
             };
@@ -359,8 +367,10 @@ namespace Semesterprojekt
                 MobileNumber = LblAnsichtKntktTelMobile,
                 AHVNumber = LblAnsichtKntktMaAHVNr,
                 Nationality = LblAnsichtKntktMaNationalitaet,
+                ManagementLevel = LblAnsichtKntktMaKader,
                 AcademicYear = LblAnsichtKntktMaLehrj,
                 CurrentAcademicYear = LblAnsichtKntktMaAktLehrj,
+                PostalCodeOffice = LblAnsichtKntktPLZOffice,
                 DateOfEntry = LblAnsichtKntktEintrDatum,
                 DateOfExit = LblAnsichtKntktAustrDatum
             };
@@ -396,6 +406,9 @@ namespace Semesterprojekt
                 NumAnsichtKntktMaLehrj.Value = Convert.ToDecimal(contactData.Fields["AcademicYear"]);
                 NumAnsichtKntktMaAktLehrj.Value = Convert.ToDecimal(contactData.Fields["CurrentAcademicYear"]);
                 NumAnsichtKntktMaOfficeNumber.Value = Convert.ToDecimal(contactData.Fields["OfficeNumber"]);
+                TxtAnsichtKntktAdrOffice.Text = Convert.ToString(contactData.Fields["AddressOffice"]);
+                TxtAnsichtKntktPLZOffice.Text = Convert.ToString(contactData.Fields["PostalCodeOffice"]);
+                TxtAnsichtKntktOrtOffice.Text = Convert.ToString(contactData.Fields["CityOffice"]);
                 TxtAnsichtKntktEintrDatum.Text = Convert.ToString(contactData.Fields["DateOfEntry"]);
                 TxtAnsichtKntktAustrDatum.Text = Convert.ToString(contactData.Fields["DateOfExit"]);
             }
@@ -473,6 +486,9 @@ namespace Semesterprojekt
                 AcademicYear = NumAnsichtKntktMaLehrj,
                 CurrentAcademicYear = NumAnsichtKntktMaAktLehrj,
                 OfficeNumber = NumAnsichtKntktMaOfficeNumber,
+                AddressOffice = TxtAnsichtKntktAdrOffice,
+                PostalCodeOffice = TxtAnsichtKntktPLZOffice,
+                CityOffice = TxtAnsichtKntktOrtOffice,
                 DateOfEntry = TxtAnsichtKntktEintrDatum,
                 DateOfExit = TxtAnsichtKntktAustrDatum
             };
@@ -516,6 +532,7 @@ namespace Semesterprojekt
                 Email = TxtAnsichtKntktEmail,
                 AHVNumber = TxtAnsichtKntktMaAHVNr,
                 Nationality = TxtAnsichtKntktMaNationalitaet,
+                PostalCodeOffice = TxtAnsichtKntktPLZOffice,
                 DateOfEntry = TxtAnsichtKntktEintrDatum,
                 DateOfExit = TxtAnsichtKntktAustrDatum
             };

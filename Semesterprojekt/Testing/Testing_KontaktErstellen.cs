@@ -44,6 +44,9 @@ namespace Semesterprojekt.Testing
                         kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 3;
                         kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 123;
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Bürostrasse 100";
+                        kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "9001";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "St. Gallen";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.08.2005";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }
@@ -76,6 +79,9 @@ namespace Semesterprojekt.Testing
                         kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 456;
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Bürostrasse 100";
+                        kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "9001";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "St. Gallen";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "13.10.2024";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }
@@ -108,6 +114,9 @@ namespace Semesterprojekt.Testing
                         kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 456;
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Weiher 96";
+                        kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "9103";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Schwellbrunn";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.01.2020";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }
@@ -140,6 +149,9 @@ namespace Semesterprojekt.Testing
                         kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 5;
                         kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 4;
                         kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 0;
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Error-Business-Weg";
+                        kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "920";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Gossau SG";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.01.3025";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }

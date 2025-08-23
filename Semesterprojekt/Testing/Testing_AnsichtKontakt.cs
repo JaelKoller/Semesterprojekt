@@ -73,8 +73,8 @@ namespace Semesterprojekt.Testing
                     { "Address", "Heimstrasse 4" },
                     { "PostalCode", "9014" },
                     { "City", "St. Gallen" },
-                    { "BusinessNumber", "071 123 45 67" },
-                    { "MobileNumber", "076 123 45 67" },
+                    { "BusinessNumber", "+41 71 123 45 67" },
+                    { "MobileNumber", "+41 76 123 45 67" },
                     { "Email", "jaelkoller@testmail.ch" },
                     { "EmployeeNumber", testfallMitarbeiter ? "MA9999" : "" },
                     { "AHVNumber", testfallMitarbeiter ? "756.8800.5641.37" : "" },
@@ -86,6 +86,9 @@ namespace Semesterprojekt.Testing
                     { "AcademicYear", testfallMitarbeiter ? "3" : "0" },
                     { "CurrentAcademicYear", "0" },
                     { "OfficeNumber", testfallMitarbeiter ? "123" : "0" },
+                    { "AddressOffice", testfallMitarbeiter ? "St. Leonhardstrasse 25" : "" },
+                    { "PostalCodeOffice", testfallMitarbeiter ? "9001" : "" },
+                    { "CityOffice", testfallMitarbeiter ? "St. Gallen" : "" },
                     { "DateOfEntry", testfallMitarbeiter ? "01.08.2005" : "" },
                     { "DateOfExit", "" }
                 }
@@ -93,7 +96,7 @@ namespace Semesterprojekt.Testing
 
             ansichtKontaktForm = new AnsichtKontakt(contactData);
 
-            ansichtKontaktForm.LblAnsichtKntktNameAnzeige.Text = $"{typeOfContact}: {ansichtKontaktForm.TxtAnsichtKntktVorname.Text} {ansichtKontaktForm.TxtAnsichtKntktName.Text}";
+            ansichtKontaktForm.LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
             // Start Form "KontaktErstellen" mit Testdaten
             Application.Run(ansichtKontaktForm);

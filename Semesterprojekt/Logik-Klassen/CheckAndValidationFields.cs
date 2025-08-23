@@ -115,7 +115,7 @@ namespace Semesterprojekt
                 return;
             }
 
-            CheckPLZNumber(content.PostalCode);
+            CheckPLZNumber(content.PostalCode, false);
             if (content.PostalCode.Tag == tagNOK)
                 return;
 
@@ -136,6 +136,10 @@ namespace Semesterprojekt
             {
                 CheckAHVNumber(content.AHVNumber);
                 if (content.AHVNumber.Tag == tagNOK)
+                    return;
+
+                CheckPLZNumber(content.PostalCodeOffice, true);
+                if (content.PostalCodeOffice.Tag == tagNOK)
                     return;
 
                 CheckDateField(content.DateOfEntry, "Eintrittsdatum", true);
@@ -176,9 +180,12 @@ namespace Semesterprojekt
         }
 
         // Prüfung PLZ-Format auf 4 bis 5 Ziffern (Standard für Schweiz und umliegende Länder)
-        private void CheckPLZNumber(TextBox plz)
+        // Einschränkung Prüfung PLZ-Format (Geschäft) auf 4 Ziffern ohne führende 0 (Standard für Schweiz)
+        private void CheckPLZNumber(TextBox plz, bool isOffice)
         {
-            if (Regex.IsMatch(plz.Text.Trim(), @"^\d{4,5}$"))
+            string pattern = isOffice ? @"^[1-9]\d{3}$" : @"^\d{4,5}$";
+
+            if (Regex.IsMatch(plz.Text.Trim(), pattern))
             {
                 plz.BackColor = backColorOK;
                 plz.Tag = tagOK;
@@ -186,9 +193,11 @@ namespace Semesterprojekt
 
             else
             {
+                string messageAdd = isOffice ? "(4 Ziffern ohne führende 0 nötig)" : "(4-5 Ziffern nötig)";
+                
                 plz.BackColor = backColorNOK;
                 plz.Tag = tagNOK;
-                ShowMessageBox($"PLZ '{plz.Text.Trim()}' ist ungültig\r\n(4-5 Ziffern nötig)");
+                ShowMessageBox($"PLZ '{plz.Text.Trim()}' ist ungültig\r\n{messageAdd}");
                 plz.Focus();
             }
         }

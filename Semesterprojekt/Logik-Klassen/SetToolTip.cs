@@ -9,7 +9,7 @@ namespace Semesterprojekt
         // Initialisierung Werte für ToolTip
         private readonly System.Windows.Forms.ToolTip toolTip = new System.Windows.Forms.ToolTip
         {
-            AutoPopDelay = 10000, // Standardwert liegt bei 5000ms (Wie lange bleibt Tooltip sichtbar)
+            AutoPopDelay = 20000, // Standardwert liegt bei 5000ms (Wie lange bleibt Tooltip sichtbar)
             InitialDelay = 100, // Standardwert liegt bei 500ms (Verzögerung bis Tooltip erscheint)
             ReshowDelay = 100, // Standardwert liegt bei 100ms (Verzögerung zwischen mehreren Tooltips hintereinander)
             ShowAlways = true // Standardwert ist FALSE (Tooltip wird auch angezeigt, wenn Formular nicht aktiv)
@@ -23,7 +23,10 @@ namespace Semesterprojekt
             ["PhoneNumber"] = "6-/15-stellige Telefon Nr. mit Vorwahl\r\n(Schweiz und Nachbarländer)\r\nz.B. +41 71 123 44 55",
             ["AHVNumber"] = "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90",
             ["Nationality"] = "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT",
-            ["Academic"] = "nur relevant für Lernende",
+            ["ManagementLevel"] = "0 = Fachmitarbeiter/in\r\n1 = Fachspezialist/in\r\n2 = Teamleiter/in\r\n3 = Abteilungsleiter/in\r\n4 = Geschäftsleiter/in\r\n5 = Unternehumgsleiter/in",
+            ["AcademicYear"] = "Anzahl Ausbildungsjahre (EFZ, HF, FH usw.)",
+            ["CurrentAcademicYear"] = "nur relevant für Lernende",
+            ["PostalCodeOffice"] = "4-stellige Postleitzahl ohne führende 0\r\n(Schweiz)",
             ["Date"] = "Eingabe mit Format 'TT.MM.JJJJ'\r\nz.B. 01.01.1900",
             ["SearchEmployeeContacts"] = "Häkchen für Such-Einschränkung auf 'Mitarbeiter'",
             ["SearchClientContacts"] = "Häkchen für Such-Einschränkung 'Kunde'",

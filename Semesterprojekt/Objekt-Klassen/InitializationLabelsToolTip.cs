@@ -27,18 +27,24 @@
         private System.Windows.Forms.Label nationality;
         public System.Windows.Forms.Label Nationality { get => nationality; set { nationality = value; if (value != null) value.AccessibleName = nameof(Nationality); } }
 
+        private System.Windows.Forms.Label managementLevel;
+        public System.Windows.Forms.Label ManagementLevel { get => managementLevel; set { managementLevel = value; if (value != null) value.AccessibleName = nameof(ManagementLevel); } }
+
         private System.Windows.Forms.Label academicYear;
-        public System.Windows.Forms.Label AcademicYear { get => academicYear; set { academicYear = value; if (value != null) value.AccessibleName = "Academic"; } }
+        public System.Windows.Forms.Label AcademicYear { get => academicYear; set { academicYear = value; if (value != null) value.AccessibleName = nameof(AcademicYear); } }
 
         private System.Windows.Forms.Label currentAcademicYear;
-        public System.Windows.Forms.Label CurrentAcademicYear { get => currentAcademicYear; set { currentAcademicYear = value; if (value != null) value.AccessibleName = "Academic"; } }
+        public System.Windows.Forms.Label CurrentAcademicYear { get => currentAcademicYear; set { currentAcademicYear = value; if (value != null) value.AccessibleName = nameof(CurrentAcademicYear); } }
+
+        private System.Windows.Forms.Label postalCodeOffice;
+        public System.Windows.Forms.Label PostalCodeOffice { get => postalCodeOffice; set { postalCodeOffice = value; if (value != null) value.AccessibleName = nameof(PostalCodeOffice); } }
 
         private System.Windows.Forms.Label dateOfEntry;
         public System.Windows.Forms.Label DateOfEntry { get => dateOfEntry; set { dateOfEntry = value; if (value != null) value.AccessibleName = "Date"; } }
 
         private System.Windows.Forms.Label dateOfExit;
         public System.Windows.Forms.Label DateOfExit { get => dateOfExit; set { dateOfExit = value; if (value != null) value.AccessibleName = "Date"; } }
-
+        
         private System.Windows.Forms.Label searchEmployeeContacts;
         public System.Windows.Forms.Label SearchEmployeeContacts { get => searchEmployeeContacts; set { searchEmployeeContacts = value; if (value != null) value.AccessibleName = nameof(SearchEmployeeContacts); } }
 

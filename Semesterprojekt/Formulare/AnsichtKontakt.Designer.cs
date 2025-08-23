@@ -56,6 +56,13 @@
             this.LblAnsichtKntktPLZ = new System.Windows.Forms.Label();
             this.LblAnsichtKntktOrt = new System.Windows.Forms.Label();
             this.GrpBxDatenMA = new System.Windows.Forms.GroupBox();
+            this.TxtAnsichtKntktOrtOffice = new System.Windows.Forms.TextBox();
+            this.TxtAnsichtKntktAdrOffice = new System.Windows.Forms.TextBox();
+            this.TxtAnsichtKntktPLZOffice = new System.Windows.Forms.TextBox();
+            this.LblAnsichtKntktOrtOffice = new System.Windows.Forms.Label();
+            this.LblAnsichtKntktPLZOffice = new System.Windows.Forms.Label();
+            this.LblAnsichtKntktAdrOffice = new System.Windows.Forms.Label();
+            this.NumAnsichtKntktMaKader = new System.Windows.Forms.NumericUpDown();
             this.TxtAnsichtKntktAustrDatum = new System.Windows.Forms.TextBox();
             this.TxtAnsichtKntktEintrDatum = new System.Windows.Forms.TextBox();
             this.NumAnsichtKntktMaOfficeNumber = new System.Windows.Forms.NumericUpDown();
@@ -93,16 +100,15 @@
             this.CmdAnsichtKntktEdit = new System.Windows.Forms.Button();
             this.CmdAnsichtKntktDashboard = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.NumAnsichtKntktMaKader = new System.Windows.Forms.NumericUpDown();
             this.GrpBxDatenAlle.SuspendLayout();
             this.GrpBxDatenMA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaKader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaBeschGrad)).BeginInit();
             this.GrpBxAnsichtKntktAktiv.SuspendLayout();
             this.GrpBxAnsichtKntktNotiz.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaKader)).BeginInit();
             this.SuspendLayout();
             // 
             // LblAnsichtKntktNameAnzeige
@@ -150,6 +156,7 @@
             this.GrpBxDatenAlle.Size = new System.Drawing.Size(460, 559);
             this.GrpBxDatenAlle.TabIndex = 1;
             this.GrpBxDatenAlle.TabStop = false;
+            this.GrpBxDatenAlle.Text = "Kontaktdaten";
             // 
             // TxtAnsichtKntktBirthday
             // 
@@ -345,6 +352,7 @@
             // 
             this.TxtAnsichtKntktPLZ.Location = new System.Drawing.Point(148, 322);
             this.TxtAnsichtKntktPLZ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktPLZ.MaxLength = 5;
             this.TxtAnsichtKntktPLZ.Name = "TxtAnsichtKntktPLZ";
             this.TxtAnsichtKntktPLZ.Size = new System.Drawing.Size(366, 29);
             this.TxtAnsichtKntktPLZ.TabIndex = 33;
@@ -379,6 +387,12 @@
             // 
             // GrpBxDatenMA
             // 
+            this.GrpBxDatenMA.Controls.Add(this.TxtAnsichtKntktOrtOffice);
+            this.GrpBxDatenMA.Controls.Add(this.TxtAnsichtKntktAdrOffice);
+            this.GrpBxDatenMA.Controls.Add(this.TxtAnsichtKntktPLZOffice);
+            this.GrpBxDatenMA.Controls.Add(this.LblAnsichtKntktOrtOffice);
+            this.GrpBxDatenMA.Controls.Add(this.LblAnsichtKntktPLZOffice);
+            this.GrpBxDatenMA.Controls.Add(this.LblAnsichtKntktAdrOffice);
             this.GrpBxDatenMA.Controls.Add(this.NumAnsichtKntktMaKader);
             this.GrpBxDatenMA.Controls.Add(this.TxtAnsichtKntktAustrDatum);
             this.GrpBxDatenMA.Controls.Add(this.TxtAnsichtKntktEintrDatum);
@@ -408,13 +422,82 @@
             this.GrpBxDatenMA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GrpBxDatenMA.Name = "GrpBxDatenMA";
             this.GrpBxDatenMA.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GrpBxDatenMA.Size = new System.Drawing.Size(460, 604);
+            this.GrpBxDatenMA.Size = new System.Drawing.Size(460, 700);
             this.GrpBxDatenMA.TabIndex = 2;
             this.GrpBxDatenMA.TabStop = false;
+            this.GrpBxDatenMA.Text = "Mitarbeiterdaten";
+            // 
+            // TxtAnsichtKntktOrtOffice
+            // 
+            this.TxtAnsichtKntktOrtOffice.Location = new System.Drawing.Point(142, 575);
+            this.TxtAnsichtKntktOrtOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktOrtOffice.Name = "TxtAnsichtKntktOrtOffice";
+            this.TxtAnsichtKntktOrtOffice.Size = new System.Drawing.Size(366, 29);
+            this.TxtAnsichtKntktOrtOffice.TabIndex = 42;
+            // 
+            // TxtAnsichtKntktAdrOffice
+            // 
+            this.TxtAnsichtKntktAdrOffice.Location = new System.Drawing.Point(88, 494);
+            this.TxtAnsichtKntktAdrOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktAdrOffice.Name = "TxtAnsichtKntktAdrOffice";
+            this.TxtAnsichtKntktAdrOffice.Size = new System.Drawing.Size(366, 29);
+            this.TxtAnsichtKntktAdrOffice.TabIndex = 42;
+            // 
+            // TxtAnsichtKntktPLZOffice
+            // 
+            this.TxtAnsichtKntktPLZOffice.Location = new System.Drawing.Point(161, 542);
+            this.TxtAnsichtKntktPLZOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktPLZOffice.MaxLength = 4;
+            this.TxtAnsichtKntktPLZOffice.Name = "TxtAnsichtKntktPLZOffice";
+            this.TxtAnsichtKntktPLZOffice.Size = new System.Drawing.Size(366, 29);
+            this.TxtAnsichtKntktPLZOffice.TabIndex = 42;
+            // 
+            // LblAnsichtKntktOrtOffice
+            // 
+            this.LblAnsichtKntktOrtOffice.AutoSize = true;
+            this.LblAnsichtKntktOrtOffice.Location = new System.Drawing.Point(19, 577);
+            this.LblAnsichtKntktOrtOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblAnsichtKntktOrtOffice.Name = "LblAnsichtKntktOrtOffice";
+            this.LblAnsichtKntktOrtOffice.Size = new System.Drawing.Size(112, 22);
+            this.LblAnsichtKntktOrtOffice.TabIndex = 42;
+            this.LblAnsichtKntktOrtOffice.Text = "Ort (Geschäft)";
+            // 
+            // LblAnsichtKntktPLZOffice
+            // 
+            this.LblAnsichtKntktPLZOffice.AutoSize = true;
+            this.LblAnsichtKntktPLZOffice.Location = new System.Drawing.Point(21, 538);
+            this.LblAnsichtKntktPLZOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblAnsichtKntktPLZOffice.Name = "LblAnsichtKntktPLZOffice";
+            this.LblAnsichtKntktPLZOffice.Size = new System.Drawing.Size(113, 22);
+            this.LblAnsichtKntktPLZOffice.TabIndex = 42;
+            this.LblAnsichtKntktPLZOffice.Text = "PLZ (Geschäft)";
+            // 
+            // LblAnsichtKntktAdrOffice
+            // 
+            this.LblAnsichtKntktAdrOffice.AutoSize = true;
+            this.LblAnsichtKntktAdrOffice.Location = new System.Drawing.Point(19, 508);
+            this.LblAnsichtKntktAdrOffice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LblAnsichtKntktAdrOffice.Name = "LblAnsichtKntktAdrOffice";
+            this.LblAnsichtKntktAdrOffice.Size = new System.Drawing.Size(176, 22);
+            this.LblAnsichtKntktAdrOffice.TabIndex = 58;
+            this.LblAnsichtKntktAdrOffice.Text = "Strasse / Nr. (Geschäft)";
+            // 
+            // NumAnsichtKntktMaKader
+            // 
+            this.NumAnsichtKntktMaKader.Location = new System.Drawing.Point(153, 151);
+            this.NumAnsichtKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.NumAnsichtKntktMaKader.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.NumAnsichtKntktMaKader.Name = "NumAnsichtKntktMaKader";
+            this.NumAnsichtKntktMaKader.Size = new System.Drawing.Size(151, 29);
+            this.NumAnsichtKntktMaKader.TabIndex = 57;
             // 
             // TxtAnsichtKntktAustrDatum
             // 
-            this.TxtAnsichtKntktAustrDatum.Location = new System.Drawing.Point(161, 548);
+            this.TxtAnsichtKntktAustrDatum.Location = new System.Drawing.Point(142, 649);
             this.TxtAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktAustrDatum.Name = "TxtAnsichtKntktAustrDatum";
             this.TxtAnsichtKntktAustrDatum.Size = new System.Drawing.Size(366, 29);
@@ -422,7 +505,7 @@
             // 
             // TxtAnsichtKntktEintrDatum
             // 
-            this.TxtAnsichtKntktEintrDatum.Location = new System.Drawing.Point(161, 490);
+            this.TxtAnsichtKntktEintrDatum.Location = new System.Drawing.Point(142, 612);
             this.TxtAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TxtAnsichtKntktEintrDatum.Name = "TxtAnsichtKntktEintrDatum";
             this.TxtAnsichtKntktEintrDatum.Size = new System.Drawing.Size(366, 29);
@@ -433,7 +516,7 @@
             this.NumAnsichtKntktMaOfficeNumber.Location = new System.Drawing.Point(161, 448);
             this.NumAnsichtKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NumAnsichtKntktMaOfficeNumber.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});
@@ -459,7 +542,7 @@
             this.NumAnsichtKntktMaLehrj.Location = new System.Drawing.Point(161, 356);
             this.NumAnsichtKntktMaLehrj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NumAnsichtKntktMaLehrj.Maximum = new decimal(new int[] {
-            10,
+            20,
             0,
             0,
             0});
@@ -478,7 +561,7 @@
             // LblAnsichtKntktEintrDatum
             // 
             this.LblAnsichtKntktEintrDatum.AutoSize = true;
-            this.LblAnsichtKntktEintrDatum.Location = new System.Drawing.Point(21, 496);
+            this.LblAnsichtKntktEintrDatum.Location = new System.Drawing.Point(23, 626);
             this.LblAnsichtKntktEintrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAnsichtKntktEintrDatum.Name = "LblAnsichtKntktEintrDatum";
             this.LblAnsichtKntktEintrDatum.Size = new System.Drawing.Size(113, 22);
@@ -491,9 +574,9 @@
             this.LblAnsichtKntktMaOfficeNumber.Location = new System.Drawing.Point(21, 454);
             this.LblAnsichtKntktMaOfficeNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAnsichtKntktMaOfficeNumber.Name = "LblAnsichtKntktMaOfficeNumber";
-            this.LblAnsichtKntktMaOfficeNumber.Size = new System.Drawing.Size(106, 22);
+            this.LblAnsichtKntktMaOfficeNumber.Size = new System.Drawing.Size(163, 22);
             this.LblAnsichtKntktMaOfficeNumber.TabIndex = 45;
-            this.LblAnsichtKntktMaOfficeNumber.Text = "Büronummer";
+            this.LblAnsichtKntktMaOfficeNumber.Text = "Büronummer (intern)";
             // 
             // LblAnsichtKntktMaAktLehrj
             // 
@@ -508,7 +591,7 @@
             // LblAnsichtKntktAustrDatum
             // 
             this.LblAnsichtKntktAustrDatum.AutoSize = true;
-            this.LblAnsichtKntktAustrDatum.Location = new System.Drawing.Point(21, 548);
+            this.LblAnsichtKntktAustrDatum.Location = new System.Drawing.Point(19, 656);
             this.LblAnsichtKntktAustrDatum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LblAnsichtKntktAustrDatum.Name = "LblAnsichtKntktAustrDatum";
             this.LblAnsichtKntktAustrDatum.Size = new System.Drawing.Size(117, 22);
@@ -539,6 +622,7 @@
             // 
             this.TxtAnsichtKntktMaNationalitaet.Location = new System.Drawing.Point(153, 101);
             this.TxtAnsichtKntktMaNationalitaet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TxtAnsichtKntktMaNationalitaet.MaxLength = 2;
             this.TxtAnsichtKntktMaNationalitaet.Name = "TxtAnsichtKntktMaNationalitaet";
             this.TxtAnsichtKntktMaNationalitaet.Size = new System.Drawing.Size(366, 29);
             this.TxtAnsichtKntktMaNationalitaet.TabIndex = 37;
@@ -700,6 +784,7 @@
             this.GrpBxAnsichtKntktNotiz.Size = new System.Drawing.Size(420, 832);
             this.GrpBxAnsichtKntktNotiz.TabIndex = 5;
             this.GrpBxAnsichtKntktNotiz.TabStop = false;
+            this.GrpBxAnsichtKntktNotiz.Text = "Notiz-Protokoll";
             // 
             // TxtAnsichtKntktProtokolTitel
             // 
@@ -809,25 +894,12 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // NumAnsichtKntktMaKader
-            // 
-            this.NumAnsichtKntktMaKader.Location = new System.Drawing.Point(153, 151);
-            this.NumAnsichtKntktMaKader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.NumAnsichtKntktMaKader.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.NumAnsichtKntktMaKader.Name = "NumAnsichtKntktMaKader";
-            this.NumAnsichtKntktMaKader.Size = new System.Drawing.Size(151, 29);
-            this.NumAnsichtKntktMaKader.TabIndex = 57;
-            // 
             // AnsichtKontakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1356, 1252);
+            this.ClientSize = new System.Drawing.Size(1356, 1413);
             this.Controls.Add(this.CmdAnsichtKntktDashboard);
             this.Controls.Add(this.CmdAnsichtKntktEdit);
             this.Controls.Add(this.CmdAnsichtKntktDeletAll);
@@ -844,6 +916,7 @@
             this.GrpBxDatenAlle.PerformLayout();
             this.GrpBxDatenMA.ResumeLayout(false);
             this.GrpBxDatenMA.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaKader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaOfficeNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaAktLehrj)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaLehrj)).EndInit();
@@ -852,7 +925,6 @@
             this.GrpBxAnsichtKntktAktiv.PerformLayout();
             this.GrpBxAnsichtKntktNotiz.ResumeLayout(false);
             this.GrpBxAnsichtKntktNotiz.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumAnsichtKntktMaKader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -925,5 +997,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         internal System.Windows.Forms.TextBox TxtAnsichtKntktAustrDatum;
         internal System.Windows.Forms.NumericUpDown NumAnsichtKntktMaKader;
+        internal System.Windows.Forms.Label LblAnsichtKntktOrtOffice;
+        internal System.Windows.Forms.Label LblAnsichtKntktPLZOffice;
+        internal System.Windows.Forms.Label LblAnsichtKntktAdrOffice;
+        internal System.Windows.Forms.TextBox TxtAnsichtKntktOrtOffice;
+        internal System.Windows.Forms.TextBox TxtAnsichtKntktPLZOffice;
+        internal System.Windows.Forms.TextBox TxtAnsichtKntktAdrOffice;
     }
 }
