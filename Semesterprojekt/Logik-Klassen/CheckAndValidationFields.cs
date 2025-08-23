@@ -132,12 +132,12 @@ namespace Semesterprojekt
             if (content.Email.Tag == tagNOK)
                 return;
 
-            CheckAHVNumber(content.AHVNumber, content.Nationality, content.IsClient);
-            if (content.AHVNumber.Tag == tagNOK)
-                return;
-
             if (content.IsEmployee)
             {
+                CheckAHVNumber(content.AHVNumber);
+                if (content.AHVNumber.Tag == tagNOK)
+                    return;
+
                 CheckDateField(content.DateOfEntry, "Eintrittsdatum", true);
                 if (content.DateOfEntry.Tag == tagNOK)
                     return;
@@ -233,22 +233,14 @@ namespace Semesterprojekt
         }
 
         // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
-        private void CheckAHVNumber(TextBox ahvNumber, TextBox nationality, bool isClient)
+        private void CheckAHVNumber(TextBox ahvNumber)
         {
-            if (isClient || string.IsNullOrWhiteSpace(nationality.Text.Trim()) || nationality.Text.Trim().ToUpper() != "CH")
-            {
-                ahvNumber.BackColor = backColorOK;
-                ahvNumber.Tag = tagOK;
-                return;
-            }
-
             if (!ValidationAHVNumber(ahvNumber.Text.Trim()))
             {
                 ahvNumber.BackColor = backColorNOK;
                 ahvNumber.Tag = tagNOK;
                 ShowMessageBox($"AHV-Nummer '{ahvNumber.Text.Trim()}' ist ungültig");
                 ahvNumber.Focus();
-
             }
 
             else

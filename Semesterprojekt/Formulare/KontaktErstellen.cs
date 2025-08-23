@@ -228,8 +228,8 @@ namespace Semesterprojekt
             return checkFieldIgnore = new Control[]
             {
                 TxtCreatKntktTitel,
-                 // bei Mitarbeitern mit CH-Nationalität bleibt das Feld "Pflicht"
-                (RdbCreatKntktKunde.Checked || (!string.IsNullOrWhiteSpace(TxtCreatKntktMaNationalitaet.Text) && TxtCreatKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtCreatKntktMaAHVNr : null),            
+                 // bei Mitarbeitern bleibt das Feld "Pflicht"
+                // (!RdbCreatKntktMa.Checked ? TxtCreatKntktMaAHVNr : null),            
                 TxtCreatKntktMaKader,
                 NumCreatKntktMaLehrj,
                 NumCreatKntktMaAktLehrj,
@@ -332,11 +332,6 @@ namespace Semesterprojekt
                 field.BackColor = backColorOK;
                 field.Tag = tagOK;
             }
-
-            // Bereinigung (zusätzlich) Feld "Geschäft Nr." (bei Wechsel zu Kunde)
-            TxtCreatKntktTelGeschaeft.Clear();
-            TxtCreatKntktTelGeschaeft.BackColor = backColorOK;
-            TxtCreatKntktTelGeschaeft.Tag = tagOK;
         }
 
         // Wechsel von Mitarbeiter zu Kunde (und umgekehrt)
