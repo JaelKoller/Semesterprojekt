@@ -331,8 +331,6 @@ namespace Semesterprojekt
             return checkFieldIgnore = new Control[]
             {
                 TxtAnsichtKntktTitel,
-                // bei Mitarbeitern bleibt das Feld "Pflicht"
-                (isClient ? TxtAnsichtKntktTelGeschaeft : null),
                 // bei Mitarbeitern mit CH-Nationalität bleibt das Feld "Pflicht"
                 ((!string.IsNullOrWhiteSpace(TxtAnsichtKntktMaNationalitaet.Text) && TxtAnsichtKntktMaNationalitaet.Text.ToUpper() != "CH") ? TxtAnsichtKntktMaAHVNr : null),
                 TxtAnsichtKntktMaKader,

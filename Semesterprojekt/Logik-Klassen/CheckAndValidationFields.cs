@@ -119,12 +119,9 @@ namespace Semesterprojekt
             if (content.PostalCode.Tag == tagNOK)
                 return;
 
-            if (content.IsEmployee || !string.IsNullOrWhiteSpace(content.BusinessNumber.Text))
-            {
-                CheckPhone(content.BusinessNumber, "Geschäft Nr.");
-                if (content.BusinessNumber.Tag == tagNOK)
-                    return;
-            }
+            CheckPhone(content.BusinessNumber, "Geschäft Nr.");
+            if (content.BusinessNumber.Tag == tagNOK)
+                return;
 
             CheckPhone(content.MobileNumber, "Mobile Nr.");
             if (content.MobileNumber.Tag == tagNOK)
