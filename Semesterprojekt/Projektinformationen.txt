@@ -21,7 +21,7 @@ Beschreibung (was funktioniert):
 ---> Telefon Nr.-Prüfung mit führendem + bzgl. Schweiz und Nachbarländer)
 ---> E-Mail-Prüfung auf Format Text@Text.Text
 ---> AVH-Nummer-Prüfung auf CH-Norm
-
+- Schliessung der einzelnen Forms mit ESC möglich (inkl. Validierungen, wo nötig)
 
 Beschreibung (was funktioniert nicht):
 Das musst du selber rausfinden ;-)
