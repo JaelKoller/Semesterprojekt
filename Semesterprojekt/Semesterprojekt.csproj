@@ -77,6 +77,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gruppen %28Arrays%29\AnsichtKontaktLabelAndControlGroups.cs" />
+    <Compile Include="Gruppen %28Arrays%29\AlleKontakteLabelAndControlGroups.cs" />
+    <Compile Include="Gruppen %28Arrays%29\DashboardLabelAndControlGroups.cs" />
+    <Compile Include="Gruppen %28Arrays%29\KontaktErstellenLabelAndControlGroups.cs" />
     <Compile Include="Logik-Klassen\CheckAndValidationNoteFields.cs" />
     <Compile Include="Objekt-Klassen\InitializationNotes.cs" />
     <Compile Include="Objekt-Klassen\InitializationDataPathJson.cs" />

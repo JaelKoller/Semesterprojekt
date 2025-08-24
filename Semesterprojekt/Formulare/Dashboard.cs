@@ -6,6 +6,9 @@ namespace Semesterprojekt
 {
     public partial class Dashboard : Form
     {
+        // Initialisierung Klasse "DashboardLabelAndControlGroups"
+        private DashboardLabelAndControlGroups groups;
+
         // Initialisierung Control-Gruppe "Buttons"
         private Control[] groupButtons;
 
@@ -16,8 +19,10 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Platzierung Buttons "Mitarbeiter hinzufügen, Kunde hinzufügen, Alle Kontakte" (inkl. Erfassung Index)
-            PlacementButton(GroupButtons());
+            // Erstellung Array für Buttons und Platzierung (inkl. Index)
+            groups = new DashboardLabelAndControlGroups();
+            groupButtons = groups.GroupButtons(this);
+            PlacementButton(groupButtons);
 
             // Initialisierung (Registrierung) ESC für Beendung Programm (analog Button)
             this.CancelButton = BtnDashClose;
@@ -47,18 +52,6 @@ namespace Semesterprojekt
             BtnDashKndNew.Location = new Point(location, location + height);
             BtnDashAllKntkt.Location = new Point(location + width, location);
             BtnDashClose.Location = new Point(location + width, location + height);
-        }
-
-        // Erstellung Array für Buttons
-        private Control[] GroupButtons()
-        {
-            return groupButtons = new Control[]
-            {
-                BtnDashMaNew,
-                BtnDashKndNew,
-                BtnDashAllKntkt,
-                BtnDashClose
-            };
         }
 
         // Methode für Aufruf Form "KontaktErstellen" (Mitarbeiter und/oder Kunde hinzufügen)

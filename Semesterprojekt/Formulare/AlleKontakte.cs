@@ -9,11 +9,13 @@ namespace Semesterprojekt
 {
     public partial class AlleKontakte : Form
     {
+        // Initialisierung Klasse "AlleKontakteLabelAndControlGroups"
+        private AlleKontakteLabelAndControlGroups groups;
+
         // Initialisierung verwendete Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabel;
         private Control[] groupField;
         private System.Windows.Forms.Label[] groupLabelToolTip;
-        private Dictionary<string, object> groupSearch;
 
         // Initialisierung verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -32,21 +34,21 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
+            // Erstellung Arrays für Labels und Eingabefelder
+            groups = new AlleKontakteLabelAndControlGroups();
+
             // Initialisierung verwendete Label-/Control-Gruppen
-            groupLabel = GroupLabel();
-            groupField = GroupField();
-            groupLabelToolTip = GroupLabelToolTip();
-            groupSearch = GroupSeach();
+            groupLabel = groups.GroupLabel(this);
+            groupField = groups.GroupField(this);
+            groupLabelToolTip = groups.GroupLabelToolTip(this);
 
             Design();
             InitializationLabelToolTip();
 
             // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button)
             this.CancelButton = BtnAllKntktHome;
-
             // Initialisierung (Registrierung) Enter für Suche (analog Button)
             this.AcceptButton = BtnAllKntktSuchen;
-
             // Initialisierung (Registrierung) Doppelklick auf Listeneintrag
             LbAllKntktSuchAusg.DoubleClick += LbAllKntktSuchAusg_DoubleClick;
         }
@@ -104,46 +106,6 @@ namespace Semesterprojekt
             }
         }
 
-        // Erstellung Array für Labels
-        private System.Windows.Forms.Label[] GroupLabel()
-        {
-            return groupLabel = new System.Windows.Forms.Label[]
-            {
-                LblAllKntktVorname,
-                LblAllKntktName,
-                LblAllKntktBirthday,
-                LblAllKntktMa,
-                LblAllKntktKunde,
-                LblAllKntktInaktiv
-            };
-        }
-
-        // Erstellung Array für Labels für ToolTip
-        private System.Windows.Forms.Label[] GroupLabelToolTip()
-        {
-            return groupLabelToolTip = new System.Windows.Forms.Label[]
-            {
-                LblAllKntktBirthday,
-                LblAllKntktMa,
-                LblAllKntktKunde,
-                LblAllKntktInaktiv
-            };
-        }
-
-        // Erstellung Array für Eingabefelder
-        private Control[] GroupField()
-        {
-            return groupField = new Control[]
-            {
-                TxtAllKntktVorname,
-                TxtAllKntktName,
-                TxtAllKntktBirthday,
-                ChkBAllKntktMa,
-                ChkBAllKntktKunde,
-                ChkBAllKntktInaktiv
-            };
-        }
-
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
@@ -168,7 +130,7 @@ namespace Semesterprojekt
         // Erstellung Dictonary für Suche
         private Dictionary<string, object> GroupSeach()
         {
-            return groupSearch = new Dictionary<string, object>
+            return new Dictionary<string, object>
             {
                 { "FirstName", TxtAllKntktVorname.Text.Trim() },
                 { "LastName", TxtAllKntktName.Text.Trim() },

@@ -9,13 +9,15 @@ namespace Semesterprojekt
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
         private string typeOfContactNew;
 
+        // Initialisierung Klasse "KontaktErstellenLabelAndControlGroups"
+        private KontaktErstellenLabelAndControlGroups groups;
+
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         private Control[] groupFieldEmployeesAndCustomers;
         private System.Windows.Forms.Label[] groupLabelEmployees;
         private Control[] groupFieldEmployees;
         private System.Windows.Forms.Label[] groupLabelToolTip;
-        private Control[] checkFieldIgnore;
 
         // Initialisierung mehrfach verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -42,12 +44,15 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
+            // Erstellung Arrays für Labels, Eingabefelder usw.
+            groups = new KontaktErstellenLabelAndControlGroups();
+
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
-            groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
-            groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
-            groupLabelEmployees = GroupLabelEmployees();
-            groupFieldEmployees = GroupFieldEmployees();
-            groupLabelToolTip = GroupLabelToolTip();
+            groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
+            groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
+            groupLabelEmployees = groups.GroupLabelEmployees(this);
+            groupFieldEmployees = groups.GroupFieldEmployees(this);
+            groupLabelToolTip = groups.GroupLabelToolTip(this);
 
             Design();
             ContactDataContent();
@@ -80,14 +85,12 @@ namespace Semesterprojekt
             RdbCreatKntktMa.Location = new Point(10, 15);
             RdbCreatKntktKunde.Location = new Point(100, 15);
 
-            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten"
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe "Kontaktdaten" mit 1 
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe"Kontaktdaten" mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
-            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten"
-            // Zählerstart (Index) für Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" fortführend
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Mitarbeiterdaten" mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
@@ -122,131 +125,6 @@ namespace Semesterprojekt
                 // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
                 groupField[i].Tag = tagOK;
             }
-        }
-
-        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
-        private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
-        {
-            return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
-            {
-                LblCreatKntktTitel,
-                LblCreatKntktAnrede,
-                LblCreatKntktVorname,
-                LblCreatKntktName,
-                LblCreatKntktBirthday,
-                LblCreatKntktGeschlecht,
-                LblCreatKntktAdresse,
-                LblCreatKntktPLZ,
-                LblCreatKntktOrt,
-                LblCreatKntktTelGeschaeft,
-                LblCreatKntktTelMobile,
-                LblCreatKntktEmail
-            };
-        }
-
-        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
-        private System.Windows.Forms.Label[] GroupLabelEmployees()
-        {
-            return groupLabelEmployees = new System.Windows.Forms.Label[]
-            {
-                LblCreatKntktMaMaNr,
-                LblCreatKntktMaAHVNr,
-                LblCreatKntktMaNationalitaet,
-                LblCreatKntktMaKader,
-                LblCreatKntktMaBeschGrad,
-                LblCreaKntktMaAbteilung,
-                LblCreatKntktMaRolle,
-                LblCreatKntktMaLehrj,
-                LblCreatKntktMaAktLehrj,
-                LblCreatKntktMaOfficeNumber,
-                LblCreatKntktAdrOffice,
-                LblCreatKntktPLZOffice,
-                LblCreatKntktOrtOffice,
-                LblCreatKntktEintrDatum,
-                LblCreatKntktAustrDatum
-            };
-        }
-
-        // Erstellung Array für Labels für ToolTip
-        private System.Windows.Forms.Label[] GroupLabelToolTip()
-        {
-            return groupLabelToolTip = new System.Windows.Forms.Label[]
-            {
-                LblCreatKntktTitel,
-                LblCreatKntktBirthday,
-                LblCreatKntktPLZ,
-                LblCreatKntktTelGeschaeft,
-                LblCreatKntktTelMobile,
-                LblCreatKntktMaAHVNr,
-                LblCreatKntktMaNationalitaet,
-                LblCreatKntktMaKader,
-                LblCreatKntktMaLehrj,
-                LblCreatKntktMaAktLehrj,
-                LblCreatKntktEintrDatum,
-                LblCreatKntktAustrDatum,
-                LblCreatKntktPLZOffice
-            };
-        }
-
-        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
-        private Control[] GroupFieldEmployeesAndCustomers()
-        {
-            return groupFieldEmployeesAndCustomers = new Control[]
-            {
-                TxtCreatKntktTitel,
-                CmBxCreatKntktAnrede,
-                TxtCreatKntktVorname,
-                TxtCreatKntktName,
-                TxtCreatKntktBirthday,
-                CmBxCreatKntktGeschlecht,
-                TxtCreatKntktAdr,
-                TxtCreatKntktPLZ,
-                TxtCreatKntktOrt,
-                TxtCreatKntktTelGeschaeft,
-                TxtCreatKntktTelMobile,
-                TxtCreatKntktEmail
-            };
-        }
-
-        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
-        private Control[] GroupFieldEmployees()
-        {
-            return groupFieldEmployees = new Control[]
-            {
-                TxtCreatKntktMaManr,
-                TxtCreatKntktMaAHVNr,
-                TxtCreatKntktMaNationalitaet,
-                NumCreatKntktMaKader,
-                NumCreatKntktMaBeschGrad,
-                TxtCreatKntktMaAbteilung,
-                TxtCreatKntktMaRolle,
-                NumCreatKntktMaLehrj,
-                NumCreatKntktMaAktLehrj,
-                NumCreatKntktMaOfficeNumber,
-                TxtCreatKntktAdrOffice,
-                TxtCreatKntktPLZOffice,
-                TxtCreatKntktOrtOffice,
-                TxtCreatKntktEintrDatum,
-                TxtCreatKntktAustrDatum
-            };
-        }
-
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
-        private Control[] CheckFieldIgnore()
-        {
-            return checkFieldIgnore = new Control[]
-            {
-                TxtCreatKntktTitel,
-                 // bei Mitarbeitern bleibt das Feld "Pflicht"
-                // (!RdbCreatKntktMa.Checked ? TxtCreatKntktMaAHVNr : null),            
-                NumCreatKntktMaKader,
-                NumCreatKntktMaLehrj,
-                NumCreatKntktMaAktLehrj,
-                // bei Mitarbeiter bleibt das Feld "Pflicht"
-                (!RdbCreatKntktMa.Checked ? TxtCreatKntktEintrDatum : null),
-                // bei enthaltenem Wert wird das Feld validiert
-                (string.IsNullOrWhiteSpace(TxtCreatKntktAustrDatum.Text) ? TxtCreatKntktAustrDatum: null),
-            };
         }
 
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
@@ -457,7 +335,7 @@ namespace Semesterprojekt
             {
                 GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
                 GroupFieldEmployees = groupFieldEmployees,
-                CheckFieldIgnore = CheckFieldIgnore(),
+                CheckFieldIgnore = groups.CheckFieldIgnore(this),
                 IsEmployee = RdbCreatKntktMa.Checked,
                 IsClient = RdbCreatKntktKunde.Checked,
                 Salutation = CmBxCreatKntktAnrede,

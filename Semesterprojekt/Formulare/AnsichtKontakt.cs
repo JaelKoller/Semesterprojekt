@@ -9,6 +9,9 @@ namespace Semesterprojekt
 {
     public partial class AnsichtKontakt : Form
     {
+        // Initialisierung Klasse "AnsichtKontaktLabelAndControlGroups"
+        private AnsichtKontaktLabelAndControlGroups groups;
+
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         private Control[] groupFieldEmployeesAndCustomers;
@@ -17,18 +20,12 @@ namespace Semesterprojekt
         private System.Windows.Forms.Label[] groupLabelToolTip;
         private Control[] groupFieldNotes;
         private Control[] groupButtons;
-        private Control[] checkFieldIgnore;
 
         // Initialisierung mehrfach verwendeter Index-Counter
         private int tabIndexCounter = 1;
 
-        // Initialisierung mehrfach verwendeter BackColor
-        private Color backColorOK = SystemColors.Window;
-        private Color backColorNOK = Color.LightPink;
-
-        // Initialisierung mehrfach verwendetes Tag
+        // Initialisierung mehrfach verwendetes Tag (analog separater Klasse)
         private string tagOK = "true";
-        private string tagNOK = "false";
 
         // Initialisierung Speicherart "update" (Vorbereitung für Ablage in JSON)
         string saveMode = "update";
@@ -56,14 +53,17 @@ namespace Semesterprojekt
             contactNumber = contactData.ContactNumber;
             typeOfContact = contactData.TypeOfContact;
 
+            // Erstellung Arrays für Labels, Eingabefelder, Buttons usw.
+            groups = new AnsichtKontaktLabelAndControlGroups();
+
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
-            groupLabelEmployeesAndCustomers = GroupLabelEmployeesAndCustomers();
-            groupFieldEmployeesAndCustomers = GroupFieldEmployeesAndCustomers();
-            groupLabelEmployees = GroupLabelEmployees();
-            groupFieldEmployees = GroupFieldEmployees();
-            groupLabelToolTip = GroupLabelToolTip();
-            groupFieldNotes = GroupFieldNotes();
-            groupButtons = GroupButtons();
+            groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
+            groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
+            groupLabelEmployees = groups.GroupLabelEmployees(this);
+            groupFieldEmployees = groups.GroupFieldEmployees(this);
+            groupLabelToolTip = groups.GroupLabelToolTip(this);
+            groupFieldNotes = groups.GroupFieldNotes(this);
+            groupButtons = groups.GroupButtons(this);
 
             Design();
             ContactDataContent();
@@ -94,26 +94,24 @@ namespace Semesterprojekt
             GrpBxDatenAlle.Size = new Size(410, 400);
             GrpBxDatenAlle.Location = new Point(10, 60);
 
-            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten"
-            // Zählerstart (Index) Eingabefelder der Gruppe "Kontaktdaten" mit 1 
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Kontaktdaten" mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
             // Platzierung Gruppe "Mitarbeiterdaten"
             GrpBxDatenMA.Size = new Size(410, 490);
             GrpBxDatenMA.Location = new Point(10, 470);
 
-            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten"
-            // Zählerstart (Index) Eingabefelder der Gruppe "Mitarbeiterdaten" fortführend
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder der Gruppe "Mitarbeiterdaten" mit TRUE (für OK-Fall) 
+            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
             PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
             GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
             GrpBxAnsichtKntktAktiv.Location = new Point(435, 10);
 
-            // Platzierung Radio-Buttons (Aktiv vs. Inaktiv)
-            // Zählerstart (Index) für Radio-Buttons (Aktiv vs. Inaktiv) fortführend (nur auf ersten Radio-Button möglich)
+            // Platzierung Radio-Buttons (Aktiv vs. Inaktiv) 
+            // Zählerstart TabIndex fortführend (nur auf ersten Radio-Button möglich)
             RdbAnsichtKntktAktiv.Location = new Point(15, 15);
             RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
             RdbAnsichtKntktInaktiv.Location = new Point(75, 15);
@@ -123,12 +121,10 @@ namespace Semesterprojekt
             GrpBxAnsichtKntktNotiz.Size = new Size(410, 545);
             GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
 
-            // Platzierung Felder der Gruppe "Notizen zu Person"
-            // Zählerstart (Index) für Felder der Gruppe "Notizen zu Person" fortführend
+            // Platzierung Felder der Gruppe "Notizen zu Person" (inkl. Start TabIndex fortführend)
             PlacementFieldNote(groupFieldNotes, ref tabIndexCounter);
 
-            // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard"
-            // Zählerstart (Index) für Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard" fortführend
+            // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard" (inkl. Start TabIndex fortführend)
             PlacementButton(groupButtons, ref tabIndexCounter);
         }
 
@@ -207,152 +203,6 @@ namespace Semesterprojekt
             CmdAnsichtKntktDeletAll.Location = new Point(locationX, locationY + height + height);
             CmdAnsichtKntktAlleKontakte.Location = new Point(locationX + width, locationY);
             CmdAnsichtKntktDashboard.Location = new Point(locationX + width, locationY + height);
-        }
-
-        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
-        private System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers()
-        {
-            return groupLabelEmployeesAndCustomers = new System.Windows.Forms.Label[]
-            {
-                LblAnsichtKntktTitel,
-                LblAnsichtKntktAnrede,
-                LblAnsichtKntktVorname,
-                LblAnsichtKntktName,
-                LblAnsichtKntktBirthday,
-                LblAnsichtKntktGeschlecht,
-                LblAnsichtKntktAdr,
-                LblAnsichtKntktPLZ,
-                LblAnsichtKntktOrt,
-                LblAnsichtKntktTelGeschaeft,
-                LblAnsichtKntktTelMobile,
-                LblAnsichtKntktEmail
-            };
-        }
-
-        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
-        private System.Windows.Forms.Label[] GroupLabelEmployees()
-        {
-            return groupLabelEmployees = new System.Windows.Forms.Label[]
-            {
-                LblAnsichtKntktMaManr,
-                LblAnsichtKntktMaAHVNr,
-                LblAnsichtKntktMaNationalitaet,
-                LblAnsichtKntktMaKader,
-                LblAnsichtKntktMaBeschGrad,
-                LblAnsichtKntktMaAbteilung,
-                LblAnsichtKntktMaRolle,
-                LblAnsichtKntktMaLehrj,
-                LblAnsichtKntktMaAktLehrj,
-                LblAnsichtKntktMaOfficeNumber,
-                LblAnsichtKntktAdrOffice,
-                LblAnsichtKntktPLZOffice,
-                LblAnsichtKntktOrtOffice,
-                LblAnsichtKntktEintrDatum,
-                LblAnsichtKntktAustrDatum
-            };
-        }
-
-        // Erstellung Array für Labels für ToolTip
-        private System.Windows.Forms.Label[] GroupLabelToolTip()
-        {
-            return groupLabelToolTip = new System.Windows.Forms.Label[]
-            {
-                LblAnsichtKntktTitel,
-                LblAnsichtKntktBirthday,
-                LblAnsichtKntktPLZ,
-                LblAnsichtKntktTelGeschaeft,
-                LblAnsichtKntktTelMobile,
-                LblAnsichtKntktMaAHVNr,
-                LblAnsichtKntktMaNationalitaet,
-                LblAnsichtKntktMaKader,
-                LblAnsichtKntktMaLehrj,
-                LblAnsichtKntktMaAktLehrj,
-                LblAnsichtKntktPLZOffice,
-                LblAnsichtKntktEintrDatum,
-                LblAnsichtKntktAustrDatum
-            };
-        }
-
-        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
-        private Control[] GroupFieldEmployeesAndCustomers()
-        {
-            return groupFieldEmployeesAndCustomers = new Control[]
-            {
-                TxtAnsichtKntktTitel,
-                CmBxAnsichtKntktAnrede,
-                TxtAnsichtKntktVorname,
-                TxtAnsichtKntktName,
-                TxtAnsichtKntktBirthday,
-                CmBxAnsichtKntktGeschlecht,
-                TxtAnsichtKntktAdr,
-                TxtAnsichtKntktPLZ,
-                TxtAnsichtKntktOrt,
-                TxtAnsichtKntktTelGeschaeft,
-                TxtAnsichtKntktTelMobile,
-                TxtAnsichtKntktEmail
-            };
-        }
-
-        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
-        private Control[] GroupFieldEmployees()
-        {
-            return groupFieldEmployees = new Control[]
-            {
-                TxtAnsichtKntktMaManr,
-                TxtAnsichtKntktMaAHVNr,
-                TxtAnsichtKntktMaNationalitaet,
-                NumAnsichtKntktMaKader,
-                NumAnsichtKntktMaBeschGrad,
-                TxtAnsichtKntktMaAbteilung,
-                TxtAnsichtKntktMaRolle,
-                NumAnsichtKntktMaLehrj,
-                NumAnsichtKntktMaAktLehrj,
-                NumAnsichtKntktMaOfficeNumber,
-                TxtAnsichtKntktAdrOffice,
-                TxtAnsichtKntktPLZOffice,
-                TxtAnsichtKntktOrtOffice,
-                TxtAnsichtKntktEintrDatum,
-                TxtAnsichtKntktAustrDatum
-            };
-        }
-
-        // Erstellung Array für Notiz-Felder
-        private Control[] GroupFieldNotes()
-        {
-            return groupFieldNotes = new Control[]
-            {
-                LbAnsichtKntktProtokolAusg,
-                TxtAnsichtKntktProtokolTitel,
-                TxtAnsichtKntktProtokolEing,
-                DateAnsichtKntktDateProtokol,
-                CmdAnsichtKntktSaveProtokol
-            };
-        }
-
-        // Erstellung Array für Buttons
-        private Control[] GroupButtons()
-        {
-            return groupButtons = new Control[]
-            {
-                CmdAnsichtKntktEdit,
-                CmdAnsichtKntktSaveAll,
-                CmdAnsichtKntktDeletAll,
-                CmdAnsichtKntktAlleKontakte,
-                CmdAnsichtKntktDashboard
-            };
-        }
-
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
-        private Control[] CheckFieldIgnore()
-        {
-            return checkFieldIgnore = new Control[]
-            {
-                TxtAnsichtKntktTitel,
-                NumAnsichtKntktMaKader,
-                NumAnsichtKntktMaLehrj,
-                NumAnsichtKntktMaAktLehrj,
-                (string.IsNullOrWhiteSpace(TxtAnsichtKntktAustrDatum.Text) ? TxtAnsichtKntktAustrDatum: null)
-            };
         }
 
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
@@ -529,7 +379,7 @@ namespace Semesterprojekt
             {
                 GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
                 GroupFieldEmployees = groupFieldEmployees,
-                CheckFieldIgnore = CheckFieldIgnore(),
+                CheckFieldIgnore = groups.CheckFieldIgnore(this),
                 IsEmployee = isEmployee,
                 IsClient = isClient,
                 Salutation = CmBxAnsichtKntktAnrede,
