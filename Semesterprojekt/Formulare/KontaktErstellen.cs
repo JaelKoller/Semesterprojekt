@@ -10,14 +10,14 @@ namespace Semesterprojekt
         private string typeOfContactNew;
 
         // Initialisierung Klasse "KontaktErstellenLabelAndControlGroups"
-        private KontaktErstellenLabelAndControlGroups groups;
+        internal KontaktErstellenLabelAndControlGroups groups;
 
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
-        private Control[] groupFieldEmployeesAndCustomers;
+        internal Control[] groupFieldEmployeesAndCustomers;
         private System.Windows.Forms.Label[] groupLabelEmployees;
-        private Control[] groupFieldEmployees;
-        private System.Windows.Forms.Label[] groupLabelToolTip;
+        internal Control[] groupFieldEmployees;
+        internal System.Windows.Forms.Label[] groupLabelToolTip;
 
         // Initialisierung mehrfach verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -44,10 +44,8 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Erstellung Arrays für Labels, Eingabefelder usw.
-            groups = new KontaktErstellenLabelAndControlGroups();
-
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
+            groups = new KontaktErstellenLabelAndControlGroups();
             groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
             groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
             groupLabelEmployees = groups.GroupLabelEmployees(this);
@@ -55,7 +53,7 @@ namespace Semesterprojekt
             groupLabelToolTip = groups.GroupLabelToolTip(this);
 
             Design();
-            ContactDataContent();
+            KontaktErstellenInitializations.ContactDataContent(this);
             InitializationLabelToolTip();
 
             typeOfContactNew = typeOfContact;
@@ -130,33 +128,11 @@ namespace Semesterprojekt
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
-            var initializationSetToolTip = SetToolTip();
+            var initializationSetToolTip = KontaktErstellenInitializations.SetToolTip(this);
             var setToolTip = new SetToolTip();
             setToolTip.SetLabelToolTip(initializationSetToolTip);
         }
-
-        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
-        private InitializationLabelsToolTip SetToolTip()
-        {
-            return new InitializationLabelsToolTip
-            {
-                GroupLabelToolTip = groupLabelToolTip,
-                Title = LblCreatKntktTitel,
-                Birthday = LblCreatKntktBirthday,
-                PostalCode = LblCreatKntktPLZ,
-                BusinessNumber = LblCreatKntktTelGeschaeft,
-                MobileNumber = LblCreatKntktTelMobile,
-                AHVNumber = LblCreatKntktMaAHVNr,
-                Nationality = LblCreatKntktMaNationalitaet,
-                ManagementLevel = LblCreatKntktMaKader,
-                AcademicYear = LblCreatKntktMaLehrj,
-                CurrentAcademicYear = LblCreatKntktMaAktLehrj,
-                PostalCodeOffice = LblCreatKntktPLZOffice,
-                DateOfEntry = LblCreatKntktEintrDatum,
-                DateOfExit = LblCreatKntktAustrDatum
-            };
-        }
-        
+      
         // Initalisierung Radio-Button auf Basis "Kontaktart"
         private void InitializationTypeOfContact()
         {
@@ -240,7 +216,7 @@ namespace Semesterprojekt
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
             var checkAndValidation = new CheckAndValidationFields();
-            var checkAndValidationContent = CheckAndValidationFieldsContent();
+            var checkAndValidationContent = KontaktErstellenInitializations.CheckAndValidationFieldsContent(this);
             bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
             if (checkFieldTag)
@@ -267,7 +243,7 @@ namespace Semesterprojekt
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
             var checkAndValidation = new CheckAndValidationFields();
-            var checkAndValidationContent = CheckAndValidationFieldsContent();
+            var checkAndValidationContent = KontaktErstellenInitializations.CheckAndValidationFieldsContent(this);
             bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
             if (checkFieldTag)
@@ -291,66 +267,6 @@ namespace Semesterprojekt
             {
                 this.Close();
             }
-        }
-
-        // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
-        private InitializationContactData ContactDataContent()
-        {
-            return new InitializationContactData
-            {
-                Title = TxtCreatKntktTitel,
-                Salutation = CmBxCreatKntktAnrede,
-                FirstName = TxtCreatKntktVorname,
-                LastName = TxtCreatKntktName,
-                Birthday = TxtCreatKntktBirthday,
-                Gender = CmBxCreatKntktGeschlecht,
-                Address = TxtCreatKntktAdr,
-                PostalCode = TxtCreatKntktPLZ,
-                City = TxtCreatKntktOrt,
-                BusinessNumber = TxtCreatKntktTelGeschaeft,
-                MobileNumber = TxtCreatKntktTelMobile,
-                Email = TxtCreatKntktEmail,
-                EmployeeNumber = TxtCreatKntktMaManr,
-                AHVNumber = TxtCreatKntktMaAHVNr,
-                Nationality = TxtCreatKntktMaNationalitaet,
-                ManagementLevel = NumCreatKntktMaKader,
-                LevelOfEmployment = NumCreatKntktMaBeschGrad,
-                Department = TxtCreatKntktMaAbteilung,
-                Role = TxtCreatKntktMaRolle,
-                AcademicYear = NumCreatKntktMaLehrj,
-                CurrentAcademicYear = NumCreatKntktMaAktLehrj,
-                OfficeNumber = NumCreatKntktMaOfficeNumber,
-                AddressOffice = TxtCreatKntktAdrOffice,
-                PostalCodeOffice = TxtCreatKntktPLZOffice,
-                CityOffice = TxtCreatKntktOrtOffice,
-                DateOfEntry = TxtCreatKntktEintrDatum,
-                DateOfExit = TxtCreatKntktAustrDatum
-            };
-        }
-
-        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
-        private InitializationCheckAndValidationFields CheckAndValidationFieldsContent()
-        {
-            return new InitializationCheckAndValidationFields
-            {
-                GroupFieldEmployeesAndCustomers = groupFieldEmployeesAndCustomers,
-                GroupFieldEmployees = groupFieldEmployees,
-                CheckFieldIgnore = groups.CheckFieldIgnore(this),
-                IsEmployee = RdbCreatKntktMa.Checked,
-                IsClient = RdbCreatKntktKunde.Checked,
-                Salutation = CmBxCreatKntktAnrede,
-                Birthday = TxtCreatKntktBirthday,
-                Gender = CmBxCreatKntktGeschlecht,
-                PostalCode = TxtCreatKntktPLZ,
-                BusinessNumber = TxtCreatKntktTelGeschaeft,
-                MobileNumber = TxtCreatKntktTelMobile,
-                Email = TxtCreatKntktEmail,
-                AHVNumber = TxtCreatKntktMaAHVNr,
-                Nationality = TxtCreatKntktMaNationalitaet,
-                PostalCodeOffice = TxtCreatKntktPLZOffice,
-                DateOfEntry = TxtCreatKntktEintrDatum,
-                DateOfExit = TxtCreatKntktAustrDatum
-            };
         }
     }
 }

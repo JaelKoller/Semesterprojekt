@@ -34,10 +34,8 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Erstellung Arrays für Labels und Eingabefelder
-            groups = new AlleKontakteLabelAndControlGroups();
-
             // Initialisierung verwendete Label-/Control-Gruppen
+            groups = new AlleKontakteLabelAndControlGroups();
             groupLabel = groups.GroupLabel(this);
             groupField = groups.GroupField(this);
             groupLabelToolTip = groups.GroupLabelToolTip(this);
@@ -59,12 +57,10 @@ namespace Semesterprojekt
             // Platzierung Titel "Suchen nach:"
             LblAllKntktSuchen.Location = new Point(50, 50);
 
-            // Platzierung Labels und Eingabefelder
-            // Zählerstart (Index) für Labels und Eingabefelder bei 1
+            // Platzierung Labels und Eingabefelder (inkl. Start TabIndex bei 1)
             PlacementLabelAndField(groupLabel, groupField, ref tabIndexCounter);
 
-            // Platzierung Buttons "Suchen", "Suche zurücksetzen" und "zurück zu Dashboard"
-            // Zählerstart (Index) für Buttons fortführend
+            // Platzierung Buttons "Suchen", "Suche zurücksetzen" und "zurück zu Dashboard" (inkl. Start TabIndex fortführend)
             BtnAllKntktSuchen.Size = new Size(340, 30);
             BtnAllKntktSuchen.Location = new Point(50, 290);
             BtnAllKntktSuchen.TabIndex = tabIndexCounter++;
@@ -75,8 +71,7 @@ namespace Semesterprojekt
             BtnAllKntktHome.Location = new Point(320, 20);
             BtnAllKntktHome.TabIndex = tabIndexCounter++;
 
-            // Platzierung Suchausgabe und Anzahl Treffer
-            // Zählerstart (Index) für restliche Labels mit 0
+            // Platzierung Suchausgabe und Anzahl Treffer (inkl.TabStop "FALSE")
             LbAllKntktSuchAusg.Size = new Size(340, 200);
             LbAllKntktSuchAusg.Location = new Point(50, 340);
             LbAllKntktSuchAusg.TabStop = false;

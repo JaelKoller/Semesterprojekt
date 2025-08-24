@@ -19,7 +19,7 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Erstellung Array für Buttons und Platzierung (inkl. Index)
+            // Erstellung Array für Buttons und Platzierung (inkl. TabIndex)
             groups = new DashboardLabelAndControlGroups();
             groupButtons = groups.GroupButtons(this);
             PlacementButton(groupButtons);

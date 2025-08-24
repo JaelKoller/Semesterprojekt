@@ -53,10 +53,8 @@ namespace Semesterprojekt
             contactNumber = contactData.ContactNumber;
             typeOfContact = contactData.TypeOfContact;
 
-            // Erstellung Arrays für Labels, Eingabefelder, Buttons usw.
-            groups = new AnsichtKontaktLabelAndControlGroups();
-
             // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
+            groups = new AnsichtKontaktLabelAndControlGroups();
             groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
             groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
             groupLabelEmployees = groups.GroupLabelEmployees(this);
