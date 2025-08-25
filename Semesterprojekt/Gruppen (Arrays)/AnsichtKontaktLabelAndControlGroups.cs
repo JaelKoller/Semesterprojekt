@@ -149,5 +149,32 @@ namespace Semesterprojekt
                 (string.IsNullOrWhiteSpace(ansichtKontakt.TxtAnsichtKntktAustrDatum.Text) ? ansichtKontakt.TxtAnsichtKntktAustrDatum: null)
             };
         }
+
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe und Punkte erlaubt" (auf Basis offener AnsichtKontakt)
+        internal Control[] CheckFieldSpecialCharactersWithoutNumbers(AnsichtKontakt ansichtKontakt)
+        {
+            return new Control[]
+            {
+                ansichtKontakt.CmBxAnsichtKntktAnrede,
+                ansichtKontakt.TxtAnsichtKntktVorname,
+                ansichtKontakt.TxtAnsichtKntktName,
+                ansichtKontakt.CmBxAnsichtKntktGeschlecht,
+                ansichtKontakt.TxtAnsichtKntktOrt,
+                ansichtKontakt.TxtAnsichtKntktMaNationalitaet,
+                ansichtKontakt.TxtAnsichtKntktMaAbteilung,
+                ansichtKontakt.TxtAnsichtKntktMaRolle,
+                ansichtKontakt.TxtAnsichtKntktOrtOffice
+            };
+        }
+
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe, Punkte und Zahlen erlaubt" (auf Basis offener AnsichtKontakt)
+        internal Control[] CheckFieldSpecialCharactersWithNumbers(AnsichtKontakt ansichtKontakt)
+        {
+            return new Control[]
+            {
+                ansichtKontakt.TxtAnsichtKntktAdr,
+                ansichtKontakt.TxtAnsichtKntktAdrOffice
+            };
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Semesterprojekt
             foreach (Control field in content.GroupFieldEmployeesAndCustomers)
             {
                 CheckFields(field, content.CheckFieldIgnore);
+                CheckFieldSpecialCharacters(field, content.CheckFieldSpecialCharactersWithoutNumbers, content.CheckFieldSpecialCharactersWithNumbers);
             }
 
             if (content.IsEmployee)
@@ -31,6 +32,7 @@ namespace Semesterprojekt
                 foreach (Control field in content.GroupFieldEmployees)
                 {
                     CheckFields(field, content.CheckFieldIgnore);
+                    CheckFieldSpecialCharacters(field, content.CheckFieldSpecialCharactersWithoutNumbers, content.CheckFieldSpecialCharactersWithNumbers);
                 }
             }
 
@@ -87,6 +89,22 @@ namespace Semesterprojekt
             field.Tag = tagOK;
         }
 
+        // Prüfung einzelner Felder bezüglich Sonderzeichen (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Leerzeichen, Punkt und je nachdem Zahl erlaubt)
+        private void CheckFieldSpecialCharacters(Control field, Control[] specialCharactersWithoutNumbers, Control[] specialCharactersWithNumbers)
+        {
+            string patternWithoutNumbers = @"^[\p{L} \-'\.]+$";
+            string patternWithNumbers = @"^[\p{L}\p{N} \-'\.]+$";
+
+            if (
+                specialCharactersWithoutNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithoutNumbers) ||
+                specialCharactersWithNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithNumbers)
+                )
+            {               
+                field.BackColor = backColorNOK;
+                field.Tag = tagNOK;
+            }
+        }
+
         // Prüfung einzelner Spezifalfelder gemäss Erwartungen inkl. Popup
         private void ValidationFieldsExtension(List<Control> groupFieldAll, InitializationCheckAndValidationFields content)
         {
@@ -94,7 +112,9 @@ namespace Semesterprojekt
             {
                 if (field.BackColor == backColorNOK)
                 {
-                    ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!");
+                    ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!\r\n\r\n" +
+                        "Es sind keine Sonderzeichen erlaubt, ausser:\r\n" +
+                        "Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Leerzeichen, Punkt und je nachdem Zahl");
                     return;
                 }
             }
@@ -223,10 +243,11 @@ namespace Semesterprojekt
             }
         }
         
-        // Prüfung E-Mail-Format Text@Text.Text (auch Sonderzeichen und Ziffern anstelle des Text erlaubt)
+        // Prüfung E-Mail-Format Text@Text.Text (auch Ziffern anstelle des Text erlaubt)
+        // Sonderzeichen (exkl. Punkt und Unterlinie) sind NICHT erlaubt
         private void CheckEMail(TextBox email)
         {
-            if (Regex.IsMatch(email.Text.Trim(), @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (Regex.IsMatch(email.Text.Trim(), @"^[A-Za-z0-9._]+@[A-Za-z0-9._]+\.[A-Za-z]{2,}$"))
             {
                 email.BackColor = backColorOK;
                 email.Tag = tagOK;
@@ -236,7 +257,7 @@ namespace Semesterprojekt
             {
                 email.BackColor = backColorNOK;
                 email.Tag = tagNOK;
-                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig\r\n\r\nz.B. Test@Testmail.ch");
+                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig\r\n\r\nz.B. Test@Testmail.ch\r\n(ohne Sonderzeichen, nur Punkt und Unterlinie erlaubt)");
                 email.Focus();
             }
         }

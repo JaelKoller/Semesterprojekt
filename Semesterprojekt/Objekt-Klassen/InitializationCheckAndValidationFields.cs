@@ -7,8 +7,11 @@ namespace Semesterprojekt
         public Control[] GroupFieldEmployeesAndCustomers { get; set; }
         public Control[] GroupFieldEmployees { get; set; }
         public Control[] CheckFieldIgnore { get; set; }
+        public Control[] CheckFieldSpecialCharactersWithoutNumbers { get; set; }
+        public Control[] CheckFieldSpecialCharactersWithNumbers { get; set; }
         public bool IsEmployee { get; set; }
         public bool IsClient { get; set; }
+        public TextBox Title { get; set; }  
         public ComboBox Salutation { get; set; }
         public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }
