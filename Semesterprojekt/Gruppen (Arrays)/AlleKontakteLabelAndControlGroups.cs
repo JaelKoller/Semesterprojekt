@@ -2,9 +2,10 @@
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "AnsichtKontakt"
     internal class AlleKontakteLabelAndControlGroups
     {
-        // Erstellung Array für Labels (auf Basis offenem AlleKontakte)
+        // Erstellung Array für Labels
         internal System.Windows.Forms.Label[] GroupLabel(AlleKontakte alleKontakte)
         {
             return new System.Windows.Forms.Label[]
@@ -18,7 +19,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels für ToolTip (auf Basis offenem AlleKontakte)
+        // Erstellung Array für Labels für ToolTip
         internal System.Windows.Forms.Label[] GroupLabelToolTip(AlleKontakte alleKontakte)
         {
             return new System.Windows.Forms.Label[]
@@ -30,7 +31,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder (auf Basis offenem AlleKontakte)
+        // Erstellung Array für Eingabefelder
         internal Control[] GroupField(AlleKontakte alleKontakte)
         {
             return new Control[]

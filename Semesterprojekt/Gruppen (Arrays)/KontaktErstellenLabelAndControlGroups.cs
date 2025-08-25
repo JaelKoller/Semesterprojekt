@@ -2,9 +2,10 @@
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "KontaktErstellen"
     internal class KontaktErstellenLabelAndControlGroups
     {
-        // Erstellung Array für Labels der Gruppe "Kontaktdaten" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
         internal System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers(KontaktErstellen kontaktErstellen)
         {
             return new System.Windows.Forms.Label[]
@@ -24,7 +25,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
         internal System.Windows.Forms.Label[] GroupLabelEmployees(KontaktErstellen kontaktErstellen)
         {
             return new System.Windows.Forms.Label[]
@@ -47,7 +48,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels für ToolTip (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für Labels für ToolTip
         internal System.Windows.Forms.Label[] GroupLabelToolTip(KontaktErstellen kontaktErstellen)
         {
             return new System.Windows.Forms.Label[]
@@ -68,7 +69,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
         internal Control[] GroupFieldEmployeesAndCustomers(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
@@ -88,7 +89,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
         internal Control[] GroupFieldEmployees(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
@@ -111,7 +112,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
         internal Control[] CheckFieldIgnore(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
@@ -129,11 +130,12 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe und Punkte erlaubt" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt)
         internal Control[] CheckFieldSpecialCharactersWithoutNumbers(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
             {
+                kontaktErstellen.TxtCreatKntktTitel,
                 kontaktErstellen.CmBxCreatKntktAnrede,
                 kontaktErstellen.TxtCreatKntktVorname,
                 kontaktErstellen.TxtCreatKntktName,
@@ -146,7 +148,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe, Punkte und Zahlen erlaubt" (auf Basis offenem KontaktErstellen)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und Zahl erlaubt)
         internal Control[] CheckFieldSpecialCharactersWithNumbers(KontaktErstellen kontaktErstellen)
         {
             return new Control[]

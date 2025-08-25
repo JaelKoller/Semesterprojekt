@@ -89,19 +89,27 @@ namespace Semesterprojekt
             field.Tag = tagOK;
         }
 
-        // Prüfung einzelner Felder bezüglich Sonderzeichen (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Leerzeichen, Punkt und je nachdem Zahl erlaubt)
+        // Prüfung einzelner Felder bezüglich Sonderzeichen (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und je nachdem Zahl erlaubt)
         private void CheckFieldSpecialCharacters(Control field, Control[] specialCharactersWithoutNumbers, Control[] specialCharactersWithNumbers)
         {
-            string patternWithoutNumbers = @"^[\p{IsLatin}\p{M} \-'\.]+$";
-            string patternWithNumbers = @"^[\p{IsLatin}\p{M}0-9 \-'\.]+$";
+            if (!string.IsNullOrWhiteSpace(field.Text))
+            {
+                string patternWithoutNumbers = @"^[\p{L} \-'\.,]+$";
 
-            if (
-                specialCharactersWithoutNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithoutNumbers) ||
-                specialCharactersWithNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithNumbers)
-                )
-            {               
-                field.BackColor = backColorNOK;
-                field.Tag = tagNOK;
+                if (specialCharactersWithoutNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithoutNumbers))
+                {
+                    field.BackColor = backColorNOK;
+                    field.Tag = tagNOK;
+                    return;
+                }
+
+                string patternWithNumbers = @"^[\p{L}0-9 \-'\.,]+$";
+
+                if (specialCharactersWithNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithNumbers))
+                {
+                    field.BackColor = backColorNOK;
+                    field.Tag = tagNOK;
+                }
             }
         }
 
@@ -114,7 +122,7 @@ namespace Semesterprojekt
                 {
                     ShowMessageBox("Bitte fülle alle Pflichtfelder korrekt aus!\r\n\r\n" +
                         "Es sind keine Sonderzeichen erlaubt, ausser:\r\n" +
-                        "Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Leerzeichen, Punkt und je nachdem Zahl");
+                        "Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und je nachdem Zahl");
                     return;
                 }
             }
@@ -170,6 +178,8 @@ namespace Semesterprojekt
                 if (content.DateOfExit.Tag == tagNOK)
                     return;
             }
+
+
         }
 
         // Prüfung Datum-Format auf TT.MM.JJJJ
@@ -203,7 +213,7 @@ namespace Semesterprojekt
         // Einschränkung Prüfung PLZ-Format (Geschäft) auf 4 Ziffern ohne führende 0 (Standard für Schweiz)
         private void CheckPLZNumber(TextBox plz, bool isOffice)
         {
-            string pattern = isOffice ? @"^[1-9]\d{3}$" : @"^\d{4,5}$";
+            string pattern = isOffice ? @"^[1-9][0-9]{3}$" : @"^[0-9]{4,5}$";
 
             if (Regex.IsMatch(plz.Text.Trim(), pattern))
             {
@@ -222,13 +232,11 @@ namespace Semesterprojekt
             }
         }
 
-        // Prüfung Telefon-Format auf + mit 6 bis 15 Ziffern (Standard für Schweiz und umliegende Länder)
+        // Prüfung Telefon-Format auf + mit 6 bis 15 Ziffern ohne führende 0 (Standard für Schweiz und umliegende Länder)
         private void CheckPhone(TextBox phoneNumber, string typeOfPhone)
         {            
-            // Entfernung Sonderzeichen (exkl. + und Ziffern)
-            string phoneNumberNo = Regex.Replace(phoneNumber.Text, @"[^\d+]", "");
-
-            if (Regex.IsMatch(phoneNumberNo, @"^\+\d{6,15}$"))
+            // Entfernung Leerzeichen für Vergleich mit Regex
+            if (Regex.IsMatch(phoneNumber.Text.Replace(" ",""), @"^\+[1-9][0-9]{5,14}$"))
             {
                 phoneNumber.BackColor = backColorOK;
                 phoneNumber.Tag = tagOK;
@@ -238,16 +246,16 @@ namespace Semesterprojekt
             {
                 phoneNumber.BackColor = backColorNOK;
                 phoneNumber.Tag = tagNOK;
-                ShowMessageBox($"{typeOfPhone} '{phoneNumber.Text.Trim()}' ist ungültig\r\n\r\nz.B. +41 79 123 44 55");
+                ShowMessageBox($"{typeOfPhone} '{phoneNumber.Text.Trim()}' ist ungültig\r\n\r\nz.B. +41 79 123 44 55\r\n(ohne Sonderzeichen, nur Plus an 1. Stelle erlaubt)");
                 phoneNumber.Focus();
             }
         }
         
         // Prüfung E-Mail-Format Text@Text.Text (auch Ziffern anstelle des Text erlaubt)
-        // Sonderzeichen (exkl. Punkt und Unterlinie) sind NICHT erlaubt
+        // Sonderzeichen (exkl. Bindestrich, Punkt und Unterlinie) sind NICHT erlaubt
         private void CheckEMail(TextBox email)
         {
-            if (Regex.IsMatch(email.Text.Trim(), @"^[A-Za-z0-9._]+@[A-Za-z0-9._]+\.[A-Za-z]{2,}$"))
+            if (Regex.IsMatch(email.Text.Trim(), @"^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z]{2,}$"))
             {
                 email.BackColor = backColorOK;
                 email.Tag = tagOK;
@@ -257,7 +265,7 @@ namespace Semesterprojekt
             {
                 email.BackColor = backColorNOK;
                 email.Tag = tagNOK;
-                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig\r\n\r\nz.B. Test@Testmail.ch\r\n(ohne Sonderzeichen, nur Punkt und Unterlinie erlaubt)");
+                ShowMessageBox($"E-Mail '{email.Text.Trim()}' ist ungültig\r\n\r\nz.B. Test@Testmail.ch\r\n(ohne Sonderzeichen, nur Bindestrich, Punkt und Unterlinie erlaubt)");
                 email.Focus();
             }
         }
@@ -284,7 +292,7 @@ namespace Semesterprojekt
         private bool ValidationAHVNumber(string ahvNumber)
         {
             // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
-            string pattern = @"^756\.\d{4}\.\d{4}\.\d{2}$";
+            string pattern = @"^756\.[0-9]{4}\.[0-9]{4}\.[0-9]{2}$";
 
             if (!Regex.IsMatch(ahvNumber.Trim(), pattern))
                 return false;

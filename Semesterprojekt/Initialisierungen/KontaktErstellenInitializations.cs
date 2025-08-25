@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "KontaktErstellen"
     internal class KontaktErstellenInitializations
     {
-        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip" (auf Basis offenem KontaktErstellen)
+        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
         internal static InitializationLabelsToolTip SetToolTip(KontaktErstellen kontaktErstellen)
         {
             return new InitializationLabelsToolTip
@@ -30,7 +31,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Initialisierung Argumente (Inhalt) für Klasse "ContactData" (auf Basis offenem KontaktErstellen)
+        // Initialisierung Argumente (Inhalt) für Klasse "ContactData"
         internal static InitializationContactData ContactDataContent(KontaktErstellen kontaktErstellen)
         {
             return new InitializationContactData
@@ -65,7 +66,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields" (auf Basis offenem KontaktErstellen)
+        // Initialisierung Argumente (Inhalt) für Klasse "CheckAndValidationFields"
         internal static InitializationCheckAndValidationFields CheckAndValidationFieldsContent(KontaktErstellen kontaktErstellen)
         {
             return new InitializationCheckAndValidationFields
@@ -77,7 +78,6 @@ namespace Semesterprojekt
                 CheckFieldSpecialCharactersWithNumbers = kontaktErstellen.groups.CheckFieldSpecialCharactersWithNumbers(kontaktErstellen),
                 IsEmployee = kontaktErstellen.RdbCreatKntktMa.Checked,
                 IsClient = kontaktErstellen.RdbCreatKntktKunde.Checked,
-                Title = kontaktErstellen.TxtCreatKntktTitel,
                 Salutation = kontaktErstellen.CmBxCreatKntktAnrede,
                 Birthday = kontaktErstellen.TxtCreatKntktBirthday,
                 Gender = kontaktErstellen.CmBxCreatKntktGeschlecht,

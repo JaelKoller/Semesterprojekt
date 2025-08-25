@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "AlleKontakte"
     internal class AlleKontakteInitializations
     {
     }

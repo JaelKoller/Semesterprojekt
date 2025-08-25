@@ -2,9 +2,10 @@
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "AnsichtKontakt"
     internal class AnsichtKontaktLabelAndControlGroups
     {
-        // Erstellung Array für Labels der Gruppe "Kontaktdaten" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Labels der Gruppe "Kontaktdaten"
         internal System.Windows.Forms.Label[] GroupLabelEmployeesAndCustomers(AnsichtKontakt ansichtKontakt)
         {
             return new System.Windows.Forms.Label[]
@@ -24,7 +25,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Labels der Gruppe "Mitarbeiterdaten"
         internal System.Windows.Forms.Label[] GroupLabelEmployees(AnsichtKontakt ansichtKontakt)
         {
             return new System.Windows.Forms.Label[]
@@ -47,7 +48,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels für ToolTip (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Labels für ToolTip
         internal System.Windows.Forms.Label[] GroupLabelToolTip(AnsichtKontakt ansichtKontakt)
         {
             return new System.Windows.Forms.Label[]
@@ -68,7 +69,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Eingabefelder der Gruppe "Kontaktdaten"
         internal Control[] GroupFieldEmployeesAndCustomers(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -88,7 +89,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Eingabefelder der Gruppe "Mitarbeiterdaten"
         internal Control[] GroupFieldEmployees(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -111,7 +112,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Notiz-Felder (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Notiz-Felder
         internal Control[] GroupFieldNotes(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -124,7 +125,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Buttons (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für Buttons
         internal Control[] GroupButtons(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -137,7 +138,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
         internal Control[] CheckFieldIgnore(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -150,11 +151,12 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe und Punkte erlaubt" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt)
         internal Control[] CheckFieldSpecialCharactersWithoutNumbers(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
             {
+                ansichtKontakt.TxtAnsichtKntktTitel,
                 ansichtKontakt.CmBxAnsichtKntktAnrede,
                 ansichtKontakt.TxtAnsichtKntktVorname,
                 ansichtKontakt.TxtAnsichtKntktName,
@@ -167,7 +169,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung "Buchstaben (inkl. Umlaute), Leerzeichen, Bindestriche, Apostrophe, Punkte und Zahlen erlaubt" (auf Basis offener AnsichtKontakt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und Zahl erlaubt)
         internal Control[] CheckFieldSpecialCharactersWithNumbers(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]

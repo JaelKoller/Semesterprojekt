@@ -24,7 +24,7 @@ namespace Semesterprojekt
             ["AHVNumber"] = "Eingabe mit Punkten (CH-Norm)\r\nz.B. 756.1234.5678.90",
             ["Nationality"] = "2-stelliger Länderkürzel\r\nz.B. CH, DE, FR, IT",
             ["ManagementLevel"] = "0 = Fachmitarbeiter/in\r\n1 = Fachspezialist/in\r\n2 = Teamleiter/in\r\n3 = Abteilungsleiter/in\r\n4 = Geschäftsleiter/in\r\n5 = Unternehumgsleiter/in",
-            ["AcademicYear"] = "Anzahl Ausbildungsjahre (EFZ, HF, FH usw.)",
+            ["AcademicYear"] = "Anzahl absolvierte Ausbildungsjahre (EFZ, HF, FH usw.)",
             ["CurrentAcademicYear"] = "nur relevant für Lernende",
             ["PostalCodeOffice"] = "4-stellige Postleitzahl ohne führende 0\r\n(Schweiz)",
             ["Date"] = "Eingabe mit Format 'TT.MM.JJJJ'\r\nz.B. 01.01.1900",

@@ -60,8 +60,8 @@ namespace Semesterprojekt.Testing
                     kontaktErstellenForm.TxtCreatKntktName.Text = "Duck";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "13.12.1998";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "männlich";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41 (0)71 987 66 55";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 (0)79 987 66 55";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41719876655";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41799876655";
                     kontaktErstellenForm.TxtCreatKntktEmail.Text = "donald.duck@testmail.ch";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Duckstrasse 17";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "9000";
@@ -89,18 +89,18 @@ namespace Semesterprojekt.Testing
 
                 case "olga":
                     // Testdaten für Gruppe Mitarbeiter UND Kunde
-                    kontaktErstellenForm.TxtCreatKntktTitel.Text = "";
+                    kontaktErstellenForm.TxtCreatKntktTitel.Text = "Prof., Dr.";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "keine";
-                    kontaktErstellenForm.TxtCreatKntktVorname.Text = "Olga";
-                    kontaktErstellenForm.TxtCreatKntktName.Text = "Muster";
+                    kontaktErstellenForm.TxtCreatKntktVorname.Text = "Olga Döröthéà";
+                    kontaktErstellenForm.TxtCreatKntktName.Text = "Spinnenbein-D'Agosta";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "31.12.1997";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+49-123-12345678";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+49 123.98765.44";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "olga@testmail.test.com";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+49 123 12345678";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+49 123 98765 44";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "olga_hauser55@testmail.test.com";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Musterstrasse 25a";
-                    kontaktErstellenForm.TxtCreatKntktPLZ.Text = "8000";
-                    kontaktErstellenForm.TxtCreatKntktOrt.Text = "Zürich";
+                    kontaktErstellenForm.TxtCreatKntktPLZ.Text = "8045";
+                    kontaktErstellenForm.TxtCreatKntktOrt.Text = "Zürich-Wiedikon";
 
                     // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
@@ -131,7 +131,7 @@ namespace Semesterprojekt.Testing
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "15.15.2000";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "";
                     kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "079 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 (0)79 123 44 55";
                     kontaktErstellenForm.TxtCreatKntktEmail.Text = "error@testmail";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "690";
@@ -153,6 +153,41 @@ namespace Semesterprojekt.Testing
                         kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "920";
                         kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Gossau SG";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.01.3025";
+                        kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
+                    }
+                    break;
+
+                case "errorSpecial":
+                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    kontaktErstellenForm.TxtCreatKntktTitel.Text = "Prof@";
+                    kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "keine";
+                    kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error#";
+                    kontaktErstellenForm.TxtCreatKntktName.Text = "[Muster]";
+                    kontaktErstellenForm.TxtCreatKntktBirthday.Text = "05.04.1997";
+                    kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+071 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41-079 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "error$error@testmail.ch";
+                    kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg/12";
+                    kontaktErstellenForm.TxtCreatKntktPLZ.Text = "76530";
+                    kontaktErstellenForm.TxtCreatKntktOrt.Text = "Baden-Baden DE";
+
+                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
+                    {
+                        kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
+                        kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "";
+                        kontaktErstellenForm.NumCreatKntktMaKader.Value = 0;
+                        kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 100;
+                        kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Ausbildung (Lernende)";
+                        kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Ausbildner & Betreuer";
+                        kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 5;
+                        kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 4;
+                        kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 999;
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Error%Business%Weg";
+                        kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "ABCD";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Gossau;";
+                        kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "1.1.2025";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }
                     break;

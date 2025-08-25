@@ -2,9 +2,10 @@
 
 namespace Semesterprojekt
 {
+    // Basis offenes Form "Dashboard"
     internal class DashboardLabelAndControlGroups
     {
-        // Erstellung Array für Buttons (auf Basis offenem Dashboard)
+        // Erstellung Array für Buttons
         internal Control[] GroupButtons(Dashboard dashboard)
         {
             return new Control[]

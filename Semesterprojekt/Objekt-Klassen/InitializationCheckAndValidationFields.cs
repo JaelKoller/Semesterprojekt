@@ -11,7 +11,6 @@ namespace Semesterprojekt
         public Control[] CheckFieldSpecialCharactersWithNumbers { get; set; }
         public bool IsEmployee { get; set; }
         public bool IsClient { get; set; }
-        public TextBox Title { get; set; }  
         public ComboBox Salutation { get; set; }
         public TextBox Birthday { get; set; }
         public ComboBox Gender { get; set; }

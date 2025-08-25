@@ -382,7 +382,6 @@ namespace Semesterprojekt
                 CheckFieldSpecialCharactersWithNumbers = groups.CheckFieldSpecialCharactersWithNumbers(this),
                 IsEmployee = isEmployee,
                 IsClient = isClient,
-                Title = TxtAnsichtKntktTitel,
                 Salutation = CmBxAnsichtKntktAnrede,
                 Birthday = TxtAnsichtKntktBirthday,
                 Gender = CmBxAnsichtKntktGeschlecht,

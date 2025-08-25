@@ -13,18 +13,20 @@ Beschreibung (was funktioniert):
 - Suchmöglichkeiten über gespeicherte Informationen (Vorname, Name, Geburtsdatum, Mitarbeiter, Kunde, inkl. inaktive Kontakte)
 ---> Suchstart auch mit "Enter" möglich
 - Automatisches Speichern und Laden des Datenstamms auf der Festplatte (in JSON-Dateien)
-- Anzeige ToolTip (Feldhinweise) bei auserwählten Labels (Kennzeichnung mit i)
 - Diverse Validierungslogiken (bei Erfassung und Mutation von Mitarbeitern und Kunden), wie z.B.
 ---> Pflichtfelder (abhängig von Mitarbeiter oder Kunde)
+---> Ausschluss verschiedener Sonderzeichen
 ---> Datumsprüfung auf Format dd.MM.yyyy
----> Postleitzahlprüfung (abhängig von Mitarbeiter oder Kunde bzgl Schweiz vs. Nachbarländer)
----> Telefon Nr.-Prüfung mit führendem + bzgl. Schweiz und Nachbarländer)
+---> Postleitzahlprüfung (abhängig von Mitarbeiter oder Kunde bzgl. Schweiz vs. Nachbarländer)
+---> Telefon Nr.-Prüfung mit führendem + und ohne nachfolgende 0 bzgl. Schweiz und Nachbarländer)
 ---> E-Mail-Prüfung auf Format Text@Text.Text
 ---> AVH-Nummer-Prüfung auf CH-Norm
-- Schliessung der einzelnen Forms mit ESC möglich (inkl. Validierungen, wo nötig)
 
 Beschreibung (was funktioniert nicht):
 Das musst du selber rausfinden ;-)
 
 Zusatz:
+- Erzeugung Darstellung via Code(Platzierung Labels, Eingabefelder, Buttons usw.) inkl. Festlegung TabIndex
+- Anzeige ToolTip (Feldhinweise) bei auserwählten Labels (Kennzeichnung mit i)
+- Schliessung der einzelnen Forms mit ESC möglich (inkl. Validierungen, wo nötig)
 - Erstellung einzelner Testfälle für Validierungslogiken usw. (gesteuert über Program.cs)

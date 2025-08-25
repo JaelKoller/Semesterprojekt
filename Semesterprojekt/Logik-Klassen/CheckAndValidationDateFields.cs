@@ -25,7 +25,7 @@ namespace Semesterprojekt
                 // Datum "leer", jedoch NICHT erforderlich = Rückgabe "TRUE" (Gegenteil von textRequired)
                 return !textRequired;
 
-            if (!(Regex.IsMatch(date, @"^\d{2}\.\d{2}\.\d{4}$")))
+            if (!(Regex.IsMatch(date, @"^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$")))
             {
                 errorMessage = $"{labelName} '{date}' entspricht nicht den Vorgaben 'TT.MM.JJJJ'";
                 return false;
@@ -36,7 +36,7 @@ namespace Semesterprojekt
                 errorMessage = $"{labelName} '{date}' ist kein gültiges Datum";
                 return false;
             }
-
+            
             if (dateTime < MinDate || dateTime > MaxDate)
             {
                 errorMessage = $"{labelName} muss zwischen {MinDate:dd.MM.yyyy} und {MaxDate:dd.MM.yyyy} liegen";
