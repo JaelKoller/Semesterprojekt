@@ -92,8 +92,8 @@ namespace Semesterprojekt
         // Prüfung einzelner Felder bezüglich Sonderzeichen (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Leerzeichen, Punkt und je nachdem Zahl erlaubt)
         private void CheckFieldSpecialCharacters(Control field, Control[] specialCharactersWithoutNumbers, Control[] specialCharactersWithNumbers)
         {
-            string patternWithoutNumbers = @"^[\p{L} \-'\.]+$";
-            string patternWithNumbers = @"^[\p{L}\p{N} \-'\.]+$";
+            string patternWithoutNumbers = @"^[\p{IsLatin}\p{M} \-'\.]+$";
+            string patternWithNumbers = @"^[\p{IsLatin}\p{M}0-9 \-'\.]+$";
 
             if (
                 specialCharactersWithoutNumbers.Contains(field) && !Regex.IsMatch(field.Text.Trim(), patternWithoutNumbers) ||
