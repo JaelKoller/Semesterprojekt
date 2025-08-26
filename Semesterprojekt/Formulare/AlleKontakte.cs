@@ -15,7 +15,7 @@ namespace Semesterprojekt
         // Initialisierung verwendete Label-/Control-Gruppen
         private System.Windows.Forms.Label[] groupLabel;
         private Control[] groupField;
-        private System.Windows.Forms.Label[] groupLabelToolTip;
+        internal System.Windows.Forms.Label[] groupLabelToolTip;
 
         // Initialisierung verwendeter Index-Counter
         private int tabIndexCounter = 1;
@@ -104,36 +104,9 @@ namespace Semesterprojekt
         // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
         private void InitializationLabelToolTip()
         {
-            var initializationSetToolTip = SetToolTip();
+            var initializationSetToolTip = AlleKontakteInitializations.SetToolTip(this);
             var setToolTip = new SetToolTip();
             setToolTip.SetLabelToolTip(initializationSetToolTip);
-        }
-
-        // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
-        private InitializationLabelsToolTip SetToolTip()
-        {
-            return new InitializationLabelsToolTip
-            {
-                GroupLabelToolTip = groupLabelToolTip,
-                Birthday = LblAllKntktBirthday,
-                SearchEmployeeContacts = LblAllKntktMa,
-                SearchClientContacts = LblAllKntktKunde,
-                SearchInactiveContacts = LblAllKntktInaktiv
-            };
-        }
-
-        // Erstellung Dictonary für Suche
-        private Dictionary<string, object> GroupSeach()
-        {
-            return new Dictionary<string, object>
-            {
-                { "FirstName", TxtAllKntktVorname.Text.Trim() },
-                { "LastName", TxtAllKntktName.Text.Trim() },
-                { "Birthday", TxtAllKntktBirthday.Text.Trim() },
-                { "CheckEmployee", ChkBAllKntktMa.Checked },
-                { "CheckClient", ChkBAllKntktKunde.Checked },
-                { "CheckInactive", ChkBAllKntktInaktiv.Checked }
-            };
         }
 
         // Klick Button "Suchen"
@@ -147,7 +120,7 @@ namespace Semesterprojekt
             if (checkDateOfBirth)
             {
                 // Kontaktsuche auf Basis der erfassten Parameter
-                List<InitializationContactData> contactSearchResult = ContactDataSearch.SearchContactData(GroupSeach());
+                List<InitializationContactData> contactSearchResult = ContactDataSearch.SearchContactData(AlleKontakteInitializations.GroupSeach(this));
                 // Zwischenspeicherung Trefferliste für Doppelklick auf Listeneintrag
                 lastContactSearchResult = contactSearchResult;
                 // Filterung Trefferliste für Ausgabe
