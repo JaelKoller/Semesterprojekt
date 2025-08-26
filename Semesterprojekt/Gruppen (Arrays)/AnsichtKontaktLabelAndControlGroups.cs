@@ -47,7 +47,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels für ToolTip
+        // Erstellung Array für Labels der Gruppe "Kontakt- und Mitarbeiterdaten" für ToolTip
         internal System.Windows.Forms.Label[] GroupLabelToolTip(AnsichtKontakt ansichtKontakt)
         {
             return new System.Windows.Forms.Label[]
@@ -137,7 +137,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung (Ausschluss)
         internal Control[] CheckFieldIgnore(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -146,11 +146,12 @@ namespace Semesterprojekt
                 ansichtKontakt.NumAnsichtKntktMaKader,
                 ansichtKontakt.NumAnsichtKntktMaLehrj,
                 ansichtKontakt.NumAnsichtKntktMaAktLehrj,
-                (string.IsNullOrWhiteSpace(ansichtKontakt.TxtAnsichtKntktAustrDatum.Text) ? ansichtKontakt.TxtAnsichtKntktAustrDatum: null)
+                (string.IsNullOrWhiteSpace(ansichtKontakt.TxtAnsichtKntktAustrDatum.Text) ? ansichtKontakt.TxtAnsichtKntktAustrDatum : null)
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung
+        // Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt
         internal Control[] CheckFieldSpecialCharactersWithoutNumbers(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]
@@ -168,7 +169,8 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und Zahl erlaubt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung
+        // Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt UND ZAHL erlaubt
         internal Control[] CheckFieldSpecialCharactersWithNumbers(AnsichtKontakt ansichtKontakt)
         {
             return new Control[]

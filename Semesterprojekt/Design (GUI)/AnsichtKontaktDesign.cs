@@ -5,10 +5,10 @@ namespace Semesterprojekt
 {
     internal class AnsichtKontaktDesign
     {
-        // Initialisierung verwendeter Index-Counter
+        // Initialisierung Index-Counter für TapStop
         private static int tabIndexCounter = 1;
 
-        // Design (Platzierung) der Eingabe-Felder usw.
+        // Design (Platzierung) der Labels, Eingabefelder, Buttons usw.
         internal static void Design(AnsichtKontakt ansichtKontakt)
         {
             // Platzierung Titel "Mitarbeiter / Kunde: ..."
@@ -20,7 +20,7 @@ namespace Semesterprojekt
             ansichtKontakt.GrpBxDatenAlle.Location = new Point(10, 60);
 
             // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
             PlacementLabelAndField(ansichtKontakt.groupLabelEmployeesAndCustomers, ansichtKontakt.groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
             // Platzierung Gruppe "Mitarbeiterdaten"
@@ -28,10 +28,10 @@ namespace Semesterprojekt
             ansichtKontakt.GrpBxDatenMA.Location = new Point(10, 470);
 
             // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
             PlacementLabelAndField(ansichtKontakt.groupLabelEmployees, ansichtKontakt.groupFieldEmployees, ref tabIndexCounter);
 
-            // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
+            // Platzierung Gruppe Radio-Buttons (Aktiv vs. Inaktiv)
             ansichtKontakt.GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
             ansichtKontakt.GrpBxAnsichtKntktAktiv.Location = new Point(435, 10);
 
@@ -39,17 +39,18 @@ namespace Semesterprojekt
             // Zählerstart TabIndex fortführend (nur auf ersten Radio-Button möglich)
             ansichtKontakt.RdbAnsichtKntktAktiv.Location = new Point(15, 15);
             ansichtKontakt.RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
+
             ansichtKontakt.RdbAnsichtKntktInaktiv.Location = new Point(75, 15);
             ansichtKontakt.RdbAnsichtKntktInaktiv.TabStop = false;
 
-            // Platzierung Gruppe "Notizen zu Person"
+            // Platzierung Gruppe "Notizen zu Kontakt"
             ansichtKontakt.GrpBxAnsichtKntktNotiz.Size = new Size(410, 545);
             ansichtKontakt.GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
 
-            // Platzierung Felder der Gruppe "Notizen zu Person" (inkl. Start TabIndex fortführend)
+            // Platzierung Felder der Gruppe "Notizen zu Kontakt" (inkl. Start TabIndex fortführend)
             PlacementFieldNote(ansichtKontakt, ansichtKontakt.groupFieldNotes, ref tabIndexCounter);
 
-            // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard" (inkl. Start TabIndex fortführend)
+            // Platzierung Buttons "Bearbeiten, Löschen, Speichern, ..." (inkl. Start TabIndex fortführend)
             PlacementButton(ansichtKontakt, ansichtKontakt.groupButtons, ref tabIndexCounter);
         }
 
@@ -71,8 +72,7 @@ namespace Semesterprojekt
                 groupLabel[i].TabStop = false;
                 // Eingabefeld relevant für Tab und daher durchnummeriert
                 groupField[i].TabIndex = tabIndexCounter++;
-
-                // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
+                // Default-Tag relevant für Validierung Eingabefelder (Start mit "true")
                 groupField[i].Tag = "true";
             }
         }
@@ -93,12 +93,16 @@ namespace Semesterprojekt
 
             ansichtKontakt.LbAnsichtKntktProtokolAusg.Size = new Size(width, height);
             ansichtKontakt.LbAnsichtKntktProtokolAusg.Location = new Point(locationX, locationY);
+
             ansichtKontakt.TxtAnsichtKntktProtokolTitel.Size = new Size(width, 20);
             ansichtKontakt.TxtAnsichtKntktProtokolTitel.Location = new Point(locationX, height = height + 30);
+
             ansichtKontakt.TxtAnsichtKntktProtokolEing.Size = new Size(width, 150);
             ansichtKontakt.TxtAnsichtKntktProtokolEing.Location = new Point(locationX, height = height + 30);
+
             ansichtKontakt.DateAnsichtKntktDateProtokol.Size = new Size(width, 40);
             ansichtKontakt.DateAnsichtKntktDateProtokol.Location = new Point(locationX, height = height + 160);
+
             ansichtKontakt.CmdAnsichtKntktSaveProtokol.Size = new Size(width, 30);
             ansichtKontakt.CmdAnsichtKntktSaveProtokol.Location = new Point(locationX, height + 30);
         }

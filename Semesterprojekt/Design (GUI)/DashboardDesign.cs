@@ -5,7 +5,7 @@ namespace Semesterprojekt
 {
     internal class DashboardDesign
     {
-        // Platzierung Buttons (fix)
+        // Platzierung Buttons (dynamisch)
         internal static void PlacementButton(Dashboard dashboard, Control[] groupField)
         {
             int tabIndexCounter = 1;

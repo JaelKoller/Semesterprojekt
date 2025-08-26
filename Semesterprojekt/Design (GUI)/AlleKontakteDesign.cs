@@ -5,10 +5,10 @@ namespace Semesterprojekt
 {
     internal class AlleKontakteDesign
     {
-        // Initialisierung verwendeter Index-Counter
+        // Initialisierung Index-Counter für TapStop
         private static int tabIndexCounter = 1;
 
-        // Design (Platzierung) der Eingabe-Felder usw.
+        // Design (Platzierung) der Labels, Eingabefelder, Buttons usw.
         internal static void Design(AlleKontakte alleKontakte)
         {
             // Platzierung Titel "Suchen nach:"
@@ -21,17 +21,20 @@ namespace Semesterprojekt
             alleKontakte.BtnAllKntktSuchen.Size = new Size(340, 30);
             alleKontakte.BtnAllKntktSuchen.Location = new Point(50, 290);
             alleKontakte.BtnAllKntktSuchen.TabIndex = tabIndexCounter++;
+
             alleKontakte.BtnAllKntktSucheReset.Size = new Size(340, 30);
             alleKontakte.BtnAllKntktSucheReset.Location = new Point(50, 585);
             alleKontakte.BtnAllKntktSucheReset.TabIndex = tabIndexCounter++;
+
             alleKontakte.BtnAllKntktHome.Size = new Size(90, 50);
             alleKontakte.BtnAllKntktHome.Location = new Point(320, 20);
             alleKontakte.BtnAllKntktHome.TabIndex = tabIndexCounter++;
 
-            // Platzierung Suchausgabe und Anzahl Treffer (inkl.TabStop "FALSE")
+            // Platzierung Suchausgabe und Anzahl Treffer (inkl.TabStop "false")
             alleKontakte.LbAllKntktSuchAusg.Size = new Size(340, 200);
             alleKontakte.LbAllKntktSuchAusg.Location = new Point(50, 340);
             alleKontakte.LbAllKntktSuchAusg.TabStop = false;
+
             alleKontakte.LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
             alleKontakte.LblAllKntktAnzSuchAusg.Location = new Point(50, 550);
             alleKontakte.LblAllKntktAnzSuchAusg.TabStop = false;

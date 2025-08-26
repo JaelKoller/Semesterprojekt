@@ -47,7 +47,7 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für Labels für ToolTip
+        // Erstellung Array für Labels der Gruppe "Kontakt- und Mitarbeiterdaten" für ToolTip
         internal System.Windows.Forms.Label[] GroupLabelToolTip(KontaktErstellen kontaktErstellen)
         {
             return new System.Windows.Forms.Label[]
@@ -111,25 +111,21 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für KEINE-Pflichtfelder-Prüfung
+        // Erstellung Array für KEINE-Pflichtfelder-Prüfung (Ausschluss)
         internal Control[] CheckFieldIgnore(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
             {
-                kontaktErstellen.TxtCreatKntktTitel,
-                 // bei Mitarbeitern bleibt das Feld "Pflicht"
-                // (!RdbCreatKntktMa.Checked ? TxtCreatKntktMaAHVNr : null),            
+                kontaktErstellen.TxtCreatKntktTitel,         
                 kontaktErstellen.NumCreatKntktMaKader,
                 kontaktErstellen.NumCreatKntktMaLehrj,
                 kontaktErstellen.NumCreatKntktMaAktLehrj,
-                // bei Mitarbeiter bleibt das Feld "Pflicht"
-                (!kontaktErstellen.RdbCreatKntktMa.Checked ? kontaktErstellen.TxtCreatKntktEintrDatum : null),
-                // bei enthaltenem Wert wird das Feld validiert
-                (string.IsNullOrWhiteSpace(kontaktErstellen.TxtCreatKntktAustrDatum.Text) ? kontaktErstellen.TxtCreatKntktAustrDatum: null),
+                (string.IsNullOrWhiteSpace(kontaktErstellen.TxtCreatKntktAustrDatum.Text) ? kontaktErstellen.TxtCreatKntktAustrDatum : null),
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung
+        // Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen und Punkt erlaubt
         internal Control[] CheckFieldSpecialCharactersWithoutNumbers(KontaktErstellen kontaktErstellen)
         {
             return new Control[]
@@ -147,7 +143,8 @@ namespace Semesterprojekt
             };
         }
 
-        // Erstellung Array für erweiterte Pflichtfelder-Prüfung (Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt und Zahl erlaubt)
+        // Erstellung Array für erweiterte Pflichtfelder-Prüfung
+        // Apostroph, Bindestrich, Buchstabe (inkl. Umlaut), Komma, Leerzeichen, Punkt UND ZAHL erlaubt
         internal Control[] CheckFieldSpecialCharactersWithNumbers(KontaktErstellen kontaktErstellen)
         {
             return new Control[]

@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt.Testing
 {
-    public partial class Testing_AnsichtKontakt : Form
+    internal partial class Testing_AnsichtKontakt : Form
     {
-        private AnsichtKontakt ansichtKontaktForm;
+        // private AnsichtKontakt ansichtKontaktForm;
 
-        public Testing_AnsichtKontakt()
+        internal Testing_AnsichtKontakt()
         {
             InitializeComponent();
         }
@@ -24,6 +24,7 @@ namespace Semesterprojekt.Testing
             int daySpacing = 400;
             DateTime startDate = DateTime.Today.AddDays(-(countNotes - 1) * daySpacing);
 
+            // Generierung Notizen mit einzelnen dynamischen Werten
             for (int note = 0; note < countNotes; note++)
             {
                 InitializationNotes noteData = new InitializationNotes
@@ -47,8 +48,9 @@ namespace Semesterprojekt.Testing
             }
         }
         
-        public void TestData(bool testfallMitarbeiter)
+        internal void TestData(bool testfallMitarbeiter)
         {
+            // Initialisierung Testdaten          
             string contactStatus = testfallMitarbeiter ? "active" : "inactive";
             string contactNumber = testfallMitarbeiter ? "MA-Test" : "KD-Test";
             string typeOfContact = testfallMitarbeiter ? "Mitarbeiter" : "Kunde";
@@ -56,7 +58,7 @@ namespace Semesterprojekt.Testing
             // Aufruf Erstellung Notizen
             CreateTestNotes(contactNumber);
             
-            // Erstellung Testdaten            
+            // Erstellung Testdaten     
             var contactData = new InitializationContactData
             {
                 ContactStatus = contactStatus,
@@ -66,16 +68,16 @@ namespace Semesterprojekt.Testing
                 {
                     { "Title", "Dr." },
                     { "Salutation", "Frau" },
-                    { "FirstName", "Jael" },
-                    { "LastName", "Koller" },
+                    { "FirstName", "Daisy" },
+                    { "LastName", "Duck" },
                     { "Birthday", "01.07.1989" },
                     { "Gender", "weiblich" },
-                    { "Address", "Heimstrasse 4" },
-                    { "PostalCode", "9014" },
+                    { "Address", "Duckstrasse 17" },
+                    { "PostalCode", "9000" },
                     { "City", "St. Gallen" },
-                    { "BusinessNumber", "+41 71 123 45 67" },
-                    { "MobileNumber", "+41 76 123 45 67" },
-                    { "Email", "jaelkoller@testmail.ch" },
+                    { "BusinessNumber", "+41 71 123 44 55" },
+                    { "MobileNumber", "+41 79 123 44 55" },
+                    { "Email", "daisyduck@testmail.ch" },
                     { "EmployeeNumber", testfallMitarbeiter ? "MA9999" : "" },
                     { "AHVNumber", testfallMitarbeiter ? "756.8800.5641.37" : "" },
                     { "Nationality", testfallMitarbeiter ? "CH" : "" },
@@ -86,7 +88,7 @@ namespace Semesterprojekt.Testing
                     { "AcademicYear", testfallMitarbeiter ? "3" : "0" },
                     { "CurrentAcademicYear", "0" },
                     { "OfficeNumber", testfallMitarbeiter ? "123" : "0" },
-                    { "AddressOffice", testfallMitarbeiter ? "St. Leonhardstrasse 25" : "" },
+                    { "AddressOffice", testfallMitarbeiter ? "Bürostrasse 100" : "" },
                     { "PostalCodeOffice", testfallMitarbeiter ? "9001" : "" },
                     { "CityOffice", testfallMitarbeiter ? "St. Gallen" : "" },
                     { "DateOfEntry", testfallMitarbeiter ? "01.08.2005" : "" },
@@ -94,11 +96,10 @@ namespace Semesterprojekt.Testing
                 }
             };
 
-            ansichtKontaktForm = new AnsichtKontakt(contactData);
-
+            var ansichtKontaktForm = new AnsichtKontakt(contactData);
             ansichtKontaktForm.LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
-            // Start Form "KontaktErstellen" mit Testdaten
+            // Start Form "AnsichtKontakt" mit Testdaten
             Application.Run(ansichtKontaktForm);
         }
     }

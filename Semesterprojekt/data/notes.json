@@ -1,1 +1,262 @@
-[]
+[
+  {
+    "ContactNumber": "MA-Test",
+    "Notes": [
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #25",
+        "NoteText": "Das ist der Text zu der Testnotiz #25. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "15.05.1999"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #24",
+        "NoteText": "Das ist der Text zu der Testnotiz #24. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.06.2000"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #23",
+        "NoteText": "Das ist der Text zu der Testnotiz #23. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "23.07.2001"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #22",
+        "NoteText": "Das ist der Text zu der Testnotiz #22. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "27.08.2002"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #21",
+        "NoteText": "Das ist der Text zu der Testnotiz #21. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "01.10.2003"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #20",
+        "NoteText": "Das ist der Text zu der Testnotiz #20. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "04.11.2004"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #19",
+        "NoteText": "Das ist der Text zu der Testnotiz #19. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.12.2005"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #18",
+        "NoteText": "Das ist der Text zu der Testnotiz #18. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "13.01.2007"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #17",
+        "NoteText": "Das ist der Text zu der Testnotiz #17. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "17.02.2008"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #16",
+        "NoteText": "Das ist der Text zu der Testnotiz #16. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "23.03.2009"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #15",
+        "NoteText": "Das ist der Text zu der Testnotiz #15. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "27.04.2010"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #14",
+        "NoteText": "Das ist der Text zu der Testnotiz #14. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "01.06.2011"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #13",
+        "NoteText": "Das ist der Text zu der Testnotiz #13. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "05.07.2012"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #12",
+        "NoteText": "Das ist der Text zu der Testnotiz #12. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.08.2013"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #11",
+        "NoteText": "Das ist der Text zu der Testnotiz #11. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "13.09.2014"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #10",
+        "NoteText": "Das ist der Text zu der Testnotiz #10. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.10.2015"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #9",
+        "NoteText": "Das ist der Text zu der Testnotiz #9. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "21.11.2016"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #8",
+        "NoteText": "Das ist der Text zu der Testnotiz #8. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "26.12.2017"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #7",
+        "NoteText": "Das ist der Text zu der Testnotiz #7. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "30.01.2019"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #6",
+        "NoteText": "Das ist der Text zu der Testnotiz #6. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "05.03.2020"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #5",
+        "NoteText": "Das ist der Text zu der Testnotiz #5. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.04.2021"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #4",
+        "NoteText": "Das ist der Text zu der Testnotiz #4. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "14.05.2022"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #3",
+        "NoteText": "Das ist der Text zu der Testnotiz #3. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.06.2023"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #2",
+        "NoteText": "Das ist der Text zu der Testnotiz #2. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "22.07.2024"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #1",
+        "NoteText": "Das ist der Text zu der Testnotiz #1. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "26.08.2025"
+      }
+    ]
+  },
+  {
+    "ContactNumber": "KD-Test",
+    "Notes": [
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #25",
+        "NoteText": "Das ist der Text zu der Testnotiz #25. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "15.05.1999"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #24",
+        "NoteText": "Das ist der Text zu der Testnotiz #24. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.06.2000"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #23",
+        "NoteText": "Das ist der Text zu der Testnotiz #23. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "23.07.2001"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #22",
+        "NoteText": "Das ist der Text zu der Testnotiz #22. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "27.08.2002"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #21",
+        "NoteText": "Das ist der Text zu der Testnotiz #21. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "01.10.2003"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #20",
+        "NoteText": "Das ist der Text zu der Testnotiz #20. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "04.11.2004"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #19",
+        "NoteText": "Das ist der Text zu der Testnotiz #19. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.12.2005"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #18",
+        "NoteText": "Das ist der Text zu der Testnotiz #18. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "13.01.2007"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #17",
+        "NoteText": "Das ist der Text zu der Testnotiz #17. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "17.02.2008"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #16",
+        "NoteText": "Das ist der Text zu der Testnotiz #16. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "23.03.2009"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #15",
+        "NoteText": "Das ist der Text zu der Testnotiz #15. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "27.04.2010"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #14",
+        "NoteText": "Das ist der Text zu der Testnotiz #14. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "01.06.2011"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #13",
+        "NoteText": "Das ist der Text zu der Testnotiz #13. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "05.07.2012"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #12",
+        "NoteText": "Das ist der Text zu der Testnotiz #12. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.08.2013"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #11",
+        "NoteText": "Das ist der Text zu der Testnotiz #11. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "13.09.2014"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #10",
+        "NoteText": "Das ist der Text zu der Testnotiz #10. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.10.2015"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #9",
+        "NoteText": "Das ist der Text zu der Testnotiz #9. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "21.11.2016"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #8",
+        "NoteText": "Das ist der Text zu der Testnotiz #8. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "26.12.2017"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #7",
+        "NoteText": "Das ist der Text zu der Testnotiz #7. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "30.01.2019"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #6",
+        "NoteText": "Das ist der Text zu der Testnotiz #6. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "05.03.2020"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #5",
+        "NoteText": "Das ist der Text zu der Testnotiz #5. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "09.04.2021"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #4",
+        "NoteText": "Das ist der Text zu der Testnotiz #4. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "14.05.2022"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #3",
+        "NoteText": "Das ist der Text zu der Testnotiz #3. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "18.06.2023"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #2",
+        "NoteText": "Das ist der Text zu der Testnotiz #2. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "22.07.2024"
+      },
+      {
+        "NoteTitle": "Das ist der Titel zu einer Testnotiz! #1",
+        "NoteText": "Das ist der Text zu der Testnotiz #1. Hier werden nun ein paar Punkte festgehalten:\r\n\r\n- Erfassung von Mitarbeitern und Kunden funktioniert\r\n- Mutieren von Mitarbeitern und Kunden funktioniert\r\n- Aktivieren und Deaktivieren von Mitarbeitern und Kunden funktioniert\r\n- L\u00F6schen von Mitarbeitern und Kunden funktioniert\r\n- Automatische Vergabe von Mitarbeiternummern (ebenso Kundennummern) funktioniert\r\n- Protokollieren von Notizen in Kundenkontakten inkl. Historie funktioniert\r\n- Suchm\u00F6glichkeiten \u00FCber gespeicherten Informationen (Name, Vorname, Geburtsdatum, Mitarbeiter/Kunde) funktioniert\r\n- Automatisches Speichern und Laden des Datenstamms auf Festplatte funktioniert\r\n\r\nEs gibt noch diverse optionale Anforderungen, wie z.B. Validierungslogiken usw., welche den Benutzer unterst\u00FCtzen.",
+        "NoteDate": "26.08.2025"
+      }
+    ]
+  }
+]

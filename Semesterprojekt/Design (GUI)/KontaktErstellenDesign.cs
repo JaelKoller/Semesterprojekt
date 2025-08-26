@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
     internal class KontaktErstellenDesign
     {
-        // Initialisierung verwendeter Index-Counter
+        // Initialisierung Index-Counter für TapStop
         private static int tabIndexCounter = 1;
 
-        // Design (Platzierung) der Eingabe-Felder usw.
+        // Design (Platzierung) der Labels, Eingabefelder, Buttons usw.
         internal static void Design(KontaktErstellen kontaktErstellen)
         {
-            // Platzierung Gruppe Radio-Button (Mitarbeiter vs. Kunde)
+            // Platzierung Gruppe Radio-Buttons (Mitarbeiter vs. Kunde)
             kontaktErstellen.GrpBxCreatKntktMaKunde.Size = new Size(165, 40);
             kontaktErstellen.GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
 
@@ -33,18 +28,20 @@ namespace Semesterprojekt
             kontaktErstellen.RdbCreatKntktKunde.Location = new Point(100, 15);
 
             // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
             PlacementLabelAndField(kontaktErstellen.groupLabelEmployeesAndCustomers, kontaktErstellen.groupFieldEmployeesAndCustomers, ref tabIndexCounter);
 
             // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
+            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
             PlacementLabelAndField(kontaktErstellen.groupLabelEmployees, kontaktErstellen.groupFieldEmployees, ref tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
             kontaktErstellen.CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
             kontaktErstellen.CmdCreateKntktKontaktErstellen.Location = new Point(445, 580);
+
             kontaktErstellen.CmdCreateKntktDashboard.Size = new Size(150, 60);
             kontaktErstellen.CmdCreateKntktDashboard.Location = new Point(600, 580);
+
             kontaktErstellen.CmdCreateKntktVerwerfen.Size = new Size(305, 40);
             kontaktErstellen.CmdCreateKntktVerwerfen.Location = new Point(445, 645);
         }
@@ -68,8 +65,7 @@ namespace Semesterprojekt
                 groupLabel[i].TabStop = false;
                 // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
                 groupField[i].TabIndex = tabIndexCounter++;
-
-                // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
+                // Default-Tag relevant für Validierung Eingabefelder (Start mit "true")
                 groupField[i].Tag = "true";
             }
         }

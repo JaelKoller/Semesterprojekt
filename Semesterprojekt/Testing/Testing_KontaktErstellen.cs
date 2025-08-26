@@ -2,37 +2,37 @@
 
 namespace Semesterprojekt.Testing
 {
-    public partial class Testing_KontaktErstellen : Form
+    internal partial class Testing_KontaktErstellen : Form
     {
         private KontaktErstellen kontaktErstellenForm;
-        
-        public Testing_KontaktErstellen()
+
+        internal Testing_KontaktErstellen()
         {
             InitializeComponent();
         }
 
-        public void TestData(string typeOfContactNew, string caseName)
+        internal void TestData(string typeOfContactNew, string caseName)
         {
             kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
 
             switch (caseName)
             {
                 case "daisy":
-                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "Dr.";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "Frau";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Daisy";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "Duck";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "01.07.1989";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "weiblich";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41 71 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 79 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "daisyduck@testmail.ch";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Duckstrasse 17";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "9000";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "St. Gallen";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41 71 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 79 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "daisyduck@testmail.ch";
 
-                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
@@ -53,21 +53,21 @@ namespace Semesterprojekt.Testing
                     break;
 
                 case "donald":
-                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "Herr";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Donald";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "Duck";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "13.12.1998";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "männlich";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41719876655";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41799876655";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "donald.duck@testmail.ch";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Duckstrasse 17";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "9000";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "St. Gallen";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+41719876655";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41799876655";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "donald.duck@testmail.ch";
 
-                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
@@ -88,21 +88,21 @@ namespace Semesterprojekt.Testing
                     break;
 
                 case "olga":
-                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "Prof., Dr.";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "keine";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Olga Döröthéà";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "Spinnenbein-D'Agosta";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "31.12.1997";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+49 123 12345678";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+49 123 98765 44";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "olga_hauser55@testmail.test.com";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Musterstrasse 25a";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "8045";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "Zürich-Wiedikon";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+49 123 12345678";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+49 123 98765 44";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "olga_hauser55@testmail.test.com";
 
-                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
@@ -123,21 +123,21 @@ namespace Semesterprojekt.Testing
                     break;
 
                 case "error":
-                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "Muster";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "15.15.2000";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 (0)79 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "error@testmail";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "690";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "Bregenz AT";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 (0)79 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "error@testmail";
 
-                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.30";
@@ -158,21 +158,21 @@ namespace Semesterprojekt.Testing
                     break;
 
                 case "errorSpecial":
-                    // Testdaten für Gruppe Mitarbeiter UND Kunde
+                    // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "Prof@";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "keine";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error#";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "[Muster]";
                     kontaktErstellenForm.TxtCreatKntktBirthday.Text = "05.04.1997";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+071 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41-079 123 44 55";
-                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "error$error@testmail.ch";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg/12";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "76530";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "Baden-Baden DE";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "+071 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41-079 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktEmail.Text = "error$error@testmail.ch";
 
-                    // Testdaten für Gruppe Mitarbeiter (ohne Kunde)
+                    // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
                         kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.37";
