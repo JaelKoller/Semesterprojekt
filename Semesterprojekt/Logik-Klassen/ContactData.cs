@@ -14,7 +14,6 @@ namespace Semesterprojekt
         private static readonly string fileName = "contacts";
         private static readonly string contactDataPath = InitializationDataPathJson.DataPath(fileName);
 
-
         // Auslesen JSON für Ermittlung, Speicherung und Löschung Kontaktdaten
         private static bool LoadData(out List<InitializationContactData> contactDataList)
         {
@@ -22,19 +21,14 @@ namespace Semesterprojekt
             {
                 if (File.Exists(contactDataPath))
                 {
-                    
                     string contactsJSON = File.ReadAllText(contactDataPath);
                     contactDataList = JsonSerializer.Deserialize<List<InitializationContactData>>(contactsJSON) ?? new List<InitializationContactData>();
                 }
-
                 else
-                {
                     contactDataList = new List<InitializationContactData>();
-                }
 
                 return true;
             }
-
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
@@ -62,7 +56,7 @@ namespace Semesterprojekt
                         ContactStatus = contactStatus,
                         // Erfassung Kontakttyp mit Gross- und Kleinbuchstaben
                         TypeOfContact = $"{char.ToUpper(typeOfContact[0])}{typeOfContact.Substring(1)}",
-                        // Erfassung Kontaktnummer für spätere Zuweisung der Notizen
+                        // Erfassung Kontakt Nr. für spätere Zuweisung der Notizen
                         ContactNumber = contactNumber
                     };
                     break;
@@ -75,17 +69,11 @@ namespace Semesterprojekt
             }
             
             foreach (Control field in groupFieldEmployeesAndCustomers)
-            {
                 contactData.Fields[field.AccessibleName] = GetControlValue(field);
-            }
 
             if (typeOfContact == "mitarbeiter")
-            {
                 foreach (Control field in groupFieldEmployees)
-                {
                     contactData.Fields[field.AccessibleName] = GetControlValue(field);
-                }
-            }
 
             // Duplikatencheck mit Bestätigung durch User (bei Nein "Abbruch")
             if (!CheckDuplicateContact(contactDataList, contactData, contactNumber))
@@ -97,12 +85,9 @@ namespace Semesterprojekt
                 contactDataList.Add(contactData);
                 SaveData(contactDataList, "save");
             }
-
             // Speicherung geänderter Kontakt
             else
-            {
                 SaveData(contactDataList, "update");
-            }
 
             return true;
         }
@@ -126,14 +111,14 @@ namespace Semesterprojekt
         private static bool CheckDuplicateContact(List<InitializationContactData> contactList, InitializationContactData newContact, string ignoreContactNumber)
         {
             // Regex für Split Vorname und Nachname bei Bindestrich und/oder Leerzeichen
-            string regex = @"[\s\-]";
+            string pattern = @"[\s\-]";
 
             newContact.Fields.TryGetValue("FirstName", out var newFirstNameRaw);
             newContact.Fields.TryGetValue("LastName", out var newLastNameRaw);
             newContact.Fields.TryGetValue("Birthday", out var newDateOfBirthRaw);
 
-            string newFirstName = Regex.Split(newFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
-            string newLastName = Regex.Split(newLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
+            string newFirstName = Regex.Split(newFirstNameRaw?.Trim().ToLower() ?? "", pattern)[0];
+            string newLastName = Regex.Split(newLastNameRaw?.Trim().ToLower() ?? "", pattern)[0];
             string newDateOfBirth = newDateOfBirthRaw ?? "";
 
             // Liste mit allen möglichen Duplikaten (für Anzeige)
@@ -149,15 +134,13 @@ namespace Semesterprojekt
                 oldContact.Fields.TryGetValue("LastName", out var oldLastNameRaw);
                 oldContact.Fields.TryGetValue("Birthday", out var oldDateOfBirthRaw);
 
-                string oldFirstName = Regex.Split(oldFirstNameRaw?.Trim().ToLower() ?? "", regex)[0];
-                string oldLastName = Regex.Split(oldLastNameRaw?.Trim().ToLower() ?? "", regex)[0];
+                string oldFirstName = Regex.Split(oldFirstNameRaw?.Trim().ToLower() ?? "", pattern)[0];
+                string oldLastName = Regex.Split(oldLastNameRaw?.Trim().ToLower() ?? "", pattern)[0];
                 string oldDateOfBirth = oldDateOfBirthRaw ?? "";
 
                 // Abgleich nur auf Basis des ersten Namens, falls z.B. noch ein zweiter Name erfasst ist
                 if (newFirstName == oldFirstName && newLastName == oldLastName && newDateOfBirth == oldDateOfBirth)
-                {
                     duplicates.Add($"- {oldFirstNameRaw} {oldLastNameRaw}, {oldDateOfBirthRaw}");
-                }
             }
 
             // Sammelausgabe der ähnlichen Kontakte auf Basis Vorname, Nachname und Geburtsdatum
@@ -165,7 +148,6 @@ namespace Semesterprojekt
             {
                 string message = "Folgende ähnliche Kontakte existieren bereits:\r\n\r\n" + string.Join("\n", duplicates) + "\r\n\r\nTrotzdem speichern?";
                 DialogResult result = MessageBox.Show(message, "Duplikatencheck", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
                 return result == DialogResult.Yes;
             }
 
@@ -184,42 +166,29 @@ namespace Semesterprojekt
 
             // Speicherung JSON 
             SaveData(contactDataList, "delete");
-
             return true;
         }
 
         // Speicherung neue, zu ändernde oder zu löschende Kundendaten (Schreibprozess)
         private static void SaveData(List<InitializationContactData> contactDataList, string saveMode)
         {
-            // Vorbereitung Text für MessageBox (abhängig von Auftragsart)
-            string message = string.Empty;
-
-            if (saveMode == "save")
-                message = "gespeichert";
-            else if (saveMode == "update")
-                message = "geändert";
-            else if (saveMode == "delete")
-                message = "gelöscht";
-
             try
             {
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
                 var directory = Path.GetDirectoryName(contactDataPath);
                 if (!string.IsNullOrEmpty(directory))
-                {
                     Directory.CreateDirectory(directory);
-                }
 
                 string contactsJSON = JsonSerializer.Serialize(contactDataList, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(contactDataPath, contactsJSON);
 
-                // Ausgabe erfolgreiche Speicherung (userfreundlich)
+                // Ausgabe erfolgreiche Speicherung (abhängig von Auftragsart
+                string message = saveMode == "save" ? "gespeichert" : saveMode == "update" ? "geändert" : saveMode == "delete" ? "gelöscht" : "unbekannt";
                 MessageBox.Show($"Kontakt erfolgreich {message}!", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             catch (Exception exception)
             {
-                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
                 ShowMessageBox($"Fehler beim Speichern der JSON-Datei '{fileName}': {exception}");
             }
         }

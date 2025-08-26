@@ -13,6 +13,7 @@ namespace Semesterprojekt
         public string NoteText { get; set; }
         public string NoteDate { get; set; }
 
+        // Name (Titel) für Listeneinträge
         public override string ToString() => $"{NoteDate} - {NoteTitle}";
     }
 

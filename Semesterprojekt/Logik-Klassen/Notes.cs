@@ -7,8 +7,6 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
-
-
     internal class Notes
     {
         // Dateipfad für JSON "notes" (Notizen-Liste)
@@ -22,19 +20,14 @@ namespace Semesterprojekt
             {
                 if (File.Exists(notesDataPath))
                 {
-
                     string notesJSON = File.ReadAllText(notesDataPath);
                     notesDataList = JsonSerializer.Deserialize<List<ContactNotes>>(notesJSON) ?? new List<ContactNotes>();
                 }
-
                 else
-                {
                     notesDataList = new List<ContactNotes>();
-                }
 
                 return true;
             }
-
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
@@ -44,7 +37,7 @@ namespace Semesterprojekt
             }
         }
 
-        // Suche der Notizen
+        // Suche (Ermittlung) der Notizen
         public static ContactNotes SearchNotesData(string contactNumber)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
@@ -77,35 +70,31 @@ namespace Semesterprojekt
                 // Hinzufügen neuer Notizblock inkl. Kontakt Nr.
                 notesDataList.Add(contactNotes);
             }
-
             else
-            {
                 // Hinzufügen neuer Notiz
                 contactNotes.Notes.Add(noteData);
-            }
 
             // Speicherung neuer Notiz
             SaveData(notesDataList);
             return true;
         }
 
-        // Löschung aller Notizen pro Kontakt
+        // Löschung aller Notizen auf Basis Kontakt Nr.
         public static bool DeleteNotesData(string contactNumber)
         {
             // Abbruch bei Fehler beim Laden der JSON-Datei
             if (!LoadData(out var notesDataList))
                 return false;
 
-            // Entfernung Kontaktdaten (Block) auf Basis Kontakt Nr.
+            // Entfernung Kontaktdaten (Block)
             notesDataList.RemoveAll(contact => contact.ContactNumber.Equals(contactNumber));
 
             // Speicherung JSON 
             SaveData(notesDataList);
-
             return true;
         }
 
-        // Speicherung neuer oder zu löschende Notizen pro Kontakt (Schreibprozess)
+        // Speicherung neuer oder zu löschende Notizen aus Basis Kontakt Nr. (Schreibprozess)
         private static void SaveData(List<ContactNotes> notesDataList)
         {
             try
@@ -113,17 +102,14 @@ namespace Semesterprojekt
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
                 var directory = Path.GetDirectoryName(notesDataPath);
                 if (!string.IsNullOrEmpty(directory))
-                {
                     Directory.CreateDirectory(directory);
-                }
 
                 string notesJSON = JsonSerializer.Serialize(notesDataList, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(notesDataPath, notesJSON);
             }
-
             catch (Exception exception)
             {
-                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
                 ShowMessageBox($"Fehler beim Speichern der JSON-Datei '{fileName}': {exception}");
             }
         }

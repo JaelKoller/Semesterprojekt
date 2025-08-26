@@ -11,7 +11,7 @@ namespace Semesterprojekt
         private static readonly DateTime MinDate = new DateTime(1900, 1, 1);
         private static readonly DateTime MaxDate = new DateTime(2099, 12, 31);
 
-        // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "TRUE")
+        // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "true")
         public static bool CheckDateField(TextBox txtbxDate, string labelName, bool textRequired, out string errorMessage)
         {
             // Initialisierung OUT-Argument
@@ -22,10 +22,12 @@ namespace Semesterprojekt
 
             // Prüfung mit Rückgabe
             if (string.IsNullOrWhiteSpace(date))
-                // Datum "leer", jedoch NICHT erforderlich = Rückgabe "TRUE" (Gegenteil von textRequired)
+                // Datum "leer", jedoch NICHT erforderlich = Rückgabe "true" (Gegenteil von textRequired)
                 return !textRequired;
 
-            if (!(Regex.IsMatch(date, @"^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$")))
+            string pattern = @"^[0-9]{2}\.[0-9]{2}\.[0-9]{4}$";
+
+            if (!(Regex.IsMatch(date, pattern)))
             {
                 errorMessage = $"{labelName} '{date}' entspricht nicht den Vorgaben 'TT.MM.JJJJ'";
                 return false;

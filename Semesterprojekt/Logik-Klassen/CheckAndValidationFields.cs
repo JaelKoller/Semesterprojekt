@@ -9,7 +9,7 @@ namespace Semesterprojekt
 {
     internal class CheckAndValidationFields
     {
-        // Initialisierung mehrfach verwendeter BackColor
+        // Initialisierung mehrfach verwendeter BackColor (Hintergrundfarbe)
         private readonly Color backColorOK = SystemColors.Window;
         private readonly Color backColorNOK = Color.LightPink;
 
@@ -20,7 +20,7 @@ namespace Semesterprojekt
         // Prüfung Felder gemäss Erwartungen (leere Felder, Defaultwerte usw.)
         public bool ValidationFields(InitializationCheckAndValidationFields content)
         {
-            // Prüfung (Grundlagen)
+            // Prüfung "Grundlagen inkl. Sonderzeichen"
             foreach (Control field in content.GroupFieldEmployeesAndCustomers)
             {
                 CheckFields(field, content.CheckFieldIgnore);
@@ -36,20 +36,17 @@ namespace Semesterprojekt
                 }
             }
 
-            // Prüfung (vertieft)
+            // Prüfung "erweitert"
             List<Control> groupFieldAll = new List<Control>();
             groupFieldAll.AddRange(content.GroupFieldEmployeesAndCustomers);
             groupFieldAll.AddRange(content.GroupFieldEmployees);
-
             ValidationFieldsExtension(groupFieldAll, content);
 
             // Ausgabe Validierungsstatus (für Speichervorgang)
             bool checkFieldTag = true;
 
             foreach (Control field in groupFieldAll)
-            {
                 checkFieldTag = field.Tag == tagNOK ? false : checkFieldTag;
-            }
 
             return checkFieldTag;
         }
@@ -155,7 +152,6 @@ namespace Semesterprojekt
             if (content.MobileNumber.Tag == tagNOK)
                 return;
 
-
             CheckEMail(content.Email);
             if (content.Email.Tag == tagNOK)
                 return;
@@ -178,8 +174,6 @@ namespace Semesterprojekt
                 if (content.DateOfExit.Tag == tagNOK)
                     return;
             }
-
-
         }
 
         // Prüfung Datum-Format auf TT.MM.JJJJ
@@ -193,7 +187,6 @@ namespace Semesterprojekt
                 content.BackColor = backColorOK;
                 content.Tag = tagOK;
             }
-
             else
             {
                 content.BackColor = backColorNOK;
@@ -201,9 +194,7 @@ namespace Semesterprojekt
 
                 // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben (exkl. leeres Feld)
                 if (!string.IsNullOrWhiteSpace(errorMessage))
-                {
                     ShowMessageBox(errorMessage);
-                }
 
                 content.Focus();
             }
@@ -220,7 +211,6 @@ namespace Semesterprojekt
                 plz.BackColor = backColorOK;
                 plz.Tag = tagOK;
             }
-
             else
             {
                 string messageAdd = isOffice ? "(4 Ziffern ohne führende 0 nötig)" : "(4-5 Ziffern nötig)";
@@ -234,14 +224,15 @@ namespace Semesterprojekt
 
         // Prüfung Telefon-Format auf + mit 6 bis 15 Ziffern ohne führende 0 (Standard für Schweiz und umliegende Länder)
         private void CheckPhone(TextBox phoneNumber, string typeOfPhone)
-        {            
+        {
+            string pattern = @"^\+[1-9][0-9]{5,14}$";
+
             // Entfernung Leerzeichen für Vergleich mit Regex
-            if (Regex.IsMatch(phoneNumber.Text.Replace(" ",""), @"^\+[1-9][0-9]{5,14}$"))
+            if (Regex.IsMatch(phoneNumber.Text.Replace(" ",""), pattern))
             {
                 phoneNumber.BackColor = backColorOK;
                 phoneNumber.Tag = tagOK;
             }
-
             else
             {
                 phoneNumber.BackColor = backColorNOK;
@@ -251,16 +242,17 @@ namespace Semesterprojekt
             }
         }
         
-        // Prüfung E-Mail-Format Text@Text.Text (auch Ziffern anstelle des Text erlaubt)
+        // Prüfung E-Mail-Format auf Text@Text.Text (auch Ziffern anstelle des Text erlaubt)
         // Sonderzeichen (exkl. Bindestrich, Punkt und Unterlinie) sind NICHT erlaubt
         private void CheckEMail(TextBox email)
         {
-            if (Regex.IsMatch(email.Text.Trim(), @"^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z]{2,}$"))
+            string pattern = @"^[A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z]{2,}$";
+
+            if (Regex.IsMatch(email.Text.Trim(), pattern))
             {
                 email.BackColor = backColorOK;
                 email.Tag = tagOK;
             }
-
             else
             {
                 email.BackColor = backColorNOK;
@@ -270,51 +262,47 @@ namespace Semesterprojekt
             }
         }
 
-        // Prüfung AHV-Nummer auf Korrektheit und Vollständigkeit (1. Schritt)
+        // Prüfung AHV-Format auf 756.xxxx.xxxx.xx (CH-Norm gemäss BSV)
         private void CheckAHVNumber(TextBox ahvNumber)
-        {
-            if (!ValidationAHVNumber(ahvNumber.Text.Trim()))
+        {          
+            string pattern = @"^756\.[0-9]{4}\.[0-9]{4}\.[0-9]{2}$";
+            bool isMatch = Regex.IsMatch(ahvNumber.Text.Trim(), pattern);
+            bool comparison = false;
+
+            if (isMatch)
             {
-                ahvNumber.BackColor = backColorNOK;
-                ahvNumber.Tag = tagNOK;
-                ShowMessageBox($"AHV-Nummer '{ahvNumber.Text.Trim()}' ist ungültig");
-                ahvNumber.Focus();
+                // Entfernung Punkte (als Vorbereitung für Prüfziffer)
+                string ahvNumberNoPoints = ahvNumber.Text.Replace(".", "").Trim();
+
+                // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
+                int total = 0;
+
+                for (int i = 0; i < 12; i++)
+                {
+                    int digit = int.Parse(ahvNumberNoPoints[i].ToString());
+                    int weight = (i % 2 == 0) ? 1 : 3;
+                    total += digit * weight;
+                }
+
+                // Prüfung Prüfziffer gemäss Norm EAN-13 (BSV)
+                int checkDigit = int.Parse(ahvNumberNoPoints[12].ToString());
+                int expectation = (10 - (total % 10)) % 10;
+                comparison = checkDigit == expectation;
             }
 
-            else
+            if (comparison)
             {
                 ahvNumber.BackColor = backColorOK;
                 ahvNumber.Tag = tagOK;
             }
-        }
-
-        // Prüfung AHV-Nummer auf Korrektheit und vollständigkeit (2. Schritt)
-        private bool ValidationAHVNumber(string ahvNumber)
-        {
-            // Prüfung Format gemäss CH-Norm (BSV): 756.xxxx.xxxx.xx
-            string pattern = @"^756\.[0-9]{4}\.[0-9]{4}\.[0-9]{2}$";
-
-            if (!Regex.IsMatch(ahvNumber.Trim(), pattern))
-                return false;
-
-            // Entfernung Punkte
-            string ahvNumberNoPoints = ahvNumber.Replace(".", "").Trim();
-
-            // Extraktion Ziffern (als Vorbereitung für Prüfziffer)
-            int total = 0;
-
-            for (int i = 0; i < 12; i++)
+            else
             {
-                int digit = int.Parse(ahvNumberNoPoints[i].ToString());
-                int weight = (i % 2 == 0) ? 1 : 3;
-                total += digit * weight;
+                ahvNumber.BackColor = backColorNOK;
+                ahvNumber.Tag = tagNOK;
+                string message = isMatch ? "Validierung Prüfziffer (CH-Norm) fehlgeschlagen" : "\r\nz.B. 756.8800.5641.37";
+                ShowMessageBox($"AHV-Nummer '{ahvNumber.Text.Trim()}' ist ungültig\r\n{message}");
+                ahvNumber.Focus();
             }
-
-            // Prüfung Prüfziffer gemäss Norm EAN-13 (BSV)
-            int checkDigit = int.Parse(ahvNumberNoPoints[12].ToString());
-            int expectation = (10 - (total % 10)) % 10;
-
-            return checkDigit == expectation;
         }
 
         // Erzeugung MessageBox (Popup) bei fehlenden und/oder fehlerhaften Eingaben gemäss Erwartungen

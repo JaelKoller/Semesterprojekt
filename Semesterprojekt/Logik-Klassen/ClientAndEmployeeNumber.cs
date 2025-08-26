@@ -32,15 +32,11 @@ namespace Semesterprojekt
                     string clientAndEmployeeNumbersJSON = File.ReadAllText(clientAndEmployeeNumbersPath);
                     numberData = JsonSerializer.Deserialize<NumberData>(clientAndEmployeeNumbersJSON) ?? new NumberData();
                 }
-
                 else
-                {
                     numberData = new NumberData();
-                }
 
                 return true;
             }
-
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
@@ -67,13 +63,10 @@ namespace Semesterprojekt
             // Parsen (dynamisch) der Kunden/Mitarbeiter Nr. nach Präfix
             int newNumber = 1;
             if (!string.IsNullOrEmpty(lastNumber) && int.TryParse(lastNumber.Substring(numberPrefix.Length), out int parsedNumber))
-            {
                 newNumber = parsedNumber + 1;
-            }
 
             // D = Decimal (Ganzzahl) und 4 = mindestens 4 Stellen, mit führenden Nullen, falls nötig
             nextNumber = $"{numberPrefix}{newNumber:D4}";
-
             return nextNumber;
         }
 
@@ -86,14 +79,9 @@ namespace Semesterprojekt
             
             // Hinzufügen aktueller (nächster) Kunden/Mitarbeiter Nr.
             if (isEmployee)
-            {
                 numberData.EmployeeNumbers.Add(nextNumber);
-            }
-
             else
-            {
                 numberData.ClientNumbers.Add(nextNumber);
-            }
             
             // Speicherung JSON
             SaveData(numberData);
@@ -124,17 +112,14 @@ namespace Semesterprojekt
                 // Erzeugung data-Ordner, falls noch nicht vorhanden (Vermeidung von Exception)
                 var directory = Path.GetDirectoryName(clientAndEmployeeNumbersPath);
                 if (!string.IsNullOrEmpty(directory))
-                {
                     Directory.CreateDirectory(directory);
-                }
 
                 string clientAndEmployeeNumbersJSON = JsonSerializer.Serialize(clientAndEmployeeNumbersData, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(clientAndEmployeeNumbersPath, clientAndEmployeeNumbersJSON);
             }
-
             catch (Exception exception)
             {
-                // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
+                // Ausgabe Fehler beim Speichern (Ausnahmebehandlung)
                 ShowMessageBox($"Fehler beim Speichern der JSON-Datei '{fileName}': {exception}");
             }
         }

@@ -3,14 +3,13 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt
 {
-
     internal class CheckAndValidationNoteFields
     {
-        // Initialisierung mehrfach verwendeter BackColor
+        // Initialisierung mehrfach verwendeter BackColor (Hintergrundfarbe)
         private static readonly Color backColorOK = SystemColors.Window;
         private static readonly Color backColorNOK = Color.LightPink;
 
-        // Prüfung auf Defaultwert (für OK-Fall Rückgabe "TRUE")
+        // Prüfung auf Defaultwert (für OK-Fall Rückgabe "true")
         public static bool CheckNoteFields(InitializationNotes noteData, TextBox noteTitle, TextBox noteText, out string errorMessage)
         {
             // Initialisierung OUT-Argument
@@ -53,7 +52,7 @@ namespace Semesterprojekt
             return true;
         }
 
-        // Setzung Backcolor und Tag nach erfolgter Prüfung auf Defaultwert
+        // Setzung BackColor und Tag nach erfolgter Prüfung auf Defaultwert
         private static void SetBackColorAndTag(TextBox note, bool isDefault)
         {
             if (!isDefault)

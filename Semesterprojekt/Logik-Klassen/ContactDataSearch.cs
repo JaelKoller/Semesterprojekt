@@ -20,19 +20,14 @@ namespace Semesterprojekt
             {
                 if (File.Exists(contactDataPath))
                 {
-
                     string contactsJSON = File.ReadAllText(contactDataPath);
                     contactDataList = JsonSerializer.Deserialize<List<InitializationContactData>>(contactsJSON) ?? new List<InitializationContactData>();
                 }
-
                 else
-                {
                     contactDataList = new List<InitializationContactData>();
-                }
 
                 return true;
             }
-
             catch (Exception exception)
             {
                 // Ausgabe Fehler beim Laden (Ausnahmebehandlung)
@@ -64,58 +59,41 @@ namespace Semesterprojekt
 
 
             if (!string.IsNullOrWhiteSpace(contactNumber))
-            {
                 // Suche "nur" nach Kontakt Nr. (für Anzeige)
                 filteredContactDataList = filteredContactDataList.Where(contact => contact.ContactNumber.Equals(contactNumber));
-            }
-
             else
             {
                 // Suche standardmässig ohne inaktive Kontaktdaten (nur aktive)
                 if (!checkInactive)
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.ContactStatus.Equals("active"));
-                }
 
                 // Einschränkung Suche "nur" Mitarbeiter
                 if (checkEmployee && !checkClient)
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Mitarbeiter"));
-                }
 
                 // Einschränkung Suche "nur" Kunde
                 if (checkClient && !checkEmployee)
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.TypeOfContact.Equals("Kunde"));
-                }
 
                 // Einschränkung Suche "FirstName"
                 if (!string.IsNullOrWhiteSpace(firstName))
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["FirstName"].ToLower().Contains(firstName.ToLower()));
-                }
 
                 // Einschränkung Suche "LastName"
                 if (!string.IsNullOrWhiteSpace(lastName))
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["LastName"].ToLower().Contains(lastName.ToLower()));
-                }
 
                 // Einschränkung Suche "Birthday"
                 if (!string.IsNullOrWhiteSpace(birthday))
-                {
                     filteredContactDataList = filteredContactDataList.Where(contact => contact.Fields["Birthday"].Contains(birthday));
-                }
             }
 
             // Ausgabe Such-Resultat als Liste
             var contactSearchResult = filteredContactDataList.ToList();
 
-            // Ausgabe 0 Treffer bei Suche
+            // Ausgabe 0 Treffer bei Suche mit Popup
             if (contactSearchResult.Count == 0)
-            {
                 MessageBox.Show("keine Kontakte gefunden", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
             return contactSearchResult;
         }
