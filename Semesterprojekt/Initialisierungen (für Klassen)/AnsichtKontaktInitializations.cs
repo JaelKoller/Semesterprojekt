@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Semesterprojekt
 {
-    //// Basis offenes Form "AnsichtKontakt"
     internal class AnsichtKontaktInitializations
     {
         // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"

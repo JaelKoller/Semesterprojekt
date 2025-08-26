@@ -13,19 +13,13 @@ namespace Semesterprojekt
         internal AnsichtKontaktLabelAndControlGroups groups;
 
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
-        private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
+        internal System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         internal Control[] groupFieldEmployeesAndCustomers;
-        private System.Windows.Forms.Label[] groupLabelEmployees;
+        internal System.Windows.Forms.Label[] groupLabelEmployees;
         internal Control[] groupFieldEmployees;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
-        private Control[] groupFieldNotes;
-        private Control[] groupButtons;
-
-        // Initialisierung mehrfach verwendeter Index-Counter
-        private int tabIndexCounter = 1;
-
-        // Initialisierung mehrfach verwendetes Tag (analog separater Klasse)
-        private string tagOK = "true";
+        internal Control[] groupFieldNotes;
+        internal Control[] groupButtons;
 
         // Initialisierung Speicherart "update" (Vorbereitung für Ablage in JSON)
         string saveMode = "update";
@@ -63,12 +57,14 @@ namespace Semesterprojekt
             groupFieldNotes = groups.GroupFieldNotes(this);
             groupButtons = groups.GroupButtons(this);
 
-            Design();
+            AnsichtKontaktDesign.Design(this);
             AnsichtKontaktInitializations.ContactDataContent(this);
             ContactNotesContent();
-            InitializationLabelToolTip();
+            AnsichtKontaktDesign.InitializationLabelToolTip(this);
             AnsichtKontaktInitializations.InitializationContactData(this, contactData);
-            InitializationGroupAndField();
+
+            // Initialisierung Gruppen und Felder (Befüllung und Sperrung)
+            UpdateGroupAndField(false);
 
             // Initialisierung (Registrierung) ESC für Rückkehr zu AlleKontakte (analog Button)
             this.CancelButton = CmdAnsichtKntktAlleKontakte;
@@ -76,145 +72,10 @@ namespace Semesterprojekt
             // Initialisierung Anzeige Titel
             LblAnsichtKntktNameAnzeige.Text = $"{contactData.TypeOfContact}: {contactData.Fields["FirstName"]} {contactData.Fields["LastName"]}\r\n({contactNumber})";
 
-            // Speicherung Defaultwert (inkl. heutiges Datum) von Notizfelder
+            // Speicherung Defaultwert (inkl. heutiges Datum) von Notizfelder (als Vorbereitung für Abgleich)
             defaultNoteTitle = TxtAnsichtKntktProtokolTitel.Text;
             defaultNoteText = TxtAnsichtKntktProtokolEing.Text;
             DateAnsichtKntktDateProtokol.Value = DateTime.Today;
-        }
-
-        private void Design()
-        {
-            // Platzierung Titel "Mitarbeiter / Kunde: ..." (dynamisch)
-            LblAnsichtKntktNameAnzeige.Size = new Size(200, 40);
-            LblAnsichtKntktNameAnzeige.Location = new Point(10, 20);
-
-            // Platzierung Gruppe "Kontaktdaten"
-            GrpBxDatenAlle.Size = new Size(410, 400);
-            GrpBxDatenAlle.Location = new Point(10, 60);
-
-            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
-
-            // Platzierung Gruppe "Mitarbeiterdaten"
-            GrpBxDatenMA.Size = new Size(410, 490);
-            GrpBxDatenMA.Location = new Point(10, 470);
-
-            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
-
-            // Platzierung Gruppe Radio-Button (Aktiv vs. Inaktiv)
-            GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
-            GrpBxAnsichtKntktAktiv.Location = new Point(435, 10);
-
-            // Platzierung Radio-Buttons (Aktiv vs. Inaktiv) 
-            // Zählerstart TabIndex fortführend (nur auf ersten Radio-Button möglich)
-            RdbAnsichtKntktAktiv.Location = new Point(15, 15);
-            RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
-            RdbAnsichtKntktInaktiv.Location = new Point(75, 15);
-            RdbAnsichtKntktInaktiv.TabStop = false;
-
-            // Platzierung Gruppe "Notizen zu Person"
-            GrpBxAnsichtKntktNotiz.Size = new Size(410, 545);
-            GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
-
-            // Platzierung Felder der Gruppe "Notizen zu Person" (inkl. Start TabIndex fortführend)
-            PlacementFieldNote(groupFieldNotes, ref tabIndexCounter);
-
-            // Platzierung Buttons "Bearbeiten, Löschen, Speichern, Zurück zum Dashboard" (inkl. Start TabIndex fortführend)
-            PlacementButton(groupButtons, ref tabIndexCounter);
-        }
-
-        // Platzierung Labels und Eingabefelder (dynamisch)
-        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
-        {
-            int startLocation = 30;
-            int labelXAchse = 10;
-            int controlXAchse = 150;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                groupLabel[i].Location = new Point(labelXAchse, startLocation);
-                groupField[i].Location = new Point(controlXAchse, startLocation);
-
-                startLocation += 30;
-
-                // Label irrelevant für Tab und daher mit TabStop "false"
-                groupLabel[i].TabStop = false;
-                // Eingabefeld relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
-
-                // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
-                groupField[i].Tag = tagOK;
-            }
-        }
-
-        // Platzierung Notiz-Felder (fix)
-        private void PlacementFieldNote(Control[] groupField, ref int indexCounter)
-        {
-            int width = 380;
-            int height = 250;
-            int locationX = 15;
-            int locationY = 30;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                // Notiz-Felder relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
-            }
-
-            LbAnsichtKntktProtokolAusg.Size = new Size(width, height);
-            LbAnsichtKntktProtokolAusg.Location = new Point(locationX, locationY);
-            TxtAnsichtKntktProtokolTitel.Size = new Size(width, 20);
-            TxtAnsichtKntktProtokolTitel.Location = new Point(locationX, height = height + 30);
-            TxtAnsichtKntktProtokolEing.Size = new Size(width, 150);
-            TxtAnsichtKntktProtokolEing.Location = new Point(locationX, height = height + 30);
-            DateAnsichtKntktDateProtokol.Size = new Size(width, 40);
-            DateAnsichtKntktDateProtokol.Location = new Point(locationX, height = height + 160);
-            CmdAnsichtKntktSaveProtokol.Size = new Size(width, 30);
-            CmdAnsichtKntktSaveProtokol.Location = new Point(locationX, height + 30);
-        }
-
-        // Platzierung Buttons (fix)
-        private void PlacementButton(Control[] groupField, ref int indexCounter)
-        {
-            int width = 150;
-            int height = 60;
-            int locationX = 485;
-            int locationY = 640;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                groupField[i].Size = new Size(width, height);
-
-                // Buttons relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
-            }
-
-            // Erhöhung Länge und Breite mit Gap von 10
-            width += 10;
-            height += 10;
-
-            CmdAnsichtKntktEdit.Location = new Point(locationX, locationY);
-            CmdAnsichtKntktSaveAll.Location = new Point(locationX, locationY + height);
-            CmdAnsichtKntktDeletAll.Location = new Point(locationX, locationY + height + height);
-            CmdAnsichtKntktAlleKontakte.Location = new Point(locationX + width, locationY);
-            CmdAnsichtKntktDashboard.Location = new Point(locationX + width, locationY + height);
-        }
-
-        // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
-        private void InitializationLabelToolTip()
-        {
-            var initializationSetToolTip = AnsichtKontaktInitializations.SetToolTip(this);
-            var setToolTip = new SetToolTip();
-            setToolTip.SetLabelToolTip(initializationSetToolTip);
-        }
-
-        // Initialisierung Gruppen und Felder (Befüllung und Sperrung)
-        private void InitializationGroupAndField()
-        {
-            UpdateGroupAndField(false);
         }
 
         // Aktualisierung Anzeige bezüglich mutierbar vs. gesperrt

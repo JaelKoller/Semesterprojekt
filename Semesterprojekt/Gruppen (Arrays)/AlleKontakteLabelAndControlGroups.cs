@@ -2,7 +2,6 @@
 
 namespace Semesterprojekt
 {
-    // Basis offenes Form "AnsichtKontakt"
     internal class AlleKontakteLabelAndControlGroups
     {
         // Erstellung Array für Labels

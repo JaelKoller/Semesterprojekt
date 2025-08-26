@@ -13,12 +13,9 @@ namespace Semesterprojekt
         private AlleKontakteLabelAndControlGroups groups;
 
         // Initialisierung verwendete Label-/Control-Gruppen
-        private System.Windows.Forms.Label[] groupLabel;
-        private Control[] groupField;
+        internal System.Windows.Forms.Label[] groupLabel;
+        internal Control[] groupField;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
-
-        // Initialisierung verwendeter Index-Counter
-        private int tabIndexCounter = 1;
 
         // Initialisierung verwendeter BackColor
         private Color backColorOK = SystemColors.Window;
@@ -40,8 +37,8 @@ namespace Semesterprojekt
             groupField = groups.GroupField(this);
             groupLabelToolTip = groups.GroupLabelToolTip(this);
 
-            Design();
-            InitializationLabelToolTip();
+            AlleKontakteDesign.Design(this);
+            AlleKontakteDesign.InitializationLabelToolTip(this);
 
             // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button)
             this.CancelButton = BtnAllKntktHome;
@@ -49,64 +46,6 @@ namespace Semesterprojekt
             this.AcceptButton = BtnAllKntktSuchen;
             // Initialisierung (Registrierung) Doppelklick auf Listeneintrag
             LbAllKntktSuchAusg.DoubleClick += LbAllKntktSuchAusg_DoubleClick;
-        }
-
-        // Design (Platzierung) der Eingabe-Felder usw.
-        private void Design()
-        {
-            // Platzierung Titel "Suchen nach:"
-            LblAllKntktSuchen.Location = new Point(50, 50);
-
-            // Platzierung Labels und Eingabefelder (inkl. Start TabIndex bei 1)
-            PlacementLabelAndField(groupLabel, groupField, ref tabIndexCounter);
-
-            // Platzierung Buttons "Suchen", "Suche zurücksetzen" und "zurück zu Dashboard" (inkl. Start TabIndex fortführend)
-            BtnAllKntktSuchen.Size = new Size(340, 30);
-            BtnAllKntktSuchen.Location = new Point(50, 290);
-            BtnAllKntktSuchen.TabIndex = tabIndexCounter++;
-            BtnAllKntktSucheReset.Size = new Size(340, 30);
-            BtnAllKntktSucheReset.Location = new Point(50, 585);
-            BtnAllKntktSucheReset.TabIndex = tabIndexCounter++;
-            BtnAllKntktHome.Size = new Size(90, 50);
-            BtnAllKntktHome.Location = new Point(320, 20);
-            BtnAllKntktHome.TabIndex = tabIndexCounter++;
-
-            // Platzierung Suchausgabe und Anzahl Treffer (inkl.TabStop "FALSE")
-            LbAllKntktSuchAusg.Size = new Size(340, 200);
-            LbAllKntktSuchAusg.Location = new Point(50, 340);
-            LbAllKntktSuchAusg.TabStop = false;
-            LblAllKntktAnzSuchAusg.Size = new Size(50, 20);
-            LblAllKntktAnzSuchAusg.Location = new Point(50, 550);
-            LblAllKntktAnzSuchAusg.TabStop = false;
-        }
-
-        // Platzierung Labels und Eingabefelder (dynamisch)
-        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
-        {
-            int startLocation = 100;
-            int labelXAchse = 50;
-            int controlXAchse = 200;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                groupLabel[i].Location = new Point(labelXAchse, startLocation);
-                groupField[i].Location = new Point(controlXAchse, startLocation);
-
-                startLocation += 30;
-
-                // Label irrelevant für Tab und daher mit TabStop "false"
-                groupLabel[i].TabStop = false;
-                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
-                groupField[i].TabIndex = tabIndexCounter++;
-            }
-        }
-
-        // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
-        private void InitializationLabelToolTip()
-        {
-            var initializationSetToolTip = AlleKontakteInitializations.SetToolTip(this);
-            var setToolTip = new SetToolTip();
-            setToolTip.SetLabelToolTip(initializationSetToolTip);
         }
 
         // Klick Button "Suchen"

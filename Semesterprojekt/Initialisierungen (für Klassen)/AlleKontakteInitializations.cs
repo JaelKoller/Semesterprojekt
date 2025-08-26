@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Semesterprojekt
 {
-    // Basis offenes Form "AlleKontakte"
     internal class AlleKontakteInitializations
     {
         // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"
@@ -35,7 +31,5 @@ namespace Semesterprojekt
                 { "CheckInactive", alleKontakte.ChkBAllKntktInaktiv.Checked }
             };
         }
-
-
     }
 }

@@ -77,13 +77,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Initialisierungen\AnsichtKontaktInitializations.cs" />
-    <Compile Include="Initialisierungen\AlleKontakteInitializations.cs" />
+    <Compile Include="Design %28GUI%29\AnsichtKontaktDesign.cs" />
+    <Compile Include="Design %28GUI%29\AlleKontakteDesign.cs" />
+    <Compile Include="Design %28GUI%29\DashboardDesign.cs" />
+    <Compile Include="Initialisierungen %28für Klassen%29\AnsichtKontaktInitializations.cs" />
+    <Compile Include="Initialisierungen %28für Klassen%29\AlleKontakteInitializations.cs" />
     <Compile Include="Gruppen %28Arrays%29\AnsichtKontaktLabelAndControlGroups.cs" />
     <Compile Include="Gruppen %28Arrays%29\AlleKontakteLabelAndControlGroups.cs" />
     <Compile Include="Gruppen %28Arrays%29\DashboardLabelAndControlGroups.cs" />
     <Compile Include="Gruppen %28Arrays%29\KontaktErstellenLabelAndControlGroups.cs" />
-    <Compile Include="Initialisierungen\KontaktErstellenInitializations.cs" />
+    <Compile Include="Initialisierungen %28für Klassen%29\KontaktErstellenInitializations.cs" />
+    <Compile Include="Design %28GUI%29\KontaktErstellenDesign.cs" />
     <Compile Include="Logik-Klassen\CheckAndValidationNoteFields.cs" />
     <Compile Include="Objekt-Klassen\InitializationNotes.cs" />
     <Compile Include="Objekt-Klassen\InitializationDataPathJson.cs" />

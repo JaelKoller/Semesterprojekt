@@ -2,7 +2,6 @@
 
 namespace Semesterprojekt
 {
-    // Basis offenes Form "Dashboard"
     internal class DashboardLabelAndControlGroups
     {
         // Erstellung Array für Buttons

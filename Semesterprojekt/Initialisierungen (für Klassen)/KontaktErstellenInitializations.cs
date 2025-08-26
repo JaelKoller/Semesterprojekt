@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Semesterprojekt
+﻿namespace Semesterprojekt
 {
-    // Basis offenes Form "KontaktErstellen"
     internal class KontaktErstellenInitializations
     {
         // Initialisierung Argumente (Inhalt) für Klasse "SetToolTip"

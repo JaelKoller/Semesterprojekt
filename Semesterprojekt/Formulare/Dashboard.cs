@@ -22,36 +22,10 @@ namespace Semesterprojekt
             // Erstellung Array für Buttons und Platzierung (inkl. TabIndex)
             groups = new DashboardLabelAndControlGroups();
             groupButtons = groups.GroupButtons(this);
-            PlacementButton(groupButtons);
+            DashboardDesign.PlacementButton(this, groupButtons);
 
             // Initialisierung (Registrierung) ESC für Beendung Programm (analog Button)
             this.CancelButton = BtnDashClose;
-        }
-
-        // Platzierung Buttons (fix)
-        private void PlacementButton(Control[] groupField)
-        {
-            int tabIndexCounter = 1;
-            int width = 150;
-            int height = 100;
-            int location = 80;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                groupField[i].Size = new Size(width, height);
-
-                // Buttons relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
-            }
-
-            // Erhöhung Länge und Breite mit Gap von 10
-            width += 10;
-            height += 10;
-
-            BtnDashMaNew.Location = new Point(location, location);
-            BtnDashKndNew.Location = new Point(location, location + height);
-            BtnDashAllKntkt.Location = new Point(location + width, location);
-            BtnDashClose.Location = new Point(location + width, location + height);
         }
 
         // Methode für Aufruf Form "KontaktErstellen" (Mitarbeiter und/oder Kunde hinzufügen)

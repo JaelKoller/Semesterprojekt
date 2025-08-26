@@ -8,25 +8,21 @@ namespace Semesterprojekt
     {
         // Initalisierung String "typeOfContact" für "Speichern und neuer Kontakt erstellen"
         private string typeOfContactNew;
+        private string typeOfContactEmployee = "mitarbeiter";
+        private string typeOfContactCustomer = "kunde";
 
         // Initialisierung Klasse "KontaktErstellenLabelAndControlGroups"
         internal KontaktErstellenLabelAndControlGroups groups;
 
         // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
-        private System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
+        internal System.Windows.Forms.Label[] groupLabelEmployeesAndCustomers;
         internal Control[] groupFieldEmployeesAndCustomers;
-        private System.Windows.Forms.Label[] groupLabelEmployees;
+        internal System.Windows.Forms.Label[] groupLabelEmployees;
         internal Control[] groupFieldEmployees;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
 
-        // Initialisierung mehrfach verwendeter Index-Counter
-        private int tabIndexCounter = 1;
-
         // Initialisierung verwendeter BackColor (analog separater Klasse)
         private Color backColorOK = SystemColors.Window;
-
-        // Initialisierung verwendetes Tag (analog separater Klasse)
-        private string tagOK = "true";
 
         // Initialisierung Speicherart "save" (Vorbereitung für Ablage in JSON)
         private string saveMode = "save";
@@ -52,9 +48,9 @@ namespace Semesterprojekt
             groupFieldEmployees = groups.GroupFieldEmployees(this);
             groupLabelToolTip = groups.GroupLabelToolTip(this);
 
-            Design();
+            KontaktErstellenDesign.Design(this);
             KontaktErstellenInitializations.ContactDataContent(this);
-            InitializationLabelToolTip();
+            KontaktErstellenDesign.InitializationLabelToolTip(this);
 
             typeOfContactNew = typeOfContact;
             InitializationTypeOfContact();
@@ -63,89 +59,18 @@ namespace Semesterprojekt
             // Initialisierung (Registrierung) ESC für Rückkehr zu Dashboard (analog Button "Eingaben verwerfen ...")
             this.CancelButton = CmdCreateKntktVerwerfen;
         }
-
-        // Design (Platzierung) der Eingabe-Felder usw.
-        private void Design()
-        {
-            // Platzierung Gruppe Radio-Button (Mitarbeiter vs. Kunde)
-            GrpBxCreatKntktMaKunde.Size = new Size(165, 40);
-            GrpBxCreatKntktMaKunde.Location = new Point(10, 10);
-
-            // Platzierung Gruppe "Kontaktdaten"
-            GrpBxCreatKntktDatenAlle.Size = new Size(365, 400);
-            GrpBxCreatKntktDatenAlle.Location = new Point(10, 60);
-
-            // Platzierung Gruppe "Mitarbeiterdaten"
-            GrpBxDatenMA.Size = new Size(365, 490);
-            GrpBxDatenMA.Location = new Point(385, 60);
-
-            // Platzierung Radio-Buttons (Mitarbeiter vs. Kunde)
-            RdbCreatKntktMa.Location = new Point(10, 15);
-            RdbCreatKntktKunde.Location = new Point(100, 15);
-
-            // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployeesAndCustomers, groupFieldEmployeesAndCustomers, ref tabIndexCounter);
-
-            // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
-            // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit TRUE (für OK-Fall) 
-            PlacementLabelAndField(groupLabelEmployees, groupFieldEmployees, ref tabIndexCounter);
-
-            // Platzierung Buttons "Speichern und ..."
-            CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);
-            CmdCreateKntktKontaktErstellen.Location = new Point(445, 580);
-            CmdCreateKntktDashboard.Size = new Size(150, 60);
-            CmdCreateKntktDashboard.Location = new Point(600, 580);
-            CmdCreateKntktVerwerfen.Size = new Size(305, 40);
-            CmdCreateKntktVerwerfen.Location = new Point(445, 645);
-        }
-
-        // Platzierung Labels und Eingabefelder (dynamisch)
-        private void PlacementLabelAndField(System.Windows.Forms.Label[] groupLabel, Control[] groupField, ref int tabIndexCounter)
-        {
-            int startLocation = 30;
-            int labelXAchse = 10;
-            int controlXAchse = 150;
-
-            for (int i = 0; i < groupField.Length; i++)
-            {
-                groupLabel[i].Location = new Point(labelXAchse, startLocation);
-                groupField[i].Size = new Size(200, 20);
-                groupField[i].Location = new Point(controlXAchse, startLocation);
-
-                startLocation += 30;
-
-                // Label irrelevant für Tab und daher mit TabStop "false"
-                groupLabel[i].TabStop = false;
-                // Eingabefeld relevant für Tab und daher durchnummeriert (Start bei 1)
-                groupField[i].TabIndex = tabIndexCounter++;
-
-                // Default-Tag relevant für Validierung Eingabefelder (Start mit TRUE)
-                groupField[i].Tag = tagOK;
-            }
-        }
-
-        // Erstellung ToolTip für spezifische Labels (zur besseren Verständlichkeit)
-        private void InitializationLabelToolTip()
-        {
-            var initializationSetToolTip = KontaktErstellenInitializations.SetToolTip(this);
-            var setToolTip = new SetToolTip();
-            setToolTip.SetLabelToolTip(initializationSetToolTip);
-        }
       
-        // Initalisierung Radio-Button auf Basis "Kontaktart"
+        // Initalisierung Radio-Button auf Basis "Kontaktart" (Generierung Kontakt Nr. mit Update)
         private void InitializationTypeOfContact()
         {
-            if (typeOfContactNew == "mitarbeiter")
+            if (typeOfContactNew == typeOfContactEmployee)
             {
                 RdbCreatKntktMa.Checked = true;
-                TxtCreatKntktMaManr.Text = GenerateContactNumber(true);
             }
             
-            else if (typeOfContactNew == "kunde")
+            else if (typeOfContactNew == typeOfContactCustomer)
             {
                 RdbCreatKntktKunde.Checked = true;
-                GenerateContactNumber(false);
             }
         }
 
@@ -154,7 +79,7 @@ namespace Semesterprojekt
         {
             if (RdbCreatKntktMa.Checked)
             {
-                typeOfContactNew = "mitarbeiter";
+                typeOfContactNew = typeOfContactEmployee;
                 RdbCreatKntktMa.Checked = true;
                 GrpBxDatenMA.Enabled = true;
                 TxtCreatKntktMaManr.Text = GenerateContactNumber(true);
@@ -162,7 +87,7 @@ namespace Semesterprojekt
             
             else if (RdbCreatKntktKunde.Checked)
             {
-                typeOfContactNew = "kunde";
+                typeOfContactNew = typeOfContactCustomer;
                 RdbCreatKntktKunde.Checked = true;
                 GrpBxDatenMA.Enabled = false;
                 GenerateContactNumber(false);
@@ -195,7 +120,7 @@ namespace Semesterprojekt
                 }
 
                 field.BackColor = backColorOK;
-                field.Tag = tagOK;
+                field.Tag = "true";
             }
         }
 
@@ -225,7 +150,7 @@ namespace Semesterprojekt
                 if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"             
-                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
+                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == typeOfContactEmployee);
 
                     this.FormClosed += (s, arg) =>
                     {
@@ -252,7 +177,7 @@ namespace Semesterprojekt
                 if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
                 {
                     // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"              
-                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == "mitarbeiter");
+                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == typeOfContactEmployee);
                     this.Close();
                 }
             }
