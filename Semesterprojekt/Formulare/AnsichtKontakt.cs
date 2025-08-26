@@ -47,7 +47,6 @@ namespace Semesterprojekt
             contactNumber = contactData.ContactNumber;
             typeOfContact = contactData.TypeOfContact;
 
-            // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groups = new AnsichtKontaktLabelAndControlGroups();
             groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
             groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
@@ -111,9 +110,7 @@ namespace Semesterprojekt
 
                 // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
                 if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContact, contactNumber, groupFieldEmployeesAndCustomers, groupFieldEmployees))
-                {
                     UpdateGroupAndField(false);
-                }
             }
         }
 
@@ -130,9 +127,7 @@ namespace Semesterprojekt
 
                 // Hinzufügen jeder Notiz als Listeneintrag in absteigender Reihenfolge (d.h. die neueste Notiz ganz oben)
                 foreach (InitializationNotes note in contactNotes.Notes.OrderByDescending(note => DateTime.ParseExact(note.NoteDate, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
-                {
                     LbAnsichtKntktProtokolAusg.Items.Add(note);
-                }
             }
         }
 
@@ -152,7 +147,7 @@ namespace Semesterprojekt
 
                     // Löschung der Kontakt Nr. in JSON "notes"
                     Notes.DeleteNotesData(contactNumber);
-                    
+
                     this.Close();
                 }
             }

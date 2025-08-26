@@ -21,7 +21,7 @@ namespace Semesterprojekt
         internal Control[] groupFieldEmployees;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
 
-        // Initialisierung verwendeter BackColor (analog separater Klasse)
+        // Initialisierung verwendeter BackColor (Hintergrundfarbe analog separater Klasse)
         private Color backColorOK = SystemColors.Window;
 
         // Initialisierung Speicherart "save" (Vorbereitung für Ablage in JSON)
@@ -40,7 +40,6 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Initialisierung mehrfach verwendeter Label-/Control-Gruppen
             groups = new KontaktErstellenLabelAndControlGroups();
             groupLabelEmployeesAndCustomers = groups.GroupLabelEmployeesAndCustomers(this);
             groupFieldEmployeesAndCustomers = groups.GroupFieldEmployeesAndCustomers(this);
@@ -64,14 +63,10 @@ namespace Semesterprojekt
         private void InitializationTypeOfContact()
         {
             if (typeOfContactNew == typeOfContactEmployee)
-            {
                 RdbCreatKntktMa.Checked = true;
-            }
-            
+
             else if (typeOfContactNew == typeOfContactCustomer)
-            {
                 RdbCreatKntktKunde.Checked = true;
-            }
         }
 
         // Aktualisierung gesperrte Felder auf Basis "Kontaktart"
@@ -84,7 +79,6 @@ namespace Semesterprojekt
                 GrpBxDatenMA.Enabled = true;
                 TxtCreatKntktMaManr.Text = GenerateContactNumber(true);
             }
-            
             else if (RdbCreatKntktKunde.Checked)
             {
                 typeOfContactNew = typeOfContactCustomer;
@@ -101,7 +95,7 @@ namespace Semesterprojekt
             return contactNumberNew = ClientAndEmployeeNumber.GetNumberNext(isEmployee);
         }
 
-        // Bereinigung der Eingabefelder der Gruppe Mitarbeiter (bei Wechsel zu Kunde)
+        // Bereinigung der Eingabefelder der Gruppe "Mitarbeiterdaten" (bei Wechsel zu Kunde)
         private void CleanGroupFieldEmployees()
         {
             foreach (Control field in groupFieldEmployees)
@@ -111,9 +105,11 @@ namespace Semesterprojekt
                     case System.Windows.Forms.TextBox txtbxField:
                         txtbxField.Clear();
                         break;
+
                     case System.Windows.Forms.ComboBox cmbxField:
                         cmbxField.SelectedIndex = -1;
                         break;
+
                     case NumericUpDown numField:
                         numField.Value = numField.Minimum;
                         break;
@@ -136,51 +132,45 @@ namespace Semesterprojekt
             UpdateTypeOfContact();
         }
 
-
         // Klick Button "Speichern und neuer Kontakt erstellen"
         private void CmdCreateKntktKontaktErstellen_Click(object sender, EventArgs e)
         {
-            var checkAndValidation = new CheckAndValidationFields();
-            var checkAndValidationContent = KontaktErstellenInitializations.CheckAndValidationFieldsContent(this);
-            bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
-
-            if (checkFieldTag)
+            if (CheckValidationAndSave())
             {
-                // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                this.FormClosed += (s, arg) =>
                 {
-                    // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"             
-                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == typeOfContactEmployee);
+                    // Erstellung neues Form "KontaktErstellen"
+                    var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
+                    kontaktErstellenForm.Show();
+                };
 
-                    this.FormClosed += (s, arg) =>
-                    {
-                        // Erstellung neues Form "KontaktErstellen"
-                        var kontaktErstellenForm = new KontaktErstellen(typeOfContactNew);
-                        kontaktErstellenForm.Show();
-                    };
-
-                    this.Close();
-                }
+                this.Close();
             }
         }
 
         // Klick Button "Speichern und zurück zum Dashboard"
         private void CmdCreateKntktDashboard_Click(object sender, EventArgs e)
         {
+            if (CheckValidationAndSave())
+                this.Close();
+        }
+
+        // Prüfung Felder gemäss Erwartungen und Speicherung Kontaktdaten, falls alles OK
+        private bool CheckValidationAndSave()
+        {
             var checkAndValidation = new CheckAndValidationFields();
             var checkAndValidationContent = KontaktErstellenInitializations.CheckAndValidationFieldsContent(this);
-            bool checkFieldTag = checkAndValidation.ValidationFields(checkAndValidationContent);
 
-            if (checkFieldTag)
-            {
-                // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
-                if (ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
-                {
-                    // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"              
-                    ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == typeOfContactEmployee);
-                    this.Close();
-                }
-            }
+            if (!checkAndValidation.ValidationFields(checkAndValidationContent))
+                return false;
+
+            // Speicherung der Daten in JSON "contacts", falls Duplikatencheck erfolgreich
+            if (!ContactData.SaveContactData(saveMode, contactStatus, typeOfContactNew, contactNumberNew, groupFieldEmployeesAndCustomers, groupFieldEmployees))
+                return false;
+            
+            // Speicherung der Kontakt Nr. in JSON "clientAndEmployeeNumbers"
+            ClientAndEmployeeNumber.SaveNumberCurrent(typeOfContactNew == typeOfContactEmployee);
+            return true;
         }
 
         // Klick Button "Eingaben verwerfen und zurück zum Dashboard"
@@ -189,9 +179,7 @@ namespace Semesterprojekt
             DialogResult result = MessageBox.Show("Möchtest du die Eingaben verwerfen und zurück zum Dashboard wechseln?", "'Kontakt erstellen' abbrechen?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
-            {
                 this.Close();
-            }
         }
     }
 }

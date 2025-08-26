@@ -12,12 +12,12 @@ namespace Semesterprojekt
         // Initialisierung Klasse "AlleKontakteLabelAndControlGroups"
         private AlleKontakteLabelAndControlGroups groups;
 
-        // Initialisierung verwendete Label-/Control-Gruppen
+        // Initialisierung Label-/Control-Gruppen
         internal System.Windows.Forms.Label[] groupLabel;
         internal Control[] groupField;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
 
-        // Initialisierung verwendeter BackColor
+        // Initialisierung BackColor (Hintergrundfarbe)
         private Color backColorOK = SystemColors.Window;
         private Color backColorNOK = Color.LightPink;
 
@@ -31,7 +31,6 @@ namespace Semesterprojekt
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScroll = true;
 
-            // Initialisierung verwendete Label-/Control-Gruppen
             groups = new AlleKontakteLabelAndControlGroups();
             groupLabel = groups.GroupLabel(this);
             groupField = groups.GroupField(this);
@@ -59,7 +58,7 @@ namespace Semesterprojekt
             if (checkDateOfBirth)
             {
                 // Kontaktsuche auf Basis der erfassten Parameter
-                List<InitializationContactData> contactSearchResult = ContactDataSearch.SearchContactData(AlleKontakteInitializations.GroupSeach(this));
+                var contactSearchResult = ContactDataSearch.SearchContactData(AlleKontakteInitializations.GroupSeach(this));
                 // Zwischenspeicherung Trefferliste für Doppelklick auf Listeneintrag
                 lastContactSearchResult = contactSearchResult;
                 // Filterung Trefferliste für Ausgabe
@@ -71,9 +70,7 @@ namespace Semesterprojekt
                 LblAllKntktAnzSuchAusg.Text = $"Anzahl Treffer: {contactSearchResult.Count}";
                 
                 if (contactSearchResult.Count == 1)
-                {
                     OpenAnsichtKontakt(contactSearchResult[0]);
-                }
             }
         }
 
@@ -122,7 +119,7 @@ namespace Semesterprojekt
             this.Close();
         }
 
-        // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "TRUE")
+        // Prüfung Format auf TT.MM.JJJJ (für OK-Fall Rückgabe "true")
         private bool CheckDateOfBirth()
         {
             string errorMessage = string.Empty;
@@ -138,9 +135,7 @@ namespace Semesterprojekt
 
             // Erzeugung MessageBox (Popup) bei fehlerhaften Eingaben (exkl. leeres Feld)
             if (!string.IsNullOrWhiteSpace(errorMessage))
-            {
                 MessageBox.Show(errorMessage, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             TxtAllKntktBirthday.Focus();
             return false;
@@ -167,6 +162,7 @@ namespace Semesterprojekt
                         txtbxField.Clear();
                         field.BackColor = backColorOK;
                         break;
+
                     case CheckBox chckbxField:
                         chckbxField.Checked = false;
                         break;
