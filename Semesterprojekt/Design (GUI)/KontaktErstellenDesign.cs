@@ -5,9 +5,6 @@ namespace Semesterprojekt
 {
     internal class KontaktErstellenDesign
     {
-        // Initialisierung Index-Counter für TapStop
-        private static int tabIndexCounter = 1;
-
         // Design (Platzierung) der Labels, Eingabefelder, Buttons usw.
         internal static void Design(KontaktErstellen kontaktErstellen)
         {
@@ -29,11 +26,11 @@ namespace Semesterprojekt
 
             // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
-            PlacementLabelAndField(kontaktErstellen.groupLabelEmployeesAndCustomers, kontaktErstellen.groupFieldEmployeesAndCustomers, ref tabIndexCounter);
+            PlacementLabelAndField(kontaktErstellen.groupLabelEmployeesAndCustomers, kontaktErstellen.groupFieldEmployeesAndCustomers, ref kontaktErstellen.tabIndexCounter);
 
             // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
-            PlacementLabelAndField(kontaktErstellen.groupLabelEmployees, kontaktErstellen.groupFieldEmployees, ref tabIndexCounter);
+            PlacementLabelAndField(kontaktErstellen.groupLabelEmployees, kontaktErstellen.groupFieldEmployees, ref kontaktErstellen.tabIndexCounter);
 
             // Platzierung Buttons "Speichern und ..."
             kontaktErstellen.CmdCreateKntktKontaktErstellen.Size = new Size(150, 60);

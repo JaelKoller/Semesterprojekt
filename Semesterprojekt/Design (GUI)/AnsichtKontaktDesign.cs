@@ -5,9 +5,6 @@ namespace Semesterprojekt
 {
     internal class AnsichtKontaktDesign
     {
-        // Initialisierung Index-Counter für TapStop
-        private static int tabIndexCounter = 1;
-
         // Design (Platzierung) der Labels, Eingabefelder, Buttons usw.
         internal static void Design(AnsichtKontakt ansichtKontakt)
         {
@@ -21,7 +18,7 @@ namespace Semesterprojekt
 
             // Platzierung Labels und Eingabefelder der Gruppe "Kontaktdaten" (inkl. Start TabIndex bei 1)
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
-            PlacementLabelAndField(ansichtKontakt.groupLabelEmployeesAndCustomers, ansichtKontakt.groupFieldEmployeesAndCustomers, ref tabIndexCounter);
+            PlacementLabelAndField(ansichtKontakt.groupLabelEmployeesAndCustomers, ansichtKontakt.groupFieldEmployeesAndCustomers, ref ansichtKontakt.tabIndexCounter);
 
             // Platzierung Gruppe "Mitarbeiterdaten"
             ansichtKontakt.GrpBxDatenMA.Size = new Size(410, 490);
@@ -29,7 +26,7 @@ namespace Semesterprojekt
 
             // Platzierung Labels und Eingabefelder der Gruppe "Mitarbeiterdaten" (inkl. Start TabIndex fortführend)
             // Erfassung Default-Tag als Vorbereitung für Validierung Eingabefelder mit "true" (für OK-Fall) 
-            PlacementLabelAndField(ansichtKontakt.groupLabelEmployees, ansichtKontakt.groupFieldEmployees, ref tabIndexCounter);
+            PlacementLabelAndField(ansichtKontakt.groupLabelEmployees, ansichtKontakt.groupFieldEmployees, ref ansichtKontakt.tabIndexCounter);
 
             // Platzierung Gruppe Radio-Buttons (Aktiv vs. Inaktiv)
             ansichtKontakt.GrpBxAnsichtKntktAktiv.Size = new Size(150, 40);
@@ -38,7 +35,7 @@ namespace Semesterprojekt
             // Platzierung Radio-Buttons (Aktiv vs. Inaktiv) 
             // Zählerstart TabIndex fortführend (nur auf ersten Radio-Button möglich)
             ansichtKontakt.RdbAnsichtKntktAktiv.Location = new Point(15, 15);
-            ansichtKontakt.RdbAnsichtKntktAktiv.TabIndex = tabIndexCounter++;
+            ansichtKontakt.RdbAnsichtKntktAktiv.TabIndex = ansichtKontakt.tabIndexCounter++;
 
             ansichtKontakt.RdbAnsichtKntktInaktiv.Location = new Point(75, 15);
             ansichtKontakt.RdbAnsichtKntktInaktiv.TabStop = false;
@@ -48,10 +45,10 @@ namespace Semesterprojekt
             ansichtKontakt.GrpBxAnsichtKntktNotiz.Location = new Point(435, 60);
 
             // Platzierung Felder der Gruppe "Notizen zu Kontakt" (inkl. Start TabIndex fortführend)
-            PlacementFieldNote(ansichtKontakt, ansichtKontakt.groupFieldNotes, ref tabIndexCounter);
+            PlacementFieldNote(ansichtKontakt, ansichtKontakt.groupFieldNotes, ref ansichtKontakt.tabIndexCounter);
 
             // Platzierung Buttons "Bearbeiten, Löschen, Speichern, ..." (inkl. Start TabIndex fortführend)
-            PlacementButton(ansichtKontakt, ansichtKontakt.groupButtons, ref tabIndexCounter);
+            PlacementButton(ansichtKontakt, ansichtKontakt.groupButtons, ref ansichtKontakt.tabIndexCounter);
         }
 
         // Platzierung Labels und Eingabefelder (dynamisch)
@@ -88,7 +85,7 @@ namespace Semesterprojekt
             for (int i = 0; i < groupField.Length; i++)
             {
                 // Notiz-Felder relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
+                groupField[i].TabIndex = ansichtKontakt.tabIndexCounter++;
             }
 
             ansichtKontakt.LbAnsichtKntktProtokolAusg.Size = new Size(width, height);
@@ -120,7 +117,7 @@ namespace Semesterprojekt
                 groupField[i].Size = new Size(width, height);
 
                 // Buttons relevant für Tab und daher durchnummeriert
-                groupField[i].TabIndex = tabIndexCounter++;
+                groupField[i].TabIndex = ansichtKontakt.tabIndexCounter++;
             }
 
             // Erhöhung Länge und Breite mit Gap von 10

@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Semesterprojekt
@@ -20,6 +21,9 @@ namespace Semesterprojekt
         internal System.Windows.Forms.Label[] groupLabelToolTip;
         internal Control[] groupFieldNotes;
         internal Control[] groupButtons;
+
+        // Initialisierung Index-Counter für TabStop
+        internal int tabIndexCounter = 1;
 
         // Initialisierung Speicherart "update" (Vorbereitung für Ablage in JSON)
         string saveMode = "update";

@@ -17,6 +17,9 @@ namespace Semesterprojekt
         internal Control[] groupField;
         internal System.Windows.Forms.Label[] groupLabelToolTip;
 
+        // Initialisierung Index-Counter für TabStop
+        internal int tabIndexCounter = 1;
+
         // Initialisierung BackColor (Hintergrundfarbe)
         private Color backColorOK = SystemColors.Window;
         private Color backColorNOK = Color.LightPink;

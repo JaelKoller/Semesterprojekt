@@ -10,6 +10,7 @@ Beschreibung (was funktioniert):
 - Automatische Vergabe von Kundennummern (aufsteigend)
 ---> bewusster Verzicht auf das Füllen von leeren Stellen (bei Datenbanken wird dies im Normalfall auch nicht gemacht)
 - Protokollieren von Notizen in Kundenkontakten inkl. Historie
+---> Anzeige einzelner Notizen mit Doppelklick möglich
 - Suchmöglichkeiten über gespeicherte Informationen (Vorname, Name, Geburtsdatum, Mitarbeiter, Kunde, inkl. inaktive Kontakte)
 ---> Suchstart auch mit "Enter" möglich
 - Automatisches Speichern und Laden des Datenstamms auf der Festplatte (in JSON-Dateien)

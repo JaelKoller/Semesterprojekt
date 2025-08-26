@@ -17,7 +17,7 @@ namespace Semesterprojekt.Testing
         // Erstellung von 25 Notizen für Test-Kontakt
         private void CreateTestNotes (string contactNumber)
         {
-            // Bereinigung allfälliger bestehender Notizen zu Test-Kontakt
+            // Bereinigung allfälliger bestehender Notizen zu Test-Kontakt (Sicherheitsvariante)
             Notes.DeleteNotesData(contactNumber);
 
             int countNotes = 25;
@@ -101,6 +101,9 @@ namespace Semesterprojekt.Testing
 
             // Start Form "AnsichtKontakt" mit Testdaten
             Application.Run(ansichtKontaktForm);
+
+            // Bereinigung aller bestehenden Notizen zu Test-Kontakt (nach Schliessung Applikation)
+            Notes.DeleteNotesData(contactNumber);
         }
     }
 }
