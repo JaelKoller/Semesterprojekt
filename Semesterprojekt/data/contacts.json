@@ -157,5 +157,24 @@
       "DateOfEntry": "01.01.2025",
       "DateOfExit": ""
     }
+  },
+  {
+    "ContactStatus": "active",
+    "ContactNumber": "KD0004",
+    "TypeOfContact": "Kunde",
+    "Fields": {
+      "Title": "Dr",
+      "Salutation": "Herr",
+      "FirstName": "Martina",
+      "LastName": "de Groot",
+      "Birthday": "05.04.1997",
+      "Gender": "weiblich",
+      "Address": "Weidli",
+      "PostalCode": "8919",
+      "City": "Hausentein",
+      "BusinessNumber": "\u002B76 235 35 95",
+      "MobileNumber": "\u002B76 235 35 95",
+      "Email": "ahus-sdfd@kjsdhf.ckjd"
+    }
   }
 ]
