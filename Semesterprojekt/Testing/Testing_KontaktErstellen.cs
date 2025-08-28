@@ -124,34 +124,34 @@ namespace Semesterprojekt.Testing
 
                 case "error":
                     // Testdaten für Gruppe "Kontaktdaten"
-                    kontaktErstellenForm.TxtCreatKntktTitel.Text = "Dr/";
+                    kontaktErstellenForm.TxtCreatKntktTitel.Text = "";
                     kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "";
-                    kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error()";
-                    kontaktErstellenForm.TxtCreatKntktName.Text = "Muster355";
-                    kontaktErstellenForm.TxtCreatKntktBirthday.Text = "bgfjghghgf";
+                    kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error";
+                    kontaktErstellenForm.TxtCreatKntktName.Text = "Muster";
+                    kontaktErstellenForm.TxtCreatKntktBirthday.Text = "15.15.2000";
                     kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "";
-                    kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg,";
-                    kontaktErstellenForm.TxtCreatKntktPLZ.Text = "fdgfdgd";
-                    kontaktErstellenForm.TxtCreatKntktOrt.Text = "Bregenz AT....";
-                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "(0711234455)";
-                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "41+ (0)79 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg";
+                    kontaktErstellenForm.TxtCreatKntktPLZ.Text = "690";
+                    kontaktErstellenForm.TxtCreatKntktOrt.Text = "Bregenz A1";
+                    kontaktErstellenForm.TxtCreatKntktTelGeschaeft.Text = "071 123 44 55";
+                    kontaktErstellenForm.TxtCreatKntktTelMobile.Text = "+41 (0)79 123 44 55";
                     kontaktErstellenForm.TxtCreatKntktEmail.Text = "error@testmail";
 
                     // Testdaten für Gruppe "Mitarbeiterdaten"
                     if (kontaktErstellenForm.RdbCreatKntktMa.Checked)
                     {
-                        kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756,8800,5641,30";
-                        kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "5456";
+                        kontaktErstellenForm.TxtCreatKntktMaAHVNr.Text = "756.8800.5641.30";
+                        kontaktErstellenForm.TxtCreatKntktMaNationalitaet.Text = "CH";
                         kontaktErstellenForm.NumCreatKntktMaKader.Value = 0;
                         kontaktErstellenForm.NumCreatKntktMaBeschGrad.Value = 100;
-                        kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "@Revision";
+                        kontaktErstellenForm.TxtCreatKntktMaAbteilung.Text = "Revision";
                         kontaktErstellenForm.TxtCreatKntktMaRolle.Text = "Revis0r";
                         kontaktErstellenForm.NumCreatKntktMaLehrj.Value = 5;
                         kontaktErstellenForm.NumCreatKntktMaAktLehrj.Value = 4;
                         kontaktErstellenForm.NumCreatKntktMaOfficeNumber.Value = 0;
-                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Error-Business,Weg";
+                        kontaktErstellenForm.TxtCreatKntktAdrOffice.Text = "Error-Business-Weg";
                         kontaktErstellenForm.TxtCreatKntktPLZOffice.Text = "920";
-                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Gossau-SG";
+                        kontaktErstellenForm.TxtCreatKntktOrtOffice.Text = "Gossau SG";
                         kontaktErstellenForm.TxtCreatKntktEintrDatum.Text = "01.01.3025";
                         kontaktErstellenForm.TxtCreatKntktAustrDatum.Text = string.Empty;
                     }

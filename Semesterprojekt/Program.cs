@@ -14,19 +14,19 @@ namespace Semesterprojekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Dashboard());
+            Application.Run(new Dashboard());
 
-            var testingKontaktErstellen = new Testing_KontaktErstellen();
-            testingKontaktErstellen.TestData("mitarbeiter", "daisy");
-            testingKontaktErstellen.TestData("kunde", "daisy");
-            testingKontaktErstellen.TestData("mitarbeiter", "donald");
-            testingKontaktErstellen.TestData("kunde", "donald");
-            testingKontaktErstellen.TestData("mitarbeiter", "olga");
-            testingKontaktErstellen.TestData("kunde", "olga");
-            testingKontaktErstellen.TestData("mitarbeiter", "error");
-            testingKontaktErstellen.TestData("kunde", "error");
-            testingKontaktErstellen.TestData("mitarbeiter", "errorSpecial");
-            testingKontaktErstellen.TestData("kunde", "errorSpecial");
+            //var testingKontaktErstellen = new Testing_KontaktErstellen();
+            //testingKontaktErstellen.TestData("mitarbeiter", "daisy");
+            //testingKontaktErstellen.TestData("kunde", "daisy");
+            //testingKontaktErstellen.TestData("mitarbeiter", "donald");
+            //testingKontaktErstellen.TestData("kunde", "donald");
+            //testingKontaktErstellen.TestData("mitarbeiter", "olga");
+            //testingKontaktErstellen.TestData("kunde", "olga");
+            //testingKontaktErstellen.TestData("mitarbeiter", "error");
+            //testingKontaktErstellen.TestData("kunde", "error");
+            //testingKontaktErstellen.TestData("mitarbeiter", "errorSpecial");
+            //testingKontaktErstellen.TestData("kunde", "errorSpecial");
 
             //var testingAlleKontakte = new Testing_AlleKontakte();
             //testingAlleKontakte.TestData();
