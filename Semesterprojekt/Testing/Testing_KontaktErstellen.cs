@@ -160,11 +160,11 @@ namespace Semesterprojekt.Testing
                 case "errorSpecial":
                     // Testdaten für Gruppe "Kontaktdaten"
                     kontaktErstellenForm.TxtCreatKntktTitel.Text = "Prof@";
-                    kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "keine";
+                    kontaktErstellenForm.CmBxCreatKntktAnrede.SelectedItem = "0";
                     kontaktErstellenForm.TxtCreatKntktVorname.Text = "Error#";
                     kontaktErstellenForm.TxtCreatKntktName.Text = "[Muster]";
-                    kontaktErstellenForm.TxtCreatKntktBirthday.Text = "05.04.1997";
-                    kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers";
+                    kontaktErstellenForm.TxtCreatKntktBirthday.Text = "kein Datum";
+                    kontaktErstellenForm.CmBxCreatKntktGeschlecht.SelectedItem = "divers!";
                     kontaktErstellenForm.TxtCreatKntktAdr.Text = "Errorweg/12";
                     kontaktErstellenForm.TxtCreatKntktPLZ.Text = "76530";
                     kontaktErstellenForm.TxtCreatKntktOrt.Text = "Baden-Baden DE";

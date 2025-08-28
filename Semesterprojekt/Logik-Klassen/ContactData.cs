@@ -71,7 +71,7 @@ namespace Semesterprojekt
             foreach (Control field in groupFieldEmployeesAndCustomers)
                 contactData.Fields[field.AccessibleName] = GetControlValue(field);
 
-            if (typeOfContact == "mitarbeiter")
+            if (typeOfContact.ToLower() == "mitarbeiter")
                 foreach (Control field in groupFieldEmployees)
                     contactData.Fields[field.AccessibleName] = GetControlValue(field);
 

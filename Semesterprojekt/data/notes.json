@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "ContactNumber": "MA0003",
+    "Notes": [
+      {
+        "NoteTitle": "Telefongespr\u00E4ch bzgl. Besch\u00E4ftigungsgrad",
+        "NoteText": "Olga m\u00F6chte gerne ihr Pensum auf 75 % erh\u00F6hen. Sie m\u00F6chte das Pensum per 01.11.2025 erh\u00F6hen. Die Erh\u00F6hung wird mit dem Personalteam gepr\u00FCft (Entscheid offen).",
+        "NoteDate": "21.08.2025"
+      },
+      {
+        "NoteTitle": "Versand neuer Arbeitsvertrag f\u00FCr Pensum 75 % ab 01.11.2025",
+        "NoteText": "Die Pensumerh\u00F6hung wurde am 15.10.2025 bewilligt und der neue Arbeitsvertrag f\u00FCr die Unterzeichnung an Olga zugestellt.\r\n\r\nOlga ist aktuell noch in den Ferien, daher wird eine R\u00FCcksendung des Vertrags er sp\u00E4ter erwartet.",
+        "NoteDate": "28.08.2025"
+      }
+    ]
+  },
+  {
+    "ContactNumber": "MA0005",
+    "Notes": [
+      {
+        "NoteTitle": "Kundin deakiviert",
+        "NoteText": "Wir hatten schon \u00FCber ein Jahr keinen Kontakt mehr.\r\n\r\nDie Kontaktaufnahme via Adresse sowie Telefon ist fehlgeschlagen.\r\n\r\nDie Kundin wurde deshalb deaktiviert.",
+        "NoteDate": "28.08.2025"
+      }
+    ]
+  }
+]
